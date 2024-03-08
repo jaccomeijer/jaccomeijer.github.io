@@ -1,11 +1,5 @@
-.topic-hero {
-  color: var(--color-primary-600);
-  .topic-abstract {
-    font-size: var(--font-size-3);
-    font-weight: var(--font-body-weight);
+.topic-profile {
+  .topic-picture img {
+    border: 0.35rem solid var(--color-primary-400)
   }
-}
-
-.topic-icon {
-  color: var(--color-primary-500);
 }

@@ -2,7 +2,7 @@
  	--border-radius-circle: 9999px;
  	--border-radius-pill: 0.5rem;
  	--border-radius-rounded: 0.35rem;
- 	--button-primary-color: hsl(248, 100%, 30%);
+ 	--button-primary-color: hsl(183, 97%, 30%);
  	--button-primary-contrast-color: hsl(0, 0%, 100%);
  	--color-black: hsl(0, 0%, 0%);
  	--color-mono-000: hsl(0, 0%, 100%);
@@ -13,12 +13,12 @@
  	--color-mono-500: hsl(0, 0%, 30%);
  	--color-mono-600: hsl(0, 0%, 15%);
  	--color-mono-700: hsl(0, 0%, 0%);
- 	--color-primary-100: hsl(248, 100%, 90%);
- 	--color-primary-200: hsl(248, 100%, 75%);
- 	--color-primary-300: hsl(248, 100%, 60%);
- 	--color-primary-400: hsl(248, 100%, 45%);
- 	--color-primary-500: hsl(248, 100%, 30%);
- 	--color-primary-600: hsl(248, 100%, 15%);
+ 	--color-primary-100: hsl(183, 97%, 90%);
+ 	--color-primary-200: hsl(183, 97%, 75%);
+ 	--color-primary-300: hsl(183, 97%, 60%);
+ 	--color-primary-400: hsl(183, 97%, 45%);
+ 	--color-primary-500: hsl(183, 97%, 30%);
+ 	--color-primary-600: hsl(183, 97%, 15%);
  	--color-secondary-100: hsl(20, 100%, 90%);
  	--color-secondary-200: hsl(20, 100%, 75%);
  	--color-secondary-300: hsl(20, 100%, 60%);
@@ -30,7 +30,7 @@
  	--font-body-weight: 400;
  	--font-body-weight-bold: 600;
  	--font-display-family: Exo, 'Helvetica Neue', sans-serif;
- 	--font-display-weight: 700;
+ 	--font-display-weight: 800;
  	--font-heading-family: Exo, 'Helvetica Neue', sans-serif;
  	--font-heading-weight: 600;
  	--font-size--1: clamp(0.8333rem, 0.803rem + 0.1212vi, 0.9rem);
