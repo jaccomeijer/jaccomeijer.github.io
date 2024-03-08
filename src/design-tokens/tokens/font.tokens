@@ -1,0 +1,63 @@
+{
+  "font": {
+    "body": {
+      "family": {
+        "$value": "'Helvetica Neue', sans-serif"
+      },
+      "weight": {
+        "$value": "400",
+        "bold": {
+          "$value": "600"
+        }
+      }
+    },
+    "heading": {
+      "family": {
+        "$value": "Exo, 'Helvetica Neue', sans-serif"
+      },
+      "weight": {
+        "$value": "600"
+      }
+    },
+    "display": {
+      "family": {
+        "$value": "Exo, 'Helvetica Neue', sans-serif"
+      },
+      "weight": {
+        "$value": "700"
+      }
+    },
+    "size": {
+      "7": {
+        "$value": "clamp(3.5832rem, 2.7735rem + 3.2386vi, 5.3644rem)"
+      },
+      "6": {
+        "$value": "clamp(2.986rem, 2.3926rem + 2.3737vi, 4.2915rem)"
+      },
+      "5": {
+        "$value": "clamp(2.4883rem, 2.0588rem + 1.718vi, 3.4332rem)"
+      },
+      "4": {
+        "$value": "clamp(2.0736rem, 1.7677rem + 1.2236vi, 2.7466rem)"
+      },
+      "3": {
+        "$value": "clamp(1.728rem, 1.5147rem + 0.8532vi, 2.1973rem)"
+      },
+      "2": {
+        "$value": "clamp(1.44rem, 1.2955rem + 0.5778vi, 1.7578rem)"
+      },
+      "1": {
+        "$value": "clamp(1.2rem, 1.1063rem + 0.375vi, 1.4063rem)"
+      },
+      "0": {
+        "$value": "clamp(1rem, 0.9432rem + 0.2273vi, 1.125rem)"
+      },
+      "-1": {
+        "$value": "clamp(0.8333rem, 0.803rem + 0.1212vi, 0.9rem)"
+      },
+      "-2": {
+        "$value": "clamp(0.6944rem, 0.6828rem + 0.0465vi, 0.72rem)"
+      }
+    }  
+  }
+}

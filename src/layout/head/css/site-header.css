@@ -1,0 +1,13 @@
+.site-header {
+  font-family: var(--font-body-family);
+  font-size: var(--font-size-0);
+  font-weight: var(--font-body-weight);
+
+  color: var(--color-primary-600);
+  z-index: 100;
+
+  /* 
+   * Customization of heading navigation is difficult because of shadow DOM
+   * experiment 
+   */
+}

@@ -1,0 +1,11 @@
+.topic-hero {
+  color: var(--color-primary-600);
+  .topic-abstract {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-body-weight);
+  }
+}
+
+.topic-icon {
+  color: var(--color-primary-500);
+}

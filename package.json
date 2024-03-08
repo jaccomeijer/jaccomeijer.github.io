@@ -1,0 +1,49 @@
+{
+  "name": "@jaccomeijer/green-reference",
+  "version": "1.0.0",
+  "description": "Reference implementation of green-lib MDX component library",
+  "scripts": {
+    "clean-dist": "rm -rf dist",
+    "clean-docs": "rm -rf docs",
+    "build": "npm run clean-docs && MODE=build node pages.js",
+    "design-tokens": "designTokens transform src/design-tokens/tokens.config.json",
+    "serve": "npm run clean-dist && MODE=serve node pages.js"
+  },
+  "keywords": [
+    "esbuild",
+    "mdx",
+    "green",
+    "lib",
+    "component"
+  ],
+  "author": "Jacco Meijer (https://www.jaccomeijer.nl)",
+  "contributors": [
+    {
+      "name": "Jacco Meijer",
+      "email": "jacco@jaccomeijer.nl",
+      "url": "https://www.jaccomeijer.nl"
+    }
+  ],
+  "homepage": "https://github.com/jaccomeijer/green-reference#readme",
+  "bugs": {
+    "url": "https://github.com/jaccomeijer/green-reference/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaccomeijer/green-reference.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@jaccomeijer/green-build": "1.1.1",
+    "@jaccomeijer/green-lib": "3.2.2",
+    "design-tokens-cli": "0.0.6",
+    "eslint": "8.57.0",
+    "eslint-config-eslint": "9.0.0",
+    "eslint-plugin-react": "7.34.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.11.1"
+  },
+  "type": "module"
+}

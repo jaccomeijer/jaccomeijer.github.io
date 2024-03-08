@@ -1,0 +1,16 @@
+.markdown {
+	font-family: var(--font-body-family);
+	font-size: var(--font-size-0);
+	font-weight: var(--font-body-weight);
+
+  :is(h1, h2, h3, h4) {
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+  }
+  
+  :is(h1, h2, h3, h4).display {
+    font-family: var(--font-display-family);
+    font-weight: var(--font-display-weight);
+  }
+  
+}

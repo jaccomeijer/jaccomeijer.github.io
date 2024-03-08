@@ -1,0 +1,27 @@
+---
+navigation:
+  heading: Home
+  order: 10
+openerTopic:
+  heading: Jacco Meijer
+  abstract: Cyber Security Professional
+  image: topicImage
+---
+export { Layout as default } from '../layout/layout.jsx'
+import { Topic, TopicList } from '@jaccomeijer/green-lib'
+import topicImage from '../assets/images/pexels-gdtography-911758.jpg'
+import { globals } from '../config/globals.js'
+
+<div class="s-popout">
+  <Topic
+    class="u-margin-block-start-0"
+    data-variant="hero"
+    globals={globals}
+    images={{topicImage}}
+    topic={frontmatter.openerTopic}
+  />
+</div>
+
+<div class="s-wrapper" style="--wrapper-width: 45rem">
+  TBW
+</div>
