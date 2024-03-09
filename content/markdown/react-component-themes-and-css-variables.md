@@ -1,0 +1,49 @@
+---
+date: 2022-04-12T00:00+01:00
+url: /react-component-themes-and-css-variables
+---
+# Typescript component interface
+
+This is an addition to the post below and describes a way to add a 'colors' attrinute to the component interface which allows for switching themes by using CSS variables.
+
+## Color attribute
+
+The interface as described in the blog post above is extended with a colors attribute.
+
+`colors?: Partial<Record<'monochrome' | 'primary' | 'secondary', string>>`
+
+The attribute expects an object. For example:
+
+`{ monochrome: 'rock', primary: 'berry', secondary: 'apple', }`
+
+## The component
+
+The component is setup to use CSS variables. Which CSS variables the component uses depends on the colors object passed to the component.
+
+This way the same component can be used with different styling. For example:
+
+`` const displayStyle = { color: `var(--color-${color.monochrome}-400)`, '&:hover': { color: `var(--color-${color.primary}-400)`, }, fontFamily: 'var(--display-font-family)', fontSize: 'var(--display-font-size-m)', fontWeight: 'var(--display-font-weight)', lineHeight: 'var(--display-line-height-m)', } ``
+
+# CSS variables
+
+The last step is defining the CSS variables. For example:
+
+## Fonts
+
+`--display-font-family: Exo, “Helvetica Neue”, sans-serif; --display-font-weight: 700; --display-font-size-l: 54px; --display-font-size-m: 40px; --display-line-height-l: 1.3; --display-line-height-m: 1.2;`
+
+## Colors
+
+`--color-berry-100: #715aff; --color-berry-200: #3615ff; --color-berry-300: #1d00cf; --color-berry-400: #13008a; --color-berry-500: #0a0045; --color-berry-600: #0a0045;`
+
+# @modelberry/css-theme
+
+There are many ways to define the required CSS variables for a site. For Javascript, the [modelberry/css-theme](https://www.npmjs.com/package/@modelberry/css-theme) package is a convenient way.
+
+This works by defining a theme object that contains all the styling for a site.
+
+`const myTheme: Theme = { color: { rock: { 100: '#e0e0e0', 200: '#b0b0b0', 300: '#909090', }, ... }, }`
+
+The [modelberry/css-theme](https://www.npmjs.com/package/@modelberry/css-theme) package converts a theme object to CSS variables.
+
+---

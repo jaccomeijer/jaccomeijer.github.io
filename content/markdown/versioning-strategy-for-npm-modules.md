@@ -1,0 +1,43 @@
+---
+date: 2022-05-10T00:00+02:00
+url: /versioning-strategy-for-npm-modules
+---
+# UI library case study
+
+For a small React project a UI library is created. The library is maintained in a npm module with a [semantic version](https://semver.org). Each time the library changes the module is updated.
+
+Over time the library grows to 30 components and is used in 5 projects. When a project requires a change the library is updated and the project is updated to use the latest version.
+
+For the case described here this works well except for one project. This project uses the oldest version of the library and is never updated because of the many changes between the oldest version and the latest version of the library.
+
+To overcome this deadlock situation the single library module is split into 30 component modules. The project with the oldest version of the library can now update the version of a single component.
+
+# Large modules
+
+## UI library
+
+A lesson from the UI library case is that large modules have the risk of creating deadlock situations. This is especially true for actively developed modules because upgrading from the oldest to the latest version has a lot of impact.
+
+## Project module
+
+The project module is the module on the highest level. This module is often overlooked when splitting into submodules.
+
+The risk of a large project module is that updating a dependency potentially has great impact. The larger the project and the more the dependency is used, the harder it is to oversee the impact.
+
+# Component versions
+
+## Latest version
+
+The UI library case shows that splitting up into component modules is a solution for the deadlock situation.
+
+The major drawback of individually versioned components is that a component with version 1.8.4 looks older than a component with version 3.0.0 while in reality this may be the other way around.
+
+## Library version
+
+The solution to the individual component versions is to maintain a single library version for all components. When a component updates, the library version is used to calculate the new version. Both the component and the library are set to the new version.
+
+## Monorepo
+
+A [monorepo](https://en.wikipedia.org/wiki/Monorepo) can do exactly that. Tools like [Lerna](https://github.com/lerna) and [Jmmake](https://github.com/jaccomeijer/jmmake) can be configured to version the packages as required.
+
+---

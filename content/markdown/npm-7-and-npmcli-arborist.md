@@ -1,0 +1,41 @@
+---
+date: 2022-06-30T00:00+02:00
+url: /npm-7-and-npmcli-arborist
+---
+# Workspaces
+
+Within a code repository, workspaces are a way of separating NodeJs projects.
+
+In 2017 the [Lerna](https://lerna.js.org) project provided a clear monorepo workflow for [Npm](https://www.npmjs.com) and [Yarn](https://yarnpkg.com). Shortly after the release of Lerna v1.0, Yarn introduced 'workspaces' and four years later also Npm added the 'workspaces' feature.
+
+## Arborist
+
+Npm v7 under the hood uses [@npmcli/arborist](https://www.npmjs.com/package/@npmcli/arborist) to handle the workspaces. It is a powerful library that can be used independently of npm.
+
+## Jmmake
+
+Over the years the Lerna project grew and gained many options. These options were required to handle all the different use cases.
+
+Most of our projects however, required only a subset of what Lerna has to offer. This resulted in a little custom build tool named '[jmmake](https://github.com/jaccomeijer/jmmake)'.
+
+### Versioning
+
+Jmmake uses a very specific versioning scheme. Bottom line is that the root package version is always leading when bumping the version.
+
+### Build, publish and release
+
+Besides managing the version, the tool allows for:
+
+* running **npm run build** for each package
+* publish the packages to a repository
+* create a Github release
+
+## Roll you own
+
+The tool is not meant to be a generic solution for everyone. Lerna already is. The project shows how easy it is to create your own build tool that does exactly what you want. The Arborist package does the heavy lifting.
+
+When you're interested in the source, the [list-command.unit.test.ts](https://github.com/jaccomeijer/jmmake/blob/main/src/commands/list-command/list-command.unit.test.ts) is a good place to start. The code base has a few simple commands defined that call reusable library functions.
+
+With the library functions as a base, rolling your own is simple!
+
+---
