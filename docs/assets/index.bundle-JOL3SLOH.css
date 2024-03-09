@@ -67,7 +67,7 @@
 @layer markdown {
   .markdown {
     font-family: var(--font-body-family);
-    font-size: var(--font-size-0);
+    font-size: var(--font-body-size);
     font-weight: var(--font-body-weight);
     hr {
       border: 0.5px solid var(--color-mono-200);
@@ -87,31 +87,47 @@
       text-underline-offset: 4px;
     }
     :is(p, ul, ol, pre) {
-      margin-block-start: var(--space-2xs-m);
+      margin-block-start: var(--font-body-margin-block-start);
     }
     :is(h1, h2, h3, h4) {
       font-family: var(--font-heading-family);
       font-weight: var(--font-heading-weight);
     }
+    h1 {
+      font-size: var(--font-heading-size-1);
+      margin-block-start: var(--font-heading-margin-block-start-1);
+    }
+    h2 {
+      font-size: var(--font-heading-size-2);
+      margin-block-start: var(--font-heading-margin-block-start-2);
+    }
+    h3 {
+      font-size: var(--font-heading-size-3);
+      margin-block-start: var(--font-heading-margin-block-start-2);
+    }
+    h4 {
+      font-size: var(--font-heading-size-4);
+      margin-block-start: var(--font-heading-margin-block-start-2);
+    }
     :is(h1, h2, h3, h4).display {
       font-family: var(--font-display-family);
       font-weight: var(--font-display-weight);
     }
-    h1 {
-      font-size: var(--font-size-5);
-      margin-block-start: var(--space-m-2xl);
+    h1.display {
+      font-size: var(--font-display-size-1);
+      margin-block-start: var(--font-display-margin-block-start-1);
     }
-    h2 {
-      font-size: var(--font-size-4);
-      margin-block-start: var(--space-m-2xl);
+    h2.display {
+      font-size: var(--font-display-size-2);
+      margin-block-start: var(--font-display-margin-block-start-2);
     }
-    h3 {
-      font-size: var(--font-size-3);
-      margin-block-start: var(--space-xs-l);
+    h3.display {
+      font-size: var(--font-display-size-3);
+      margin-block-start: var(--font-display-margin-block-start-2);
     }
-    h4 {
-      font-size: var(--font-size-2);
-      margin-block-start: var(--space-xs-l);
+    h4.display {
+      font-size: var(--font-display-size-4);
+      margin-block-start: var(--font-display-margin-block-start-2);
     }
     :is(.topic-block, .topic-card) {
       margin-block-start: var(--space-xs-l);
@@ -316,9 +332,6 @@
 @layer components {
   :host {
     display: block;
-  }
-  p {
-    font-size: var(--size-500);
   }
 }
 
