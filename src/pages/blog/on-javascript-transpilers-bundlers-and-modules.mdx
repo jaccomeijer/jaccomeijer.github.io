@@ -1,6 +1,12 @@
 ---
 date: 2022-03-10T00:00+01:00
 url: /on-javascript-transpilers-bundlers-and-modules
+topics:
+  JsTranspilers:
+    heading: 'On Javascript transpilers, bundlers and modules'
+    abstract: "There's Javascript transpilers, modules, bundles and bundlers. This is a brief overview of all of these."
+    icon: message-circle
+    variant: headline
 ---
 ## Transpilers
 
@@ -16,7 +22,7 @@ Targets a specific ES version. With '@babel/preset-env' the target can be a brow
 
 ## Module specifications
 
-Before the release of NodeJs/CommonJS in 2009 it was hard to write modular Javascript. For HTML, the best option was using multiple <script> tags. Without HTML modular Javascript did not exist.
+Before the release of NodeJs/CommonJS in 2009 it was hard to write modular Javascript. For HTML, the best option was using multiple `<script>` tags. Without HTML modular Javascript did not exist.
 
 Anno 2021 many module specifications exist. The two most used are CommonJS and ES Modules (ESM). Worth looking at is also the universal specification called UMD.
 
@@ -44,7 +50,7 @@ UMD uses an IIFE (Immediately-Invoked Function Expression) which looks for a mod
 
 ### Browsers bundles
 
-Since 2017 modern browsers can load ESM by using <script type="module">. This makes bundling code easier but bundling is still required. This is because sending your code to the browser in one request is more efficient than by using multiple requests.
+Since 2017 modern browsers can load ESM by using `<script type="module">`. This makes bundling code easier but bundling is still required. This is because sending your code to the browser in one request is more efficient than by using multiple requests.
 
 ### Module bundles
 
