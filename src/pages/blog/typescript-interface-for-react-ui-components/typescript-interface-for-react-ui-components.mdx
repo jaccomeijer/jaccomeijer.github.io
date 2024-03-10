@@ -10,7 +10,9 @@ topics:
     icon: message-circle
     image: typescriptInterfaceForReactUiComponents
 ---
-# Improve over time
+export { BlogLayout as default } from '../blog-layout.jsx'
+
+## Improve over time
 
 Setting up a library with React UI components is simply done. The hard part is
 maintaining the library. Over time breaking changes are require and the broader
@@ -19,12 +21,12 @@ the library is used, the more impact breaking changes will have.
 The Typescript React interface described here was designed to prevent breaking
 changes. So that components remain flexible and can improve over time.
 
-# Interface and style factory
+## Interface and style factory
 
 The interface has a separate style factory so that component styling easily can
 be extracted.
 
-## Interface
+### Interface
 
 ```ts
 export type StyleObject = CSSObject | CSSObject[]
@@ -57,7 +59,7 @@ export type ComponentProps<
 }
 ```
 
-## Style factory
+### Style factory
 
 The style factory allows styling to be extracted from a component. For e. g.
 typography, the styling is defined as a component and can also be used
@@ -75,7 +77,7 @@ export type StyleFactory<
 }) => any
 ```
 
-# Example component
+## Example component
 
 How to use the interface and the style factory is shown in this example. The
 full code is available upon request.
@@ -131,32 +133,32 @@ export const Example = ({
 }
 ```
 
-# Data, variants and options
+## Data, variants and options
 
 The component interface separates model data, variants and options and does not
 allow other properties. It is always clear which properties a component supports
 and how they are used. 
 
-## Model data
+### Model data
 
 Model data is always passed by the property 'model'.
 
 All model fields are optional. As can be learned from versionless API's defined
 in Graphql, optional fields help in preventing breaking changes.
 
-## Variants
+### Variants
 
 Variants define how component data is displayed. A default variant is used when
 no variant is specified. Variants are exclusive, only one variant can be
 selected.
 
-## Options
+### Options
 
 Options are booleans that define changes in display behaviour. Generally each
 option works across all variants. Contrary to the variant property, multiple
 options can be selected.
 
-# Next
+## Next
 
 Adding a 'variant' attribute to the interface reduces the number of models
 needed. The post below explains why.

@@ -13,7 +13,7 @@ import typescriptInterfaceForReactUiComponents from './typescript-interface-for-
 import versioningStrategyForNpmModules from './versioning-strategy-for-npm-modules/mae-mu-WqQwOQ9fVj4-unsplash.jpg'
 import whatHappenedToWheelroom from './what-happened-to-wheelroom/daniel-olah-VS_kFx4yF5g-unsplash.jpg'
 
-export const images = {
+export const blogImages = {
   agileScrum,
   comparingBetweenReactAppNextjsAndGatsby,
   contentfulNetlifyAndGatsbyFourYearsLater,

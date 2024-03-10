@@ -16,7 +16,7 @@ export const getOpenerTopics = ({ pages, tag }) => {
     .filter(page => page.frontmatter.topics?.opener)
 
   const topics = pagesWithTag.map(page => {
-    const openerTopic = page.frontmatter.topics.opener
+    const openerTopic = structuredClone(page.frontmatter.topics.opener)
 
     addTopicLabels({ page, topic: openerTopic })
 

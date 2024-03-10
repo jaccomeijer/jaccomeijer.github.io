@@ -14,7 +14,9 @@ topics:
     abstract: '"Explicit is better than implicit"'
     icon: message-square
 ---
-# Component?
+export { BlogLayout as default } from '../blog-layout.jsx'
+
+## Component?
 
 Theoretically, everything can be a component. This is why for describing code,
 the word component is too implicit.
@@ -27,9 +29,9 @@ communication.
 Below a React component scoping scheme that was created with the Zen of Python
 in mind.
 
-# Component scopes
+## Component scopes
 
-## Element scope
+### Element scope
 
 Elements are the smallest components. The name is derived from the HTML
 standard. An element receives data by passing children.
@@ -37,7 +39,7 @@ standard. An element receives data by passing children.
 `<Heading>This is the hading</Heading> <Abstract>This is the abstract</Abstract>
 <Button>Press me</Button>`
 
-## Model scope
+### Model scope
 
 Models contain elements. This is the level where visual components meet data
 models. A model receives data by passing data to the 'model' attribute.
@@ -45,7 +47,7 @@ models. A model receives data by passing data to the 'model' attribute.
 `<Topic model="{topic}" /> <Navigation model="{navigation}" /> <Action
 model="{action}" /> <Media model="{media}" />`
 
-## Layout scope
+### Layout scope
 
 Layouts contain Models. Layouts take care of positioning models. A layout
 receives data by passing children.
@@ -53,12 +55,12 @@ receives data by passing children.
 `<OneColumnLayout> <SomeModel /> <SomeModel /> </SidebarLayout>
 <TwoColumnLayout> <Topic /> <Topic /> </TwoColumnLayout>`
 
-# Case study: a page
+## Case study: a page
 
 Having clear component scopes helps in naming the components. When setting up a
 page, this is how the scopes are used.
 
-## Elements
+### Elements
 
 A page requires a few typography elements like:
 
@@ -66,7 +68,7 @@ A page requires a few typography elements like:
 * Heading
 * Body
 
-## Models
+### Models
 
 The typography elements are used to create models:
 
@@ -74,7 +76,7 @@ The typography elements are used to create models:
 * Topic
 * Footer
 
-## Layouts
+### Layouts
 
 The header and footer model have fixed layouts. Topic models are positioned by
 using a layout: 
@@ -82,7 +84,7 @@ using a layout:
 * OneColumnSection
 * TwoColumnSection
 
-# Next
+## Next
 
 Next step in creating reusable React components is a clear component interface.
 The post below is about defining such an interface.

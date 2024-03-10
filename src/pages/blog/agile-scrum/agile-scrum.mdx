@@ -13,25 +13,9 @@ topics:
     heading: Handling complex projects
     abstract: "This diagram became known as the *Stacey Matrix* and has been frequently adapted by other writers, often in ways not consistent with Stacey's original."
 ---
-export { Layout as default } from '../../../layout/layout.jsx'
-import { getOpenerTopics, addTopicLabels } from '../get-opener-topics.js'
-import { globals } from '../../../config/globals.js'
-import { images } from '../images.js'
-import { Topic, TopicList } from '@jaccomeijer/green-lib'
+export { BlogLayout as default } from '../blog-layout.jsx'
 
-<div class="s-popout">
-  <Topic
-    data-variant="headline"
-    globals={globals}
-    images={images}
-    swap-image={true}
-    topic={addTopicLabels({ topic: frontmatter.topics.opener, page: props.page})}
-  />
-</div>
-
-<div class="s-wrapper" style="--wrapper-width: 45rem">
-
-# Agile
+## Agile
 
 Scrum being a subset of the agile way of working. This what the [Agile
 manifesto](https://agilemanifesto.org) says:
@@ -44,13 +28,13 @@ manifesto](https://agilemanifesto.org) says:
 That is, while there is value in the items on the right, we value the items on
 the left more.
 
-# Scrum
+## Scrum
 
 Scrum principles are loosely defined. It does not define one specific way of
 working. For communication purposes it is often useful to define a more specific
 way of working. This is what this blog post is about.
 
-## Scrum compared to waterfall
+### Scrum compared to waterfall
 
 * Scrum allows you to go back, waterfall is forward only.
 * Scrum defines the product owner as the only decision making person, waterfall
@@ -59,9 +43,9 @@ way of working. This is what this blog post is about.
   waterfall defines a team for each phase.
 * Scrum allows for handling complex projects, waterfall does not.
 
-## The why
+### The why
 
-### Team identity
+#### Team identity
 
 The team identity, or team purpose, is why the team exists and is usually
 defined by three components:
@@ -72,19 +56,19 @@ defined by three components:
 
 The team identity is what a traditional organization defines as a boss.
 
-### Stakeholders
+#### Stakeholders
 
 Stakeholders represent the why. Each stakeholders links to (a part of) the team
 identity.
 
-## The what
+### The what
 
-### Team vision
+#### Team vision
 
 Given the team identity, the team vision defines what the teams wants to achieve
 (e.g. less clicks and faster delivery).
 
-### Product owner (PO)
+#### Product owner (PO)
 
 The PO is a stakeholder that is given the mandate to execute the team roadmap
 and make decisions.
@@ -92,41 +76,41 @@ and make decisions.
 The PO is responsible for the requirements which are kept in an ordered backlog.
 This is the what in the Stacey matrix.
 
-## The how
+### The how
 
-### Team roadmap
+#### Team roadmap
 
 The team roadmap tells how to achieve the goals. It breaks up the vision into
 smaller ideas. This bring focus.
 
-### Developers
+#### Developers
 
 Developers are responsible for which technology to use. This is the how in the
 Stacey matrix.
 
-## Scrum Master
+### Scrum Master
 
 The scrum master tries to improve each sprint and is responsible for
 organization and coaching. The scrum master services to the organization, the
 developers and to the PO.
 
-## Sprint
+### Sprint
 
 * Each sprint has a goal that defines what the team wants to achieve.
 * A sprint usually lasts two weeks but can be any length within one month.
 * Shorter sprints give more feedback loops and better planning.
 * Reaching the sprint goal is more important than finishing all stories.
 
-## Events
+### Events
 
-### Daily Scrum
+#### Daily Scrum
 
 * Are we on track reaching the sprint goal?
 * Scrum does not define the how, a standup is a popular way.
 * Everyone in the team shares: what did I do, what will I do and do I need help.
 * Tracking what everyone is doing works well for up to five persons.
 
-### Planning
+#### Planning
 
 * A new sprint is created and the PO defines the sprint goal.
 * When it's hard to set a goal, check the team vision and roadmap.
@@ -137,7 +121,7 @@ developers and to the PO.
 * The PO does not plan upcoming sprints because that would prevent flexibility.
 * The team agrees on what can be done in the sprint.
 
-#### Estimation (part of planning)
+##### Estimation (part of planning)
 
 * Scrum does not define the how.
 * The team tries to deliver value in a predictable way in order to gain trust.
@@ -149,7 +133,7 @@ developers and to the PO.
 * Finishing the sprint gives the estimation meaning: did we estimate correctly?
 * Over time the team becomes more predictable.
 
-### Review
+#### Review
 
 * Each sprint is closed with a review.
 * Demo. What is the feedback?
@@ -157,14 +141,14 @@ developers and to the PO.
 * Team vision. How close are we? What are our future needs?
 * Backlog. Last moment to reorder.
 
-### Retrospective
+#### Retrospective
 
 * Each review is followed up by a retrospective.
 * The team tries to improve working together in a three hours time boxed event.
 
-## Activities
+### Activities
 
-### Refinement
+#### Refinement
 
 * Clarifies the what and the why of the stories in the backlog.
 * Stake holders clarify the why.
@@ -174,16 +158,6 @@ developers and to the PO.
   sprint.
 * Generally an average of 10% of the time is spend refining.
 
-## Sub tasks and hours
+### Sub tasks and hours
 
-</div>
 
----
-
-<TopicList
-  class="s-grid u-grid-three-cols u-gap-m"
-  data-variant="card"
-  globals={globals}
-  images={images}
-  topics={getOpenerTopics({ pages: props.pages, tag: 'blog' })}
-/>

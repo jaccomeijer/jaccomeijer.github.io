@@ -14,19 +14,21 @@ topics:
     abstract: First there was Wheelroom. Then came the UI Library. This evolved into the Modelberry factory as we know it.
     icon: user
 ---
-# Wheelroom
+export { BlogLayout as default } from '../blog-layout.jsx'
+
+## Wheelroom
 
 Modelberry is the successor of Wheelroom. The original Wheelroom repository is
 [still online](https://github.com/wheelroom/wheelroom) as is an [archived
 copy](https://github.com/jaccomeijer/wheelroom).
 
-# Evolving models
+## Evolving models
 
 Wheelroom was founded in 2018 with the idea that content models evolve as a code
 base evolves and that models should be kept in the same repository as the code
 base.
 
-# React UI library
+## React UI library
 
 Early 2020 a React UI library was developed around the Wheelroom command line
 utility. The Wheelroom boilerplate based on [GatsbyJs](https://www.gatsbyjs.com)
@@ -34,7 +36,7 @@ combined content from [Contentful](https://www.contentful.com) with the React UI
 library into a marketing website on [Netlify](https://www.netlify.com) in a
 matter of minutes.
 
-# Success
+## Success
 
 Setting up a new site in a matter of minutes together with easy customization
 and universal UI library made a marketing site based on Wheelroom an easy sell.
@@ -42,7 +44,7 @@ and universal UI library made a marketing site based on Wheelroom an easy sell.
 Where the Wheelroom command line utility was solid, the UI library had a number
 of drawbacks.
 
-# UI library drawbacks
+## UI library drawbacks
 
 The UI library was build around a [React
 clone](https://github.com/jaccomeijer/styled-system) of [styled
@@ -58,7 +60,7 @@ functionality was too complicated. The second problem was that the trees were
 not as intuitive as they could be. Over time it became hard to remember which
 style was defined where.
 
-# New UI library
+## New UI library
 
 In 2021 a [new UI library](https://blue.modelberry.com) was developed with the
 lessons learned. This library uses clear type: entry-hyperlink id:
@@ -66,7 +68,7 @@ lessons learned. This library uses clear type: entry-hyperlink id:
 prevents breaking changes. The library was separated from the command line
 utility.
 
-# Command line utility
+## Command line utility
 
 The [Wheelroom command line
 utility](https://www.npmjs.com/package/@wheelroom/wheelroom) uses a javascript
@@ -75,7 +77,7 @@ Contentful and were used to generate typescript definitions and graphql queries.
 
 This worked well (as it still does), but there was a better way.
 
-# Modelberry factory
+## Modelberry factory
 
 Instead of generating typescript from a javascript object that defined the
 content models, typescript now is at the core.

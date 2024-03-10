@@ -12,7 +12,7 @@ topics:
 export { Layout as default } from '../../layout/layout.jsx'
 import { getOpenerTopics } from './get-opener-topics.js'
 import { globals } from '../../config/globals.js'
-import { images } from './images.js'
+import { blogImages } from './blog-images.js'
 import { Topic, TopicList } from '@jaccomeijer/green-lib'
 
 <div class="s-popout">
@@ -29,6 +29,6 @@ import { Topic, TopicList } from '@jaccomeijer/green-lib'
   class="s-grid u-grid-three-cols u-gap-m"
   data-variant="card"
   globals={globals}
-  images={images}
+  images={blogImages}
   topics={getOpenerTopics({ pages: props.pages, tag: 'blog' })}
 />
