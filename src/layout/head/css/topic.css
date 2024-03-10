@@ -1,5 +1,15 @@
 .topic-profile {
   .topic-picture img {
-    border: 0.35rem solid var(--color-primary-400)
+    border: 0.35rem solid var(--color-primary-500)
+  }
+}
+
+.topic {
+  .topic-icon {
+    color: var(--color-primary-500)
+  }
+
+  .topic-labels {
+    color: var(--color-primary-500);
   }
 }

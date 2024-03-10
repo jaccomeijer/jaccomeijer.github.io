@@ -1,10 +1,32 @@
 ---
+navigation:
+  heading: Blog
+  order: 20
 topics:
-  blog:
+  opener:
     heading: Blog
     abstract: On cyber security and software architecture.
     icon: message-circle
     variant: headline
 ---
+export { Layout as default } from '../../layout/layout.jsx'
+import { Topic, TopicList } from '@jaccomeijer/green-lib'
+import { globals } from '../../config/globals.js'
+import { getOpenerTopics } from './get-opener-topics.js'
 
-# Blog
+<div class="s-popout">
+  <Topic
+    data-variant="profile"
+    globals={globals}
+    topic={frontmatter.topics.opener}
+  />
+</div>
+
+---
+
+<TopicList
+  class="s-grid u-grid-three-cols u-gap-m"
+  data-variant="card"
+  globals={globals}
+  topics={getOpenerTopics({ pages: props.pages, tag: 'blog' })}
+/>

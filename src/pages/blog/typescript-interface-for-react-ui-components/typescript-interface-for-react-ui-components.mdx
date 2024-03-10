@@ -2,6 +2,7 @@
 navigation:
   url: /blog/typescript-interface-for-react-ui-components
 date: 2022-01-18T00:00+01:00
+tags: ['blog']
 topics:
   opener:
     heading: Typescript interface for React UI components
@@ -10,50 +11,153 @@ topics:
 ---
 # Improve over time
 
-Setting up a library with React UI components is simply done. The hard part is maintaining the library. Over time breaking changes are require and the broader the library is used, the more impact breaking changes will have.
+Setting up a library with React UI components is simply done. The hard part is
+maintaining the library. Over time breaking changes are require and the broader
+the library is used, the more impact breaking changes will have.
 
-The Typescript React interface described here was designed to prevent breaking changes. So that components remain flexible and can improve over time.
+The Typescript React interface described here was designed to prevent breaking
+changes. So that components remain flexible and can improve over time.
 
 # Interface and style factory
 
-The interface has a separate style factory so that component styling easily can be extracted.
+The interface has a separate style factory so that component styling easily can
+be extracted.
 
 ## Interface
 
-`export type StyleObject = CSSObject | CSSObject[] export type SubComponents = Record<string, (props: any) => JSX.Element | null> export type ComponentProps< Model = any, Variant extends string = string, Option extends string = string > = { [K in keyof AnyProps]: { /** component data, all models fields must be optional */ model?: Model /** multiple options can be set, all options are optional */ options?: Partial<Record<Option, boolean>> /** override css for specific options */ optionsCss?: Partial<Record<Option, StyleObject>> /** override subcomponents */ subComponents?: SubComponents /** only one variant can be set, a default variant exists */ variant?: Variant /** override css for specific variants */ variantCss?: Partial<Record<Variant, StyleObject>> } & AnyProps[K] }`
+```ts
+export type StyleObject = CSSObject | CSSObject[]
+export type SubComponents = Record<string, (props: any) => JSX.Element | null>
+
+export type ComponentProps<
+  Model = any,
+  Variant extends string = string,
+  Option extends string = string
+> = {
+  [K in keyof AnyProps]: {
+    /** component data, all models fields must be optional */
+    model?: Model
+
+    /** multiple options can be set, all options are optional */
+    options?: Partial<Record<Option, boolean>>
+
+    /** override css for specific options */
+    optionsCss?: Partial<Record<Option, StyleObject>>
+
+    /** override subcomponents */
+    subComponents?: SubComponents
+
+    /** only one variant can be set, a default variant exists */
+    variant?: Variant
+
+    /** override css for specific variants */
+    variantCss?: Partial<Record<Variant, StyleObject>>
+  } & AnyProps[K]
+}
+```
 
 ## Style factory
 
-The style factory allows styling to be extracted from a component. For e. g. typography, the styling is defined as a component and can also be used separately.
+The style factory allows styling to be extracted from a component. For e. g.
+typography, the styling is defined as a component and can also be used
+separately.
 
-`export type StyleFactory< Variant extends string = string, Option extends string = string > = (args: { options?: Partial<Record<Option, boolean>> optionsCss?: Partial<Record<Option, StyleObject>> variant?: Variant variantCss?: Partial<Record<Variant, StyleObject>> }) => any`
+```ts
+export type StyleFactory<
+  Variant extends string = string,
+  Option extends string = string
+> = (args: {
+  options?: Partial<Record<Option, boolean>>
+  optionsCss?: Partial<Record<Option, StyleObject>>
+  variant?: Variant
+  variantCss?: Partial<Record<Variant, StyleObject>>
+}) => any
+```
 
 # Example component
 
-How to use the interface and the style factory is shown in this example. The full code is available upon request.
+How to use the interface and the style factory is shown in this example. The
+full code is available upon request.
 
-`export type Example = { content?: string } export type ExampleVariant = 'horizontal' | 'vertical' export type ExampleOption = 'roundedCorners' | 'strongBorder' export type ExampleProps = ComponentProps< Example, ExampleVariant, ExampleOption >['div'] const baseStyle: StyleObject = { ... } const horizontalVariantStyle: StyleObject = { ... } const verticalVariantStyle: StyleObject = { ... } const roundedCornersOptionStyle: StyleObject = { ... } const strongBorderOptionStyle: StyleObject = { ... } export const emptyStyleFactory: StyleFactory<ExampleVariant, ExampleOption> = ( args ) => { const useVariant = args.variant || 'vertical' ... // Combine styles here based on variant and options return { ... } } export const Example = ({ anyCss, model, options, optionsCss, variant, variantCss, ...props }: ExampleProps) => { const cssFromFactory = emptyStyleFactory({ options, optionsCss, variant, variantCss, }) return ( <Div anyCss={[cssFromFactory, anyCss]} {...props}> {model?.content || 'No content'} </Div> ) }`
+```ts
+export type Example = {
+  content?: string
+}
+
+export type ExampleVariant = 'horizontal' | 'vertical'
+export type ExampleOption = 'roundedCorners' | 'strongBorder'
+export type ExampleProps = ComponentProps<
+  Example,
+  ExampleVariant,
+  ExampleOption
+>['div']
+
+const baseStyle: StyleObject = { ... }
+const horizontalVariantStyle: StyleObject = { ... }
+const verticalVariantStyle: StyleObject = { ... }
+const roundedCornersOptionStyle: StyleObject = { ... }
+const strongBorderOptionStyle: StyleObject = { ... }
+
+export const emptyStyleFactory: StyleFactory<ExampleVariant, ExampleOption> = (
+  args
+) => {
+  const useVariant = args.variant || 'vertical'
+  ...
+  // Combine styles here based on variant and options
+  return { ... }
+}
+
+export const Example = ({
+  anyCss,
+  model,
+  options,
+  optionsCss,
+  variant,
+  variantCss,
+  ...props
+}: ExampleProps) => {
+  const cssFromFactory = emptyStyleFactory({
+    options,
+    optionsCss,
+    variant,
+    variantCss,
+  })
+  return (
+    <Div anyCss={[cssFromFactory, anyCss]} {...props}>
+      {model?.content || 'No content'}
+    </Div>
+  )
+}
+```
 
 # Data, variants and options
 
-The component interface separates model data, variants and options and does not allow other properties. It is always clear which properties a component supports and how they are used. 
+The component interface separates model data, variants and options and does not
+allow other properties. It is always clear which properties a component supports
+and how they are used. 
 
 ## Model data
 
 Model data is always passed by the property 'model'.
 
-All model fields are optional. As can be learned from versionless API's defined in Graphql, optional fields help in preventing breaking changes.
+All model fields are optional. As can be learned from versionless API's defined
+in Graphql, optional fields help in preventing breaking changes.
 
 ## Variants
 
-Variants define how component data is displayed. A default variant is used when no variant is specified. Variants are exclusive, only one variant can be selected.
+Variants define how component data is displayed. A default variant is used when
+no variant is specified. Variants are exclusive, only one variant can be
+selected.
 
 ## Options
 
-Options are booleans that define changes in display behaviour. Generally each option works across all variants. Contrary to the variant property, multiple options can be selected.
+Options are booleans that define changes in display behaviour. Generally each
+option works across all variants. Contrary to the variant property, multiple
+options can be selected.
 
 # Next
 
-Adding a 'variant' attribute to the interface reduces the number of models needed. The post below explains why.
+Adding a 'variant' attribute to the interface reduces the number of models
+needed. The post below explains why.
 
 ---

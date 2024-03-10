@@ -2,10 +2,11 @@
 navigation:
   heading: Home
   order: 10
-openerTopic:
-  heading: Jacco Meijer
-  abstract: Cyber Security Professional based in Utrecht, The Netherlands.
-  image: topicImage
+topics:
+  opener:
+    heading: Jacco Meijer
+    abstract: Cyber Security Professional based in Utrecht, The Netherlands.
+    image: topicImage
 ---
 export { Layout as default } from '../../layout/layout.jsx'
 import { Topic, TopicList } from '@jaccomeijer/green-lib'
@@ -17,10 +18,9 @@ import { globals } from '../../config/globals.js'
     data-variant="profile"
     globals={globals}
     images={{topicImage}}
-    topic={frontmatter.openerTopic}
+    topic={frontmatter.topics.opener}
   />
 </div>
 
 <div class="s-wrapper" style="--wrapper-width: 45rem">
 </div>
-../../layout/layout.jsx../../config/globals.js

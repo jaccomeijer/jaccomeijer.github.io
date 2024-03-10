@@ -2,6 +2,7 @@
 navigation:
   url: /blog/naming-react-components
 date: 2022-01-17T00:00+01:00
+tags: ['blog']
 topics:
   opener:
     heading: Naming React components
@@ -14,35 +15,47 @@ topics:
 ---
 # Component?
 
-Theoretically, everything can be a component. This is why for describing code, the word component is too implicit.
+Theoretically, everything can be a component. This is why for describing code,
+the word component is too implicit.
 
-The Zen of Python states "Explicit is better than implicit". Something more explicit than the word component describes code better. This results in clearer code and eventually in better code architecture. Overall this improves developer communication.
+The Zen of Python states "Explicit is better than implicit". Something more
+explicit than the word component describes code better. This results in clearer
+code and eventually in better code architecture. Overall this improves developer
+communication.
 
-Below a React component scoping scheme that was created with the Zen of Python in mind.
+Below a React component scoping scheme that was created with the Zen of Python
+in mind.
 
 # Component scopes
 
 ## Element scope
 
-Elements are the smallest components. The name is derived from the HTML standard. An element receives data by passing children.
+Elements are the smallest components. The name is derived from the HTML
+standard. An element receives data by passing children.
 
-`<Heading>This is the hading</Heading> <Abstract>This is the abstract</Abstract> <Button>Press me</Button>`
+`<Heading>This is the hading</Heading> <Abstract>This is the abstract</Abstract>
+<Button>Press me</Button>`
 
 ## Model scope
 
-Models contain elements. This is the level where visual components meet data models. A model receives data by passing data to the 'model' attribute.
+Models contain elements. This is the level where visual components meet data
+models. A model receives data by passing data to the 'model' attribute.
 
-`<Topic model="{topic}" /> <Navigation model="{navigation}" /> <Action model="{action}" /> <Media model="{media}" />`
+`<Topic model="{topic}" /> <Navigation model="{navigation}" /> <Action
+model="{action}" /> <Media model="{media}" />`
 
 ## Layout scope
 
-Layouts contain Models. Layouts take care of positioning models. A layout receives data by passing children.
+Layouts contain Models. Layouts take care of positioning models. A layout
+receives data by passing children.
 
-`<OneColumnLayout> <SomeModel /> <SomeModel /> </SidebarLayout> <TwoColumnLayout> <Topic /> <Topic /> </TwoColumnLayout>`
+`<OneColumnLayout> <SomeModel /> <SomeModel /> </SidebarLayout>
+<TwoColumnLayout> <Topic /> <Topic /> </TwoColumnLayout>`
 
 # Case study: a page
 
-Having clear component scopes helps in naming the components. When setting up a page, this is how the scopes are used.
+Having clear component scopes helps in naming the components. When setting up a
+page, this is how the scopes are used.
 
 ## Elements
 
@@ -62,13 +75,15 @@ The typography elements are used to create models:
 
 ## Layouts
 
-The header and footer model have fixed layouts. Topic models are positioned by using a layout: 
+The header and footer model have fixed layouts. Topic models are positioned by
+using a layout: 
 
 * OneColumnSection
 * TwoColumnSection
 
 # Next
 
-Next step in creating reusable React components is a clear component interface. The post below is about defining such an interface.
+Next step in creating reusable React components is a clear component interface.
+The post below is about defining such an interface.
 
 ---

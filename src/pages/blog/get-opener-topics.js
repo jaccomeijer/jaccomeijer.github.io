@@ -1,0 +1,30 @@
+export const getOpenerTopics = ({ pages, tag }) => {
+  const pagesWithTag = pages
+    .filter(page => Array.isArray(page.frontmatter.tags))
+    .filter(page => page.frontmatter.tags.includes(tag))
+    .filter(page => page.frontmatter.topics?.opener)
+
+  const topics = pagesWithTag.map(page => {
+    const openerTopic = page.frontmatter.topics.opener
+
+    // Construct date
+    const msec = Date.parse(page.frontmatter.date)
+    const date = new Date(msec)
+
+    openerTopic.labels = ['Jacco Meijer', '|', date.toLocaleDateString()]
+    openerTopic.order = msec
+
+    // Construct action
+    const action = {
+      heading: 'Read more',
+      url: page.url,
+    }
+
+    openerTopic.action = action
+
+    return openerTopic
+  })
+
+  topics.sort((a, b) => b.order - a.order)
+  return topics
+}
