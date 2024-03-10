@@ -1,3 +1,14 @@
+export const addTopicLabels = ({ page, topic }) => {
+
+  // Construct date
+  const msec = Date.parse(page.frontmatter.date)
+  const date = new Date(msec)
+
+  topic.labels = ['Jacco Meijer', '|', date.toLocaleDateString()]
+  topic.order = msec
+  return topic
+}
+
 export const getOpenerTopics = ({ pages, tag }) => {
   const pagesWithTag = pages
     .filter(page => Array.isArray(page.frontmatter.tags))
@@ -7,12 +18,7 @@ export const getOpenerTopics = ({ pages, tag }) => {
   const topics = pagesWithTag.map(page => {
     const openerTopic = page.frontmatter.topics.opener
 
-    // Construct date
-    const msec = Date.parse(page.frontmatter.date)
-    const date = new Date(msec)
-
-    openerTopic.labels = ['Jacco Meijer', '|', date.toLocaleDateString()]
-    openerTopic.order = msec
+    addTopicLabels({ page, topic: openerTopic })
 
     // Construct action
     const action = {

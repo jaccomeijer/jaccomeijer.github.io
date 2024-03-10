@@ -8,10 +8,29 @@ topics:
     heading: Agile Scrum
     abstract: "The Agile Scrum framework is flexible enough to be used in many different ways. Here's one way of working."
     icon: message-circle
+    image: agileScrum
   stacey:
     heading: Handling complex projects
     abstract: "This diagram became known as the *Stacey Matrix* and has been frequently adapted by other writers, often in ways not consistent with Stacey's original."
 ---
+export { Layout as default } from '../../../layout/layout.jsx'
+import { getOpenerTopics, addTopicLabels } from '../get-opener-topics.js'
+import { globals } from '../../../config/globals.js'
+import { images } from '../images.js'
+import { Topic, TopicList } from '@jaccomeijer/green-lib'
+
+<div class="s-popout">
+  <Topic
+    data-variant="headline"
+    globals={globals}
+    images={images}
+    swap-image={true}
+    topic={addTopicLabels({ topic: frontmatter.topics.opener, page: props.page})}
+  />
+</div>
+
+<div class="s-wrapper" style="--wrapper-width: 45rem">
+
 # Agile
 
 Scrum being a subset of the agile way of working. This what the [Agile
@@ -157,3 +176,14 @@ developers and to the PO.
 
 ## Sub tasks and hours
 
+</div>
+
+---
+
+<TopicList
+  class="s-grid u-grid-three-cols u-gap-m"
+  data-variant="card"
+  globals={globals}
+  images={images}
+  topics={getOpenerTopics({ pages: props.pages, tag: 'blog' })}
+/>
