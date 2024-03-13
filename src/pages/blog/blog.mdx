@@ -9,13 +9,13 @@ topics:
     icon: message-circle
     variant: headline
 ---
-export { Layout as default } from '../../layout/layout.jsx'
+export { WideLayout as default } from '../../layout/wide-layout.jsx'
 import { getOpenerTopics } from './get-opener-topics.js'
 import { globals } from '../../config/globals.js'
 import { blogImages } from './blog-images.js'
 import { Topic, TopicList } from '@jaccomeijer/green-lib'
 
-<div class="s-popout">
+<div class="s-popout u-inline-gutter">
   <Topic
     data-variant="profile"
     globals={globals}

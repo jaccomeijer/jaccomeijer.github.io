@@ -98,7 +98,7 @@
   --space-xs-r3: clamp(0.875rem, 0.3098rem + 2.8261vi, 2.5rem);
 }
 
-/* src/layout/head/css/font.css */
+/* src/layout/css/font.css */
 @layer custom {
   @font-face {
     font-family: "Exo";
@@ -109,7 +109,7 @@
   }
 }
 
-/* src/layout/head/css/markdown.css */
+/* src/layout/css/markdown.css */
 @layer custom {
   .markdown {
     a {
@@ -118,7 +118,7 @@
   }
 }
 
-/* src/layout/head/css/site-header.css */
+/* src/layout/css/site-header.css */
 @layer custom {
   .site-header {
     font-family: var(--font-body-family);
@@ -129,7 +129,7 @@
   }
 }
 
-/* src/layout/head/css/site-footer.css */
+/* src/layout/css/site-footer.css */
 @layer custom {
   .site-footer {
     font-family: var(--font-body-family);
@@ -139,7 +139,7 @@
   }
 }
 
-/* src/layout/head/css/topic.css */
+/* src/layout/css/topic.css */
 @layer custom {
   .topic-profile {
     .topic-picture img {
@@ -156,4 +156,4 @@
   }
 }
 
-/* src/layout/head/css/local.bundle.css */
+/* src/layout/css/local.bundle.css */

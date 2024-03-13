@@ -6,7 +6,7 @@ import { getMenuActions } from '@jaccomeijer/green-lib'
 import { globals } from '../config/globals.js'
 import favicon from '../assets/favicon/favicon.ico'
 
-export const Layout = props => {
+export const BaseLayout = props => {
   const mainActions = getMenuActions({
     pages: props.pages,
   })
@@ -31,10 +31,8 @@ export const Layout = props => {
             />
           </div>
         </header>
-        <main tabindex="-1" id="main-content" class="s-wrapper">
-          <article class="markdown s-flex-column u-gap-0">
-            {props.children}
-          </article>
+        <main tabindex="-1" id="main-content">
+          {props.children}
         </main>
         <footer class="site-footer s-wrapper">
           <div class="s-block-space u-block-space-2xs u-border-top">

@@ -1,6 +1,5 @@
 import esbuildReload from './esbuild-reload.ce.js'
-import localCss from './css/local.bundle.css'
-import sprite from 'feather-icons/dist/feather-sprite.svg'
+import localCss from '../css/local.bundle.css'
 import indexCss from '@jaccomeijer/green-lib/index.bundle.css'
 
 export const Head = props => {
