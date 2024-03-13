@@ -13,8 +13,15 @@ topics:
     heading: facebook/create-react-app
     abstract: 'Create React App is a comfortable environment for learning React, and is the best way to start building a new single-page application in React.'
     icon: github
+    action:
+      heading: facebook/create-react-app
+      icon: external-link
+      url: https://github.com/facebook/create-react-app
 ---
 export { BlogLayout as default } from '../blog-layout.jsx'
+import { Picture } from '@jaccomeijer/green-lib'
+import { globals } from '../../../config/globals.js'
+import { Topic } from '@jaccomeijer/green-lib'
 
 ## Create-react-app
 
@@ -24,6 +31,12 @@ typical minimal setup.
 
 This is what [create-react-app](https://github.com/facebook/create-react-app)
 is, a very practical minimal setup.
+
+<Topic
+  data-variant="card"
+  globals={globals}
+  topic={frontmatter.topics.createReactApp}
+/>
 
 ## Server side rendering
 
@@ -147,5 +160,3 @@ two schema's are in play.
   stored by Gatsby.
 * The internal Gatsby schema. This schema is used to tie data to React
   components.
-
----

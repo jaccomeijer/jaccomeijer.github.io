@@ -1,2 +1,5 @@
 .markdown {
+  a {
+    color: var(--color-primary-500);
+  }
 }

@@ -11,10 +11,16 @@ topics:
     image: versioningStrategyForNpmModules
   splitModules:
     heading: Split modules
-    abstract: Split up a module into submodules as soon as the module becomes too hard to update.
+    abstract: '"Split up a module into submodules as soon as the module becomes too hard to update."'
+    icon: check-circle
+  monorepo:
+    heading: Use a monorepo
+    abstract: Use a monorepo to make sure the latest component also has the latest version.
     icon: check-circle
 ---
 export { BlogLayout as default } from '../blog-layout.jsx'
+import { globals } from '../../../config/globals.js'
+import { Topic } from '@jaccomeijer/green-lib'
 
 ## UI library case study
 
@@ -52,6 +58,12 @@ The risk of a large project module is that updating a dependency potentially has
 great impact. The larger the project and the more the dependency is used, the
 harder it is to oversee the impact.
 
+<Topic
+  data-variant="quote"
+  globals={globals}
+  topic={frontmatter.topics.splitModules}
+/>
+
 ## Component versions
 
 ### Latest version
@@ -77,4 +89,8 @@ like [Lerna](https://github.com/lerna) and
 [Jmmake](https://github.com/jaccomeijer/jmmake) can be configured to version the
 packages as required.
 
----
+<Topic
+  data-variant="quote"
+  globals={globals}
+  topic={frontmatter.topics.monorepo}
+/>

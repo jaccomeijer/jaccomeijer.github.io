@@ -1,5 +1,6 @@
 ---
 navigation:
+  id: typescript-interface-for-react
   url: /blog/typescript-interface-for-react-ui-components
 date: 2022-01-18T00:00+01:00
 tags: ['blog']
@@ -11,6 +12,10 @@ topics:
     image: typescriptInterfaceForReactUiComponents
 ---
 export { BlogLayout as default } from '../blog-layout.jsx'
+import { globals } from '../../../config/globals.js'
+import { Topic } from '@jaccomeijer/green-lib'
+import { blogImages } from '../blog-images.js'
+import { getOpenerTopicByNavigationId } from '../get-opener-topics.js'
 
 ## Improve over time
 
@@ -163,4 +168,11 @@ options can be selected.
 Adding a 'variant' attribute to the interface reduces the number of models
 needed. The post below explains why.
 
----
+<Topic
+  data-variant="card"
+  globals={globals}
+  topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: 'content-modeling-with-variants' })}
+  images={blogImages}
+  swap-image={true}
+/>
+

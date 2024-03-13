@@ -26,12 +26,12 @@
  	--color-secondary-500: hsl(20, 100%, 30%);
  	--color-secondary-600: hsl(20, 100%, 15%);
  	--color-white: hsl(0, 0%, 100%);
- 	--font-body-family: Montserrat, 'Helvetica Neue', sans-serif;
+ 	--font-body-family: 'Helvetica Neue', sans-serif;
  	--font-body-margin-block-start: clamp(0.5625rem, 0.106rem + 2.2826vi, 1.875rem);
  	--font-body-size: clamp(1rem, 0.9432rem + 0.2273vi, 1.125rem);
  	--font-body-weight: 400;
  	--font-body-weight-bold: 600;
- 	--font-display-family: Montserrat, 'Helvetica Neue', sans-serif;
+ 	--font-display-family: Exo, 'Helvetica Neue', sans-serif;
  	--font-display-margin-block-start-1: clamp(2.25rem, 1.2935rem + 4.7826vi, 5rem);
  	--font-display-margin-block-start-2: clamp(1.6875rem, 0.9701rem + 3.587vi, 3.75rem);
  	--font-display-margin-block-start-3: clamp(0.875rem, 0.5272rem + 1.7391vi, 1.875rem);
@@ -42,7 +42,7 @@
  	--font-display-size-3: clamp(2.0736rem, 1.7677rem + 1.2236vi, 2.7466rem);
  	--font-display-size-4: clamp(1.728rem, 1.5147rem + 0.8532vi, 2.1973rem);
  	--font-display-weight: 800;
- 	--font-heading-family: Montserrat, 'Helvetica Neue', sans-serif;
+ 	--font-heading-family: Exo, 'Helvetica Neue', sans-serif;
  	--font-heading-margin-block-start-1: clamp(2.25rem, 1.2935rem + 4.7826vi, 5rem);
  	--font-heading-margin-block-start-2: clamp(1.6875rem, 0.9701rem + 3.587vi, 3.75rem);
  	--font-heading-margin-block-start-3: clamp(1.125rem, 0.6467rem + 2.3913vi, 2.5rem);
@@ -52,7 +52,7 @@
  	--font-heading-size-2: clamp(2.0736rem, 1.7677rem + 1.2236vi, 2.7466rem);
  	--font-heading-size-3: clamp(1.728rem, 1.5147rem + 0.8532vi, 2.1973rem);
  	--font-heading-size-4: clamp(1.44rem, 1.2955rem + 0.5778vi, 1.7578rem);
- 	--font-heading-weight: 600;
+ 	--font-heading-weight: 700;
  	--font-size--1: clamp(0.8333rem, 0.803rem + 0.1212vi, 0.9rem);
  	--font-size--2: clamp(0.6944rem, 0.6828rem + 0.0465vi, 0.72rem);
  	--font-size-0: clamp(1rem, 0.9432rem + 0.2273vi, 1.125rem);

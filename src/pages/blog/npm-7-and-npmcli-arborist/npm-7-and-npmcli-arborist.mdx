@@ -9,12 +9,11 @@ topics:
     abstract: '@npmcli/arborist is a powerful library that handles the new npm 7 workspaces. This blog is about a simple make tool that uses the library.'
     icon: message-circle
     image: npm7AndNpmcliArborist
-  monorepo:
-    heading: Use a monorepo
-    abstract: Use a monorepo to make sure the latest component also has the latest version.
-    icon: check-circle
 ---
 export { BlogLayout as default } from '../blog-layout.jsx'
+import makeImg from './make.png'
+import { Picture } from '@jaccomeijer/green-lib'
+import { globals } from '../../../config/globals.js'
 
 ## Workspaces
 
@@ -44,6 +43,12 @@ This resulted in a little custom build tool named
 
 Jmmake uses a very specific versioning scheme. Bottom line is that the root
 package version is always leading when bumping the version.
+
+<Picture
+  class="s-block-space u-block-space-s"
+  globals={globals}
+  src={ makeImg }
+/>
 
 #### Build, publish and release
 

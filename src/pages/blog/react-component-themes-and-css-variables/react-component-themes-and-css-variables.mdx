@@ -1,5 +1,6 @@
 ---
 navigation:
+  id: react-component-themes
   url: /blog/react-component-themes-and-css-variables
 date: 2022-04-12T00:00+01:00
 tags: ['blog']
@@ -11,12 +12,24 @@ topics:
     image: reactComponentThemesAndCssVariables
 ---
 export { BlogLayout as default } from '../blog-layout.jsx'
+import { globals } from '../../../config/globals.js'
+import { Topic } from '@jaccomeijer/green-lib'
+import { blogImages } from '../blog-images.js'
+import { getOpenerTopicByNavigationId } from '../get-opener-topics.js'
 
 ## Typescript component interface
 
 This is an addition to the post below and describes a way to add a 'colors'
 attrinute to the component interface which allows for switching themes by using
 CSS variables.
+
+<Topic
+  data-variant="card"
+  globals={globals}
+  topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: 'typescript-interface-for-react' })}
+  images={blogImages}
+  swap-image={true}
+/>
 
 ### Color attribute
 
@@ -40,11 +53,18 @@ uses depends on the colors object passed to the component.
 
 This way the same component can be used with different styling. For example:
 
-`` const displayStyle = { color: `var(--color-${color.monochrome}-400)`,
-'&:hover': { color: `var(--color-${color.primary}-400)`, }, fontFamily:
-'var(--display-font-family)', fontSize: 'var(--display-font-size-m)',
-fontWeight: 'var(--display-font-weight)', lineHeight:
-'var(--display-line-height-m)', } ``
+```ts
+const displayStyle = {
+  color: `var(--color-${color.monochrome}-400)`,
+  '&:hover': {
+    color: `var(--color-${color.primary}-400)`,
+  },
+  fontFamily: 'var(--display-font-family)',
+  fontSize: 'var(--display-font-size-m)',
+  fontWeight: 'var(--display-font-weight)',
+  lineHeight: 'var(--display-line-height-m)',
+}
+```
 
 ## CSS variables
 
@@ -52,15 +72,25 @@ The last step is defining the CSS variables. For example:
 
 ### Fonts
 
-`--display-font-family: Exo, “Helvetica Neue”, sans-serif;
---display-font-weight: 700; --display-font-size-l: 54px; --display-font-size-m:
-40px; --display-line-height-l: 1.3; --display-line-height-m: 1.2;`
+```css
+--display-font-family: Exo, “Helvetica Neue”, sans-serif;
+--display-font-weight: 700;
+--display-font-size-l: 54px;
+--display-font-size-m: 40px;
+--display-line-height-l: 1.3;
+--display-line-height-m: 1.2;
+```
 
 ### Colors
 
-`--color-berry-100: #715aff; --color-berry-200: #3615ff; --color-berry-300:
-#1d00cf; --color-berry-400: #13008a; --color-berry-500: #0a0045;
---color-berry-600: #0a0045;`
+```css
+--color-berry-100: #715aff;
+--color-berry-200: #3615ff;
+--color-berry-300: #1d00cf;
+--color-berry-400: #13008a;
+--color-berry-500: #0a0045;
+--color-berry-600: #0a0045;
+```
 
 ## @modelberry/css-theme
 
@@ -71,10 +101,19 @@ package is a convenient way.
 
 This works by defining a theme object that contains all the styling for a site.
 
-`const myTheme: Theme = { color: { rock: { 100: '#e0e0e0', 200: '#b0b0b0', 300:
-'#909090', }, ... }, }`
+```ts
+const myTheme: Theme = {
+  color: {
+    rock: {
+      100: '#e0e0e0',
+      200: '#b0b0b0',
+      300: '#909090',
+    },
+    ...
+  },
+}
+```
 
 The [modelberry/css-theme](https://www.npmjs.com/package/@modelberry/css-theme)
 package converts a theme object to CSS variables.
 
----

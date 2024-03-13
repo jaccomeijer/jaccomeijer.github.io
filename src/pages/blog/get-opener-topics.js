@@ -11,11 +11,21 @@ export const addTopicLabels = ({ page, topic }) => {
       year: 'numeric',
     })
 
-    console.log('msec', msec)
     topic.labels = ['Jacco Meijer', '|', dateFormat.format(date)]
     topic.order = msec
   }
   return topic
+}
+
+export const addTopicAction = ({ page, topic }) => {
+
+  // Construct action
+  const action = {
+    heading: 'Read more',
+    url: page.url,
+  }
+
+  topic.action = action
 }
 
 export const getOpenerTopics = ({ pages, tag }) => {
@@ -28,18 +38,27 @@ export const getOpenerTopics = ({ pages, tag }) => {
     const openerTopic = structuredClone(page.frontmatter.topics.opener)
 
     addTopicLabels({ page, topic: openerTopic })
-
-    // Construct action
-    const action = {
-      heading: 'Read more',
-      url: page.url,
-    }
-
-    openerTopic.action = action
+    addTopicAction({ page, topic: openerTopic })
 
     return openerTopic
   })
 
   topics.sort((a, b) => b.order - a.order)
   return topics
+}
+
+export const getOpenerTopicByNavigationId = ({ pages, navigationId }) => {
+  const page = pages
+    .find(p => p.frontmatter.navigation?.id === navigationId)
+  const openerTopic = page?.frontmatter?.topics?.opener
+
+  if (!openerTopic) {
+    console.error(`===> ERROR: Could not find opener topic with navigation id: ${navigationId}`)
+    return {}
+  }
+
+  addTopicLabels({ page, topic: openerTopic })
+  addTopicAction({ page, topic: openerTopic })
+
+  return openerTopic
 }

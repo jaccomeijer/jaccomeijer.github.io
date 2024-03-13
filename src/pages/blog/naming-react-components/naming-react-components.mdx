@@ -15,11 +15,21 @@ topics:
     icon: message-square
 ---
 export { BlogLayout as default } from '../blog-layout.jsx'
+import { globals } from '../../../config/globals.js'
+import { Topic } from '@jaccomeijer/green-lib'
+import { blogImages } from '../blog-images.js'
+import { getOpenerTopicByNavigationId } from '../get-opener-topics.js'
 
 ## Component?
 
 Theoretically, everything can be a component. This is why for describing code,
 the word component is too implicit.
+
+<Topic
+  data-variant="quote"
+  globals={globals}
+  topic={frontmatter.topics.zenOfPython}
+/>
 
 The Zen of Python states "Explicit is better than implicit". Something more
 explicit than the word component describes code better. This results in clearer
@@ -36,24 +46,40 @@ in mind.
 Elements are the smallest components. The name is derived from the HTML
 standard. An element receives data by passing children.
 
-`<Heading>This is the hading</Heading> <Abstract>This is the abstract</Abstract>
-<Button>Press me</Button>`
+```html
+<Heading>This is the hading</Heading>
+<Abstract>This is the abstract</Abstract>
+<Button>Press me</Button>
+```
 
 ### Model scope
 
 Models contain elements. This is the level where visual components meet data
 models. A model receives data by passing data to the 'model' attribute.
 
-`<Topic model="{topic}" /> <Navigation model="{navigation}" /> <Action
-model="{action}" /> <Media model="{media}" />`
+```html
+<Topic model="{topic}" />
+<Navigation model="{navigation}" />
+<Action model="{action}" />
+<Media model="{media}" />
+```
 
 ### Layout scope
 
 Layouts contain Models. Layouts take care of positioning models. A layout
 receives data by passing children.
 
-`<OneColumnLayout> <SomeModel /> <SomeModel /> </SidebarLayout>
-<TwoColumnLayout> <Topic /> <Topic /> </TwoColumnLayout>`
+```html
+<OneColumnLayout>
+  <SomeModel />
+  <SomeModel />
+</SidebarLayout>
+
+<TwoColumnLayout>
+  <Topic />
+  <Topic />
+</TwoColumnLayout>
+```
 
 ## Case study: a page
 
@@ -89,4 +115,9 @@ using a layout:
 Next step in creating reusable React components is a clear component interface.
 The post below is about defining such an interface.
 
----
+<Topic
+  data-variant="card"
+  globals={globals}
+  topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: 'typescript-interface-for-react' })}
+  images={blogImages}
+/>

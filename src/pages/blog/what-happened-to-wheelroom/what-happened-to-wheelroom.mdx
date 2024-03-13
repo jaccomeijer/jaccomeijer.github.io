@@ -15,6 +15,10 @@ topics:
     icon: user
 ---
 export { BlogLayout as default } from '../blog-layout.jsx'
+import { Picture } from '@jaccomeijer/green-lib'
+import { globals } from '../../../config/globals.js'
+import contNetGatImg from './Contentful-Gatsby-Netlify.png'
+import { blogImages } from '../blog-images.js'
 
 ## Wheelroom
 
@@ -35,6 +39,12 @@ utility. The Wheelroom boilerplate based on [GatsbyJs](https://www.gatsbyjs.com)
 combined content from [Contentful](https://www.contentful.com) with the React UI
 library into a marketing website on [Netlify](https://www.netlify.com) in a
 matter of minutes.
+
+<Picture
+  class="s-block-space u-block-space-s"
+  globals={globals}
+  src={ contNetGatImg }
+/>
 
 ## Success
 
@@ -89,5 +99,3 @@ Content models are defined in typescript. [TSDoc](https://tsdoc.org) annotations
 are used to add additional details to the models. This way models can be pushed
 to Contentful. The other way around appeared easy as well. Pushing and pulling
 content was an obvious next step.
-
----

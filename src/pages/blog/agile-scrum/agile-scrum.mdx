@@ -14,6 +14,10 @@ topics:
     abstract: "This diagram became known as the *Stacey Matrix* and has been frequently adapted by other writers, often in ways not consistent with Stacey's original."
 ---
 export { BlogLayout as default } from '../blog-layout.jsx'
+import staceyImg from './stacey-matrix.png'
+import storiesImg from './stories.png'
+import { Picture } from '@jaccomeijer/green-lib'
+import { globals } from '../../../config/globals.js'
 
 ## Agile
 
@@ -42,6 +46,17 @@ way of working. This is what this blog post is about.
 * A scrum team works on the analysis phase and the actual implementation,
   waterfall defines a team for each phase.
 * Scrum allows for handling complex projects, waterfall does not.
+
+#### Handling complex projects
+
+This diagram became known as the *Stacey Matrix* and has been frequently adapted
+by other writers, often in ways not consistent with Stacey's original.
+
+<Picture
+  class="s-block-space u-block-space-s"
+  globals={globals}
+  src={ staceyImg }
+/>
 
 ### The why
 
@@ -160,4 +175,8 @@ developers and to the PO.
 
 ### Sub tasks and hours
 
-
+<Picture
+  class="s-block-space u-block-space-s"
+  globals={globals}
+  src={ storiesImg }
+/>
