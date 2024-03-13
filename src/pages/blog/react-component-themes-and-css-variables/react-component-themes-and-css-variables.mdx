@@ -23,11 +23,15 @@ CSS variables.
 The interface as described in the blog post above is extended with a colors
 attribute.
 
-`colors?: Partial<Record<'monochrome' | 'primary' | 'secondary', string>>`
+```ts
+colors?: Partial<Record<'monochrome' | 'primary' | 'secondary', string>>
+```
 
 The attribute expects an object. For example:
 
-`{ monochrome: 'rock', primary: 'berry', secondary: 'apple', }`
+```js
+{ monochrome: 'rock', primary: 'berry', secondary: 'apple', }
+```
 
 ### The component
 

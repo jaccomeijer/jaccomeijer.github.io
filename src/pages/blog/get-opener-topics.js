@@ -1,11 +1,20 @@
 export const addTopicLabels = ({ page, topic }) => {
 
   // Construct date
-  const msec = Date.parse(page.frontmatter.date)
-  const date = new Date(msec)
+  if (page.frontmatter.date) {
+    const msec = Date.parse(page.frontmatter.date)
+    const date = new Date(msec)
 
-  topic.labels = ['Jacco Meijer', '|', date.toLocaleDateString()]
-  topic.order = msec
+    const dateFormat = new Intl.DateTimeFormat('en', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    })
+
+    console.log('msec', msec)
+    topic.labels = ['Jacco Meijer', '|', dateFormat.format(date)]
+    topic.order = msec
+  }
   return topic
 }
 
