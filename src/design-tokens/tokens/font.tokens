@@ -14,7 +14,7 @@
         "$value": "{font.size.0}"
       },
       "margin-block-start": {
-        "$value": "{space.2xs-m}"
+        "$value": "{space.2xs-r3}"
       }
     },
     "heading": {
@@ -40,16 +40,19 @@
       },
       "margin-block-start": {
         "1": {
-          "$value": "{space.m-2xl}"
+          "$value": "{space.l-r2}"
         },
         "2": {
-          "$value": "{space.m-2xl}"
+          "$value": "{space.m-r2}"
         },
         "3": {
-          "$value": "{space.xs-l}"
+          "$value": "{space.s-r2}"
         },
         "4": {
-          "$value": "{space.xs-l}"
+          "$value": "{space.xs-r2}"
+        },
+        "5": {
+          "$value": "{space.2xs-r2}"
         }
       }
     },
@@ -76,16 +79,19 @@
       },
       "margin-block-start": {
         "1": {
-          "$value": "{space.m-2xl}"
+          "$value": "{space.l-r2}"
         },
         "2": {
-          "$value": "{space.m-2xl}"
+          "$value": "{space.m-r2}"
         },
         "3": {
-          "$value": "{space.xs-l}"
+          "$value": "{space.xs-r2}"
         },
         "4": {
-          "$value": "{space.xs-l}"
+          "$value": "{space.xs-r2}"
+        },
+        "5": {
+          "$value": "{space.2xs-r2}"
         }
       }
     },
