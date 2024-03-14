@@ -557,7 +557,7 @@
     }
     .topic-content {
       max-width: var(--wrapper-width);
-      padding: var(--space-2xs);
+      padding: var(--space-s);
       align-items: center;
       gap: var(--space-m);
       .topic-icon {
@@ -717,7 +717,7 @@
     }
     .topic-content {
       max-width: var(--wrapper-width);
-      padding: var(--space-2xs);
+      padding: var(--space-s);
       align-items: center;
       gap: var(--space-s);
       .topic-icon {
