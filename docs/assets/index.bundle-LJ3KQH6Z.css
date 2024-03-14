@@ -555,6 +555,8 @@
       }
     }
     .topic-content {
+      max-width: var(--wrapper-width);
+      padding: var(--space-2xs);
       align-items: center;
       gap: var(--space-m);
       .topic-icon {
@@ -656,14 +658,14 @@
       }
     }
     .topic-content {
-      bottom: 0;
-      justify-content: center;
       max-width: var(--wrapper-width);
       padding: var(--space-2xl);
+      bottom: 0;
+      gap: var(--space-m);
+      justify-content: center;
       position: absolute;
       top: 0;
       width: 100%;
-      gap: var(--space-m);
       .topic-icon {
         font-size: var(--font-size-5);
       }
@@ -713,6 +715,8 @@
       border-radius: 100%;
     }
     .topic-content {
+      max-width: var(--wrapper-width);
+      padding: var(--space-2xs);
       align-items: center;
       gap: var(--space-s);
       .topic-icon {

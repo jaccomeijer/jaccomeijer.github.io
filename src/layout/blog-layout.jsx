@@ -7,7 +7,7 @@ import { BaseLayout } from './base-layout.jsx'
 export const BlogLayout = props => {
   return (
     <BaseLayout {...props}>
-      <div class="s-wrapper markdown">
+      <div class="markdown">
         <Topic
           data-variant="headline"
           globals={globals}
