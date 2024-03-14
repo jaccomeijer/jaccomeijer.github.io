@@ -5,7 +5,8 @@
   "scripts": {
     "clean-dist": "rm -rf dist",
     "clean-docs": "rm -rf docs",
-    "build": "npm run clean-docs && MODE=build node pages.js",
+    "create-cname": "echo www.jaccomeijer.nl > docs/CNAME",
+    "build": "npm run clean-docs && MODE=build node pages.js && npm run create-cname",
     "design-tokens": "designTokens transform src/design-tokens/tokens.config.json",
     "serve": "npm run clean-dist && MODE=serve node pages.js"
   },
