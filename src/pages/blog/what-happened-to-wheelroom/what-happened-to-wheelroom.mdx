@@ -73,17 +73,17 @@ style was defined where.
 ## New UI library
 
 In 2021 a [new UI library](https://blue.modelberry.com) was developed with the
-lessons learned. This library uses clear type: entry-hyperlink id:
-5G2YXbJGjvlyOOrexOXlWU and a type: entry-hyperlink id: firstBlogPost that
-prevents breaking changes. The library was separated from the command line
-utility.
+lessons learned. This library uses [clear component
+names](/blog/naming-react-components/) and a [component interface that prevents
+breaking changes](/blog/typescript-interface-for-react-ui-components). The
+library was separated from the command line utility.
 
 ## Command line utility
 
-The [Wheelroom command line
-utility](https://www.npmjs.com/package/@wheelroom/wheelroom) uses a javascript
-object for defining the content models. The content models could be pushed to
-Contentful and were used to generate typescript definitions and graphql queries.
+The [Wheelroom command line utility](https://github.com/jaccomeijer/wheelroom)
+uses a javascript object for defining the content models. The content models
+could be pushed to Contentful and were used to generate typescript definitions
+and graphql queries.
 
 This worked well (as it still does), but there was a better way.
 
