@@ -8,7 +8,7 @@ export const actions = {
     },
     {
       icon: 'github',
-      url: 'https://github.com/jaccomeijer',
+      url: 'https://github.com/jaccomeijer/jaccomeijer.github.io',
     },
   ],
 }
