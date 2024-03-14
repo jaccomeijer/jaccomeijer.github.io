@@ -69,6 +69,7 @@
     font-family: var(--font-body-family);
     font-size: var(--font-body-size);
     font-weight: var(--font-body-weight);
+    container-type: inline-size;
     hr {
       border: 0.5px solid var(--color-mono-200);
       color: var(--color-mono-100);
