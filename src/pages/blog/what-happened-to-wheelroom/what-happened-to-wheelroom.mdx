@@ -19,6 +19,8 @@ import { Picture } from '@jaccomeijer/green-lib'
 import { globals } from '../../../config/globals.js'
 import contNetGatImg from './Contentful-Gatsby-Netlify.png'
 import { blogImages } from '../blog-images.js'
+import { TopicList } from '@jaccomeijer/green-lib'
+import { getOpenerTopicsByNavigationIds } from '../get-opener-topics.js'
 
 ## Wheelroom
 
@@ -72,10 +74,17 @@ style was defined where.
 ## New UI library
 
 In 2021 a new UI library was developed with the lessons learned. This library
-uses [clear component names](/blog/naming-react-components/) and a [component
-interface that prevents breaking
-changes](/blog/typescript-interface-for-react-ui-components). The library was
-separated from the command line utility.
+uses clear **React component names** and a **Typescript component interface that
+prevents breaking changes**. The library was separated from the command line
+utility.
+
+<TopicList
+  class="s-grid u-grid-three-cols u-gap-m"
+  data-variant="card"
+  globals={globals}
+  images={blogImages}
+  topics={getOpenerTopicsByNavigationIds({ pages: props.pages, navigationIds: ['naming-react-components', 'typescript-interface-for-react'] })}
+/>
 
 ## Command line utility
 

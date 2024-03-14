@@ -62,3 +62,15 @@ export const getOpenerTopicByNavigationId = ({ pages, navigationId }) => {
 
   return openerTopic
 }
+
+export const getOpenerTopicsByNavigationIds = ({ pages, navigationIds }) => {
+  const topics = []
+
+  navigationIds.forEach(navigationId => {
+    const topic = getOpenerTopicByNavigationId({ pages, navigationId })
+
+    topics.push(topic)
+  })
+
+  return topics
+}
