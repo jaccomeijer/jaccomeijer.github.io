@@ -21,7 +21,7 @@ export const addTopicAction = ({ page, topic }) => {
 
   // Construct action
   const action = {
-    heading: 'Read more',
+    heading: 'read more',
     url: page.url,
   }
 

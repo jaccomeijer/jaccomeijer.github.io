@@ -14,14 +14,12 @@ import topicImage from './face.png'
 import { globals } from '../../config/globals.js'
 import { getOpenerTopicByNavigationId } from '../blog/get-opener-topics.js'
 
-<div class="s-popout u-inline-gutter">
-  <Topic
-    data-variant="profile"
-    globals={globals}
-    images={{topicImage}}
-    topic={frontmatter.topics.opener}
-  />
-</div>
+<Topic
+  data-variant="profile"
+  globals={globals}
+  images={{topicImage}}
+  topic={frontmatter.topics.opener}
+/>
 
 ---
 

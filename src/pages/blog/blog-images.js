@@ -11,6 +11,7 @@ import reactComponentThemesAndCssVariables from './2022-04 - react-component-the
 import typescriptInterfaceForReactUiComponents from './2022-01 - typescript-interface-for-react-ui-components/kai-dahms-97yTozZh7N8-unsplash.jpg'
 import versioningStrategyForNpmModules from './2022-05 - versioning-strategy-for-npm-modules/mae-mu-WqQwOQ9fVj4-unsplash.jpg'
 import whatHappenedToWheelroom from './2022-01 - what-happened-to-wheelroom/daniel-olah-VS_kFx4yF5g-unsplash.jpg'
+import cissp from './2024-03 - owasp-cissp/rianne-zuur-PoxFTU7_QKo-unsplash.jpg'
 
 export const blogImages = {
   agileScrum,
@@ -26,4 +27,5 @@ export const blogImages = {
   typescriptInterfaceForReactUiComponents,
   versioningStrategyForNpmModules,
   whatHappenedToWheelroom,
+  cissp,
 }

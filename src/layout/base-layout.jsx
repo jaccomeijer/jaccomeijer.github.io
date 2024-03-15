@@ -14,7 +14,7 @@ export const BaseLayout = props => {
   return (
     <html lang={globals.metadata.content.language}>
       <Head
-        enableReload={true}
+        enableReload={process.env.MODE === 'serve'}
         favicon={favicon}
         globals={globals}
         page={props.page}
