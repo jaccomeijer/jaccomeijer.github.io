@@ -39,7 +39,7 @@
 /* node_modules/@jaccomeijer/green-lib/css/global/body.css */
 @layer body {
   body {
-    background: var(--color-white);
+    background: var(--color-mono-000);
     color: var(--color-mono-500);
     display: flex;
     flex-direction: column;
@@ -150,89 +150,177 @@
 
 /* node_modules/@jaccomeijer/green-lib/css/highlight/github.css */
 @layer highlight {
-  .hljs {
-    color: #24292e;
-    background: #ffffff;
+  @media (prefers-color-scheme: light) {
+    .hljs {
+      color: #24292e;
+      background: #ffffff;
+    }
+    .hljs-doctag,
+    .hljs-keyword,
+    .hljs-meta .hljs-keyword,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-type,
+    .hljs-variable.language_ {
+      color: #d73a49;
+    }
+    .hljs-title,
+    .hljs-title.class_,
+    .hljs-title.class_.inherited__,
+    .hljs-title.function_ {
+      color: #6f42c1;
+    }
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-operator,
+    .hljs-variable,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id {
+      color: #005cc5;
+    }
+    .hljs-regexp,
+    .hljs-string,
+    .hljs-meta .hljs-string {
+      color: #032f62;
+    }
+    .hljs-built_in,
+    .hljs-symbol {
+      color: #e36209;
+    }
+    .hljs-comment,
+    .hljs-code,
+    .hljs-formula {
+      color: #6a737d;
+    }
+    .hljs-name,
+    .hljs-quote,
+    .hljs-selector-tag,
+    .hljs-selector-pseudo {
+      color: #22863a;
+    }
+    .hljs-subst {
+      color: #24292e;
+    }
+    .hljs-section {
+      color: #005cc5;
+      font-weight: bold;
+    }
+    .hljs-bullet {
+      color: #735c0f;
+    }
+    .hljs-emphasis {
+      color: #24292e;
+      font-style: italic;
+    }
+    .hljs-strong {
+      color: #24292e;
+      font-weight: bold;
+    }
+    .hljs-addition {
+      color: #22863a;
+      background-color: #f0fff4;
+    }
+    .hljs-deletion {
+      color: #b31d28;
+      background-color: #ffeef0;
+    }
+    .hljs-char.escape_,
+    .hljs-link,
+    .hljs-params,
+    .hljs-property,
+    .hljs-punctuation,
+    .hljs-tag {
+    }
   }
-  .hljs-doctag,
-  .hljs-keyword,
-  .hljs-meta .hljs-keyword,
-  .hljs-template-tag,
-  .hljs-template-variable,
-  .hljs-type,
-  .hljs-variable.language_ {
-    color: #d73a49;
-  }
-  .hljs-title,
-  .hljs-title.class_,
-  .hljs-title.class_.inherited__,
-  .hljs-title.function_ {
-    color: #6f42c1;
-  }
-  .hljs-attr,
-  .hljs-attribute,
-  .hljs-literal,
-  .hljs-meta,
-  .hljs-number,
-  .hljs-operator,
-  .hljs-variable,
-  .hljs-selector-attr,
-  .hljs-selector-class,
-  .hljs-selector-id {
-    color: #005cc5;
-  }
-  .hljs-regexp,
-  .hljs-string,
-  .hljs-meta .hljs-string {
-    color: #032f62;
-  }
-  .hljs-built_in,
-  .hljs-symbol {
-    color: #e36209;
-  }
-  .hljs-comment,
-  .hljs-code,
-  .hljs-formula {
-    color: #6a737d;
-  }
-  .hljs-name,
-  .hljs-quote,
-  .hljs-selector-tag,
-  .hljs-selector-pseudo {
-    color: #22863a;
-  }
-  .hljs-subst {
-    color: #24292e;
-  }
-  .hljs-section {
-    color: #005cc5;
-    font-weight: bold;
-  }
-  .hljs-bullet {
-    color: #735c0f;
-  }
-  .hljs-emphasis {
-    color: #24292e;
-    font-style: italic;
-  }
-  .hljs-strong {
-    color: #24292e;
-    font-weight: bold;
-  }
-  .hljs-addition {
-    color: #22863a;
-    background-color: #f0fff4;
-  }
-  .hljs-deletion {
-    color: #b31d28;
-    background-color: #ffeef0;
-  }
-  .hljs-char.escape_,
-  .hljs-link,
-  .hljs-params,
-  .hljs-property,
-  .hljs-punctuation,
-  .hljs-tag {
+  @media (prefers-color-scheme: dark) {
+    .hljs {
+      color: #c9d1d9;
+      background: #0d1117;
+    }
+    .hljs-doctag,
+    .hljs-keyword,
+    .hljs-meta .hljs-keyword,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-type,
+    .hljs-variable.language_ {
+      color: #ff7b72;
+    }
+    .hljs-title,
+    .hljs-title.class_,
+    .hljs-title.class_.inherited__,
+    .hljs-title.function_ {
+      color: #d2a8ff;
+    }
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-operator,
+    .hljs-variable,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id {
+      color: #79c0ff;
+    }
+    .hljs-regexp,
+    .hljs-string,
+    .hljs-meta .hljs-string {
+      color: #a5d6ff;
+    }
+    .hljs-built_in,
+    .hljs-symbol {
+      color: #ffa657;
+    }
+    .hljs-comment,
+    .hljs-code,
+    .hljs-formula {
+      color: #8b949e;
+    }
+    .hljs-name,
+    .hljs-quote,
+    .hljs-selector-tag,
+    .hljs-selector-pseudo {
+      color: #7ee787;
+    }
+    .hljs-subst {
+      color: #c9d1d9;
+    }
+    .hljs-section {
+      color: #1f6feb;
+      font-weight: bold;
+    }
+    .hljs-bullet {
+      color: #f2cc60;
+    }
+    .hljs-emphasis {
+      color: #c9d1d9;
+      font-style: italic;
+    }
+    .hljs-strong {
+      color: #c9d1d9;
+      font-weight: bold;
+    }
+    .hljs-addition {
+      color: #aff5b4;
+      background-color: #033a16;
+    }
+    .hljs-deletion {
+      color: #ffdcd7;
+      background-color: #67060c;
+    }
+    .hljs-char.escape_,
+    .hljs-link,
+    .hljs-params,
+    .hljs-property,
+    .hljs-punctuation,
+    .hljs-tag {
+    }
   }
 }
 
@@ -807,6 +895,7 @@
 /* node_modules/@jaccomeijer/green-lib/components/textarea.css */
 @layer components {
   .textarea {
+    background-color: var(--color-mono-000);
     border: 1px solid transparent;
     border-color: var(--color-mono-200);
     border-radius: var(--border-radius-rounded);
@@ -837,6 +926,7 @@
 /* node_modules/@jaccomeijer/green-lib/components/input.css */
 @layer components {
   .input {
+    background-color: var(--color-mono-000);
     border: 1px solid transparent;
     border-color: var(--color-mono-300);
     border-radius: 0.25rem;
@@ -910,7 +1000,7 @@
       border-radius: var(--border-radius-rounded);
     }
     .modal-popup {
-      background-color: var(--color-white);
+      background: var(--color-mono-000);
       border-radius: var(--border-radius-rounded);
       border: 1px solid var(--color-mono-300);
       bottom: initial;
@@ -920,6 +1010,9 @@
       transform: scale(0.8);
       transition: transform 0.35s cubic-bezier(0.8, -0.4, 0.2, 1.44) 0s, opacity 0.5s ease 0s;
       visibility: hidden;
+      nav {
+        gap: var(--space-s);
+      }
       .popup-main-actions,
       .popup-social-actions,
       .popup-call-actions {
@@ -1109,46 +1202,6 @@
   }
   .u-border-radius-circle {
     border-radius: var(--border-radius-circle);
-  }
-}
-
-/* node_modules/@jaccomeijer/green-lib/css/utilities/color-secondary.css */
-@layer utilities {
-  .u-color-secondary-100 {
-    color: var(--color-secondary-100);
-  }
-  .u-color-secondary-200 {
-    color: var(--color-secondary-200);
-  }
-  .u-color-secondary-300 {
-    color: var(--color-secondary-300);
-  }
-  .u-color-secondary-400 {
-    color: var(--color-secondary-400);
-  }
-  .u-color-secondary-500 {
-    color: var(--color-secondary-500);
-  }
-  .u-color-secondary-600 {
-    color: var(--color-secondary-600);
-  }
-  .bg-secondary-100 {
-    background: var(--color-secondary-100);
-  }
-  .bg-secondary-200 {
-    background: var(--color-secondary-200);
-  }
-  .bg-secondary-300 {
-    background: var(--color-secondary-300);
-  }
-  .bg-secondary-400 {
-    background: var(--color-secondary-400);
-  }
-  .bg-secondary-500 {
-    background: var(--color-secondary-500);
-  }
-  .bg-secondary-600 {
-    background: var(--color-secondary-600);
   }
 }
 
@@ -1465,6 +1518,16 @@
     Updated: 2021-05-15
   
     Outdated base version: https://github.com/primer/github-syntax-light
+    Current colors taken from GitHub's CSS
+  *)
+  (*!
+    Theme: GitHub Dark
+    Description: Dark theme as seen on github.com
+    Author: github.com
+    Maintainer: @Hirse
+    Updated: 2021-05-15
+  
+    Outdated base version: https://github.com/primer/github-syntax-dark
     Current colors taken from GitHub's CSS
   *)
 */

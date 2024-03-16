@@ -7,7 +7,6 @@
   --border-radius-rounded: 0.35rem;
   --button-primary-color: hsl(183, 97%, 30%);
   --button-primary-contrast-color: hsl(0, 0%, 100%);
-  --color-black: hsl(0, 0%, 0%);
   --color-mono-000: hsl(0, 0%, 100%);
   --color-mono-100: hsl(0, 0%, 90%);
   --color-mono-200: hsl(0, 0%, 75%);
@@ -22,13 +21,6 @@
   --color-primary-400: hsl(183, 97%, 45%);
   --color-primary-500: hsl(183, 97%, 30%);
   --color-primary-600: hsl(183, 97%, 15%);
-  --color-secondary-100: hsl(20, 100%, 90%);
-  --color-secondary-200: hsl(20, 100%, 75%);
-  --color-secondary-300: hsl(20, 100%, 60%);
-  --color-secondary-400: hsl(20, 100%, 45%);
-  --color-secondary-500: hsl(20, 100%, 30%);
-  --color-secondary-600: hsl(20, 100%, 15%);
-  --color-white: hsl(0, 0%, 100%);
   --font-body-family: "Helvetica Neue", sans-serif;
   --font-body-margin-block-start: clamp(0.5625rem, 0.106rem + 2.2826vi, 1.875rem);
   --font-body-size: clamp(1rem, 0.9432rem + 0.2273vi, 1.125rem);
@@ -96,6 +88,26 @@
   --space-xs: clamp(0.875rem, 0.8523rem + 0.1099vi, 0.9375rem);
   --space-xs-r2: clamp(0.875rem, 0.5272rem + 1.7391vi, 1.875rem);
   --space-xs-r3: clamp(0.875rem, 0.3098rem + 2.8261vi, 2.5rem);
+}
+
+/* src/layout/css/prefers-color-scheme.css */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mono-700: hsl(0, 0%, 100%);
+    --color-mono-600: hsl(0, 0%, 90%);
+    --color-mono-500: hsl(0, 0%, 75%);
+    --color-mono-400: hsl(0, 0%, 60%);
+    --color-mono-300: hsl(0, 0%, 45%);
+    --color-mono-200: hsl(0, 0%, 30%);
+    --color-mono-100: hsl(0, 0%, 15%);
+    --color-mono-000: hsl(0, 0%, 0%);
+    --color-primary-600: hsl(216, 73%, 90%);
+    --color-primary-500: hsl(216, 73%, 75%);
+    --color-primary-400: hsl(216, 73%, 60%);
+    --color-primary-300: hsl(216, 73%, 45%);
+    --color-primary-200: hsl(216, 73%, 30%);
+    --color-primary-100: hsl(216, 73%, 15%);
+  }
 }
 
 /* src/layout/css/font.css */
