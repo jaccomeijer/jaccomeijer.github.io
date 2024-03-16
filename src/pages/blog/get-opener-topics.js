@@ -50,7 +50,7 @@ export const getOpenerTopics = ({ pages, tag }) => {
 export const getOpenerTopicByNavigationId = ({ pages, navigationId }) => {
   const page = pages
     .find(p => p.frontmatter.navigation?.id === navigationId)
-  const openerTopic = page?.frontmatter?.topics?.opener
+  const openerTopic = structuredClone(page?.frontmatter?.topics?.opener)
 
   if (!openerTopic) {
     console.error(`===> ERROR: Could not find opener topic with navigation id: ${navigationId}`)
