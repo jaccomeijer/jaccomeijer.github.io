@@ -1,0 +1,154 @@
+---
+navigation:
+  id: 11ty-and-jsx
+  url: /blog/11ty-and-jsx
+date: 2024-03-18
+tags: ['blog']
+topics:
+  opener:
+    heading: 11ty and JSX
+    abstract: Simplifying the Contentful-Gatsby-Netlfy trio.
+    icon: message-square
+    image: etyAndJsx
+
+---
+export { BlogLayout as default } from '../../../layout/blog-layout.jsx'
+import { Topic, Picture } from '@jaccomeijer/green-lib'
+import { globals } from '../../../config/globals.js'
+import contNetGatImg from './Contentful-Gatsby-Netlify.png'
+import { getOpenerTopicByNavigationId } from '../get-opener-topics.js'
+import { blogImages } from '../blog-images.js'
+
+## History
+
+Around 2018 the first projects emerged using
+[Contentful](https://www.contentful.com), [GatsbyJs](https://www.gatsbyjs.com)
+and [Netlify](https://www.netlify.com) and this is still is a great setup for
+generating static sites.
+
+The main drawback? It 's a heavy solution for a simple static site. Mainly
+because it requires three independent services.
+
+<Picture
+  class="s-block-space u-block-space-s"
+  globals={globals}
+  src={ contNetGatImg }
+/>
+
+## A simpler solution
+
+The Contentful setup requires three services to work together:
+
+- Contentful
+- Netlify
+- Github
+
+Six years later, Netlify grew to be a popular platform for hosting static sites.
+Github pages also grew in popularity. For this specific setup, switching from
+Netlify to Github pages eliminates one of the three services.
+
+## 11ty
+
+If Contentful could be simplified the same way, Github would be the only service
+required.
+
+Saving the content to Github as Markdown is a simple way to achieve this but
+brings up a new question. How to handle templating?
+
+Having a closer look at Github pages learns that Github pages is driven by
+[Jekyll](https://jekyllrb.com) and Jekyll uses the [Liquid templating
+language](https://shopify.github.io/liquid/) created by Shopify for templating.
+
+From Jekyll it is a small step to [11ty](https://www.11ty.dev) because 11ty is
+the JavaScript alternative to the Ruby based Jekyll.
+
+11ty is marketed as 'a simpler static site generator'. Sounds like a good
+replacement for Gatsby!
+
+## Migrating existing content
+
+11ty generates the site HTML. The HTML is pushed to Github and the old Gatsby
+site is successfully replaced. All good. Until existing content is migrated.
+This brings up two areas of interest:
+
+1) page metadata and
+2) reusable components.
+
+### 1. Page metadata
+
+Handling page metadata is a common requirement for Static Site Generators. The
+[Hugo](https://gohugo.io) generator handles this by adding metatdata to the top
+of a Markdown page. The metadata is then called 'Front matter'.
+
+A quick example of front matter:
+
+```yaml
+---
+date: 2024-01-01T02:16:22-09:00
+draft: false
+title: Front matter title
+---
+```
+
+There's npm packages that handle the extraction from documents and 11ty uses
+front matter by default.
+
+### 2. Reusable components
+
+Components in a templating world are commonly refered to as 'includes'.
+Including another piece of Markdown works as a simple component solution.
+
+For more complex cases, there's a number of solutions:
+
+- [Webc](https://github.com/11ty/webc) is 11ty's answer to web components.
+- Custom Elements and the new 'declarative shadow dom' finally gained Mozilla
+  support in February 2024.
+- And there's JSX. The popular javascript extension by Facebook/React.
+
+Zach Leatherman, author of 11ty, wrote [a great
+post](https://www.zachleat.com/web/styling-web-components/) on the modern issues
+of styling these components.
+
+## WebC or JSX
+
+Custom Elements with 'declarative shadow dom' can be authored by either WebC and
+JSX because both are great static component render solutions.
+
+Being familiair with Gatsby and React, JSX functions here are the obvious
+choice. Many simple and lightweight JSX runtimes like
+[jeax](https://www.jeasx.dev) exist so that you don't need to import the full
+React library.
+
+There's some drawbacks to using the most simple runtimes. Pre code blocks for
+example are not always rendered consistently.
+
+The
+[preact-render-to-string](https://www.npmjs.com/package/preact-render-to-string)
+NPM package seems a good balance between lightweight and consistent rendering.
+
+## Conclusion
+
+We can simplify the Contentful-Gatsby-Netlify trio by using 11ty and Github
+pages. Components can be written in JSX by configuring JSX as a custom template
+language. There's 11ty plugins like
+[eleventy-hast-jsx](https://www.npmjs.com/package/eleventy-hast-jsx) that handle
+this.
+
+Paul Everitt, the PyCharm/WebStorm Developer Advocate at JetBrains, created a
+setup with Typescript:
+
+- https://github.com/pauleveritt/eleventy-tsx
+
+## An even simpler solution
+
+Since rendering JSX to static HTML is trivial with the right runtime, esbuild
+can be setup as a static site generator. This even simpler solution is outlined
+in this post:
+
+<Topic
+  data-variant="card"
+  globals={globals}
+  topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: 'esbuild-as-static-website-generator' })}
+  images={blogImages}
+  swap-image={true}
+/>
