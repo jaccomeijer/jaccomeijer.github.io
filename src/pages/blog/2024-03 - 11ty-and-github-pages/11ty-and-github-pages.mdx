@@ -62,14 +62,16 @@ language](https://shopify.github.io/liquid/) created by Shopify for templates.
 From Jekyll it is a small step to [11ty](https://www.11ty.dev) because 11ty is
 the JavaScript alternative to the Ruby based Jekyll.
 
-11ty is marketed as 'a simpler static site generator'. Sounds like a good
-replacement for Gatsby!
+Replacing Gatsby with 11ty and storing the site content in Markdown allows for
+removing Contentful from the list of required services.
 
 ## Migrating existing content
 
-11ty generates the site HTML. The HTML is pushed to Github and the old Gatsby
-site is successfully replaced. All good. Until existing content is migrated.
-This brings up two areas of interest:
+With the new setup, 11ty generates the site HTML which is then pushed to Github.
+This successfully replaces the Gatsby generated site.
+
+All good! Until existing content is migrated. This brings up two areas of
+interest:
 
 1) page metadata and
 2) reusable components.
@@ -110,16 +112,32 @@ popular ones are:
 - `JSX`, the popular Javascript extension by Facebook/React.
 
 WebC is an excellent solution for reusable components. Especially when using
-11ty. But, being familiar with Gatsby and React, how about JSX functions?
+11ty. But, being familiar with Gatsby and React, how about using JSX functions
+for components?
 
 > NOTE: Zach Leatherman, author of 11ty, wrote [a great
   post](https://www.zachleat.com/web/styling-web-components/) on the modern
   issues of styling these components.
 
+## MDX
+
+Combining 11ty, Markdown and WebC is a common approach.
+
+Using 11ty, Markdown and JSX together is not. This is because combining
+Markdown and JSX is so obvious that it has its own name. It's called MDX and
+[mdxjs.com](https://mdxjs.com) clearly explains how this works.
+
+While not the most common solution, using JSX as a template language in 11ty is
+very well possible. Paul Everitt, the PyCharm/WebStorm Developer Advocate at
+JetBrains, created a JSX setup with Typescript:
+
+- https://github.com/pauleveritt/eleventy-tsx
+
 ## JSX
 
-Many simple and lightweight JSX runtimes like [jeax](https://www.jeasx.dev)
-exist. It is not needed to import the full React library.
+Using JSX or MDX requires a JSX runtime. Many simple and lightweight JSX
+runtimes like [jeax](https://www.jeasx.dev) exist. It is not needed to import
+the full React library.
 
 There's some drawbacks to using the most simple runtimes. Pre code blocks for
 example are not always rendered consistently.
@@ -132,20 +150,9 @@ NPM package seems a good balance between lightweight and consistent rendering.
 
 The Contentful-Gatsby-Netlify trio can be simplified by using 11ty and Github
 pages. Any component solution can be used. For 11ty, WebC components are a solid
-choice but many others exist.
+choice.
 
-Paul Everitt, the PyCharm/WebStorm Developer Advocate at JetBrains, created a
-JSX setup with Typescript:
-
-- https://github.com/pauleveritt/eleventy-tsx
-
-## An even simpler solution for using JSX
-
-Combining 11ty, Markdown and WebC is a common approach.
-
-Using 11ty, Markdown and JSX together is not. This is because combining
-Markdown and JSX is so obvious that it has its own name. It's called MDX and
-[mdxjs.com](https://mdxjs.com) clearly explains how this works.
+## Static site generator for MDX
 
 Reading about MDX a bit more, it seems that using the package `@mdx-js/esbuild`
 with some custom logic could make Esbuild into a simple but powerful static site
