@@ -1,0 +1,135 @@
+---
+navigation:
+  id: esbuild-as-static-website-generator
+  url: /blog/esbuild-as-static-site-generator
+date: 2024-03-19
+tags: ['blog']
+topics:
+  opener:
+    heading: Esbuild as a static site generator for MDX
+    abstract: Static site generators gain popularity. This blog is about using esbuild as a static site generator for MDX.
+    icon: message-square
+    image: esbuildAsStaticWebsiteGenerator
+
+---
+export { BlogLayout as default } from '../../../layout/blog-layout.jsx'
+import { Topic, TopicList, Picture } from '@jaccomeijer/green-lib'
+import { globals } from '../../../config/globals.js'
+import { getOpenerTopicsByNavigationIds, getOpenerTopicByNavigationId } from '../get-opener-topics.js'
+import { blogImages } from '../blog-images.js'
+
+## 11ty and Github pages
+
+The last post summarized how the Contentful-Gatsby-Netlify trio could be
+simplified by using Github pages and 11ty.
+
+The last part of the post explains about MDX, the obvious combination of
+Markdown and JSX. This post continues from there and looks at how 11ty can be
+replaced by the newest Javascript bundler Esbuild.
+
+<Topic
+  data-variant="card"
+  globals={globals}
+  topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: '11ty-and-github-pages' })}
+  images={blogImages}
+  swap-image={true}
+/>
+
+## Javascript bundler landscape
+
+Nobody really liked solving the Webpack and Babel configuration puzzles.
+Occasionally they blocked the actual project.
+
+The bundler landscape matured with the rise of Parcel and Rollup and in 2020
+Evan Wallace, one of the co-founders of Figma, released Esbuild.
+
+Written in Go and 100 times faster than Webpack it is a welcome addition to the
+Javascript bundler landscape
+
+<TopicList
+  class="s-grid u-grid-two-cols u-gap-m"
+  data-variant="card"
+  globals={globals}
+  images={blogImages}
+  topics={getOpenerTopicsByNavigationIds({ pages: props.pages, navigationIds: ['javascript-history', 'transpilers-bundlers-and-modules'] })}
+  swap-image={true}
+/>
+
+## Esbuild
+
+Esbuild supports TypeScript, JSX and tree-shaking. Besides that, Esbuild
+contains a live reloading webserver that triggers a full rebuild on a browser
+refresh.
+
+Esbuild generates Javascript bundles but a static site generator generates HTML.
+The extensible nature of Esbuild allows for a simple plugin to take care of
+transforming the final bundle to HTML.
+
+## MDX
+
+Setting up `esbuild` and `@mdx-js/esbuild is` straightforward and is [clearly
+explained](https://mdxjs.com/packages/esbuild/) on mdxjs.com.
+
+This setup makes Esbuild transform MDX to Javascript bundles. Additional
+functionality can be added by using plugins from the rich MDX ecosystem. The
+example below shows how to add support for: 
+
+- Front matter (as described in previous post)
+- Code highlighting
+- GitHub Flavored Markdown Spec
+
+```js
+import mdx from '@mdx-js/esbuild'
+import rehypeHighlight from 'rehype-highlight'
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
+import remarkGfm from 'remark-gfm'
+
+const plugins = [
+  mdx({
+    jsxImportSource: 'preact',
+    remarkPlugins: [
+      [remarkGfm],
+      [remarkFrontmatter, ['yaml', 'toml']],
+      [remarkMdxFrontmatter, { name: 'frontmatter' }],
+    ],
+    rehypePlugins: [rehypeHighlight],
+  }),
+]
+```
+
+## Live reloading webserver
+
+Setting up the Esbuild webserver is [explained
+here](https://esbuild.github.io/api/#live-reload). For live reloading a line of
+Javascript must be added to the page template.
+
+Using Javascript the Esbuild webserver is started like this:
+
+```js
+const ctx = await esbuild.context({
+  entryPoints: ['index.js'],
+  format: 'esm',
+  outfile: 'output.js',
+  plugins: [mdx({/** options **/})]
+})
+
+await ctx.watch()
+const { port } = await ctx.serve()
+
+console.log(`Live reload server started at http://localhost:${port}\n`)
+```
+
+
+## JSX Render plugin
+
+All that is left is transforming the generated Javascript bundles to HTML pages.
+More on that in the next post.
+
+<Topic
+  data-variant="card"
+  globals={globals}
+  topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: 'esbuild-as-static-website-generator' })}
+  images={blogImages}
+  swap-image={true}
+/>

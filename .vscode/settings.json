@@ -1,3 +1,11 @@
 {
-  "window.autoDetectColorScheme": true
+  "window.autoDetectColorScheme": true,
+  "cSpell.enableFiletypes": [
+    "mdx"
+  ],
+  "cSpell.words": [
+    "Contentful",
+    "jaccomeijer",
+    "runtimes"
+  ]
 }
