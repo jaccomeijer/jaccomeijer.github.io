@@ -18,7 +18,118 @@ import { globals } from '../../../config/globals.js'
 import { getOpenerTopicByNavigationId } from '../get-opener-topics.js'
 import { blogImages } from '../blog-images.js'
 
-## TBW
+## The code
+
+Here's the full plugin. It's taken from
+[jaccomeijer/render-jsx-plugin-poc](https://github.com/jaccomeijer/render-jsx-plugin-poc),
+a small repo that can be used to see the plugin working.
+
+A more capable version of the plugin is used in the
+[jaccomeijer/green-build](https://github.com/jaccomeijer/green-build)
+repository. That repo has been used to build this site and adds functionality
+like:
+
+- image handling
+- CSS bundling
+- HTML minifying
+- code highlighting
+- page prop with front matter support
+- pages prop for menu building
+- remove the javascript bundle from build
+- use custom urls
+
+```js
+import { writeFile, mkdir } from 'fs/promises'
+import path from 'path'
+import crypto from 'crypto'
+import { render } from 'preact-render-to-string'
+
+const pluginName = 'renderJsxPlugin'
+
+export const renderJsxPlugin = ({ outdir, initialProps }) => {
+  const setup = build => {
+    build.onEnd(async result => {
+      const metafileOutputs = Object.keys(result.metafile.outputs)
+
+      for (const bundlePath of metafileOutputs) {
+        const entryPoint = result.metafile.outputs[bundlePath].entryPoint
+
+        if (!entryPoint) {
+          continue
+        }
+
+        const { dir, name } = path.parse(entryPoint)
+        const strippedDir = dir.replace('src/pages', '')
+        const outputDir = path.join(outdir, strippedDir)
+        const outputPath = path.join(outdir, strippedDir, `${name}.html`)
+
+        const cacheBust = crypto.randomBytes(6).toString('hex')
+        const modulePath = path.resolve(`./${bundlePath}?v=${cacheBust}`)
+        const module = await import(modulePath)
+
+        console.log(`${pluginName}: ${outputPath}`)
+
+        // Check if the default export is a function
+        if (typeof module?.default !== 'function') {
+          continue
+        }
+        const props = Object.assign(initialProps || {})
+        const html = render(module.default(props))
+
+        await mkdir(path.resolve(outputDir), { recursive: true })
+        await writeFile(path.resolve(outputPath), `<!DOCTYPE html>${html}`)
+      }
+    })
+  }
+
+  return { name: pluginName, setup }
+}
+```
+
+## The breakdown
+
+### Metadata
+
+Esbuild provides `onEnd` plugins with build metadata. The plugin starts
+with using `result.metafile` to get all bundle paths.
+
+```js
+  const metafileOutputs = Object.keys(result.metafile.outputs)
+```
+
+### OutputPath
+
+The plugin then loops through every `bundlePath` and derives an output dir and
+path.
+
+```js
+const outputPath = path.join(outdir, strippedDir, `${name}.html`)
+```
+
+### Import bundle
+
+The plugin then imports the JSX bundle created by Esbuild.
+
+```js
+const cacheBust = crypto.randomBytes(6).toString('hex')
+const modulePath = path.resolve(`./${bundlePath}?v=${cacheBust}`)
+const module = await import(modulePath)
+```
+
+### Render to HTML
+
+Now that the module has been imported, 
+
+import { render } from 'preact-render-to-string'
+
+
+```js
+const props = Object.assign(initialProps || {})
+const html = render(module.default(props))
+
+await mkdir(path.resolve(outputDir), { recursive: true })
+await writeFile(path.resolve(outputPath), `<!DOCTYPE html>${html}`)
+```
 
 
 
