@@ -7,7 +7,7 @@ tags: ['blog']
 topics:
   opener:
     heading: Render JSX plugin
-    abstract: Transform Esbuild generated Javascript bundles to HTML pages
+    abstract: Transform Esbuild generated JSX bundles to HTML pages
     icon: message-square
     image: i20240320
 
@@ -20,7 +20,7 @@ import { blogImages } from '../blog-images.js'
 
 ## The code
 
-Here's the full plugin. It's taken from
+Below is the full plugin. It's taken from
 [jaccomeijer/render-jsx-plugin-poc](https://github.com/jaccomeijer/render-jsx-plugin-poc),
 a small repo that can be used to see the plugin working.
 
@@ -35,8 +35,9 @@ like:
 - code highlighting
 - page prop with front matter support
 - pages prop for menu building
-- remove the javascript bundle from build
-- use custom urls
+- cleanup of the javascript bundle on build
+- custom urls
+- index.html for all pages
 
 ```js
 import { writeFile, mkdir } from 'fs/promises'
@@ -88,6 +89,8 @@ export const renderJsxPlugin = ({ outdir, initialProps }) => {
 
 ## The breakdown
 
+The plugin is simple and contains a few distinct steps.
+
 ### Metadata
 
 Esbuild provides `onEnd` plugins with build metadata. The plugin starts
@@ -108,30 +111,67 @@ const outputPath = path.join(outdir, strippedDir, `${name}.html`)
 
 ### Import bundle
 
-The plugin then imports the JSX bundle created by Esbuild.
+Next, the the JSX bundle created by Esbuild is imported. Adding
+`?v=${cacheBust}` to the module path prevents Node from caching the module.
+
 
 ```js
-const cacheBust = crypto.randomBytes(6).toString('hex')
 const modulePath = path.resolve(`./${bundlePath}?v=${cacheBust}`)
 const module = await import(modulePath)
 ```
 
 ### Render to HTML
 
-Now that the module has been imported, 
+The last part of the plugin does the actual rendering.
 
-import { render } from 'preact-render-to-string'
+The imported module contains a JSX function. This JSX function is usually
+rendered with a library that comes with the JSX runtime. In this case, the
+Preact render function from the
+[preact-render-to-string](https://github.com/preactjs/preact-render-to-string)
+package is used.
 
+The JSX function accepts props like any other JSX function. This demo does not
+do much with the `initialProps`, but this is how e.g. global metadata can be
+passed to all pages. The package
+[jaccomeijer/green-build](https://github.com/jaccomeijer/green-build), mentioned
+earlier, uses this concept.
 
 ```js
 const props = Object.assign(initialProps || {})
 const html = render(module.default(props))
+```
 
+All that's left is to write the HTML to a file for the Esbuild webserver to
+render.
+
+```js
 await mkdir(path.resolve(outputDir), { recursive: true })
 await writeFile(path.resolve(outputPath), `<!DOCTYPE html>${html}`)
 ```
 
+## JSX render
 
+JSX here is used as a simple component solution. By wrapping static HTML in a
+function, this function can be reused. Simply by importing the function.
+Function arguments (props) make this concept dynamic.
+
+When JSX is rendered, only the output of the JSX functions remains. This results
+in static HTML.
+
+When Javascript is needed to run with the static HTML, this can be added the
+same way that Javascript is added to any static HTML.
+
+The `declarative shadow dom` now being supported by Mozilla makes that custom
+elements with isolated shadow dom can be generated without the need for
+Javascript to activate the shadow dom.
+
+## Conclusion
+
+A simple extension of Esbuild lays the foundation for a great static site
+generator.
+
+JSX being just functions, they are easily added to NPM modules for distribution
+and reuse. The next post zooms in on this.
 
 <Topic
   data-variant="card"
