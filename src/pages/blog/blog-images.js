@@ -1,39 +1,39 @@
-import agileScrum from './2022-02 - agile-scrum/solen-feyissa-zhmO6rGFlGI-unsplash.jpg'
-import cissp from './2024-03 - owasp-cissp/rianne-zuur-PoxFTU7_QKo-unsplash.jpg'
-import comparingBetweenReactAppNextjsAndGatsby from './2022-05 - comparing-between-react-app-nextjs-and-gatsby/solen-feyissa-mfrDGn5juqs-unsplash.jpg'
-import contentfulNetlifyAndGatsbyFourYearsLater from './2022-01 - contentful-netlify-and-gatsby-four-years-later/sharon-pittaway-4_hFxTsmaO4-unsplash.jpg'
-import contentModelingWithVariants from './2022-03 - content-modeling-with-variants/simon-lee-zft-W1kVEhg-unsplash.jpg'
-import documentation from './2022-03 - documentation/richard-horvath-_nWaeTF6qo0-unsplash.jpg'
-import esbuildAsStaticWebsiteGenerator from './2024-03 - esbuild-as-static-site-generator/jj-ying-7JX0-bfiuxQ-unsplash.jpg'
-import etyAndJsx from './2024-03 - 11ty-and-github-pages/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpg'
-import javascriptHistory from './2022-03 - javascript-history/rianne-zuur-UTZsyY9k5MQ-unsplash.jpg'
-import namingReactComponents from './2022-01 - naming-react-components/oil-ge6fc151db_1920.jpg'
-import npm7AndNpmcliArborist from './2022-06 - npm-7-and-npmcli-arborist/clark-van-der-beken-xApC8DIiD54-unsplash.jpg'
-import onJavascriptTranspilersBundlersAndModules from './2022-03 - on-javascript-transpilers-bundlers-and-modules/ari-spada-wVoMvN5NsU0-unsplash.jpg'
-import reactComponentThemesAndCssVariables from './2022-04 - react-component-themes-and-css-variables/ben-abo-J8GGXy4fY88-unsplash.jpg'
-import typescriptInterfaceForReactUiComponents from './2022-01 - typescript-interface-for-react-ui-components/kai-dahms-97yTozZh7N8-unsplash.jpg'
-import versioningStrategyForNpmModules from './2022-05 - versioning-strategy-for-npm-modules/mae-mu-WqQwOQ9fVj4-unsplash.jpg'
-import whatHappenedToWheelroom from './2022-01 - what-happened-to-wheelroom/daniel-olah-VS_kFx4yF5g-unsplash.jpg'
-import dustinHumes from './2024-03 - jsx-render-plugin/dustin-humes-QvU179UC2Nw-unsplash.jpg'
-import susanWilkinson from './2024-03 - ui-library/susan-wilkinson-IdUBYKOE6q0-unsplash.jpg'
+import i20220117 from './2022-01-17/oil-ge6fc151db_1920.jpg'
+import i20220118 from './2022-01-18/kai-dahms-97yTozZh7N8-unsplash.jpg'
+import i20220119 from './2022-01-19/sharon-pittaway-4_hFxTsmaO4-unsplash.jpg'
+import i20220120 from './2022-01-20/daniel-olah-VS_kFx4yF5g-unsplash.jpg'
+import i20220211 from './2022-02-11/solen-feyissa-zhmO6rGFlGI-unsplash.jpg'
+import i20220310 from './2022-03-10/ari-spada-wVoMvN5NsU0-unsplash.jpg'
+import i20220311 from './2022-03-11/rianne-zuur-UTZsyY9k5MQ-unsplash.jpg'
+import i20220312 from './2022-03-12/richard-horvath-_nWaeTF6qo0-unsplash.jpg'
+import i20220321 from './2022-03-21/simon-lee-zft-W1kVEhg-unsplash.jpg'
+import i20220412 from './2022-04-12/ben-abo-J8GGXy4fY88-unsplash.jpg'
+import i20220510 from './2022-05-10/mae-mu-WqQwOQ9fVj4-unsplash.jpg'
+import i20220512 from './2022-05-12/solen-feyissa-mfrDGn5juqs-unsplash.jpg'
+import i20220630 from './2022-06-30/clark-van-der-beken-xApC8DIiD54-unsplash.jpg'
+import i20240315 from './2024-03-15/rianne-zuur-PoxFTU7_QKo-unsplash.jpg'
+import i20240318 from './2024-03-18/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpg'
+import i20240319 from './2024-03-19/jj-ying-7JX0-bfiuxQ-unsplash.jpg'
+import i20240320 from './2024-03-20/dustin-humes-QvU179UC2Nw-unsplash.jpg'
+import i20240321 from './2024-03-21/susan-wilkinson-IdUBYKOE6q0-unsplash.jpg'
 
 export const blogImages = {
-  agileScrum,
-  cissp,
-  comparingBetweenReactAppNextjsAndGatsby,
-  contentfulNetlifyAndGatsbyFourYearsLater,
-  contentModelingWithVariants,
-  documentation,
-  esbuildAsStaticWebsiteGenerator,
-  etyAndJsx,
-  javascriptHistory,
-  namingReactComponents,
-  npm7AndNpmcliArborist,
-  onJavascriptTranspilersBundlersAndModules,
-  reactComponentThemesAndCssVariables,
-  typescriptInterfaceForReactUiComponents,
-  versioningStrategyForNpmModules,
-  whatHappenedToWheelroom,
-  dustinHumes,
-  susanWilkinson,
+  i20220117,
+  i20220118,
+  i20220119,
+  i20220120,
+  i20220211,
+  i20220310,
+  i20220311,
+  i20220312,
+  i20220321,
+  i20220412,
+  i20220510,
+  i20220512,
+  i20220630,
+  i20240315,
+  i20240318,
+  i20240319,
+  i20240320,
+  i20240321,
 }

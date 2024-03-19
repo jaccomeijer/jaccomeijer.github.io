@@ -1,0 +1,31 @@
+---
+navigation:
+  id: render-jsx-plugin
+  url: /blog/render-jsx-plugin
+date: 2024-03-20
+tags: ['blog']
+topics:
+  opener:
+    heading: Render JSX plugin
+    abstract: Transform Esbuild generated Javascript bundles to HTML pages
+    icon: message-square
+    image: i20240320
+
+---
+export { BlogLayout as default } from '../../../layout/blog-layout.jsx'
+import { Topic, Picture } from '@jaccomeijer/green-lib'
+import { globals } from '../../../config/globals.js'
+import { getOpenerTopicByNavigationId } from '../get-opener-topics.js'
+import { blogImages } from '../blog-images.js'
+
+## TBW
+
+
+
+<Topic
+  data-variant="card"
+  globals={globals}
+  topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: 'ui-library' })}
+  images={blogImages}
+  swap-image={true}
+/>
