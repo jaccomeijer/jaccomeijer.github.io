@@ -21,5 +21,6 @@ export const Head = props => {
     {props.enableReload &&
       <script defer src={assetUrl + esbuildReload} />
     }
+    <script src="https://beamanalytics.b-cdn.net/beam.min.js" data-token="9e4dcc33-86ff-4757-98bd-3c2123df9a4c" async></script>
   </head>)
 }

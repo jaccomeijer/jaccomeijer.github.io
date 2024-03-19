@@ -127,6 +127,19 @@
     a {
       color: var(--color-primary-500);
     }
+    code {
+      color: var(--color-primary-500);
+      font-weight: 500;
+    }
+    blockquote {
+      margin-block-start: var(--font-body-margin-block-start);
+      padding-inline-start: var(--space-2xs-r2);
+      margin-inline-start: 0;
+      border-inline-start: 10px solid var(--color-primary-500);
+      p {
+        margin-block-start: 0;
+      }
+    }
   }
 }
 
