@@ -21,11 +21,7 @@ import { blogImages } from '../blog-images.js'
 ## 11ty and Github pages
 
 The last post summarized how the Contentful-Gatsby-Netlify trio could be
-simplified by using Github pages and 11ty.
-
-The last part of the post explains about MDX, the obvious combination of
-Markdown and JSX. This post continues from there and looks at how 11ty can be
-replaced by the newest Javascript bundler Esbuild.
+simplified by using Github pages and [11ty](https://www.11ty.dev).
 
 <Topic
   data-variant="card"
@@ -34,6 +30,11 @@ replaced by the newest Javascript bundler Esbuild.
   images={blogImages}
   swap-image={true}
 />
+
+This post continues the quest for simplicity from there.
+
+The proposition is, if only [Esbuid](https://esbuild.github.io) can be used to
+generate static HTML, this would be even simpler than using 11ty.
 
 ## Javascript bundler landscape
 
@@ -70,9 +71,9 @@ transforming the final bundle to HTML.
 Setting up `esbuild` and `@mdx-js/esbuild` is straightforward and [clearly
 explained](https://mdxjs.com/packages/esbuild/) on mdxjs.com.
 
-This Esbuild/MDX setup makes Esbuild transform MDX to Javascript bundles. Additional
-functionality can be added by using plugins from the rich MDX ecosystem. The
-example below shows how to add support for: 
+This Esbuild/MDX setup makes Esbuild transform MDX to JSX/Javascript bundles.
+Additional functionality can be added by using plugins from the rich MDX
+ecosystem. The example below shows how to add support for: 
 
 - Front matter (as described in previous post)
 - Code highlighting
@@ -120,11 +121,18 @@ const { port } = await ctx.serve({ servedir: 'build' })
 console.log(`Live reload server started at http://localhost:${port}\n`)
 ```
 
+## Conclusion
+
+Esbuild is a fantastic tool. It is fast, capable and extendable. With
+'something' that renders JSX bundles to static HTML Esbuild could act as a
+simple static site generator.
 
 ## JSX Render plugin
 
-All that is left is transforming the generated Javascript bundles to HTML pages.
-More on that in the next post.
+The 'something' from the last paragraph is described as a 'JSX Render plugin'.
+This plugin must transform generated Javascript bundles to HTML pages.
+
+More on that in the next post!
 
 <Topic
   data-variant="card"

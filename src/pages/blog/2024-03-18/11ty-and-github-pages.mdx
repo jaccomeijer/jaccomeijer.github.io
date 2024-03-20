@@ -19,21 +19,23 @@ import contNetGatImg from './Contentful-Gatsby-Netlify.png'
 import { getOpenerTopicByNavigationId } from '../get-opener-topics.js'
 import { blogImages } from '../blog-images.js'
 
-## History
+## A bit of history
 
 Around 2018 the first projects emerged using
 [Contentful](https://www.contentful.com), [GatsbyJs](https://www.gatsbyjs.com)
 and [Netlify](https://www.netlify.com). This is still is a great setup for
 generating static sites.
 
+<Topic
+  data-variant="card"
+  globals={globals}
+  topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: 'contentful-netlify-and-gatsby' })}
+  images={blogImages}
+  swap-image={true}
+/>
+
 The main drawback? It 's a heavy solution for a simple static site. Mainly
 because it requires three independent services.
-
-<Picture
-  class="s-block-space u-block-space-s"
-  globals={globals}
-  src={ contNetGatImg }
-/>
 
 ## A simpler solution
 
@@ -42,6 +44,12 @@ The Contentful setup requires three services to work together:
 - Contentful
 - Netlify
 - Github
+
+<Picture
+  class="s-block-space u-block-space-s"
+  globals={globals}
+  src={ contNetGatImg }
+/>
 
 Six years later, Netlify grew to be a popular platform for hosting static sites.
 Github pages also grew in popularity. For this specific setup, switching from
@@ -154,9 +162,12 @@ choice.
 
 ## Static site generator for MDX
 
-Reading about MDX a bit more, it seems that using the package `@mdx-js/esbuild`
-with some custom logic could make Esbuild into a simple but powerful static site
-generator. More on this in the next post.
+Diving a bit deeper into MDX, it seems that using
+[@mdx-js/esbuild](https://www.npmjs.com/package/@mdx-js/esbuild) with some
+custom logic could make Esbuild into a simple but powerful static site
+generator.
+
+The quest for simplicity continues in the next post!
 
 <Topic
   data-variant="card"

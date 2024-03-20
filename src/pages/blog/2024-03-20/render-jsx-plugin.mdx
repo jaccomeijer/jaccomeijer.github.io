@@ -18,26 +18,29 @@ import { globals } from '../../../config/globals.js'
 import { getOpenerTopicByNavigationId } from '../get-opener-topics.js'
 import { blogImages } from '../blog-images.js'
 
+## Esbuild as a static site generator for MSX
+
+This post is part of a series that originated with the question "can the
+Contentful-Gatsby-Netlify trio be simplified?".
+
+<Topic
+  data-variant="card"
+  globals={globals}
+  topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: 'esbuild-as-static-website-generator' })}
+  images={blogImages}
+  swap-image={true}
+/>
+
+Using [11ty](https://www.11ty.dev) is part of the positive answer. The last
+post concludes with the need for a 'Render JSX plugin'.
+
+This post starts with the code for such a plugin and describes how it works.
+
 ## The code
 
 Below is the full plugin. It's taken from
 [jaccomeijer/render-jsx-plugin-poc](https://github.com/jaccomeijer/render-jsx-plugin-poc),
 a small repo that can be used to see the plugin working.
-
-A more capable version of the plugin is used in the
-[jaccomeijer/green-build](https://github.com/jaccomeijer/green-build)
-repository. That repo has been used to build this site and adds functionality
-like:
-
-- image handling
-- CSS bundling
-- HTML minifying
-- code highlighting
-- page prop with front matter support
-- pages prop for menu building
-- cleanup of the javascript bundle on build
-- custom urls
-- index.html for all pages
 
 ```js
 import { writeFile, mkdir } from 'fs/promises'
@@ -86,6 +89,24 @@ export const renderJsxPlugin = ({ outdir, initialProps }) => {
   return { name: pluginName, setup }
 }
 ```
+
+## More capable version
+
+A more capable version of the plugin is used in the
+[jaccomeijer/green-build](https://github.com/jaccomeijer/green-build)
+repository. That repo is used to build this site ([repository
+here](https://github.com/jaccomeijer/jaccomeijer.github.io)) and adds
+functionality like:
+
+- image handling
+- CSS bundling
+- HTML minifying
+- code highlighting
+- page prop with front matter support
+- pages prop for menu building
+- cleanup of the javascript bundle on build
+- custom urls
+- index.html for all pages
 
 ## The breakdown
 
