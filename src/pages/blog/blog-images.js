@@ -15,7 +15,7 @@ import i20240315 from './2024-03-15/rianne-zuur-PoxFTU7_QKo-unsplash.jpg'
 import i20240318 from './2024-03-18/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpg'
 import i20240319 from './2024-03-19/jj-ying-7JX0-bfiuxQ-unsplash.jpg'
 import i20240320 from './2024-03-20/dustin-humes-QvU179UC2Nw-unsplash.jpg'
-import i20240321 from './2024-03-21/susan-wilkinson-IdUBYKOE6q0-unsplash.jpg'
+import i20240321 from './2024-03-21/pete-godfrey-bm5JJaicjKg-unsplash.jpg'
 
 export const blogImages = {
   i20220117,
