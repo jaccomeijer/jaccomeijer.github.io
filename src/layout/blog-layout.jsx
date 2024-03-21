@@ -13,7 +13,10 @@ export const BlogLayout = props => {
           globals={globals}
           images={blogImages}
           swap-image={true}
-          topic={addTopicLabels({ topic: props.page.frontmatter.topics.opener, page: props.page })}
+          topic={addTopicLabels({ 
+            topic: { ...props.page.frontmatter.topics.opener, icon: 'message-circle' },
+            page: props.page,
+          })}
         />
       </div>
       <div class="s-wrapper" style="--wrapper-width: 45rem">
