@@ -11,8 +11,8 @@ export const metadata = {
   },
   vendor: {
     heading: 'Made with Green UI Library',
-    icon: 'book-open',
-    url: 'https://jaccomeijer.github.io/green-reference/',
+    icon: 'github',
+    url: 'https://github.com/jaccomeijer/green-lib',
     version,
   },
   content: {
