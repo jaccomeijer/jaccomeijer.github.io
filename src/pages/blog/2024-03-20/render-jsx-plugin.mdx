@@ -7,7 +7,7 @@ tags: ['blog']
 topics:
   opener:
     heading: Render JSX plugin
-    abstract: Transform Esbuild generated JSX bundles to HTML pages
+    abstract: Transform Esbuild generated JSX bundles to HTML pages.
     icon: message-square
     image: i20240320
 
@@ -104,7 +104,7 @@ functionality like:
 - code highlighting
 - page prop with Front Matter support
 - pages prop for menu building
-- cleanup of the javascript bundle on build
+- cleanup of the javascript bundle
 - custom urls
 - index.html for all pages
 
@@ -114,8 +114,9 @@ The plugin is simple and contains a few distinct steps.
 
 ### Metadata
 
-Esbuild provides `onEnd` plugins with build metadata. The plugin starts
-with using `result.metafile` to get all bundle paths.
+[Esbuid](https://esbuild.github.io) provides `onEnd` plugins with build
+metadata. The plugin starts with using `result.metafile` to get all bundle
+paths.
 
 ```js
   const metafileOutputs = Object.keys(result.metafile.outputs)
@@ -162,8 +163,12 @@ const props = Object.assign(initialProps || {})
 const html = render(module.default(props))
 ```
 
-All that's left is to write the HTML to a file for the Esbuild webserver to
+All that's left is writing the HTML to a file for the Esbuild webserver to
 render.
+
+All HTML documents must start with a `<!DOCTYPE>` declaration. This is not a
+tag, but an id to let the browser know what to expect. This declaration is added
+here.
 
 ```js
 await mkdir(path.resolve(outputDir), { recursive: true })
@@ -172,15 +177,15 @@ await writeFile(path.resolve(outputPath), `<!DOCTYPE html>${html}`)
 
 ## JSX render
 
-JSX here is used as a simple component solution. By wrapping static HTML in a
+JSX is used as a simple component solution. By wrapping static HTML in a
 function, this function can be reused. Simply by importing the function.
-Function arguments (props) make this concept dynamic.
+Function arguments, or 'props', make this concept dynamic.
 
 When JSX is rendered, only the output of the JSX functions remains. This results
 in static HTML.
 
-When Javascript is needed to run with the static HTML, this can be added the
-same way that Javascript is added to any static HTML.
+When Javascript is needed to run with the static HTML, it can be added the same
+way that Javascript is added to any static HTML. E.g. using a `<script>` tag.
 
 The `declarative shadow dom` now being supported by Mozilla makes that custom
 elements with isolated shadow dom can be generated without the need for
@@ -192,7 +197,9 @@ A simple extension of Esbuild lays the foundation for a great static site
 generator.
 
 JSX being just functions, they are easily added to NPM modules for distribution
-and reuse. The next post zooms in on this.
+and reuse. MDX always has been a great way to write documentation and stories.
+Combine the two and creating a reusable and documented UI library is simpler
+than ever. The next post zooms in on this.
 
 <Topic
   data-variant="card"

@@ -6,8 +6,8 @@ date: 2024-03-21
 tags: ['blog']
 topics:
   opener:
-    heading: A UI Library
-    abstract: Coming soon!
+    heading: UI Library with MDX documentation
+    abstract: Using the simple Render JSX plugin for Esbuild this post shows how to setup a powerful UI library.
     icon: message-square
     image: i20240321
 
@@ -18,14 +18,141 @@ import { globals } from '../../../config/globals.js'
 import { getOpenerTopicByNavigationId } from '../get-opener-topics.js'
 import { blogImages } from '../blog-images.js'
 
-## Coming soon
+## Render JSX plugin
 
-This blog post is being worked on and coming soon!
+The last post showed a simple plugin for [Esbuid](https://esbuild.github.io).
+
+<Topic
+  data-variant="card"
+  globals={globals}
+  topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: 'render-jsx-plugin' })}
+  images={blogImages}
+  swap-image={true}
+/>
+
+## Green build
+
+Together with a few simple additions that handle Front Matter, CSS and images
+this concept grew into
+[jaccomeijer/green-build](https://github.com/jaccomeijer/green-build).
+
+## Green lib
+
+This post shows how to setup a small UI library that adds documentation by
+writing MDX documents for each item in the library.
+[Source](https://github.com/jaccomeijer/green-lib) is published on Github.
+
+
+The [green reference example site](https://www.jaccomeijer.nl/green-reference/)
+is built with the library to show the capabilities. It simply renders all the
+components.
+
+The MDX documents in the library are [rendered
+here](https://www.jaccomeijer.nl/green-lib/). A simple menu binds the
+documentation together. This works very much like a component storybook.
+
+
+## Fast evolving CSS
+
+This post is part of a series that originated with the question "can the
+Contentful-Gatsby-Netlify trio be simplified?".
+
+The original idea to put this trio together goes back to 2018. Much has happened
+since in the world of CSS.
+
+
+### Clamp
+
+- Type and space scales
+
+Design token scales generated with https://utopia.fyi.
+
+## Design tokens
+
+- https://www.w3.org/community/design-tokens/
+- https://tr.designtokens.org/format/
+
 
 ### Eslint v9
 - Eslint new 'flat config'
 
-### CSS
-- Nested CSS
-- CSS Layers
-- Container queries
+
+### Native Nested CSS
+
+- No more SASS
+
+### Container queries
+
+- No more media queries
+
+### Design tokens
+
+- A good way to setup the defaults
+- Import from Figma, etc.
+
+### CSS Layers
+
+```css
+@import "./css/global/reset.css" layer(reset);
+@import "./css/global/body.css" layer(body);
+@import "./css/global/font.css" layer(font);
+@import "./css/global/markdown.css" layer(markdown);
+@import "./css/highlight/highlight.css" layer(highlight);
+@import "./bundles/css/structures.css" layer(structures);
+@import "./bundles/css/components.css" layer(components);
+@import "./bundles/css/utilities.css" layer(utilities);
+```
+
+- managing specificity
+- mange the cascade
+
+### :is() and :where()
+
+- mange specificity
+- `:is()` -> specificity by the most specific selector in the argument list
+- `:where()` -> does not add specificity, this removes specificity
+
+### @media (prefers-color-scheme: dark)
+
+### Custom properties
+
+### clamp
+
+
+## ITCSS (Inverted Triangle CSS)
+
+- https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+- CSS is designed for exception-based approach
+- Thesis Harry Roberts
+- Specificity is inversely proportional to how many elements they affect.
+
+## Project structure
+
+The project methodology is simple and defines three concepts:
+
+- Utilities
+- Structures
+- Components
+
+### Utilities
+
+- CSS classes
+- Prefixed with `u-`
+- Set something, e.g. a font size or a custom property value
+- Examples: u-font-size-xl, u-gap-xs, u-primary-color-300
+
+### Structures
+
+- CSS classes
+- Prefixed with `s-`
+- Consume utilities
+- Provide structure
+- Examples: s-grid, s-wrapper
+
+### Components
+
+- Provide HTML + styling for a specific conceptual context
+- Do not have a prefix
+- CSS rules start with component class `.component-class`
+- Internal elements, like a button, are also handled as a component
+- Examples: card, action, picture, navigation-header, etc.

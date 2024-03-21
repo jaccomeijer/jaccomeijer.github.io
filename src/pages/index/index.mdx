@@ -7,12 +7,18 @@ topics:
     heading: Jacco Meijer
     abstract: Senior IT consultant specialized in Web applications and cyber security, based in Utrecht, The Netherlands.
     image: topicImage
+  blog:
+    heading: Latest Blog posts
+    abstract: On web applications and cyber security.
+    variant: headline
+
 ---
-export { TextLayout as default } from '../../layout/text-layout.jsx'
-import { Topic } from '@jaccomeijer/green-lib'
+export { WideLayout as default } from '../../layout/wide-layout.jsx'
+import { Topic, TopicList } from '@jaccomeijer/green-lib'
 import topicImage from './face.png'
 import { globals } from '../../config/globals.js'
-import { getOpenerTopicByNavigationId } from '../blog/get-opener-topics.js'
+import { getOpenerTopicByNavigationId, getOpenerTopics } from '../blog/get-opener-topics.js'
+import { blogImages } from '../blog/blog-images.js'
 
 <Topic
   data-variant="profile"
@@ -26,5 +32,14 @@ import { getOpenerTopicByNavigationId } from '../blog/get-opener-topics.js'
 <Topic
   data-variant="profile"
   globals={globals}
-  topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: 'blog' })}
+  images={{topicImage}}
+  topic={frontmatter.topics.blog}
+/>
+
+<TopicList
+  class="s-grid u-grid-three-cols u-gap-m"
+  data-variant="card"
+  globals={globals}
+  images={blogImages}
+  topics={getOpenerTopics({ pages: props.pages, tag: 'blog' }).slice(0,3) }
 />
