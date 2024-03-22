@@ -129,7 +129,7 @@ Javascript to activate the shadow dom.</p>
 <p>This plugin does exactly what Server Side Rendering (SSR) does. The major
 difference with e.g. React SSR is that the build this plugin provides does not
 support a Javascript runtime. It provides a pure static build instead.</p>
-<p>This means that the React API in this code won't work:</p>
+<p>This means that the React API in this code doesn't work:</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> [value, setValue] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>);
 </code></pre>
 <p>To use the React API, the Javascript runtime library of React must be shipped
