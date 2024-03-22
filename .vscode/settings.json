@@ -1,11 +1,13 @@
 {
-  "window.autoDetectColorScheme": true,
   "cSpell.enableFiletypes": [
     "mdx"
   ],
   "cSpell.words": [
     "Contentful",
+    "frontmatter",
+    "ITCSS",
     "jaccomeijer",
+    "Leatherman",
     "runtimes"
   ]
 }

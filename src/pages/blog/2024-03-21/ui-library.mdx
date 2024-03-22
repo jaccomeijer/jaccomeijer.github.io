@@ -191,15 +191,30 @@ this solution is not perfect. As outlined by Zach in the post mentioned above.
 ## Conclusion
 
 Setting up the library was straightforward because of the simplicity and speed
-of the build tool. Having a MDX document right next to the CSS provides for a
-quick way to draft up a component.
+of Esbuild. Having a MDX document right next to the CSS provides for a quick way
+to draft up a component.
 
 CSS Layers are clearly visible in the development tools of a modern browser. A
 huge improvement over guessing the specificity of a selector in the old days.
 
 Declarative Shadow Dom is brand new. Gained support for Firefox Feb 20, 2024.
-With the styling limitations, it works well.
+This brings the advantages of isolating Javascript and styling. Obviously,
+isolation makes sharing styles harder. That's why [CSS Shadow
+Parts](https://www.w3.org/TR/css-shadow-parts-1/) exist.
 
-However in small production use, this library is mainly a Proof Of Concept.
+### Mainstream solutions
 
-But, because of being so simple, it's a lot of fun to work with!
+The library is in experimental use for this site and remains mostly a Proof Of
+Concept. Some of the mainstream alternatives to this library are:
+
+- [11ty with WebC](11ty.dev)
+- [Nextjs with MDX](https://nextjs.org)
+- [Astro with MDX](https://astro.build)
+
+### Green build and lib
+
+Github sources for this library are here. They're small and simple. Easy to
+clone and roll your own!
+
+- [jaccomeijer/green-build](https://github.com/jaccomeijer/green-build)
+- [jaccomeijer/green-lib](https://github.com/jaccomeijer/green-lib).
