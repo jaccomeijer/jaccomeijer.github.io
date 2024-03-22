@@ -120,11 +120,25 @@ function, this function can be reused. Simply by importing the function.
 Function arguments, or 'props', make this concept dynamic.</p>
 <p>When JSX is rendered, only the output of the JSX functions remains. This results
 in static HTML.</p>
-<p>When Javascript is needed to run with the static HTML, it can be added the same
-way that Javascript is added to any static HTML. E.g. using a <code>&lt;script></code> tag.</p>
+<p>When client side Javascript is needed, it can be added the same way that
+Javascript is added to any static HTML. E.g. using a <code>&lt;script></code> tag.</p>
 <p>The <code>declarative shadow dom</code> now being supported by Mozilla makes that custom
 elements with isolated shadow dom can be generated without the need for
 Javascript to activate the shadow dom.</p>
+<h2>Server Side Rendering</h2>
+<p>This plugin does exactly what Server Side Rendering (SSR) does. The major
+difference with e.g. React SSR is that the build this plugin provides does not
+support a Javascript runtime. It provides a pure static build instead.</p>
+<p>This means that the React API in this code won't work:</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> [value, setValue] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>);
+</code></pre>
+<p>To use the React API, the Javascript runtime library of React must be shipped
+with the static code. Besides that, once the code is loaded by the client
+browser, event handlers need to be attached to the static elements. This process
+is known as 'Hydration'.</p>
+<p>This not not mean that client side Javascript cannot be used with a static
+render. The UI library in the next post defines two Custom Elements that depend
+on client side Javascript.</p>
 <h2>Conclusion</h2>
 <p>A simple extension of Esbuild lays the foundation for a great static site
 generator.</p>
