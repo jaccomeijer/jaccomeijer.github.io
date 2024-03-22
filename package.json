@@ -37,7 +37,7 @@
   "license": "MIT",
   "devDependencies": {
     "@jaccomeijer/green-build": "1.2.1",
-    "@jaccomeijer/green-lib": "3.4.1",
+    "@jaccomeijer/green-lib": "3.5.0",
     "design-tokens-cli": "0.0.6",
     "eslint": "8.57.0",
     "eslint-config-eslint": "9.0.0",
