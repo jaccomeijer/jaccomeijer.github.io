@@ -26,6 +26,7 @@ export const BlogLayout = props => {
       </div>
       <div class="s-wrapper markdown">
         <hr />
+        <h2>Other posts</h2>
         <TopicList
           class="s-grid u-grid-three-cols u-gap-m"
           data-variant="card"
