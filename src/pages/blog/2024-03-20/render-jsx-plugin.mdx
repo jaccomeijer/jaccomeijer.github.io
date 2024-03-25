@@ -189,10 +189,10 @@ await writeFile(path.resolve(outputPath), `<!DOCTYPE html>${html}`)
 
 ## JSX
 
-The plugin above uses Preact to transform JSX into static HTML. Because the
-Factory functions are added when bundling and removed again when rendering.
-Theoretically, the JSX framework should not affect the final result. In
-practice, there's some differences.
+The plugin above uses Preact to transform JSX into static HTML. Theoretically,
+the JSX framework should not affect the final result because Factory functions
+are added when bundling and removed again when rendering. In practice, there's
+some differences in consistency, speed and syntax conventions.
 
 ### Jeasx
 

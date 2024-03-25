@@ -124,10 +124,10 @@ here.</p>
 <span class="hljs-keyword">await</span> <span class="hljs-title function_">writeFile</span>(path.<span class="hljs-title function_">resolve</span>(outputPath), <span class="hljs-string">`&lt;!DOCTYPE html&gt;<span class="hljs-subst">${html}</span>`</span>)
 </code></pre>
 <h2>JSX</h2>
-<p>The plugin above uses Preact to transform JSX into static HTML. Because the
-Factory functions are added when bundling and removed again when rendering.
-Theoretically, the JSX framework should not affect the final result. In
-practice, there&#x27;s some differences.</p>
+<p>The plugin above uses Preact to transform JSX into static HTML. Theoretically,
+the JSX framework should not affect the final result because Factory functions
+are added when bundling and removed again when rendering. In practice, there&#x27;s
+some differences in consistency, speed and syntax conventions.</p>
 <h3>Jeasx</h3>
 <p>The <a href="https://github.com/jeasx/jsx-async-runtime">jsx-async-runtime</a> package
 contains a very simple and lightweight JSX runtime. It also contains the
