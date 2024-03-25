@@ -223,6 +223,11 @@ Version 2 of the build package switched to React because of compatibility.
 Creating e.g. a UI library makes the library compatible with frameworks like
 [Astro](https://astro.build).
 
+Gaining React compatibility came with the cost of speed. The React Factory is
+noticeably slower than the other two. Also, creating a React bundle shows all
+the warnings that come with React's conventions. CamelCase attributes and `key`
+attribute requirements for example.
+
 The [react-dom/server](https://react.dev/reference/react-dom/server) package
 contains two **deprecated** functions:
 
@@ -235,6 +240,14 @@ The newer ones are:
 - `renderToStaticNodeStream`
 
 Of which the Static variants are the most useful here.
+
+### Speed and other JSX Factories
+
+As noted above, React is the slowest of the JSX Factories. For this plugin,
+three JSX Factories have been tried, but many other frameworks with JSX-alike
+syntax exist. To mention a few, [Million](https://million.dev),
+[SolidJs](https://www.solidjs.com) adn [Svelte](https://svelte.dev). All of them
+possibly expose separate static render functionality.
 
 ## Adding Javascript
 
@@ -274,13 +287,13 @@ on client side Javascript.
 
 ## Conclusion
 
-A simple extension of Esbuild lays the foundation for a great static site
+A simple extension of Esbuild lays the foundation for a fast static site
 generator.
 
 JSX being just functions, they are easily added to NPM modules for distribution
 and reuse. MDX is an efficient way to write documentation and stories. Combine
-the two and creating a reusable and documented UI library is simpler than ever.
-The next post zooms in on this.
+the two and creating a reusable and documented UI library is simple. The next
+post zooms in on this.
 
 <Topic
   variant="card"
