@@ -25,6 +25,12 @@ import { blogImages } from '../blog-images.js'
 
 The last post showed a simple plugin for [Esbuild](https://esbuild.github.io).
 
+## Green build
+
+Together with a few simple additions that handle Front Matter, CSS and images
+this concept grew into
+[jaccomeijer/green-build](https://github.com/jaccomeijer/green-build).
+
 <Topic
   variant="card"
   globals={globals}
@@ -32,12 +38,6 @@ The last post showed a simple plugin for [Esbuild](https://esbuild.github.io).
   images={blogImages}
   swap-image={true}
 />
-
-## Green build
-
-Together with a few simple additions that handle Front Matter, CSS and images
-this concept grew into
-[jaccomeijer/green-build](https://github.com/jaccomeijer/green-build).
 
 ## Green lib
 
@@ -105,7 +105,7 @@ great way to manage the cascade. No need for the `!important` rule anymore!
 
 A concise way of writing rules and more control over specificity:
 
-- `:is(list)` → specificity is set to the most specific selector in the argument list
+- `:is(list)` → specificity is set to the most specific selector in the list
 - `:where(list)` → removes specificity for all selectors in the list
 
 ### Clamp
@@ -178,7 +178,6 @@ Javascript to function.
 This works well, but
 faces all the problems of styling Custom Elements.
 
-
 > NOTE: Zach Leatherman, author of 11ty, wrote [a great
   post](https://www.zachleat.com/web/styling-web-components/) on the modern
   issues of styling Custom Elements.
@@ -192,38 +191,37 @@ this solution is not perfect. As outlined by Zach in the post mentioned above.
 
 Setting up the library was straightforward because of the simplicity and speed
 of Esbuild. Having a MDX document right next to the CSS provides for a quick way
-to draft up a component.
+to draft up a component. It's like developing a library with a Storybook
+built-in.
 
 CSS Layers are clearly visible in the development tools of a modern browser. A
 huge improvement over guessing the specificity of a selector in the old days.
 
 Declarative Shadow Dom is brand new. Gained support for Firefox Feb 20, 2024.
 This brings the advantages of isolating Javascript and styling. Obviously,
-isolation makes sharing styles harder. That's why [CSS Shadow
-Parts](https://www.w3.org/TR/css-shadow-parts-1/) exist.
+isolation makes [sharing styles](https://www.w3.org/TR/css-shadow-parts-1/)
+harder.
 
-### No build required
+### React build
 
-The library does not have a build step. To publish the documentation, the MDX
-documents have to be rendered. Publishing to the package repository simply
-copies all `.jsx` and `.css`.
+Version 3 of the library did not bundle the JSX components. Version 4 added a
+React bundle.
 
-### Use with Astro
+The import below imports from the source jsx files.
 
-[Astro](https://astro.build) components are **HTML-only components with no
-client-side runtime**. This library was designed to provide exactly that but
-requires the framework to transform the `.jsx` into HTML.
+```js
+import { Topic } from '@jaccomeijer/green-lib'
+```
 
-For Astro this can be achieved by using the components in `MDX` documents.
+While this import uses the React bundle.
 
-### Use with React
+```js
+import { Topic } from '@jaccomeijer/green-lib/react'
+```
 
-Using the library with React requires some work. A quick test learns that the
-`.jsx` files exported from the library must be bundled first.
-
-Once bundled using the components shows warnings because of React conventions
-like missing `key` attributes and `class` attributes that should be named
-`className`. Nevertheless, the component renders properly.
+Using the first import, a bundle could be created for e.g. Preact or another JSX
+Factory. The second is useful for frameworks like [NextJs](https://nextjs.org)
+and [Astro](https://astro.build).
 
 ### Green build and lib
 

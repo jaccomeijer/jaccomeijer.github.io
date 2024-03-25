@@ -38,7 +38,8 @@ because it requires three independent services.
 
 ## A simpler solution
 
-The Contentful setup requires three services to work together:
+Besides the GatsbyJs framework, the Contentful setup requires three services to
+work together:
 
 - Contentful
 - Netlify
@@ -139,19 +140,6 @@ very well possible. Paul Everitt, the PyCharm/WebStorm Developer Advocate at
 JetBrains, created a JSX setup with Typescript:
 
 - https://github.com/pauleveritt/eleventy-tsx
-
-## JSX
-
-Using JSX or MDX requires a JSX runtime. Many simple and lightweight JSX
-runtimes like [jeax](https://www.jeasx.dev) exist. It is not needed to import
-the full React library.
-
-There's some drawbacks to using the most simple runtimes. Pre code blocks for
-example are not always rendered consistently.
-
-The
-[preact-render-to-string](https://www.npmjs.com/package/preact-render-to-string)
-NPM package seems a good balance between lightweight and consistent rendering.
 
 ## Conclusion
 

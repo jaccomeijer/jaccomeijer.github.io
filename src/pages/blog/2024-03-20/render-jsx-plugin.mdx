@@ -106,6 +106,7 @@ functionality like:
 - cleanup of the javascript bundle
 - custom urls
 - index.html for all pages
+- uses React JSX runtime instead or Preact 
 
 ## The breakdown
 
@@ -135,7 +136,6 @@ const outputPath = path.join(outdir, strippedDir, `${name}.html`)
 Next, the the JSX bundle created by Esbuild is imported. Adding
 `?v=${cacheBust}` to the module path prevents Node from caching the module.
 
-
 ```js
 const modulePath = path.resolve(`./${bundlePath}?v=${cacheBust}`)
 const module = await import(modulePath)
@@ -143,17 +143,28 @@ const module = await import(modulePath)
 
 ### Render to HTML
 
-The last part of the plugin does the actual rendering.
+The last part of the plugin does the actual rendering. The plugin imports the
+`render` function from Preact.
 
-The imported module contains a JSX function. This JSX function is usually
-rendered with a library that comes with the JSX runtime. In this case, the
-Preact render function from the
-[preact-render-to-string](https://github.com/preactjs/preact-render-to-string)
-package is used.
+```js
+import { render } from 'preact-render-to-string'
+```
 
-The JSX function accepts props like any other JSX function. This demo does not
-do much with the `initialProps`, but this is how e.g. global metadata can be
-passed to all pages. The package
+This means that the plugin works with bundles that have the Preact JSX Factory.
+This Factory is the function that is called for every JSX element. For Esbuild,
+these are the build options to build with the Preact Factory:
+
+```js
+{
+  jsx: 'automatic',
+  jsxImportSource: 'preact',
+  ...
+}
+```
+
+The imported bundle contains a JSX component that accepts props like any other
+JSX function. This demo does not do much with the `initialProps`, but this is
+how e.g. global metadata can be passed to all pages. The package
 [jaccomeijer/green-build](https://github.com/jaccomeijer/green-build), mentioned
 earlier, uses this concept.
 
@@ -162,8 +173,10 @@ const props = Object.assign(initialProps || {})
 const html = render(module.default(props))
 ```
 
-All that's left is writing the HTML to a file for the Esbuild webserver to
-render.
+### Write to file
+
+With the static HTML, all that's left is writing the HTML to a file for the
+Esbuild webserver to render.
 
 All HTML documents must start with a `<!DOCTYPE>` declaration. This is not a
 tag, but an id to let the browser know what to expect. This declaration is added
@@ -174,7 +187,56 @@ await mkdir(path.resolve(outputDir), { recursive: true })
 await writeFile(path.resolve(outputPath), `<!DOCTYPE html>${html}`)
 ```
 
-## JSX render
+## JSX
+
+The plugin above uses Preact to transform JSX into static HTML. Because the
+Factory functions are added when bundling and removed again when rendering.
+Theoretically, the JSX framework should not affect the final result. In
+practice, there's some differences.
+
+### Jeasx
+
+The [jsx-async-runtime](https://github.com/jeasx/jsx-async-runtime) package
+contains a very simple and lightweight JSX runtime. It also contains the
+`renderToString` function.
+
+This is a very simple runtime which makes it very fast. Drawback is that spaces
+in `pre` and `code` elements are not maintained properly which makes the render
+unusable for code blocks.
+
+### Preact
+
+The
+[preact-render-to-string](https://github.com/preactjs/preact-render-to-string)
+package provides a `render` function that renders consistently to static HTML.
+
+The package does not warn about React conventions like the need for `key`
+attributes and is a lot faster than React's `renderToStaticMarkup`.
+
+### React
+
+The first version of the
+[jaccomeijer/green-build](https://github.com/jaccomeijer/green-build) package
+created bundles with Preact settings.
+
+Version 2 of the build package switched to React because of compatibility.
+Creating e.g. a UI library makes the library compatible with frameworks like
+[Astro](https://astro.build).
+
+The [react-dom/server](https://react.dev/reference/react-dom/server) package
+contains two **deprecated** functions:
+
+- `renderToString` → renders to a string that can be hydrated
+- `renderToStaticMarkup` → renders a non-interactive string
+
+The newer ones are:
+
+- `renderToPipeableStream`
+- `renderToStaticNodeStream`
+
+Of which the Static variants are the most useful here.
+
+## Adding Javascript
 
 JSX is used as a simple component solution. By wrapping static HTML in a
 function, this function can be reused. Simply by importing the function.
@@ -216,9 +278,9 @@ A simple extension of Esbuild lays the foundation for a great static site
 generator.
 
 JSX being just functions, they are easily added to NPM modules for distribution
-and reuse. MDX always has been a great way to write documentation and stories.
-Combine the two and creating a reusable and documented UI library is simpler
-than ever. The next post zooms in on this.
+and reuse. MDX is an efficient way to write documentation and stories. Combine
+the two and creating a reusable and documented UI library is simpler than ever.
+The next post zooms in on this.
 
 <Topic
   variant="card"

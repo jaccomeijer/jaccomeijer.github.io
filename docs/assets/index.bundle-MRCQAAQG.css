@@ -554,7 +554,7 @@
         }
       }
       .topic-icon {
-        font-size: var(--font-size-5);
+        font-size: var(--font-size-4);
       }
       .topic-heading.display {
         font-size: var(--font-size-4);
@@ -585,6 +585,11 @@
       flex: 1;
     }
   }
+  :is(a, a:visited):has(> .topic-card) {
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+  }
 }
 
 /* node_modules/@jaccomeijer/green-lib/components/topic/topic.css */
@@ -614,7 +619,7 @@
       gap: var(--space-xs);
       height: 100%;
       .topic-icon {
-        font-size: var(--font-size-4);
+        font-size: var(--font-size-3);
         color: var(--color-primary-400);
       }
       .topic-labels {
@@ -743,6 +748,7 @@
       @container (min-width: 45rem) {
         & {
           aspect-ratio: 15/7;
+          min-height: 38rem;
         }
       }
     }
@@ -755,13 +761,13 @@
       position: absolute;
       top: 0;
       width: 100%;
-      .topic-icon {
-        font-size: var(--font-size-5);
-      }
       .topic-labels {
         font-size: var(--font-size-1);
         font-weight: var(--font-body-weight-bold);
         justify-content: center;
+      }
+      .topic-icon {
+        font-size: var(--font-size-5);
       }
       .topic-heading.display {
         font-size: var(--font-size-5);
@@ -1142,6 +1148,37 @@
     font: inherit;
     line-height: 1;
     padding: 0.9cap 1.5cap;
+    text-decoration: none;
+    user-select: none;
+    &:focus,
+    &:active {
+      box-shadow: 0 0 0.5rem var(--color-primary-200);
+    }
+    &:hover {
+      transition: 0.35s;
+      filter: brightness(70%);
+    }
+    &[variant=outline] {
+      background-color: transparent;
+      color: var(--button-primary-color);
+    }
+    &[variant=stretch] {
+      width: 100%;
+    }
+  }
+}
+
+/* node_modules/@jaccomeijer/green-lib/components/fat-link.css */
+@layer components {
+  :is(a, a:visited, div).fat-link {
+    background-color: var(--button-primary-color);
+    border: 1px solid var(--button-primary-color);
+    color: var(--button-primary-contrast-color);
+    cursor: pointer;
+    font: inherit;
+    line-height: 1;
+    padding: 0.9cap 1.5cap;
+    text-align: center;
     text-decoration: none;
     user-select: none;
     &:focus,
