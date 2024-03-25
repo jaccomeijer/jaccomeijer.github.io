@@ -16,9 +16,9 @@ import { globals } from '../../config/globals.js'
 import { blogImages } from './blog-images.js'
 import { Topic, TopicList } from '@jaccomeijer/green-lib'
 
-<div class="s-popout">
+<div className="s-popout">
   <Topic
-    data-variant="headline"
+    variant="headline"
     globals={globals}
     topic={frontmatter.topics.opener}
   />
@@ -27,8 +27,8 @@ import { Topic, TopicList } from '@jaccomeijer/green-lib'
 ---
 
 <TopicList
-  class="s-grid u-grid-three-cols u-gap-m"
-  data-variant="card"
+  className="s-grid u-grid-three-cols u-gap-m"
+  variant="card"
   globals={globals}
   images={blogImages}
   topics={getOpenerTopics({ pages: props.pages, tag: 'blog' })}

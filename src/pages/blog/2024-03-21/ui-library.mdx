@@ -26,7 +26,7 @@ import { blogImages } from '../blog-images.js'
 The last post showed a simple plugin for [Esbuild](https://esbuild.github.io).
 
 <Topic
-  data-variant="card"
+  variant="card"
   globals={globals}
   topic={getOpenerTopicByNavigationId({ pages: props.pages, navigationId: 'render-jsx-plugin' })}
   images={blogImages}
@@ -71,7 +71,7 @@ This challenge resulted in theories like the [Inverted Triangle
 CSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/).
 
 <Topic
-  data-variant="quote"
+  variant="quote"
   globals={globals}
   topic={frontmatter.topics.itcss}
 />
@@ -202,25 +202,28 @@ This brings the advantages of isolating Javascript and styling. Obviously,
 isolation makes sharing styles harder. That's why [CSS Shadow
 Parts](https://www.w3.org/TR/css-shadow-parts-1/) exist.
 
-### Use wit JSX based frameworks
+### No build required
 
-The [green-build](https://github.com/jaccomeijer/green-build) package is an
-excremental Proof Of Concept. It is used to build this this site and it was used
-to create the UI library.
+The library does not have a build step. To publish the documentation, the MDX
+documents have to be rendered. Publishing to the package repository simply
+copies all `.jsx` and `.css`.
 
-Using the UI library with a JSX based framework requires some work. A quick test
-with [Astro](https://astro.build) learns that the `*.jsx` files exported from
-the library must be bundled first.
+### Use with Astro
 
-Once bundled the dev server shows warnings because of React conventions like
-`key` attributes and `class` attributes that should be named into `className`.
-Nevertheless, the component renders properly.
+[Astro](https://astro.build) components are **HTML-only components with no
+client-side runtime**. This library was designed to provide exactly that but
+requires the framework to transform the `.jsx` into HTML.
 
-### Future
+For Astro this can be achieved by using the components in `MDX` documents.
 
-A future version of the library might become fully React compatible. That way,
-the library could be used for simple static websites, as well as for more
-advanced React applications.
+### Use with React
+
+Using the library with React requires some work. A quick test learns that the
+`.jsx` files exported from the library must be bundled first.
+
+Once bundled using the components shows warnings because of React conventions
+like missing `key` attributes and `class` attributes that should be named
+`className`. Nevertheless, the component renders properly.
 
 ### Green build and lib
 

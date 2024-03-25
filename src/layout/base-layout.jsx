@@ -20,9 +20,9 @@ export const BaseLayout = props => {
         page={props.page}
       />
       <body>
-        <a class="skip-link" href="#main-content">Skip to content</a>
-        <header role="banner" class="site-header s-wrapper">
-          <div class="s-block-space u-block-space-xs u-border-bottom">
+        <a className="skip-link" href="#main-content">Skip to content</a>
+        <header role="banner" className="site-header s-wrapper">
+          <div className="s-block-space u-block-space-xs u-border-bottom">
             <NavigationHeader
               callActions={globals.actions.call}
               globals={globals}
@@ -31,11 +31,11 @@ export const BaseLayout = props => {
             />
           </div>
         </header>
-        <main tabindex="-1" id="main-content">
+        <main tabIndex="-1" id="main-content">
           {props.children}
         </main>
-        <footer class="site-footer s-wrapper">
-          <div class="s-block-space u-block-space-2xs u-border-top">
+        <footer className="site-footer s-wrapper">
+          <div className="s-block-space u-block-space-2xs u-border-top">
             <NavigationFooter
               globals={globals}
               pageUrl={props.page.url}
@@ -43,7 +43,7 @@ export const BaseLayout = props => {
               socialActions={globals.actions.social}
             />
           </div>
-          <div class="s-block-space u-block-space-2xs u-border-top">
+          <div className="s-block-space u-block-space-2xs u-border-top">
             <NavigationLegal
               globals={globals}
             />

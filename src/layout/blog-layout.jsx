@@ -7,9 +7,9 @@ import { BaseLayout } from './base-layout.jsx'
 export const BlogLayout = props => {
   return (
     <BaseLayout {...props}>
-      <div class="markdown">
+      <div className="markdown">
         <Topic
-          data-variant="headline"
+          variant="headline"
           globals={globals}
           images={blogImages}
           swap-image={true}
@@ -19,17 +19,17 @@ export const BlogLayout = props => {
           })}
         />
       </div>
-      <div class="s-wrapper" style="--wrapper-width: 45rem">
-        <article class="markdown s-flex-column u-gap-0">
+      <div className="s-wrapper" style={{ '--wrapper-width': '45rem' }}>
+        <article className="markdown s-flex-column u-gap-0">
           {props.children}
         </article>
       </div>
-      <div class="s-wrapper markdown">
+      <div className="s-wrapper markdown">
         <hr />
         <h2>Other posts</h2>
         <TopicList
-          class="s-grid u-grid-three-cols u-gap-m"
-          data-variant="card"
+          className="s-grid u-grid-three-cols u-gap-m"
+          variant="card"
           globals={globals}
           images={blogImages}
           topics={getOpenerTopics({ pages: props.pages, tag: 'blog' })}

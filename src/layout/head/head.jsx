@@ -7,17 +7,20 @@ export const Head = props => {
   const assetUrl = props.globals.baseUrl + props.globals.assetUrl
   const stylesheets = [localCss, indexCss]
   const heading = frontmatter.navigation?.heading
+  let title = props.globals.metadata.branding.heading
+
+  title = heading ? `${title} - ${heading}` : title
 
   return (<head>
-    <meta charset="utf-8" />
+    <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{props.globals.metadata.branding.heading}{heading && (' - ' + heading)}</title>
+    <title>{title}</title>
     <meta name="description" content={frontmatter.description || props.globals.metadata.branding.description} />
     <meta name="generator" content={props.globals.metadata.content.generator} />
 
     <link rel="icon" type="image/x-icon" href={assetUrl + props.favicon} />
-    {stylesheets.map(stylesheet =>
-      <link rel="stylesheet" type="text/css" href={assetUrl + stylesheet} />)}
+    {stylesheets.map((stylesheet, index) =>
+      <link key={index} rel="stylesheet" type="text/css" href={assetUrl + stylesheet} />)}
     {props.enableReload &&
       <script defer src={assetUrl + esbuildReload} />
     }

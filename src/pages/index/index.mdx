@@ -21,7 +21,7 @@ import { getOpenerTopicByNavigationId, getOpenerTopics } from '../blog/get-opene
 import { blogImages } from '../blog/blog-images.js'
 
 <Topic
-  data-variant="profile"
+  variant="profile"
   globals={globals}
   images={{topicImage}}
   topic={frontmatter.topics.opener}
@@ -31,15 +31,15 @@ import { blogImages } from '../blog/blog-images.js'
 ---
 
 <Topic
-  data-variant="profile"
+  variant="profile"
   globals={globals}
   images={{topicImage}}
   topic={frontmatter.topics.blog}
 />
 
 <TopicList
-  class="s-grid u-grid-three-cols u-gap-m"
-  data-variant="card"
+  className="s-grid u-grid-three-cols u-gap-m"
+  variant="card"
   globals={globals}
   images={blogImages}
   topics={getOpenerTopics({ pages: props.pages, tag: 'blog' }).slice(0,3) }
