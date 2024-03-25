@@ -153,17 +153,12 @@ noticeably slower than the other two. Also, creating a React bundle shows all
 the warnings that come with React&#x27;s conventions. CamelCase attributes and <code>key</code>
 attribute requirements for example.</p>
 <p>The <a href="https://react.dev/reference/react-dom/server">react-dom/server</a> package
-contains two <strong>deprecated</strong> functions:</p>
+contains two functions:</p>
 <ul>
 <li><code>renderToString</code> → renders to a string that can be hydrated</li>
 <li><code>renderToStaticMarkup</code> → renders a non-interactive string</li>
 </ul>
-<p>The newer ones are:</p>
-<ul>
-<li><code>renderToPipeableStream</code></li>
-<li><code>renderToStaticNodeStream</code></li>
-</ul>
-<p>Of which the Static variants are the most useful here.</p>
+<p>Of which the Static variant is the most useful here.</p>
 <h3>Speed and other JSX Factories</h3>
 <p>As noted above, React is the slowest of the JSX Factories. For this plugin,
 three JSX Factories have been tried, but many other frameworks with JSX-alike
