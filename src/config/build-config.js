@@ -1,6 +1,10 @@
 const buildEnv = {
   outdir: 'docs',
   serve: false,
+  createSitemap: {
+    baseUrl: 'https://www.jaccomeijer.nl',
+    sitemapPath: 'docs/sitemap.xml',
+  },
 }
 
 const serveEnv = {
