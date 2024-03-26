@@ -3,6 +3,7 @@ navigation:
   id: ui-library
   url: /blog/ui-library
 date: 2024-03-21
+lastmod: 2024-03-26
 tags: ['blog']
 topics:
   opener:
@@ -186,23 +187,20 @@ The library produces one CSS bundle which can be reused in the Custom Element.
 Because the browser caches the bundle, it won't go over the line twice. Still,
 this solution is not perfect. As outlined by Zach in the post mentioned above.
 
+### Declarative Shadow Dom
 
-## Conclusion
+Since Feb 20, 2024 all major browsers support 'Declarative Shadow Dom'. The
+declarative part means that 'Shadow Dom' can be enabled without Javascript:
 
-Setting up the library was straightforward because of the simplicity and speed
-of Esbuild. Having a MDX document right next to the CSS provides for a quick way
-to draft up a component. It's like developing a library with a Storybook
-built-in.
+```html
+<template shadowrootmode="open">
+```
 
-CSS Layers are clearly visible in the development tools of a modern browser. A
-huge improvement over guessing the specificity of a selector in the old days.
-
-Declarative Shadow Dom is brand new. Gained support for Firefox Feb 20, 2024.
 This brings the advantages of isolating Javascript and styling. Obviously,
 isolation makes [sharing styles](https://www.w3.org/TR/css-shadow-parts-1/)
 harder.
 
-### React build
+## React build
 
 Version 3 of the library did not bundle the JSX components. Version 4 added a
 React bundle.
@@ -222,6 +220,21 @@ import { Topic } from '@jaccomeijer/green-lib/react'
 Using the first import, a bundle could be created for e.g. Preact or another JSX
 Factory. The second is useful for frameworks like [NextJs](https://nextjs.org)
 and [Astro](https://astro.build).
+
+## Conclusion
+
+Setting up the library was straightforward because of the simplicity and speed
+of Esbuild. Having a MDX document right next to the CSS provides for a quick way
+to draft up a component. It's like developing a library with a Storybook
+built-in.
+
+Adding a React bundle to the library made it more universal. The library can now
+be used in React projects and MDX environments.
+
+Nested CSS, Container queries, CSS Layers, etc., the list of CSS improvement in
+the last size years is long. This improves the Developer Experience. CSS Layers
+for example, are clearly visible in the development tools of a modern browser. A
+huge improvement over guessing the specificity of a selector in the old days.
 
 ### Green build and lib
 

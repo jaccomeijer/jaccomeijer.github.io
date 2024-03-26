@@ -106,18 +106,15 @@ issues of styling Custom Elements.</p>
 <p>The library produces one CSS bundle which can be reused in the Custom Element.
 Because the browser caches the bundle, it won&#x27;t go over the line twice. Still,
 this solution is not perfect. As outlined by Zach in the post mentioned above.</p>
-<h2>Conclusion</h2>
-<p>Setting up the library was straightforward because of the simplicity and speed
-of Esbuild. Having a MDX document right next to the CSS provides for a quick way
-to draft up a component. It&#x27;s like developing a library with a Storybook
-built-in.</p>
-<p>CSS Layers are clearly visible in the development tools of a modern browser. A
-huge improvement over guessing the specificity of a selector in the old days.</p>
-<p>Declarative Shadow Dom is brand new. Gained support for Firefox Feb 20, 2024.
-This brings the advantages of isolating Javascript and styling. Obviously,
+<h3>Declarative Shadow Dom</h3>
+<p>Since Feb 20, 2024 all major browsers support &#x27;Declarative Shadow Dom&#x27;. The
+declarative part means that &#x27;Shadow Dom&#x27; can be enabled without Javascript:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">shadowrootmode</span>=<span class="hljs-string">&quot;open&quot;</span>&gt;</span>
+</code></pre>
+<p>This brings the advantages of isolating Javascript and styling. Obviously,
 isolation makes <a href="https://www.w3.org/TR/css-shadow-parts-1/">sharing styles</a>
 harder.</p>
-<h3>React build</h3>
+<h2>React build</h2>
 <p>Version 3 of the library did not bundle the JSX components. Version 4 added a
 React bundle.</p>
 <p>The import below imports from the source jsx files.</p>
@@ -129,6 +126,17 @@ React bundle.</p>
 <p>Using the first import, a bundle could be created for e.g. Preact or another JSX
 Factory. The second is useful for frameworks like <a href="https://nextjs.org">NextJs</a>
 and <a href="https://astro.build">Astro</a>.</p>
+<h2>Conclusion</h2>
+<p>Setting up the library was straightforward because of the simplicity and speed
+of Esbuild. Having a MDX document right next to the CSS provides for a quick way
+to draft up a component. It&#x27;s like developing a library with a Storybook
+built-in.</p>
+<p>Adding a React bundle to the library made it more universal. The library can now
+be used in React projects and MDX environments.</p>
+<p>Nested CSS, Container queries, CSS Layers, etc., the list of CSS improvement in
+the last size years is long. This improves the Developer Experience. CSS Layers
+for example, are clearly visible in the development tools of a modern browser. A
+huge improvement over guessing the specificity of a selector in the old days.</p>
 <h3>Green build and lib</h3>
 <p>Below are the links to the Github repositories. They&#x27;re small and simple. Easy
 to clone and roll your own!</p>

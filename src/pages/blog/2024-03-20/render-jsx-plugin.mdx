@@ -3,6 +3,7 @@ navigation:
   id: render-jsx-plugin
   url: /blog/render-jsx-plugin
 date: 2024-03-20
+lastmod: 2024-03-26
 tags: ['blog']
 topics:
   opener:
@@ -256,9 +257,14 @@ in static HTML.
 When client side Javascript is needed, it can be added the same way that
 Javascript is added to any static HTML. E.g. using a `<script>` tag.
 
-The `declarative shadow dom` now being supported by Mozilla makes that custom
-elements with isolated shadow dom can be generated without the need for
-Javascript to activate the shadow dom.
+### Shadow DOM without Javascript
+
+Since Feb 20, 2024 all major browsers support 'Declarative Shadow Dom'. The
+declarative part means that 'Shadow Dom' can be enabled without Javascript:
+
+```html
+<template shadowrootmode="open">
+```
 
 ## Server Side Rendering
 
