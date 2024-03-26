@@ -127,6 +127,9 @@
     a {
       color: var(--color-primary-500);
     }
+    a > .topic-card {
+      color: var(--color-mono-500);
+    }
     code {
       color: var(--color-primary-500);
       font-weight: 500;
