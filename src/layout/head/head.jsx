@@ -6,7 +6,7 @@ export const Head = props => {
   const frontmatter = props.page.frontmatter
   const assetUrl = props.globals.baseUrl + props.globals.assetUrl
   const stylesheets = [localCss, indexCss]
-  const heading = frontmatter.navigation?.heading
+  const heading = frontmatter.topics?.opener?.heading
   let title = props.globals.metadata.branding.heading
 
   title = heading ? `${title} - ${heading}` : title
