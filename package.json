@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Reference implementation of green-lib MDX component library",
   "scripts": {
+    "build": "npm run clean-docs && MODE=build node pages.js && npm run create-cname && npm run create-robots",
+    "check-links": "find . -type f -name *.mdx -exec npx markdown-link-check --quiet {} \\;",
     "clean-dist": "rm -rf dist",
     "clean-docs": "rm -rf docs",
     "create-cname": "echo www.jaccomeijer.nl > docs/CNAME",
     "create-robots": "echo 'Sitemap: https://www.jaccomeijer.nl/sitemap.xml' > docs/robots.txt",
-    "check-links": "find . -type f -name *.mdx -exec npx markdown-link-check --quiet {} \\;",
-    "build": "npm run clean-docs && MODE=build node pages.js && npm run create-cname && npm run create-robots",
     "design-tokens": "designTokens transform src/design-tokens/tokens.config.json",
     "serve": "npm run clean-dist && MODE=serve node pages.js"
   },
