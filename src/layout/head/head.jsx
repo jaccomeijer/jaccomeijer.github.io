@@ -9,7 +9,7 @@ export const Head = props => {
   const heading = frontmatter.topics?.opener?.heading
   let title = props.globals.metadata.branding.heading
 
-  title = heading ? `${title} - ${heading}` : title
+  title = heading ? `${heading} - ${title}` : title
 
   return (<head>
     <meta charSet="utf-8" />
