@@ -4,9 +4,13 @@ import eslintPluginReact from 'eslint-plugin-react/configs/recommended.js'
 
 export default [
   ...eslintConfigESLint,
-  eslintPluginReact,
+  {
+    files: ['**/*.{js,jsx}'],
+    ...eslintPluginReact,
+  },
   {
     rules: {
+      'consistent-return': 'off',
       'comma-dangle': ['error', 'always-multiline'],
       'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
       'jsdoc/require-jsdoc': 'off',
@@ -29,6 +33,11 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.node,
+      },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
   },
