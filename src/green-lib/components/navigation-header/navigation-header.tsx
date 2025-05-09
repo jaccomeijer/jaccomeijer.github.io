@@ -38,9 +38,9 @@ export const NavigationHeader = (props: NavigationHeader) => {
           />
         </div>
         <link rel="stylesheet" type="text/css" href={props.systemData.globalCssUrl} />
-        <link rel="stylesheet" type="text/css" href={CE_URL + '/navigation-header.ce.css'} />
+        <link rel="stylesheet" type="text/css" href={CE_URL + '/navigation-header-ce.css'} />
       </template>
-      <script defer src={CE_URL + '/navigation-header.ce.js'} />
+      <script defer src={CE_URL + '/navigation-header-ce.js'} />
     </navigation-header>
   )
 }

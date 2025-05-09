@@ -18,9 +18,9 @@ export const CarouselLayout = (props: CarouselLayout) => {
           <div id="dots"></div>
         </div>
         <link rel="stylesheet" type="text/css" href={props.systemData.globalCssUrl} />
-        <link rel="stylesheet" type="text/css" href={CE_URL + '/carousel-layout.ce.css'} />
+        <link rel="stylesheet" type="text/css" href={CE_URL + '/carousel-layout-ce.css'} />
       </template>
-      <script defer src={CE_URL + '/carousel-layout.ce.js'} />
+      <script defer src={CE_URL + '/carousel-layout-ce.js'} />
     </carousel-layout>
   )
 }

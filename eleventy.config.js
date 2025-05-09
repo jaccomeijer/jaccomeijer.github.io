@@ -49,7 +49,7 @@ export default function (eleventyConfig) {
     outputFileExtension: 'css',
     compile: async (_inputContent, inputPath) => {
       const isLayout = inputPath.endsWith('layout.css')
-      const isCustomElementCss = inputPath.endsWith('.ce.css')
+      const isCustomElementCss = inputPath.endsWith('-ce.css')
       if (!isLayout && !isCustomElementCss) return
       return async () => {
         const { code } = bundle({
@@ -67,7 +67,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addExtension('ts', {
     outputFileExtension: 'js',
     compile: async (_inputContent, inputPath) => {
-      const isCustomElementJs = inputPath.endsWith('.ce.ts')
+      const isCustomElementJs = inputPath.endsWith('-ce.ts')
       if (!isCustomElementJs) return
       return async () => {
         let output = await build({
