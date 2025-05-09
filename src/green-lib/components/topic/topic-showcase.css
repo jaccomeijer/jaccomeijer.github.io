@@ -1,0 +1,38 @@
+.topic.topic-showcase {
+  align-items: center;
+
+  @container (min-width: 45rem) {
+    & {
+      flex-direction: row;
+      gap: var(--space-m);
+    }
+  }
+
+  .topic-picture img {
+    aspect-ratio: 3/2;
+  }
+
+  .topic-picture {
+    @container (min-width: 45rem) {
+      & {
+        width: calc(50% - (var(--space-m)/2));
+      }
+    }
+  }
+
+  .topic-content {
+    justify-content: center;
+    width: 100%;
+    gap: var(--space-2xs);
+
+    @container (min-width: 45rem) {
+      & {
+        width: calc(50% - (var(--space-m)/2));
+      }
+    }
+
+    .topic-action {
+      color: var(--color-primary-400);
+    }
+  }
+}

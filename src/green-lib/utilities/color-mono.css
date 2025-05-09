@@ -1,0 +1,62 @@
+.u-color-mono-000 {
+  color: var(--color-mono-000);
+}
+
+.u-color-mono-100 {
+  color: var(--color-mono-100);
+}
+.u-color-mono-200 {
+  color: var(--color-mono-200);
+}
+
+.u-color-mono-300 {
+  color: var(--color-mono-300);
+}
+
+.u-color-mono-400 {
+  color: var(--color-mono-400);
+}
+
+.u-color-mono-500 {
+  color: var(--color-mono-500);
+}
+
+.u-color-mono-600 {
+  color: var(--color-mono-600);
+}
+
+.u-color-mono-700 {
+  color: var(--color-mono-700);
+}
+
+
+.u-bg-mono-000 {
+  background: var(--color-mono-000);
+}
+
+.u-bg-mono-100 {
+  background: var(--color-mono-100);
+}
+.u-bg-mono-200 {
+  background: var(--color-mono-200);
+}
+
+.u-bg-mono-300 {
+  background: var(--color-mono-300);
+}
+
+.u-bg-mono-400 {
+  background: var(--color-mono-400);
+}
+
+.u-bg-mono-500 {
+  background: var(--color-mono-500);
+}
+
+.u-bg-mono-600 {
+  background: var(--color-mono-600);
+}
+
+.u-bg-mono-700 {
+  background: var(--color-mono-700);
+}

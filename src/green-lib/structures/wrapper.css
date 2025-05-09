@@ -1,0 +1,7 @@
+.s-wrapper {
+  container-type: inline-size;
+  margin-inline: auto;
+  max-width: var(--wrapper-width);
+  padding-inline: var(--gutter);
+  width: 100%;
+}

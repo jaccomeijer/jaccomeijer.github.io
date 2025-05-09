@@ -1,0 +1,15 @@
+{
+  "border": {
+    "radius": {
+      "circle": {
+        "$value": "9999px"
+      },
+      "pill": {
+        "$value": "0.5rem"
+      },
+      "rounded": {
+        "$value": "0.35rem"
+      }
+    }
+  }
+}

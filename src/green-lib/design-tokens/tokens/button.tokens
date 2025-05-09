@@ -1,0 +1,14 @@
+{
+  "button": {
+    "primary": {
+      "color": {
+        "$value": "var(--color-primary-400)"
+      },
+      "contrast": {
+        "color": {
+          "$value": "var(--color-mono-000)"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+---
+topic:
+  heading: Reference
+  icon: book-open
+  abstract: A reference implementation of the Green UI Library.
+---
+
+export { WideLayout as default } from './layout/wide-layout'
+import { Topic } from '../green-lib/components/topic/topic'
+import { TopicList } from '../green-lib/components/topic-list/topic-list'
+import { topicData } from './topic-data'
+
+<Topic topic={props.topic} variant="headline" />
+
+---
+
+<TopicList className="s-grid u-grid-three-cols u-gap-m" variant="card" topics={Object.values(topicData)} />

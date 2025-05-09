@@ -1,0 +1,10 @@
+{
+  "gutter": {
+    "$value": "{space.xs-r3}"
+  },
+  "wrapper": {
+    "width": {
+      "$value": "80rem"
+    }
+  }
+}

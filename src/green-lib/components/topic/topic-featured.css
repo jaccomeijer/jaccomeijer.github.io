@@ -1,0 +1,48 @@
+.topic.topic-featured {
+  gap: var(--space-m);
+
+  @container (min-width: 45rem) {
+    & {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .topic-picture img {
+    aspect-ratio: 5/4;
+  }
+
+  .topic-picture {
+    @container (min-width: 45rem) {
+      & {
+        width: calc(50% - (var(--space-l)/2));
+      }
+    }
+  }
+
+  .topic-content {
+    gap: var(--space-xs);
+
+    @container (min-width: 45rem) {
+      & {
+        width: calc(50% - (var(--space-l)/2));
+      }
+    }
+
+    .topic-icon {
+      font-size: var(--font-size-4);
+    }
+
+    .topic-heading.display {
+      font-size: var(--font-size-4);
+    }
+
+    .topic-abstract {
+      font-size: var(--font-size-1);
+    }
+
+    .topic-action {
+      font-size: var(--font-size-1);
+    }
+  }
+}

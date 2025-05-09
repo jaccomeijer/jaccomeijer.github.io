@@ -1,0 +1,202 @@
+<html lang="nl"><head><meta charSet="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://beamanalytics.b-cdn.net/beam.min.js" data-token="9e4dcc33-86ff-4757-98bd-3c2123df9a4c" async=""></script><title>Jacco Meijer</title><meta name="description" content="Security Architect"><meta name="generator" content="11th"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="/site/layout/layout.css"></head><body><a class="skip-link" href="#main-content">Skip to content</a><header role="banner" class="site-header s-wrapper"><div class="s-block-space u-block-space-xs u-border-bottom"><navigation-header><template shadowrootmode="open"><div class="navigation-header"><div class="wide-menu-view"><nav class="branding-main-actions" aria-label="primary"><a class="branding u-border-radius-rounded" href="/">Jacco Meijer</a><ul class="main-actions" role="list"><li><a class=" u-border-radius-rounded" href="/site/pages/blog/">Blog</a></li></ul></nav><nav class="social-actions"><ul class="" role="list"><li><a class=" with-icon u-border-radius-rounded" aria-label="linkedin" href="https://www.linkedin.com/in/jaccomeijer"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#linkedin"></use></svg></a></li><li><a class=" with-icon u-border-radius-rounded" aria-label="github" href="https://github.com/jaccomeijer/jaccomeijer.github.io"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#github"></use></svg></a></li></ul></nav><button class="open-menu-button button">Menu</button></div><div class="modal-menu"><div class="modal-background s-position-fixed"></div><div class="modal-popup s-position-fixed s-flex-column"><button class="modal-close-button button">Close</button><nav class="s-flex-column"><ul class="popup-main-actions" role="list"><li><a class=" u-border-radius-rounded" href="/site/pages/blog/">Blog</a></li></ul><ul class="popup-social-actions" role="list"><li><a class=" with-icon u-border-radius-rounded" aria-label="linkedin" href="https://www.linkedin.com/in/jaccomeijer"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#linkedin"></use></svg></a></li><li><a class=" with-icon u-border-radius-rounded" aria-label="github" href="https://github.com/jaccomeijer/jaccomeijer.github.io"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#github"></use></svg></a></li></ul></nav></div></div></div><link rel="stylesheet" type="text/css" href="/site/layout/layout.css"><link rel="stylesheet" type="text/css" href="/green-lib/components/navigation-header/navigation-header.ce.css"></template><script defer="" src="/green-lib/components/navigation-header/navigation-header.ce.js"></script></navigation-header></div></header><main tabindex="-1" id="main-content"><div class="markdown"><div class="topic topic-headline "><picture class="topic-picture u-order-2"><source type="image/webp" srcset="/img/pQrZt9lyy4-10200.webp 10200w"><img src="/img/pQrZt9lyy4-10200.jpeg" alt="Image without description" width="10200" height="6516"></picture><div class="topic-content"><svg class="icon topic-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#message-circle"></use></svg><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 20, 2024</div></li></ul><h1 class="topic-heading display">Render JSX plugin for Esbuild</h1><p class="topic-abstract">Transform Esbuild generated JSX bundles to HTML pages.</p></div></div></div><div class="s-wrapper" style="--wrapper-width:45rem"><article class="markdown s-flex-column u-gap-0"><h2>Esbuild as a static site generator for MDX</h2>
+<p>This post is part of a series that originated with the question &quot;can the
+Contentful-Gatsby-Netlify trio be simplified?&quot;.</p>
+<a href="/site/pages/blog/2024-03-19/esbuild-as-static-site-generator/"><div class="topic topic-card "><picture class="topic-picture u-order-2"><source type="image/webp" srcset="/img/HENVYq8XfT-3905.webp 3905w"><img src="/img/HENVYq8XfT-3905.jpeg" alt="Image without description" width="3905" height="2196"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 19, 2024</div></li></ul><h3 class="topic-heading ">Esbuild as a static site generator for MDX</h3><p class="topic-abstract">Static site generators gain popularity. This blog is about using Esbuild as a static site generator for MDX.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a>
+<p>Using <a href="https://www.11ty.dev">11ty</a> is part of the positive answer. The last
+post concludes with the need for a Render JSX plugin for Esbuild.</p>
+<p>This post starts with the code for such a plugin and describes how it works.</p>
+<h2>The code</h2>
+<p>Below is the full plugin. It&#x27;s taken from
+<a href="https://github.com/jaccomeijer/render-jsx-plugin-poc">jaccomeijer/render-jsx-plugin-poc</a>,
+a small repo that can be used to see the plugin working.</p>
+<pre><code class="language-js">import { writeFile, mkdir } from &#x27;fs/promises&#x27;
+import path from &#x27;path&#x27;
+import crypto from &#x27;crypto&#x27;
+import { render } from &#x27;preact-render-to-string&#x27;
+
+const pluginName = &#x27;renderJsxPlugin&#x27;
+
+export const renderJsxPlugin = ({ outdir, initialProps }) =&gt; {
+  const setup = (build) =&gt; {
+    build.onEnd(async (result) =&gt; {
+      const metafileOutputs = Object.keys(result.metafile.outputs)
+
+      for (const bundlePath of metafileOutputs) {
+        const entryPoint = result.metafile.outputs[bundlePath].entryPoint
+
+        if (!entryPoint) {
+          continue
+        }
+
+        const { dir, name } = path.parse(entryPoint)
+        const strippedDir = dir.replace(&#x27;src/pages&#x27;, &#x27;&#x27;)
+        const outputDir = path.join(outdir, strippedDir)
+        const outputPath = path.join(outdir, strippedDir, `${name}.html`)
+
+        const cacheBust = crypto.randomBytes(6).toString(&#x27;hex&#x27;)
+        const modulePath = path.resolve(`./${bundlePath}?v=${cacheBust}`)
+        const module = await import(modulePath)
+
+        console.log(`${pluginName}: ${outputPath}`)
+
+        // Check if the default export is a function
+        if (typeof module?.default !== &#x27;function&#x27;) {
+          continue
+        }
+        const props = Object.assign(initialProps || {})
+        const html = render(module.default(props))
+
+        await mkdir(path.resolve(outputDir), { recursive: true })
+        await writeFile(path.resolve(outputPath), `&lt;!DOCTYPE html&gt;${html}`)
+      }
+    })
+  }
+
+  return { name: pluginName, setup }
+}
+</code></pre>
+<h2>More capable version</h2>
+<p>A more capable version of the plugin is used in the
+<a href="https://github.com/jaccomeijer/green-build">jaccomeijer/green-build</a>
+repository. That repo is used to build this site (<a href="https://github.com/jaccomeijer/jaccomeijer.github.io">repository
+here</a>) and adds
+functionality like:</p>
+<ul>
+<li>image handling</li>
+<li>CSS bundling</li>
+<li>HTML minifying</li>
+<li>code highlighting</li>
+<li>page prop with Front Matter support</li>
+<li>pages prop for menu building</li>
+<li>cleanup of the javascript bundle</li>
+<li>custom urls</li>
+<li>index.html for all pages</li>
+<li>uses React JSX runtime instead or Preact</li>
+</ul>
+<h2>The breakdown</h2>
+<p>The plugin is simple and contains a few distinct steps.</p>
+<h3>Metadata</h3>
+<p><a href="https://esbuild.github.io">Esbuild</a> provides <code>onEnd</code> plugins with build
+metadata. The plugin starts with using <code>result.metafile</code> to get all bundle
+paths.</p>
+<pre><code class="language-js">const metafileOutputs = Object.keys(result.metafile.outputs)
+</code></pre>
+<h3>OutputPath</h3>
+<p>The plugin then loops through every <code>bundlePath</code> and derives an output dir and
+path.</p>
+<pre><code class="language-js">const outputPath = path.join(outdir, strippedDir, `${name}.html`)
+</code></pre>
+<h3>Import bundle</h3>
+<p>Next, the the JSX bundle created by Esbuild is imported. Adding
+<code>?v=${cacheBust}</code> to the module path prevents Node from caching the module.</p>
+<pre><code class="language-js">const modulePath = path.resolve(`./${bundlePath}?v=${cacheBust}`)
+const module = await import(modulePath)
+</code></pre>
+<h3>Render to HTML</h3>
+<p>The last part of the plugin does the actual rendering. The plugin imports the
+<code>render</code> function from Preact.</p>
+<pre><code class="language-js">import { render } from &#x27;preact-render-to-string&#x27;
+</code></pre>
+<p>This means that the plugin works with bundles that have the Preact JSX Factory.
+This Factory is the function that is called for every JSX element. For Esbuild,
+these are the build options to build with the Preact Factory:</p>
+<pre><code class="language-js">{
+  jsx: &#x27;automatic&#x27;,
+  jsxImportSource: &#x27;preact&#x27;,
+  ...
+}
+</code></pre>
+<p>The imported bundle contains a JSX component that accepts props like any other
+JSX function. This demo does not do much with the <code>initialProps</code>, but this is
+how e.g. global metadata can be passed to all pages. The package
+<a href="https://github.com/jaccomeijer/green-build">jaccomeijer/green-build</a>, mentioned
+earlier, uses this concept.</p>
+<pre><code class="language-js">const props = Object.assign(initialProps || {})
+const html = render(module.default(props))
+</code></pre>
+<h3>Write to file</h3>
+<p>With the static HTML, all that&#x27;s left is writing the HTML to a file for the
+Esbuild webserver to render.</p>
+<p>All HTML documents must start with a <code>&lt;!DOCTYPE&gt;</code> declaration. This is not a
+tag, but an id to let the browser know what to expect. This declaration is added
+here.</p>
+<pre><code class="language-js">await mkdir(path.resolve(outputDir), { recursive: true })
+await writeFile(path.resolve(outputPath), `&lt;!DOCTYPE html&gt;${html}`)
+</code></pre>
+<h2>JSX</h2>
+<p>The plugin above uses Preact to transform JSX into static HTML. Theoretically,
+the JSX framework should not affect the final result because Factory functions
+are added when bundling and removed again when rendering. In practice, there&#x27;s
+some differences in consistency, speed and syntax conventions.</p>
+<h3>Jeasx</h3>
+<p>The <a href="https://github.com/jeasx/jsx-async-runtime">jsx-async-runtime</a> package
+contains a very simple and lightweight JSX runtime. It also contains the
+<code>renderToString</code> function.</p>
+<p>This is a very simple runtime which makes it very fast. Drawback is that spaces
+in <code>pre</code> and <code>code</code> elements are not maintained properly which makes the render
+unusable for code blocks.</p>
+<h3>Preact</h3>
+<p>The
+<a href="https://github.com/preactjs/preact-render-to-string">preact-render-to-string</a>
+package provides a <code>render</code> function that renders consistently to static HTML.</p>
+<p>The package does not warn about React conventions like the need for <code>key</code>
+attributes and is a lot faster than React&#x27;s <code>renderToStaticMarkup</code>.</p>
+<h3>React</h3>
+<p>The first version of the
+<a href="https://github.com/jaccomeijer/green-build">jaccomeijer/green-build</a> package
+created bundles with Preact settings.</p>
+<p>Version 2 of the build package switched to React because of compatibility.
+Creating e.g. a UI library makes the library compatible with frameworks like
+<a href="https://astro.build">Astro</a>.</p>
+<p>Gaining React compatibility came with the cost of speed. The React Factory is
+noticeably slower than the other two. Also, creating a React bundle shows all
+the warnings that come with React&#x27;s conventions. CamelCase attributes and <code>key</code>
+attribute requirements for example.</p>
+<p>The <a href="https://react.dev/reference/react-dom/server">react-dom/server</a> package
+contains two functions:</p>
+<ul>
+<li><code>renderToString</code> → renders to a string that can be hydrated</li>
+<li><code>renderToStaticMarkup</code> → renders a non-interactive string</li>
+</ul>
+<p>Of which the Static variant is the most useful here.</p>
+<h3>Speed and other JSX Factories</h3>
+<p>As noted above, React is the slowest of the JSX Factories. For this plugin,
+three JSX Factories have been tried, but many other frameworks with JSX-alike
+syntax exist. To mention a few, <a href="https://million.dev">Million</a>,
+<a href="https://www.solidjs.com">SolidJs</a> and <a href="https://svelte.dev">Svelte</a>. All of them
+possibly expose separate static render functionality.</p>
+<h2>Adding Javascript</h2>
+<p>JSX is used as a simple component solution. By wrapping static HTML in a
+function, this function can be reused. Simply by importing the function.
+Function arguments, or &#x27;props&#x27;, make this concept dynamic.</p>
+<p>When JSX is rendered, only the output of the JSX functions remains. This results
+in static HTML.</p>
+<p>When client side Javascript is needed, it can be added the same way that
+Javascript is added to any static HTML. E.g. using a <code>&lt;script&gt;</code> tag.</p>
+<h3>Shadow DOM without Javascript</h3>
+<p>Since Feb 20, 2024 all major browsers support &#x27;Declarative Shadow Dom&#x27;. The
+declarative part means that &#x27;Shadow Dom&#x27; can be enabled without Javascript:</p>
+<pre><code class="language-html">&lt;template shadowrootmode=&quot;open&quot;&gt;&lt;/template&gt;
+</code></pre>
+<h2>Server Side Rendering</h2>
+<p>This plugin does exactly what Server Side Rendering (SSR) does. The major
+difference with e.g. React SSR is that the build this plugin provides does not
+support a Javascript runtime. It provides a pure static build instead.</p>
+<p>This means that the React API in this code doesn&#x27;t work:</p>
+<pre><code class="language-js">const [value, setValue] = useState(0)
+</code></pre>
+<p>To use the React API, the Javascript runtime library of React must be shipped
+with the static code. Besides that, once the code is loaded by the client
+browser, event handlers need to be attached to the static elements. This process
+is known as &#x27;Hydration&#x27;.</p>
+<p>This does not mean that client side Javascript cannot be used with a static
+render. The UI library in the next post defines two Custom Elements that depend
+on client side Javascript.</p>
+<h2>Conclusion</h2>
+<p>A simple extension of Esbuild lays the foundation for a fast static site
+generator.</p>
+<p>JSX being just functions, they are easily added to NPM modules for distribution
+and reuse. MDX is an efficient way to write documentation and stories. Combine
+the two and creating a reusable and documented UI library is simple. The next
+post zooms in on this.</p>
+<a href="/site/pages/blog/2024-03-21/ui-library/"><div class="topic topic-card "><picture class="topic-picture u-order-2"><source type="image/webp" srcset="/img/cHYDW3RHUW-4713.webp 4713w"><img src="/img/cHYDW3RHUW-4713.jpeg" alt="Image without description" width="4713" height="3142"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 21, 2024</div></li></ul><h3 class="topic-heading ">UI Library with MDX documentation</h3><p class="topic-abstract">Using the simple Render JSX plugin for Esbuild this post shows how to setup a simple UI library.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a></article></div><div class="s-wrapper markdown"><hr><h2>Other posts</h2><div class="s-grid u-grid-three-cols u-gap-m"><a href="/site/pages/blog/2024-03-21/ui-library/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/cHYDW3RHUW-4713.webp 4713w"><img src="/img/cHYDW3RHUW-4713.jpeg" alt="Image without description" width="4713" height="3142"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 21, 2024</div></li></ul><h3 class="topic-heading ">UI Library with MDX documentation</h3><p class="topic-abstract">Using the simple Render JSX plugin for Esbuild this post shows how to setup a simple UI library.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2024-03-20/render-jsx-plugin/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/pQrZt9lyy4-10200.webp 10200w"><img src="/img/pQrZt9lyy4-10200.jpeg" alt="Image without description" width="10200" height="6516"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 20, 2024</div></li></ul><h3 class="topic-heading ">Render JSX plugin for Esbuild</h3><p class="topic-abstract">Transform Esbuild generated JSX bundles to HTML pages.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2024-03-19/esbuild-as-static-site-generator/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/HENVYq8XfT-3905.webp 3905w"><img src="/img/HENVYq8XfT-3905.jpeg" alt="Image without description" width="3905" height="2196"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 19, 2024</div></li></ul><h3 class="topic-heading ">Esbuild as a static site generator for MDX</h3><p class="topic-abstract">Static site generators gain popularity. This blog is about using Esbuild as a static site generator for MDX.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2024-03-18/11ty-and-github-pages/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/scdyYuk01T-6670.webp 6670w"><img src="/img/scdyYuk01T-6670.jpeg" alt="Image without description" width="6670" height="3751"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 18, 2024</div></li></ul><h3 class="topic-heading ">11ty and Github pages</h3><p class="topic-abstract">Simplifying the Contentful-Gatsby-Netlfy trio.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2024-03-15/owasp-cissp/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/MWXa8uo4XM-4898.webp 4898w"><img src="/img/MWXa8uo4XM-4898.jpeg" alt="Image without description" width="4898" height="2755"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 15, 2024</div></li></ul><h3 class="topic-heading ">OWASP and CISSP</h3><p class="topic-abstract">OWASP recommendations from the independent information security certification CISSP.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-06-30/npm-7-and-npmcli-arborist/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/CRR53ycrYk-7123.webp 7123w"><img src="/img/CRR53ycrYk-7123.jpeg" alt="Image without description" width="7123" height="4006"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Jun 30, 2022</div></li></ul><h3 class="topic-heading ">NPM7 and @npmcli/arborist</h3><p class="topic-abstract">@npmcli/arborist is a powerful library that handles the new NPM 7 workspaces. This blog is about a simple make tool that uses the library.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-05-12/comparing-between-react-app-nextjs-and-gatsby/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/M72yTVdR2F-4100.webp 4100w"><img src="/img/M72yTVdR2F-4100.jpeg" alt="Image without description" width="4100" height="2306"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">May 12, 2022</div></li></ul><h3 class="topic-heading ">Comparing React app, Nextjs and Gatsby</h3><p class="topic-abstract">A new React project starts with a React toolchain. Main tools in the chains are SSR, React server components and GraphQL.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-05-10/versioning-strategy-for-npm-modules/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/W6thJiJ52j-3206.webp 3206w"><img src="/img/W6thJiJ52j-3206.jpeg" alt="Image without description" width="3206" height="1803"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">May 10, 2022</div></li></ul><h3 class="topic-heading ">Versioning strategy for NPM modules</h3><p class="topic-abstract">It is important to be able to bump the version of a NPM package without side effects.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-04-12/react-component-themes-and-css-variables/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/o_wnvtSF4x-3143.webp 3143w"><img src="/img/o_wnvtSF4x-3143.jpeg" alt="Image without description" width="3143" height="1767"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Apr 12, 2022</div></li></ul><h3 class="topic-heading ">React component themes and CSS variables</h3><p class="topic-abstract">Creating React components with flexible themes by using CSS variables.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-03-21/content-modeling-with-variants/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/ZIWZ7jlCek-4000.webp 4000w"><img src="/img/ZIWZ7jlCek-4000.jpeg" alt="Image without description" width="4000" height="2250"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 21, 2022</div></li></ul><h3 class="topic-heading ">Content modeling with variants</h3><p class="topic-abstract">The efficiency of a variant field in a content model.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-03-12/documentation/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/0Vx7CRMHSa-5120.webp 5120w"><img src="/img/0Vx7CRMHSa-5120.jpeg" alt="Image without description" width="5120" height="2880"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 12, 2022</div></li></ul><h3 class="topic-heading ">Documentation</h3><p class="topic-abstract">Documenting a software project is challenging. Here&#x27;s a few simple guidelines that help a team writing clear documentation.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-03-11/javascript-history/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/tBPrKorA2K-6087.webp 6087w"><img src="/img/tBPrKorA2K-6087.jpeg" alt="Image without description" width="6087" height="3423"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 11, 2022</div></li></ul><h3 class="topic-heading ">Javascript history</h3><p class="topic-abstract">In 1986 David Ungar and Randall B. Smith developed Self at Xerox PARC. Inspired by Java, Scheme and Self Brendan Eich created Javascript in 1995.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-03-10/on-javascript-transpilers-bundlers-and-modules/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/UDSrx9ogik-3961.webp 3961w"><img src="/img/UDSrx9ogik-3961.jpeg" alt="Image without description" width="3961" height="2228"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Mar 10, 2022</div></li></ul><h3 class="topic-heading ">On Javascript transpilers, bundlers and modules</h3><p class="topic-abstract">There&#x27;s Javascript transpilers, modules, bundles and bundlers. This is a brief overview of all of these.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-02-11/agile-scrum/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/RMsZziWjrt-4100.webp 4100w"><img src="/img/RMsZziWjrt-4100.jpeg" alt="Image without description" width="4100" height="2306"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Feb 11, 2022</div></li></ul><h3 class="topic-heading ">Agile Scrum</h3><p class="topic-abstract">The Agile Scrum framework is flexible enough to be used in many different ways. Here&#x27;s one way of working.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-01-20/what-happened-to-wheelroom/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/pmh3kU_70l-3450.webp 3450w"><img src="/img/pmh3kU_70l-3450.jpeg" alt="Image without description" width="3450" height="1941"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Jan 20, 2022</div></li></ul><h3 class="topic-heading ">What happened to Wheelroom?</h3><p class="topic-abstract">Founded in 2018. Started to fly in 2020 and abandoned in 2021. What happened?</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-01-19/contentful-netlify-and-gatsby-four-years-later/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/rPQEoxg0cx-5054.webp 5054w"><img src="/img/rPQEoxg0cx-5054.jpeg" alt="Image without description" width="5054" height="2842"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Jan 19, 2022</div></li></ul><h3 class="topic-heading ">Contentful, Netlify and Gatsby four years later</h3><p class="topic-abstract">What did we learn from using Contentful for four years?</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-01-18/typescript-interface-for-react-ui-components/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/wkRKx_jnS_-6000.webp 6000w"><img src="/img/wkRKx_jnS_-6000.jpeg" alt="Image without description" width="6000" height="3375"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Jan 18, 2022</div></li></ul><h3 class="topic-heading ">Typescript interface for React UI components</h3><p class="topic-abstract">How to define an interface for React UI components that prevents breaking changes.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a><a href="/site/pages/blog/2022-01-17/naming-react-components/"><div class="topic topic-card "><picture class="topic-picture "><source type="image/webp" srcset="/img/QsB3jO8gX6-1920.webp 1920w"><img src="/img/QsB3jO8gX6-1920.jpeg" alt="Image without description" width="1920" height="1080"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Jan 17, 2022</div></li></ul><h3 class="topic-heading ">Naming React components</h3><p class="topic-abstract">What&#x27;s in a name? A clear naming strategy helps developers communicate. Most devs rather spend time writing component code than wasting time on a good component name.</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a></div></div></main><footer class="site-footer s-wrapper"><div class="s-block-space u-block-space-2xs u-border-top"><nav class="navigation-footer "><ul class="" role="list"><li><a class=" u-border-radius-rounded" href="/site/pages/blog/">Blog</a></li></ul><ul class="" role="list"><li><a class=" with-icon u-border-radius-rounded" aria-label="linkedin" href="https://www.linkedin.com/in/jaccomeijer"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#linkedin"></use></svg></a></li><li><a class=" with-icon u-border-radius-rounded" aria-label="github" href="https://github.com/jaccomeijer/jaccomeijer.github.io"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#github"></use></svg></a></li></ul></nav></div><div class="s-block-space u-block-space-2xs u-border-top"><nav class="navigation-legal "><div></div><div class=" u-border-radius-rounded"><sup></sup></div></nav></div></footer></body></html>

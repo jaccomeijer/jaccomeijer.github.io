@@ -1,0 +1,7 @@
+.u-width-100, .u-width-child-100 {
+  width: 100%;
+}
+
+.u-width-child-100 > * {
+  width: 100%;
+}

@@ -1,0 +1,39 @@
+.u-gap-0 {
+  --gap: 0;
+}
+
+.u-gap-3xs {
+  --gap: var(--space-3xs);
+}
+
+.u-gap-2xs {
+  --gap: var(--space-2xs);
+}
+
+.u-gap-xs {
+  --gap: var(--space-xs);
+}
+
+.u-gap-s {
+  --gap: var(--space-s);
+}
+
+.u-gap-m {
+  --gap: var(--space-m);
+}
+
+.u-gap-l {
+  --gap: var(--space-l);
+}
+
+.u-gap-xl {
+  --gap: var(--space-xl);
+}
+
+.u-gap-2xl {
+  --gap: var(--space-2xl);
+}
+
+.u-gap-3xl {
+  --gap: var(--space-3xl);
+}

@@ -1,0 +1,18 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mono-700: hsl(0, 0%, 100%);
+    --color-mono-600: hsl(0, 0%, 90%);
+    --color-mono-500: hsl(0, 0%, 75%);
+    --color-mono-400: hsl(0, 0%, 60%);
+    --color-mono-300: hsl(0, 0%, 45%);
+    --color-mono-200: hsl(0, 0%, 30%);
+    --color-mono-100: hsl(0, 0%, 15%);
+    --color-mono-000: hsl(0, 0%, 0%);
+    --color-primary-600: hsl(216, 73%, 90%);
+    --color-primary-500: hsl(216, 73%, 75%);
+    --color-primary-400: hsl(216, 73%, 60%);
+    --color-primary-300: hsl(216, 73%, 45%);
+    --color-primary-200: hsl(216, 73%, 30%);
+    --color-primary-100: hsl(216, 73%, 15%);
+  }
+}

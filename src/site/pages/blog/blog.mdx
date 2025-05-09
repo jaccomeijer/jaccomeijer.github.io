@@ -1,0 +1,31 @@
+---
+navigation:
+  id: blog
+  heading: Blog
+  order: 20
+date: 2024-03-18
+lastmod: 2024-03-26
+topics:
+  opener:
+    heading: Blog
+    abstract: On web applications and cyber security.
+    icon: message-circle
+    variant: headline
+---
+
+export { WideLayout as default } from '../../layout/wide-layout'
+import { Topic } from '../../../green-lib/components/topic/topic'
+import { TopicList } from '../../../green-lib/components/topic-list/topic-list'
+import { getOpenerTopics } from '../../helpers/get-opener-topics'
+
+<div className="s-popout">
+  <Topic variant="headline" topic={props.topics.opener} />
+</div>
+
+---
+
+<TopicList
+  className="s-grid u-grid-three-cols u-gap-m"
+  variant="card"
+  topics={getOpenerTopics({ collections: props.collections, tag: 'blog' })}
+/>

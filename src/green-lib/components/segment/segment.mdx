@@ -1,0 +1,99 @@
+---
+navigation:
+  heading: Segment
+  parent: Components
+  url: /override/default/url
+
+actions:
+  - heading: Item A
+    icon: archive
+    url: /demo-a
+  - heading: Item B
+    icon: clock
+    url: /demo-b
+  - heading: Item C
+    url: /demo-c
+  - heading: Item D
+    url: /demo-d
+  - heading: Item E
+    url: /demo-e
+---
+
+export { Layout as default } from '../../story-layout/layout'
+import { Segment } from './segment'
+
+## {props.navigation.heading}
+
+### Example
+
+```html
+<Segment actions={props.actions} className="u-font-size-1 u-gap-s s-flex-row" element="button" pageUrl="/demo-b" />
+```
+
+<Segment actions={props.actions} className="u-font-size-1 u-gap-s s-flex-row" element="button" pageUrl="/demo-b" />
+
+### Example
+
+```html
+<Segment
+  actions={props.actions}
+  actionClassName="fat-link"
+  className="u-gap-s s-flex-row"
+  element="a"
+  pageUrl="/demo-b"
+/>
+```
+
+<Segment
+  actions={props.actions}
+  actionClassName="fat-link"
+  className="u-gap-s s-flex-row"
+  element="a"
+  pageUrl="/demo-b"
+/>
+
+### Example
+
+```html
+<Segment actions={props.actions} className="u-font-size-1 u-gap-s s-flex-row" element="a" pageUrl="/demo-b" />
+```
+
+<Segment actions={props.actions} className="u-font-size-1 u-gap-s s-flex-row" element="a" pageUrl="/demo-b" />
+
+### Example
+
+```html
+<Segment actions={props.actions} className="s-flex-column u-gap-s" element="button" pageUrl="/demo-b" />
+```
+
+<Segment actions={props.actions} className="s-flex-column u-gap-s" element="button" pageUrl="/demo-b" />
+
+### Example
+
+```html
+<Segment actions={props.actions} className="u-gap-2xs s-flex-row" element="a" pageUrl="/demo-b" />
+```
+
+<Segment actions={props.actions} className="u-gap-2xs s-flex-row" element="a" pageUrl="/demo-b" />
+
+### Frontmatter
+
+```yaml
+navigation:
+  parent: Components
+  url: /override/default/url
+
+actions:
+  - heading: Item A
+    icon: archive
+    url: /demo-a
+  - heading: Item B
+    icon: clock
+    url: /demo-b
+  - heading: Item C
+    url: /demo-c
+  - heading: Item D
+    url: /demo-d
+  - heading: Item E
+    url: /demo-e
+```

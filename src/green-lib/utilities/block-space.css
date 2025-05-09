@@ -1,0 +1,35 @@
+.u-block-space-3xs {
+  --block-space: var(--space-3xs)
+}
+
+.u-block-space-2xs {
+  --block-space: var(--space-2xs)
+}
+
+.u-block-space-xs {
+  --block-space: var(--space-xs)
+}
+
+.u-block-space-s {
+  --block-space: var(--space-s)
+}
+
+.u-block-space-m {
+  --block-space: var(--space-m)
+}
+
+.u-block-space-l {
+  --block-space: var(--space-l)
+}
+
+.u-block-space-xl {
+  --block-space: var(--space-xl)
+}
+
+.u-block-space-2xl {
+  --block-space: var(--space-2xl)
+}
+
+.u-block-space-3xl {
+  --block-space: var(--space-3xl)
+}

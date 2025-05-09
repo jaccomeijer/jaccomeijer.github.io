@@ -1,0 +1,34 @@
+---
+topic:
+  image: /green-lib/story-assets/images/pexels-skyler-ewing-4596712.jpg
+  heading: Showcase example topic
+  abstract: This is an example of a topic abstract text.
+  icon: globe
+  labels: [opinion, story, demo]
+  action:
+    heading: Show block reference
+    url: /reference/topics/block
+---
+
+export { WideLayout as default } from '../layout/wide-layout'
+import { Topic } from '../../green-lib/components/topic/topic'
+import { TopicList } from '../../green-lib/components/topic-list/topic-list'
+import { topicData } from '../topic-data'
+
+<Topic topic={{ ...topicData.showcase, action: undefined }} variant="headline" />
+
+---
+
+<Topic variant="showcase" topic={props.topic} />
+
+---
+
+## Two columns
+
+<TopicList className="s-grid u-grid-two-cols u-gap-m" variant="showcase" topics={[props.topic, props.topic]} />
+
+---
+
+## Other references
+
+<TopicList className="s-grid u-grid-three-cols u-gap-m" variant="card" topics={Object.values(topicData)} />

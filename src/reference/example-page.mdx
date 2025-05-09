@@ -1,0 +1,152 @@
+---
+navigation:
+  heading: Example Page
+  order: 30
+
+openerTopic:
+  heading: Example page
+  icon: globe
+  abstract: Text is free style. Have it your own, including headings, images and all that.
+topic:
+  heading: Example page
+  icon: globe
+  abstract: Text is free style. Have it your own, including headings, images and all that.
+  image: /green-lib/story-assets/images/pexels-skyler-ewing-4596712.jpg
+  action:
+    heading: Test action
+    icon: archive
+imageTopic:
+  heading: Demo topic for example page
+  icon: globe
+  abstract: This topic has an image, a two line heading and a longer abstract, all for demo purposes.
+  image: /green-lib/story-assets/images/rianne-zuur-PoxFTU7_QKo-unsplash.jpg
+  action:
+    heading: Test action
+    icon: archive
+---
+
+export { TextLayout as default } from './layout/text-layout'
+import { CarouselLayout } from '../green-lib/components/carousel-layout/carousel-layout'
+import { Topic } from '../green-lib/components/topic/topic'
+import { Picture } from '../green-lib/components/picture/picture'
+import { TopicList } from '../green-lib/components/topic-list/topic-list'
+import { topicData } from './topic-data'
+
+<Topic topic={props.openerTopic} variant="headline" />
+
+---
+
+## Integer tempus turpis vel ornare
+
+- Cras felis magna, imperdiet eu turpis ut, dignissim lorum ipsum venenatis
+  justo.
+- Nullam cursus fermentum risus nec semper.
+- Fusce ornare ipsum et facilisis consequat.
+
+1. Donec tincidunt ut arcu ac sagittis.
+2. Nulla condimentum consectetur tristique.
+3. Integer eu consectetur libero, et ullamcorper felis.
+
+Integer **tempus** turpis vel ornare pulvinar. Nulla _facilisis_ leo lectus, nec
+euismod magna vulputate et. Duis vel velit quam. Cras interdum aliquet
+efficitur. Integer accumsan **_maximus_** purus, at dignissim augue dapibus in.
+
+`Nulla et libero arcu. In convallis sed leo eget dictum.`
+
+Integer vitae elit sapien. Ut congue arcu mauris, non dictum ipsum viverra eget.
+Duis et ultricies lorem.
+
+---
+
+## Sem sit amet tempus interdum
+
+Sed ac augue at nisi fringilla iaculis vitae ac metus. In in iaculis nunc.
+
+Maecenas consectetur justo non nibh efficitur pellentesque. Donec scelerisque
+nisi ac tortor porta mollis. Proin lacinia volutpat odio, eu interdum eros
+ullamcorper sed.
+
+```js
+const a = b + 1
+```
+
+Etiam eget risus ac lorem dignissim vestibulum nec quis felis. Nullam
+scelerisque, sem sit amet tempus interdum, libero mi vehicula sem, ac volutpat
+urna nibh ut orci. Donec metus ex, luctus quis egestas at, placerat sed tortor.
+
+## Carousel
+
+<div className="s-block-space u-block-space-m">
+  <CarouselLayout delay="1000" systemData={props.libsystemdata}>
+    <Topic topic={props.imageTopic} variant="block" />
+    <Topic topic={props.topic} variant="block" />
+    <Topic topic={props.imageTopic} variant="block" />
+    <Topic topic={props.topic} variant="block" />
+  </CarouselLayout>
+</div>
+
+### Amet tempus interdum
+
+Integer vitae elit sapien. Ut congue arcu mauris, non dictum ipsum viverra eget.
+Duis et ultricies lorem. Nulla at varius arcu. Integer tristique mattis ante eu
+bibendum. Quisque maximus orci eget justo venenatis posuere.
+
+- This is a link to an <a href="/green-lib/story-assets/images/pexels-skyler-ewing-4596712.jpg">image</a>
+- This ia a link to [jaccomeijer.nl](https://www.jaccomeijer.nl)
+
+Sed velit sapien, sagittis quis ligula eu, molestie ornare eros. Etiam lobortis
+sagittis orci volutpat maximus.
+
+<div className="s-popout">
+  <Topic topic={props.imageTopic} variant="hero" />
+</div>
+
+## At porta mauris accumsan
+
+Fusce tincidunt a nunc et fringilla. Nulla in nunc eget sapien finibus venenatis
+ut non orci. Suspendisse nec orci est. Duis id turpis quis mauris venenatis
+condimentum.
+
+<Picture
+  className="s-block-space u-block-space-s"
+  src="/green-lib/story-assets/images/pexels-skyler-ewing-4596712.jpg"
+/>
+
+Maecenas nisl nulla, laoreet sed lectus id, commodo euismod lorem. Praesent
+tempus pulvinar sapien maximus placerat. Praesent ligula orci, egestas a mattis
+ac, ullamcorper tempor eros. Sed a pharetra leo. Etiam dapibus sem at neque
+faucibus, at porta mauris accumsan. Nullam tellus nunc, elementum in nibh sit
+amet, ultricies bibendum magna. Suspendisse potenti.
+
+Nulla facilisi. In porta auctor lorem blandit convallis. Phasellus quis sapien
+elit. Nullam mollis, nisi ac blandit consequat, sapien ligula suscipit libero,
+et vulputate velit sapien ut elit. Vivamus dolor risus, tempus sit amet erat id,
+sagittis pellentesque odio.
+
+<Topic topic={props.topic} variant="card" />
+
+Fusce id quam nulla. Mauris ac eros et erat dapibus gravida a ac justo. Integer
+sit amet elit dui. Fusce porta volutpat porttitor.
+
+Cras felis magna, imperdiet eu turpis ut, dignissim venenatis justo. Nullam
+cursus fermentum risus nec semper. Fusce ornare ipsum et facilisis consequat.
+
+<div className="s-popout">
+  <Topic topic={props.imageTopic} variant="headline" />
+</div>
+
+---
+
+### Consectetur libero
+
+Donec tincidunt ut arcu ac sagittis. Nulla condimentum consectetur tristique.
+Integer eu consectetur libero, et ullamcorper felis. Integer tempus turpis vel
+ornare pulvinar.
+
+---
+
+<TopicList
+  className="s-grid u-grid-two-cols u-gap-xs"
+  variant="card"
+  topics={[props.topic, props.topic, props.imageTopic, props.imageTopic]}
+/>

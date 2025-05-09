@@ -1,0 +1,60 @@
+---
+topic:
+  image: /green-lib/story-assets/images/pexels-skyler-ewing-4596712.jpg
+  heading: Block example topic
+  abstract: This is an example of a topic abstract text.
+  icon: globe
+  labels: [opinion, story, demo]
+  action:
+    heading: Show card reference
+    url: /reference/topics/card
+---
+
+export { WideLayout as default } from '../layout/wide-layout'
+import { Topic } from '../../green-lib/components/topic/topic'
+import { TopicList } from '../../green-lib/components/topic-list/topic-list'
+import { topicData } from '../topic-data'
+
+<Topic topic={{ ...topicData.block, action: undefined }} variant="headline" />
+
+<br />
+
+## Single topic
+
+<Topic variant="block" topic={props.topic} />
+
+---
+
+## Two columns
+
+<TopicList
+  className="s-grid u-grid-two-cols u-gap-m"
+  variant="block"
+  topics={[props.topic, props.topic, props.topic]}
+/>
+
+---
+
+## Three columns
+
+<TopicList
+  className="s-grid u-grid-three-cols u-gap-m"
+  variant="block"
+  topics={[props.topic, props.topic, props.topic]}
+/>
+
+---
+
+## Four columns
+
+<TopicList
+  className="s-grid u-grid-four-cols u-gap-m"
+  variant="block"
+  topics={[props.topic, props.topic, props.topic, props.topic]}
+/>
+
+---
+
+## Other references
+
+<TopicList className="s-grid u-grid-three-cols u-gap-m" variant="card" topics={Object.values(topicData)} />

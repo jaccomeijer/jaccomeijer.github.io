@@ -1,44 +1,18 @@
 import globals from 'globals'
-import eslintConfigESLint from 'eslint-config-eslint'
-import eslintPluginReact from 'eslint-plugin-react/configs/recommended.js'
+import pluginJs from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import pluginReactConfig from 'eslint-plugin-react/configs/jsx-runtime'
 
 export default [
-  ...eslintConfigESLint,
-  {
-    files: ['**/*.{js,jsx}'],
-    ...eslintPluginReact,
-  },
+  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
+  { languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } } },
+  { languageOptions: { globals: globals.browser } },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginReactConfig,
   {
     rules: {
-      'consistent-return': 'off',
-      'comma-dangle': ['error', 'always-multiline'],
-      'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
-      'jsdoc/require-jsdoc': 'off',
-      'jsdoc/require-param': 'off',
-      'jsdoc/require-returns': 'off',
-      'linebreak-style': ['error', 'unix'],
-      'n/no-extraneous-import': 'off',
-      'n/no-unpublished-import': 'off',
-      'no-console': 'off',
-      'react/jsx-key': 'off',
-      'react/no-unknown-property': 'off',
-      'react/prop-types': 'off',
-      'react/react-in-jsx-scope': 'off',
-      'unicorn/prefer-set-has': 'off',
-      indent: ['error', 2],
-      quotes: ['error', 'single'],
-      semi: ['error', 'never'],
-    },
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-      },
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
+      '@typescript-eslint/no-namespace': 'none',
     },
   },
 ]

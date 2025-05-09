@@ -1,0 +1,75 @@
+---
+navigation:
+  heading: NavigationFooter
+  parent: Components
+
+mainActions:
+  - heading: Main1
+    url: /main1
+  - heading: Main2
+    icon: archive
+    url: /main2
+
+socialActions:
+  - heading: Heading and icon
+    icon: cloud
+  - icon: github
+  - icon: linkedin
+---
+export { Layout as default } from '../../story-layout/layout'
+import { NavigationFooter } from './navigation-footer'
+
+## {props.navigation.heading}
+### Example
+```html
+<NavigationFooter
+  className="s-block-space u-block-space-xs u-border-top u-border-bottom"
+  mainActions={props.mainActions}
+  socialActions={props.socialActions}
+/>
+```
+<NavigationFooter
+  className="s-block-space u-block-space-xs u-border-top u-border-bottom"
+  mainActions={props.mainActions}
+  socialActions={props.socialActions}
+/>
+
+### Example
+```html
+<NavigationFooter
+  className="s-block-space u-block-space-xs u-border-top u-border-bottom"
+  mainActions={props.mainActions}
+/>
+```
+<NavigationFooter
+  className="s-block-space u-block-space-xs u-border-top u-border-bottom"
+  mainActions={props.mainActions}
+/>
+
+### Example
+```html
+<NavigationFooter
+  className="s-block-space u-block-space-xs u-border-top u-border-bottom"
+  socialActions={props.socialActions}
+/>
+```
+<NavigationFooter
+  className="s-block-space u-block-space-xs u-border-top u-border-bottom"
+  socialActions={props.socialActions}
+/>
+
+### Frontmatter
+```yaml
+mainActions:
+  - heading: Main1
+    url: /main1
+  - heading: Main2
+    icon: archive
+    url: /main2
+
+socialActions:
+  - heading: Github
+    icon: github
+  - heading: LinkedIn
+    icon: linkedin
+```

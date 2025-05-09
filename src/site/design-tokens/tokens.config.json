@@ -1,0 +1,15 @@
+{
+  "globalPrefix": "",
+  "transforms": [
+    {
+      "name": "site",
+      "from": "src/site/design-tokens/tokens",
+      "to": [
+        {
+          "as": "css",
+          "to": "src/site/design-tokens"
+        }
+      ]
+    }
+  ]
+}

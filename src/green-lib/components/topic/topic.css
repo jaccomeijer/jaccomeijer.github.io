@@ -1,0 +1,41 @@
+.topic {
+  :is(p, h1, h2, h3, h4, ul) {
+    margin: 0;
+    padding: 0;
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  width: 100%;  
+
+  .topic-picture {
+    order: var(--order);
+    width: 100%;
+    img {
+      aspect-ratio: 2/1;
+      object-fit: cover;
+      width: 100%;    
+    }
+  }
+  .topic-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+    height: 100%;
+    .topic-icon {
+      font-size: var(--font-size-3);
+      color: var(--color-primary-400);
+    }
+    .topic-labels {
+      display: flex;
+      color: var(--color-primary-400);
+      flex-wrap: wrap;    
+      gap: var(--space-2xs);
+    }
+    .topic-heading {
+      font-size: var(--font-size-1);
+    }
+  }
+}

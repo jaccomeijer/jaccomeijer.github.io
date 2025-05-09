@@ -1,0 +1,59 @@
+---
+navigation:
+  heading: Topic Block
+  parent: Topic
+topic:
+  heading: Block example topic
+  labels: [opinion, test, demo, story]
+  abstract: This is an example of a topic abstract text.
+  image: /green-lib/story-assets/images/pexels-skyler-ewing-4596712.jpg
+  icon: book-open
+  action:
+    heading: Test action
+    icon: archive
+    url: /
+---
+
+export { Layout as default } from '../../story-layout/layout'
+import { Topic } from './topic'
+
+## {props.navigation.heading}
+
+### Example
+
+```html
+<Topic topic={props.topic} />
+```
+
+<Topic topic={props.topic} />
+
+### Example
+
+```html
+<Topic swapImage={true} topic={props.topic} />
+```
+
+<Topic swapImage={true} topic={props.topic} />
+
+### Example
+
+```html
+<Topic topic={{...props.topic}} />
+```
+
+<Topic topic={{ ...props.topic }} />
+
+### Frontmatter
+
+```yaml
+topic:
+  heading: Block example topic
+  labels: [opinion, test, demo, story]
+  abstract: This is an example of a topic abstract text.
+  image: /green-lib/story-assets/images/pexels-skyler-ewing-4596712.jpg
+  icon: book-open
+  action:
+    heading: Test action
+    icon: archive
+    url: /
+```

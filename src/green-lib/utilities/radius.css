@@ -1,0 +1,11 @@
+.u-border-radius-rounded {
+  border-radius: var(--border-radius-rounded);
+}
+
+.u-border-radius-pill {
+  border-radius: var(--border-radius-pill);
+}
+
+.u-border-radius-circle {
+  border-radius: var(--border-radius-circle);
+}

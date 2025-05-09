@@ -1,0 +1,125 @@
+---
+navigation:
+  heading: Action
+  parent: Components
+
+action:
+  heading: action
+  icon: circle
+  url: /demo-url-with-icon
+
+actionWithoutUrl:
+  heading: actionWithoutUrl
+  icon: circle
+
+actionWithHref:
+  heading: actionWithHref
+  icon: circle
+  url: https://www.modelberry.com
+
+actionWithoutIcon:
+  heading: actionWithoutIcon
+  url: /demo-url
+---
+
+export { Layout as default } from '../../story-layout/layout'
+import { Action } from './action'
+
+## {props.navigation.heading}
+
+### Button Example
+
+```html
+<Action action={props.action} className="u-font-size-0" element="button" />
+```
+
+<Action action={props.action} className="u-font-size-0" element="button" />
+
+### Active Button Example
+
+```html
+<Action action={props.action} active={true} className="u-font-size-0" element="button" />
+```
+
+<Action action={props.action} active={true} className="u-font-size-0" element="button" />
+
+### Anchor Example
+
+```html
+<Action action={props.action} className="u-font-size-0" element="a" />
+```
+
+<Action action={props.action} className="u-font-size-0" element="a" />
+
+### Active Anchor Example
+
+```html
+<Action action={props.action} active={true} className="u-font-size-0" element="a" />
+```
+
+<Action action={props.action} active={true} className="u-font-size-0" element="a" />
+
+### Example
+
+```html
+<Action action={props.actionWithoutUrl} className="u-font-size-0" element="a" />
+```
+
+<Action action={props.actionWithoutUrl} className="u-font-size-0" element="a" />
+
+### Example
+
+```html
+<Action action={props.action} className="fat-link u-font-size-0" element="a" />
+```
+
+<Action action={props.action} className="fat-link u-font-size-0" element="a" />
+
+### Example
+
+```html
+<Action action={props.actionWithHref} className="u-font-size-2" element="button" />
+```
+
+<Action action={props.actionWithHref} className="u-font-size-2" element="button" />
+
+### Example
+
+```html
+<Action action={props.actionWithHref} className="u-font-size-2" element="a" />
+```
+
+<Action action={props.actionWithHref} className="u-font-size-2" element="a" />
+
+### Example
+
+```html
+<Action action={props.actionWithoutIcon} className="u-font-size-4" element="button" />
+```
+
+<Action action={props.actionWithoutIcon} className="u-font-size-4" element="button" />
+
+### Example
+
+```html
+<Action action={props.actionWithoutIcon} className="u-font-size-4" element="a" />
+```
+
+<Action action={props.actionWithoutIcon} className="u-font-size-4" element="a" />
+
+### Frontmatter
+
+```yaml
+action:
+  icon: circle
+  heading: action
+  url: /demo-url-with-icon
+
+actionWithHref:
+  heading: actionWithHref
+  url: https://www.modelberry.com
+
+actionWithoutIcon:
+  heading: actionWithoutIcon
+  url: /demo-url
+```

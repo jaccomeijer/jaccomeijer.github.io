@@ -1,0 +1,52 @@
+/*
+ * For this component to work, the parent element of this custom element needs a
+ * high css z-index.
+ */
+
+.modal-menu {
+  .modal-background {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.5s ease 0s;
+    visibility: hidden;
+    height: 100vh;
+  }
+
+  .modal-close-button {
+    align-self: flex-end;
+    border-radius: var(--border-radius-rounded);
+  }
+
+  .modal-popup {
+    background: var(--color-mono-000);
+    border-radius: var(--border-radius-rounded);
+    border: 1px solid var(--color-mono-300);
+    bottom: initial;
+    box-shadow: 0px 0px 1rem var(--color-mono-600);
+    margin: var(--space-s);
+    padding: var(--space-s);
+    transform: scale(0.8);
+    transition: transform 0.35s cubic-bezier(0.8, -0.4, 0.2, 1.44) 0s, opacity 0.5s ease 0s;
+    visibility: hidden;
+    nav {
+      gap: var(--space-s);
+    }
+
+    .popup-main-actions,
+    .popup-social-actions,
+      .popup-call-actions {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .popup-main-actions {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .popup-social-actions,
+    .popup-call-actions {
+      align-items: center;
+      gap: var(--space-2xs);
+    }
+  }
+}

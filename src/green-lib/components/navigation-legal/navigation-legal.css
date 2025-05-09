@@ -1,0 +1,35 @@
+.navigation-legal {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--font-size--1);
+  gap: var(--space-s);
+  justify-content: center;
+  width: 100%;
+
+  sup {
+    margin-top: -1.4em;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  a, a:visited {
+    color: currentColor;
+    /* Vertically center lonely icons */
+    display: flex;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  @container (min-width: 45rem) {
+    & {
+      justify-content: space-between;
+    }
+  }
+}

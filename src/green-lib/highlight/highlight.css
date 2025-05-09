@@ -1,0 +1,17 @@
+/* HIGHLIGHT */
+@import "./github.css";
+
+pre {
+  margin-block: 0;
+  width: 100%;
+}
+
+pre code.hljs {
+  border-radius: var(--border-radius-pill);
+  border: 1px solid var(--color-mono-400);
+  display: block;
+  font-family: Consolas, Monaco, monospace;
+  font-size: var(--font-size--1);
+  overflow-x: scroll;
+  padding: 1rem;
+}

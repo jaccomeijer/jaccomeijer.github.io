@@ -1,0 +1,20 @@
+.topic.topic-card {
+  border-radius: var(--border-radius-rounded);
+  border: 1px solid var(--color-mono-200);
+  box-shadow: 0 0 1rem var(--color-mono-100);
+  cursor: pointer;
+  padding: var(--space-s);
+  transition: transform .20s ease;
+  &:hover {
+    transform: translateY(-0.3rem);
+  } 
+  .topic-abstract {
+    flex: 1;
+  }
+}
+
+:is(a, a:visited):has(> .topic-card) {
+  text-decoration: none;
+  display: flex;
+  width: 100%;
+}

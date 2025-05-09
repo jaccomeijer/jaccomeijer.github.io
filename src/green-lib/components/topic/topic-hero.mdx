@@ -1,0 +1,61 @@
+---
+navigation:
+  heading: Topic Hero
+  parent: Topic
+topic:
+  heading: Hero example topic
+  labels: [opinion, test, demo, story]
+  abstract: This is an example of a balanced topic abstract text that is placed below the header.
+  image: /green-lib/story-assets/images/pexels-skyler-ewing-4596712.jpg
+  icon: share
+  action:
+    heading: Test action
+    icon: archive
+---
+
+export { Layout as default } from '../../story-layout/layout'
+import { Topic } from './topic'
+
+## {props.navigation.heading}
+
+### Example
+
+```html
+<Topic topic={props.topic} variant="hero" />
+```
+
+<Topic topic={props.topic} variant="hero" />
+
+### Example
+
+```html
+<Topic topic={{...props.topic}} variant="hero" />
+```
+
+<Topic topic={{ ...props.topic }} variant="hero" />
+
+### Example
+
+```html
+<div className="s-popout">
+  <Topic topic={props.topic} variant="hero" />
+</div>
+```
+
+<div className="s-popout">
+  <Topic topic={props.topic} variant="hero" />
+</div>
+
+### Frontmatter
+
+```yaml
+topic:
+  heading: Hero example topic
+  labels: [opinion, test, demo, story]
+  abstract: This is an example of a balanced topic abstract text that is placed below the header.
+  image: /green-lib/story-assets/images/pexels-skyler-ewing-4596712.jpg
+  icon: share
+  action:
+    heading: Test action
+    icon: archive
+```

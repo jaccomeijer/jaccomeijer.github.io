@@ -1,0 +1,24 @@
+.s-flex-row {
+  /* Horizontal alignment */
+  justify-content: flex-start;
+  /* Vertical alignment */
+  align-items: center;
+
+  display: flex;
+  /* Default to wrap */
+  flex-wrap: wrap;
+  gap: var(--gap, var(--space-xs));
+}
+
+.s-flex-column {
+  /* Vertical alignment */
+  justify-content: flex-start;
+  /* Horizontal alignment */
+  align-items: flex-start;
+
+  display: flex;
+  flex-direction: column;
+  /* Default to no wrap */
+  flex-wrap: nowrap;
+  gap: var(--gap, var(--space-xs));
+}

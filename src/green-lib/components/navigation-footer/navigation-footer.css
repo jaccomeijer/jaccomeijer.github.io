@@ -1,0 +1,38 @@
+.navigation-footer {
+
+  &,
+  ul {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    justify-content: center;
+    width: 100%;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  a, a:visited {
+    color: currentColor;
+    /* Vertically center lonely icons */
+    display: flex;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  @container (min-width: 45rem) {
+    & {
+      justify-content: space-between;
+    }
+
+    ul {
+      width: auto;
+    }
+  }
+}

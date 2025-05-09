@@ -1,0 +1,6 @@
+.site-footer {
+  font-family: var(--font-body-family);
+  font-size: var(--font-size-0);
+  font-weight: var(--font-body-weight);
+  margin-block-start: var(--space-3xl);
+}

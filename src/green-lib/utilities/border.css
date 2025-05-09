@@ -1,0 +1,9 @@
+/* BORDER */
+
+.u-border-bottom {
+	border-bottom: 1px solid var(--color-mono-100);
+}
+
+.u-border-top {
+	border-top: 1px solid var(--color-mono-100);
+}

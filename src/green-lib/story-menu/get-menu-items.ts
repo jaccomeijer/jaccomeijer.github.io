@@ -1,0 +1,110 @@
+import { Collections } from '../../_data/eleventy-data-types'
+import { MenuItem } from './menu-element'
+
+export interface GetMenuItems {
+  collections: Collections
+  pathFilter?: string
+}
+
+export const getMenuItems = ({ collections, pathFilter }: GetMenuItems) => {
+  // Get menu items from collections
+  const menuItems: MenuItem[] = collections.all
+
+    // Only use pages with props.navigation.heading
+    .filter((collection) => collection.data.navigation?.heading)
+
+    // Use path filter if present
+    .filter((collection) => !pathFilter || collection.page.url.includes(pathFilter))
+
+    .map((collection) => {
+      const navigation = collection.data.navigation
+
+      const heading = navigation?.heading
+      const icon = navigation?.icon
+      const navigationId = navigation?.navigationId
+      const order = navigation?.order
+      const parentHeading = navigation?.parent
+      let url = collection.page.url
+
+      // When props.navigation.navigationId is present, use the url of the
+      // the collection that has the props.navigation.id set.
+      if (navigation?.navigationId) {
+        const collectionWithId = collections.all.find((c) => c.data.navigation?.id === navigationId)
+
+        if (collectionWithId) {
+          url = collectionWithId.page.url
+        } else {
+          console.log(`Warning: Could not find a page with props.navigation.id === '${navigationId}'`)
+        }
+      }
+
+      return {
+        heading,
+        icon,
+        navigationId,
+        order,
+        parentHeading,
+        url,
+      }
+    })
+
+  const menuItemsByHeading = menuItems.reduce((prev, current) => {
+    if (current.heading) {
+      prev[current.heading] = current
+    }
+    return prev
+  }, {} as Record<string, MenuItem>)
+
+  // Move entries with a parent to a children array
+  const nestedMenuItems = []
+
+  for (const menuItem of menuItems) {
+    if (menuItem.parentHeading) {
+      const parentMenuItem = menuItemsByHeading[menuItem.parentHeading]
+
+      if (!parentMenuItem) {
+        console.log(`Could not find parent with props.navigation.heading '${menuItem.parentHeading}'`)
+        continue
+      }
+      if (!Array.isArray(parentMenuItem.children)) {
+        parentMenuItem.children = []
+      }
+      parentMenuItem.children.push(menuItem)
+    } else {
+      nestedMenuItems.push(menuItem)
+    }
+  }
+
+  const alphaSort = (a: MenuItem, b: MenuItem) => {
+    const headingA = a.heading || ''
+    const headingB = b.heading || ''
+
+    return headingA.localeCompare(headingB)
+  }
+  const numberSort = (a: MenuItem, b: MenuItem) => {
+    const numberA = a.order || 999
+    const numberB = b.order || 999
+
+    return numberA - numberB
+  }
+
+  // Sort main items alphabetically and then by number
+  nestedMenuItems.sort(alphaSort)
+  nestedMenuItems.sort(numberSort)
+
+  // Sort child items alphabetically and then by number
+  nestedMenuItems.forEach((item) => {
+    if (!item.children) {
+      return
+    }
+    item.children.sort(alphaSort)
+  })
+  nestedMenuItems.forEach((item) => {
+    if (!item.children) {
+      return
+    }
+    item.children.sort(numberSort)
+  })
+
+  return nestedMenuItems
+}

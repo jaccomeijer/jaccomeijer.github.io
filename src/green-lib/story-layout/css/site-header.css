@@ -1,0 +1,35 @@
+.site-header {
+
+  font-family: var(--font-body-family);
+  font-size: var(--font-size-0);
+  font-weight: var(--font-body-weight);
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-menu {
+    color: var(--color-primary-400);
+    font-size: var(--font-size-0);
+  }
+
+  .sub-menu {
+    border-bottom: 1px solid var(--color-mono-100);
+    color: var(--color-primary-400);
+    font-size: var(--font-size--1);
+  }
+
+  .site-branding {
+    font-weight: var(--font-body-weight-bold);
+  }
+}

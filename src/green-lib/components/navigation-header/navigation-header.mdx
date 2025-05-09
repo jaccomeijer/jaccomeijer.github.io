@@ -1,0 +1,100 @@
+---
+navigation:
+  heading: NavigationHeader
+  parent: Components
+
+mainActions:
+  - heading: Main1
+    url: /main1
+  - heading: Main2
+    icon: archive
+    url: /main2
+
+socialActions:
+  - heading: Heading and icon
+    icon: cloud
+    url: /cloud
+  - icon: github
+    url: /github
+  - icon: linkedin
+
+callActions:
+  - heading: Share
+    icon: share
+  - icon: x
+  - heading: Text only
+---
+
+export { Layout as default } from '../../story-layout/layout'
+import { NavigationHeader } from './navigation-header'
+
+## {props.navigation.heading}
+
+### Example
+
+```html
+<NavigationHeader
+  branding={props.libmetadata.branding}
+  callActions={props.callActions}
+  mainActions={props.mainActions}
+  socialActions={props.socialActions}
+  systemData={props.libsystemdata}
+/>
+```
+
+<NavigationHeader
+  branding={props.libmetadata.branding}
+  callActions={props.callActions}
+  mainActions={props.mainActions}
+  socialActions={props.socialActions}
+  systemData={props.libsystemdata}
+/>
+
+### Example
+
+```html
+<NavigationHeader systemData={props.libsystemdata} mainActions={props.mainActions} />
+```
+
+<NavigationHeader systemData={props.libsystemdata} mainActions={props.mainActions} />
+
+### Example
+
+```html
+<NavigationHeader systemData={props.libsystemdata} callActions={props.callActions} />
+```
+
+<NavigationHeader systemData={props.libsystemdata} callActions={props.callActions} />
+
+### Example
+
+```html
+<NavigationHeader systemData={props.libsystemdata} socialActions={props.socialActions} />
+```
+
+<NavigationHeader systemData={props.libsystemdata} socialActions={props.socialActions} />
+
+### Frontmatter
+
+```yaml
+mainActions:
+  - heading: Main1
+    url: /main1
+  - heading: Main2
+    icon: archive
+    url: /main2
+
+socialActions:
+  - heading: Heading and icon
+    icon: cloud
+    url: /cloud
+  - icon: github
+    url: /github
+  - icon: linkedin
+
+callActions:
+  - heading: Share
+    icon: share
+  - icon: x
+  - heading: Text only
+```

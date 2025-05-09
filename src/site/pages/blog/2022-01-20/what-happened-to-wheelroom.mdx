@@ -1,0 +1,100 @@
+---
+navigation:
+  url: /blog/what-happened-to-wheelroom
+date: 2022-01-20
+lastmod: 2024-03-27
+tags: ['blog']
+topics:
+  opener:
+    heading: What happened to Wheelroom?
+    abstract: Founded in 2018. Started to fly in 2020 and abandoned in 2021. What happened?
+    image: /site/pages/blog/2022-01-20/daniel-olah-VS_kFx4yF5g-unsplash.jpg
+---
+
+export { BlogLayout as default } from '../../../layout/blog-layout'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { TopicList } from '../../../../green-lib/components/topic-list/topic-list'
+import { getOpenerTopicsByNavigationIds } from '../../../helpers/get-opener-topics-by-navigation-ids'
+
+## Wheelroom
+
+Modelberry is the successor of Wheelroom. The original Wheelroom repository is
+[still online](https://github.com/wheelroom/wheelroom) as is an [archived
+copy](https://github.com/jaccomeijer/wheelroom).
+
+## Evolving models
+
+Wheelroom was founded in 2018 with the idea that content models evolve as a code
+base evolves and that models should be kept in the same repository as the code
+base.
+
+## React UI library
+
+Early 2020 a React UI library was developed around the Wheelroom command line
+utility. The Wheelroom boilerplate based on [GatsbyJs](https://www.gatsbyjs.com)
+combined content from [Contentful](https://www.contentful.com) with the React UI
+library into a marketing website on [Netlify](https://www.netlify.com) in a
+matter of minutes.
+
+<Picture className="s-block-space u-block-space-s" src="/site/pages/blog/2022-01-20/Contentful-Gatsby-Netlify.png" />
+
+## Success
+
+Setting up a new site in a matter of minutes together with easy customization
+and universal UI library made a marketing site based on Wheelroom an easy sell.
+
+Where the Wheelroom command line utility was solid, the UI library had a number
+of drawbacks.
+
+## UI library drawbacks
+
+The UI library was build around a React clone of [styled
+system](https://styled-system.com). This design system served well for a while
+but eventually evolved into the [Any
+Element](https://github.com/modelberry/sites/blob/main/packages/any-element/README.md).
+
+The biggest problem with the way styled system was used were the style trees. A
+style tree was a Wheelroom concept which allowed styling a tree of components.
+
+First of all it was hard to maintain the tree typings. Extending them with new
+functionality was too complicated. The second problem was that the trees were
+not as intuitive as they could be. Over time it became hard to remember which
+style was defined where.
+
+## New UI library
+
+In 2021 a new UI library was developed with the lessons learned. This library
+uses clear **React component names** and a **Typescript component interface that
+prevents breaking changes**. The library was separated from the command line
+utility.
+
+<TopicList
+  className="s-grid u-grid-two-cols u-gap-m"
+  variant="card"
+  topics={getOpenerTopicsByNavigationIds({
+    collections: props.collections,
+    navigationIds: ['naming-react-components', 'typescript-interface-for-react'],
+  })}
+/>
+
+## Command line utility
+
+The [Wheelroom command line utility](https://github.com/jaccomeijer/wheelroom)
+uses a javascript object for defining the content models. The content models
+could be pushed to Contentful and were used to generate typescript definitions
+and graphql queries.
+
+This worked well (as it still does), but there was a better way.
+
+## Modelberry factory
+
+Instead of generating typescript from a javascript object that defined the
+content models, typescript now is at the core.
+
+A new command line utility was born and was named '[Modelberry
+factory](https://www.npmjs.com/package/@modelberry/mbfactory)'.
+
+Content models are defined in typescript. [TSDoc](https://tsdoc.org) annotations
+are used to add additional details to the models. This way models can be pushed
+to Contentful. The other way around appeared easy as well. Pushing and pulling
+content was an obvious next step.

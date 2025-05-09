@@ -1,0 +1,11 @@
+.u-grid-two-cols {
+  --column-width: calc( (var(--wrapper-width) - (var(--gap)*2) - (var(--gutter)*2)) /3 + 0.1rem );
+}
+
+.u-grid-three-cols {
+  --column-width: calc( (var(--wrapper-width) - (var(--gap)*3) - (var(--gutter)*2)) /4 + 0.1rem );
+}
+
+.u-grid-four-cols {
+  --column-width: calc( (var(--wrapper-width) - (var(--gap)*4) - (var(--gutter)*2)) /5 + 0.1rem );
+}

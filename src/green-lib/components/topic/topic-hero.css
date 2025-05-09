@@ -1,0 +1,59 @@
+.topic.topic-hero {
+  align-items: center;
+  color: var(--color-mono-000);
+  gap: var(--space-l);
+  position: relative;
+
+  .topic-picture img {
+    aspect-ratio: 2/3;
+
+    @container (min-width: 45rem) {
+      & {
+        aspect-ratio: 15/7;
+        min-height: 38rem;
+      }
+    }
+  }
+
+  .topic-content {
+   /* 
+    * Add padding and max width to content so that the topic can be used full
+    * width
+    */
+    max-width: var(--wrapper-width);
+    padding: var(--space-2xl);
+
+    bottom: 0;
+    gap: var(--space-m);
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+ 
+    .topic-labels {
+      font-size: var(--font-size-1);
+      font-weight: var(--font-body-weight-bold);
+      justify-content: center;
+    }
+
+    .topic-icon {
+      font-size: var(--font-size-5);
+    }
+
+    .topic-heading.display {
+      font-size: var(--font-size-5);
+      max-width: 30ch;
+    }
+
+    .topic-abstract {
+      font-size: var(--font-size-1);
+      font-weight: var(--font-body-weight-bold);
+      max-width: 40ch;
+      text-wrap: balance;
+    }
+
+    .topic-action {
+      font-size: var(--font-size-1);
+    }
+  }
+}

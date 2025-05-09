@@ -1,0 +1,37 @@
+<html lang="nl"><head><meta charSet="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://beamanalytics.b-cdn.net/beam.min.js" data-token="9e4dcc33-86ff-4757-98bd-3c2123df9a4c" async=""></script><title>NavigationFooter</title><meta name="description" content="UI Stories for Green Lib"><meta name="generator" content="11ty"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="/green-lib/story-layout/layout.css"></head><body><a class="skip-link" href="#main-content">Skip to content</a><header role="banner" class="site-header s-wrapper"><div class="main-menu s-flex-row u-justify-space-between s-block-space u-block-space-2xs"><nav aria-label="primary"><ul role="list" class="s-flex-row"><li><a href="/green-lib/">Home</a></li><li><a href="/green-lib/global/">Global</a></li><li><a href="/green-lib/structures/">Structures</a></li><li><a href="/green-lib/components/">Components</a></li><li><a href="/green-lib/utilities/">Utilities</a></li><li><a href="/green-lib/components/topic/">Topic</a></li></ul></nav><div class="site-branding">Green UI Lib v7.0.0</div></div><nav class="sub-menu s-flex-row s-block-space u-block-space-3xs"><ul role="list" class="s-flex-row"><li><a href="/green-lib/components/action/">Action</a></li><li><a href="/green-lib/components/button/">button</a></li><li><a href="/green-lib/components/carousel-layout/">CarouselLayout</a></li><li><a href="/green-lib/components/fat-link/">fat-link</a></li><li><a href="/green-lib/components/icon/">Icon</a></li><li><a href="/green-lib/components/input/">input</a></li><li><a href="/green-lib/components/navigation-footer/">NavigationFooter</a></li><li><a href="/green-lib/components/navigation-header/">NavigationHeader</a></li><li><a href="/green-lib/components/navigation-legal/">NavigationLegal</a></li><li><a href="/green-lib/components/picture/">Picture</a></li><li><a href="/green-lib/components/segment/">Segment</a></li><li><a href="/green-lib/components/textarea/">textarea</a></li></ul></nav></header><main tabindex="-1" id="main-content"><div class="page s-wrapper"><article class="markdown s-flex-column u-gap-0"><h2>NavigationFooter</h2>
+<h3>Example</h3>
+<pre><code class="language-html">&lt;NavigationFooter
+  className=&quot;s-block-space u-block-space-xs u-border-top u-border-bottom&quot;
+  mainActions={props.mainActions}
+  socialActions={props.socialActions}
+/&gt;
+</code></pre>
+<nav class="navigation-footer s-block-space u-block-space-xs u-border-top u-border-bottom"><ul class="" role="list"><li><a class=" u-border-radius-rounded" href="/main1">Main1</a></li><li><a class=" with-icon u-border-radius-rounded" aria-label="archive" href="/main2"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#archive"></use></svg>Main2</a></li></ul><ul class="" role="list"><li><div class=" with-icon u-border-radius-rounded active" aria-label="cloud"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#cloud"></use></svg>Heading and icon</div></li><li><div class=" with-icon u-border-radius-rounded active" aria-label="github"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#github"></use></svg></div></li><li><div class=" with-icon u-border-radius-rounded active" aria-label="linkedin"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#linkedin"></use></svg></div></li></ul></nav>
+<h3>Example</h3>
+<pre><code class="language-html">&lt;NavigationFooter
+  className=&quot;s-block-space u-block-space-xs u-border-top u-border-bottom&quot;
+  mainActions={props.mainActions}
+/&gt;
+</code></pre>
+<nav class="navigation-footer s-block-space u-block-space-xs u-border-top u-border-bottom"><ul class="" role="list"><li><a class=" u-border-radius-rounded" href="/main1">Main1</a></li><li><a class=" with-icon u-border-radius-rounded" aria-label="archive" href="/main2"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#archive"></use></svg>Main2</a></li></ul></nav>
+<h3>Example</h3>
+<pre><code class="language-html">&lt;NavigationFooter
+  className=&quot;s-block-space u-block-space-xs u-border-top u-border-bottom&quot;
+  socialActions={props.socialActions}
+/&gt;
+</code></pre>
+<nav class="navigation-footer s-block-space u-block-space-xs u-border-top u-border-bottom"><ul class="" role="list"><li><div class=" with-icon u-border-radius-rounded active" aria-label="cloud"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#cloud"></use></svg>Heading and icon</div></li><li><div class=" with-icon u-border-radius-rounded active" aria-label="github"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#github"></use></svg></div></li><li><div class=" with-icon u-border-radius-rounded active" aria-label="linkedin"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#linkedin"></use></svg></div></li></ul></nav>
+<h3>Frontmatter</h3>
+<pre><code class="language-yaml">mainActions:
+  - heading: Main1
+    url: /main1
+  - heading: Main2
+    icon: archive
+    url: /main2
+
+socialActions:
+  - heading: Github
+    icon: github
+  - heading: LinkedIn
+    icon: linkedin
+</code></pre></article></div></main><footer class="s-wrapper u-font-size--1 s-block-space u-block-space-l">This is the unstyled footer</footer></body></html>

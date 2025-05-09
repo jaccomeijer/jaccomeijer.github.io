@@ -1,0 +1,30 @@
+.textarea {
+  background-color: var(--color-mono-000);
+  border: 1px solid transparent;
+  border-color: var(--color-mono-200);
+  border-radius: var(--border-radius-rounded);
+  color: var(--color-mono-500);
+  display: block;
+  font: inherit;
+  min-height: 10cap;
+  padding: 0.5rem;
+  resize: none;
+  width: 100%;
+
+  &.resize {
+    overflow: auto;
+    resize: vertical;
+  }
+
+  &:focus,
+  &:active {
+    box-shadow: 0 0 0.5rem var(--color-primary-200);
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: var(--color-mono-100);
+    color: var(--color-mono-300);
+    cursor: not-allowed;
+  }
+}

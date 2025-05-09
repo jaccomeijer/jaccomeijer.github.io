@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+:is(body, h1, h2, h3, h4, p, figure, blockquote, dl, dd, ul, ol) {
+  margin-block-end: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+:is(h1, h2, h3, h4, button, input, label) {
+  line-height: 1.2;
+}
+
+:is(h1, h2, h3, h4) {
+  text-wrap: balance;
+}
+
+:is(img, picture) {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+:is(input, button, textarea, select) {
+  font: inherit;
+}

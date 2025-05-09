@@ -1,0 +1,10 @@
+/* Designed to be used on the picture element */
+.u-object-fit-cover {
+  width: 100%;
+}
+
+.u-object-fit-cover img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}

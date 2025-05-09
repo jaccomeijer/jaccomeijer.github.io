@@ -1,0 +1,26 @@
+---
+navigation:
+  heading: NavigationLegal
+  parent: Components
+---
+
+export { Layout as default } from '../../story-layout/layout'
+import { NavigationLegal } from './navigation-legal'
+
+## {props.navigation.heading}
+
+### Example
+
+```html
+<NavigationLegal
+  branding={props.libmetadata.branding}
+  className="s-block-space u-block-space-xs u-border-top u-border-bottom"
+  vendor={props.vendor}
+/>
+```
+
+<NavigationLegal
+  branding={props.libmetadata.branding}
+  className="s-block-space u-block-space-xs u-border-top u-border-bottom"
+  vendor={props.libmetadata.vendor}
+/>

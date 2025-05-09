@@ -1,0 +1,15 @@
+{
+  "globalPrefix": "",
+  "transforms": [
+    {
+      "name": "green-lib",
+      "from": "src/green-lib/design-tokens/tokens",
+      "to": [
+        {
+          "as": "css",
+          "to": "src/green-lib/design-tokens"
+        }
+      ]
+    }
+  ]
+}
