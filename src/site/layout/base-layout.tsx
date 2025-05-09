@@ -11,7 +11,7 @@ export interface BaseLayout {
 }
 
 export const BaseLayout = (props: BaseLayout & EleventyData) => {
-  const mainMenuItems = getMenuItems({ collections: props.collections, pathFilter: 'site' })
+  const mainMenuItems = getMenuItems({ collections: props.collections, pathFilter: 'blog' })
 
   return (
     <html lang={props.sitemetadata.content.language}>

@@ -87,16 +87,17 @@ export interface UnderscoreData {
 }
 
 export interface FrontmatterData {
-  date: string
-  lastmod: string
+  date?: string
+  lastmod?: string
   navigation?: Navigation
-  tags: string[]
-  topics: Record<string, TopicData>
+  permalink?: string
+  tags?: string[]
+  topics?: Record<string, TopicData>
 }
 
 export interface EleventyData extends UnderscoreData, FrontmatterData {
-  eleventy: Eleventy
-  pkg: Pkg
-  page: Page
   collections: Collections
+  eleventy: Eleventy
+  page: Page
+  pkg: Pkg
 }
