@@ -6,43 +6,43 @@ CSS variables.</p>
 <h3>Color attribute</h3>
 <p>The interface as described in the blog post above is extended with a colors
 attribute.</p>
-<pre><code class="language-ts">colors?: Partial&lt;Record&lt;&#x27;monochrome&#x27; | &#x27;primary&#x27; | &#x27;secondary&#x27;, string&gt;&gt;
+<pre><code class="hljs language-ts"><span class="hljs-attr">colors</span>?: <span class="hljs-title class_">Partial</span>&lt;<span class="hljs-title class_">Record</span>&lt;<span class="hljs-string">&#x27;monochrome&#x27;</span> | <span class="hljs-string">&#x27;primary&#x27;</span> | <span class="hljs-string">&#x27;secondary&#x27;</span>, <span class="hljs-built_in">string</span>&gt;&gt;
 </code></pre>
 <p>The attribute expects an object. For example:</p>
-<pre><code class="language-js">{ monochrome: &#x27;rock&#x27;, primary: &#x27;berry&#x27;, secondary: &#x27;apple&#x27;, }
+<pre><code class="hljs language-js">{ <span class="hljs-attr">monochrome</span>: <span class="hljs-string">&#x27;rock&#x27;</span>, <span class="hljs-attr">primary</span>: <span class="hljs-string">&#x27;berry&#x27;</span>, <span class="hljs-attr">secondary</span>: <span class="hljs-string">&#x27;apple&#x27;</span>, }
 </code></pre>
 <h3>The component</h3>
 <p>The component is setup to use CSS variables. Which CSS variables the component
 uses depends on the colors object passed to the component.</p>
 <p>This way the same component can be used with different styling. For example:</p>
-<pre><code class="language-ts">const displayStyle = {
-  color: `var(--color-${color.monochrome}-400)`,
-  &#x27;&amp;:hover&#x27;: {
-    color: `var(--color-${color.primary}-400)`,
+<pre><code class="hljs language-ts"><span class="hljs-keyword">const</span> displayStyle = {
+  <span class="hljs-attr">color</span>: <span class="hljs-string">`var(--color-<span class="hljs-subst">${color.monochrome}</span>-400)`</span>,
+  <span class="hljs-string">&#x27;&amp;:hover&#x27;</span>: {
+    <span class="hljs-attr">color</span>: <span class="hljs-string">`var(--color-<span class="hljs-subst">${color.primary}</span>-400)`</span>,
   },
-  fontFamily: &#x27;var(--display-font-family)&#x27;,
-  fontSize: &#x27;var(--display-font-size-m)&#x27;,
-  fontWeight: &#x27;var(--display-font-weight)&#x27;,
-  lineHeight: &#x27;var(--display-line-height-m)&#x27;,
+  <span class="hljs-attr">fontFamily</span>: <span class="hljs-string">&#x27;var(--display-font-family)&#x27;</span>,
+  <span class="hljs-attr">fontSize</span>: <span class="hljs-string">&#x27;var(--display-font-size-m)&#x27;</span>,
+  <span class="hljs-attr">fontWeight</span>: <span class="hljs-string">&#x27;var(--display-font-weight)&#x27;</span>,
+  <span class="hljs-attr">lineHeight</span>: <span class="hljs-string">&#x27;var(--display-line-height-m)&#x27;</span>,
 }
 </code></pre>
 <h2>CSS variables</h2>
 <p>The last step is defining the CSS variables. For example:</p>
 <h3>Fonts</h3>
-<pre><code class="language-css">--display-font-family: Exo, “Helvetica Neue”, sans-serif;
---display-font-weight: 700;
---display-font-size-l: 54px;
---display-font-size-m: 40px;
---display-line-height-l: 1.3;
---display-line-height-m: 1.2;
+<pre><code class="hljs language-css"><span class="hljs-attr">--display-font-family</span>: Exo, “Helvetica Neue”, sans-serif;
+<span class="hljs-attr">--display-font-weight</span>: <span class="hljs-number">700</span>;
+<span class="hljs-attr">--display-font-size-l</span>: <span class="hljs-number">54px</span>;
+<span class="hljs-attr">--display-font-size-m</span>: <span class="hljs-number">40px</span>;
+<span class="hljs-attr">--display-line-height-l</span>: <span class="hljs-number">1.3</span>;
+<span class="hljs-attr">--display-line-height-m</span>: <span class="hljs-number">1.2</span>;
 </code></pre>
 <h3>Colors</h3>
-<pre><code class="language-css">--color-berry-100: #715aff;
---color-berry-200: #3615ff;
---color-berry-300: #1d00cf;
---color-berry-400: #13008a;
---color-berry-500: #0a0045;
---color-berry-600: #0a0045;
+<pre><code class="hljs language-css"><span class="hljs-attr">--color-berry-100</span>: <span class="hljs-number">#715aff</span>;
+<span class="hljs-attr">--color-berry-200</span>: <span class="hljs-number">#3615ff</span>;
+<span class="hljs-attr">--color-berry-300</span>: <span class="hljs-number">#1d00cf</span>;
+<span class="hljs-attr">--color-berry-400</span>: <span class="hljs-number">#13008a</span>;
+<span class="hljs-attr">--color-berry-500</span>: <span class="hljs-number">#0a0045</span>;
+<span class="hljs-attr">--color-berry-600</span>: <span class="hljs-number">#0a0045</span>;
 </code></pre>
 <h2>@modelberry/css-theme</h2>
 <p>There are many ways to define the required CSS variables for a site. For
@@ -50,12 +50,12 @@ Javascript, the
 <a href="https://www.npmjs.com/package/@modelberry/css-theme">modelberry/css-theme</a>
 package is a convenient way.</p>
 <p>This works by defining a theme object that contains all the styling for a site.</p>
-<pre><code class="language-ts">const myTheme: Theme = {
-  color: {
-    rock: {
-      100: &#x27;#e0e0e0&#x27;,
-      200: &#x27;#b0b0b0&#x27;,
-      300: &#x27;#909090&#x27;,
+<pre><code class="hljs language-ts"><span class="hljs-keyword">const</span> <span class="hljs-attr">myTheme</span>: <span class="hljs-title class_">Theme</span> = {
+  <span class="hljs-attr">color</span>: {
+    <span class="hljs-attr">rock</span>: {
+      <span class="hljs-number">100</span>: <span class="hljs-string">&#x27;#e0e0e0&#x27;</span>,
+      <span class="hljs-number">200</span>: <span class="hljs-string">&#x27;#b0b0b0&#x27;</span>,
+      <span class="hljs-number">300</span>: <span class="hljs-string">&#x27;#909090&#x27;</span>,
     },
     ...
   },

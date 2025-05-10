@@ -31,21 +31,21 @@ ecosystem. The example below shows how to add support for:</p>
 <li>Code highlighting</li>
 <li>GitHub Flavored Markdown Spec</li>
 </ul>
-<pre><code class="language-js">import mdx from &#x27;@mdx-js/esbuild&#x27;
-import rehypeHighlight from &#x27;rehype-highlight&#x27;
-import remarkFrontmatter from &#x27;remark-frontmatter&#x27;
-import remarkMdxFrontmatter from &#x27;remark-mdx-frontmatter&#x27;
-import remarkGfm from &#x27;remark-gfm&#x27;
+<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> mdx <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@mdx-js/esbuild&#x27;</span>
+<span class="hljs-keyword">import</span> rehypeHighlight <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rehype-highlight&#x27;</span>
+<span class="hljs-keyword">import</span> remarkFrontmatter <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;remark-frontmatter&#x27;</span>
+<span class="hljs-keyword">import</span> remarkMdxFrontmatter <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;remark-mdx-frontmatter&#x27;</span>
+<span class="hljs-keyword">import</span> remarkGfm <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;remark-gfm&#x27;</span>
 
-const plugins = [
-  mdx({
-    jsxImportSource: &#x27;preact&#x27;,
-    remarkPlugins: [
+<span class="hljs-keyword">const</span> plugins = [
+  <span class="hljs-title function_">mdx</span>({
+    <span class="hljs-attr">jsxImportSource</span>: <span class="hljs-string">&#x27;preact&#x27;</span>,
+    <span class="hljs-attr">remarkPlugins</span>: [
       [remarkGfm],
-      [remarkFrontmatter, [&#x27;yaml&#x27;, &#x27;toml&#x27;]],
-      [remarkMdxFrontmatter, { name: &#x27;frontmatter&#x27; }],
+      [remarkFrontmatter, [<span class="hljs-string">&#x27;yaml&#x27;</span>, <span class="hljs-string">&#x27;toml&#x27;</span>]],
+      [remarkMdxFrontmatter, { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;frontmatter&#x27;</span> }],
     ],
-    rehypePlugins: [rehypeHighlight],
+    <span class="hljs-attr">rehypePlugins</span>: [rehypeHighlight],
   }),
 ]
 </code></pre>
@@ -54,21 +54,21 @@ const plugins = [
 here</a>. For live reloading a line of
 Javascript must be added to the page template.</p>
 <p>Using Javascript the Esbuild webserver is started like this:</p>
-<pre><code class="language-js">const ctx = await esbuild.context({
-  entryPoints: [&#x27;index&#x27;],
-  format: &#x27;esm&#x27;,
-  outdir: &#x27;build&#x27;,
-  plugins: [
-    mdx({
-      /** options **/
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> ctx = <span class="hljs-keyword">await</span> esbuild.<span class="hljs-title function_">context</span>({
+  <span class="hljs-attr">entryPoints</span>: [<span class="hljs-string">&#x27;index&#x27;</span>],
+  <span class="hljs-attr">format</span>: <span class="hljs-string">&#x27;esm&#x27;</span>,
+  <span class="hljs-attr">outdir</span>: <span class="hljs-string">&#x27;build&#x27;</span>,
+  <span class="hljs-attr">plugins</span>: [
+    <span class="hljs-title function_">mdx</span>({
+      <span class="hljs-comment">/** options **/</span>
     }),
   ],
 })
 
-await ctx.watch()
-const { port } = await ctx.serve({ servedir: &#x27;build&#x27; })
+<span class="hljs-keyword">await</span> ctx.<span class="hljs-title function_">watch</span>()
+<span class="hljs-keyword">const</span> { port } = <span class="hljs-keyword">await</span> ctx.<span class="hljs-title function_">serve</span>({ <span class="hljs-attr">servedir</span>: <span class="hljs-string">&#x27;build&#x27;</span> })
 
-console.log(`Live reload server started at http://localhost:${port}\n`)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Live reload server started at http://localhost:<span class="hljs-subst">${port}</span>\n`</span>)
 </code></pre>
 <h2>Conclusion</h2>
 <p>Esbuild is a fantastic tool. It is fast, capable and extendable. With

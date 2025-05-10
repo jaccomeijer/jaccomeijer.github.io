@@ -12,30 +12,30 @@ in mind.</p>
 <h3>Element scope</h3>
 <p>Elements are the smallest components. The name is derived from the HTML
 standard. An element receives data by passing children.</p>
-<pre><code class="language-html">&lt;Heading&gt;This is the hading&lt;/Heading&gt;
-&lt;Abstract&gt;This is the abstract&lt;/Abstract&gt;
-&lt;button&gt;Press me&lt;/button&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Heading</span>&gt;</span>This is the hading<span class="hljs-tag">&lt;/<span class="hljs-name">Heading</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Abstract</span>&gt;</span>This is the abstract<span class="hljs-tag">&lt;/<span class="hljs-name">Abstract</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Press me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </code></pre>
 <h3>Model scope</h3>
 <p>Models contain elements. This is the level where visual components meet data
 models. A model receives data by passing data to the &#x27;model&#x27; attribute.</p>
-<pre><code class="language-html">&lt;Topic model=&quot;{topic}&quot; /&gt;
-&lt;Navigation model=&quot;{navigation}&quot; /&gt;
-&lt;Action model=&quot;{action}&quot; /&gt;
-&lt;Media model=&quot;{media}&quot; /&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Topic</span> <span class="hljs-attr">model</span>=<span class="hljs-string">&quot;{topic}&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Navigation</span> <span class="hljs-attr">model</span>=<span class="hljs-string">&quot;{navigation}&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Action</span> <span class="hljs-attr">model</span>=<span class="hljs-string">&quot;{action}&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Media</span> <span class="hljs-attr">model</span>=<span class="hljs-string">&quot;{media}&quot;</span> /&gt;</span>
 </code></pre>
 <h3>Layout scope</h3>
 <p>Layouts contain Models. Layouts take care of positioning models. A layout
 receives data by passing children.</p>
-<pre><code class="language-html">&lt;OneColumnLayout&gt;
-  &lt;SomeModel /&gt;
-  &lt;SomeModel /&gt;
-&lt;/SidebarLayout&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">OneColumnLayout</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">SomeModel</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">SomeModel</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">SidebarLayout</span>&gt;</span>
 
-&lt;TwoColumnLayout&gt;
-  &lt;Topic /&gt;
-  &lt;Topic /&gt;
-&lt;/TwoColumnLayout&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">TwoColumnLayout</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Topic</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Topic</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">TwoColumnLayout</span>&gt;</span>
 </code></pre>
 <h2>Case study: a page</h2>
 <p>Having clear component scopes helps in naming the components. When setting up a

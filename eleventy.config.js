@@ -6,6 +6,9 @@ import browserslist from 'browserslist'
 import { bundle, browserslistToTargets } from 'lightningcss'
 import * as runtime from 'react/jsx-runtime'
 import { build } from 'esbuild'
+import remarkGfm from 'remark-gfm'
+import rehypeHighlight from 'rehype-highlight'
+
 import 'tsx'
 
 export default function (eleventyConfig) {
@@ -29,10 +32,12 @@ export default function (eleventyConfig) {
   // MDX Template format
   eleventyConfig.addTemplateFormats('mdx')
   eleventyConfig.addExtension('mdx', {
-    compile: async (str, inputPath) => {
-      const { default: mdxContent } = await evaluate(str, {
+    compile: async (inputContent, inputPath) => {
+      const { default: mdxContent } = await evaluate(inputContent, {
         ...runtime,
         baseUrl: pathToFileURL(inputPath),
+        remarkPlugins: [[remarkGfm]],
+        rehypePlugins: [rehypeHighlight],
       })
 
       return async function (data) {

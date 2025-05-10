@@ -1,55 +1,55 @@
 <html lang="nl"><head><meta charSet="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://beamanalytics.b-cdn.net/beam.min.js" data-token="9e4dcc33-86ff-4757-98bd-3c2123df9a4c" async=""></script><title>Action</title><meta name="description" content="UI Stories for Green Lib"><meta name="generator" content="11ty"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="/green-lib/story-layout/layout.css"></head><body><a class="skip-link" href="#main-content">Skip to content</a><header role="banner" class="site-header s-wrapper"><div class="main-menu s-flex-row u-justify-space-between s-block-space u-block-space-2xs"><nav aria-label="primary"><ul role="list" class="s-flex-row"><li><a href="/green-lib/">Home</a></li><li><a href="/green-lib/global/">Global</a></li><li><a href="/green-lib/structures/">Structures</a></li><li><a href="/green-lib/components/">Components</a></li><li><a href="/green-lib/utilities/">Utilities</a></li><li><a href="/green-lib/components/topic/">Topic</a></li></ul></nav><div class="site-branding">Green UI Lib v7.0.0</div></div><nav class="sub-menu s-flex-row s-block-space u-block-space-3xs"><ul role="list" class="s-flex-row"><li><a href="/green-lib/components/action/">Action</a></li><li><a href="/green-lib/components/button/">button</a></li><li><a href="/green-lib/components/carousel-layout/">CarouselLayout</a></li><li><a href="/green-lib/components/fat-link/">fat-link</a></li><li><a href="/green-lib/components/icon/">Icon</a></li><li><a href="/green-lib/components/input/">input</a></li><li><a href="/green-lib/components/navigation-footer/">NavigationFooter</a></li><li><a href="/green-lib/components/navigation-header/">NavigationHeader</a></li><li><a href="/green-lib/components/navigation-legal/">NavigationLegal</a></li><li><a href="/green-lib/components/picture/">Picture</a></li><li><a href="/green-lib/components/segment/">Segment</a></li><li><a href="/green-lib/components/textarea/">textarea</a></li></ul></nav></header><main tabindex="-1" id="main-content"><div class="page s-wrapper"><article class="markdown s-flex-column u-gap-0"><h2>Action</h2>
 <h3>Button Example</h3>
-<pre><code class="language-html">&lt;Action action={props.action} className=&quot;u-font-size-0&quot; element=&quot;button&quot; /&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Action</span> <span class="hljs-attr">action</span>=<span class="hljs-string">{props.action}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;u-font-size-0&quot;</span> <span class="hljs-attr">element</span>=<span class="hljs-string">&quot;button&quot;</span> /&gt;</span>
 </code></pre>
 <button class="u-font-size-0 with-icon button u-border-radius-rounded" aria-label="circle" element="button"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#circle"></use></svg>action</button>
 <h3>Active Button Example</h3>
-<pre><code class="language-html">&lt;Action action={props.action} active={true} className=&quot;u-font-size-0&quot; element=&quot;button&quot; /&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Action</span> <span class="hljs-attr">action</span>=<span class="hljs-string">{props.action}</span> <span class="hljs-attr">active</span>=<span class="hljs-string">{true}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;u-font-size-0&quot;</span> <span class="hljs-attr">element</span>=<span class="hljs-string">&quot;button&quot;</span> /&gt;</span>
 </code></pre>
 <button class="u-font-size-0 with-icon active button u-border-radius-rounded" aria-label="circle" element="button"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#circle"></use></svg>action</button>
 <h3>Anchor Example</h3>
-<pre><code class="language-html">&lt;Action action={props.action} className=&quot;u-font-size-0&quot; element=&quot;a&quot; /&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Action</span> <span class="hljs-attr">action</span>=<span class="hljs-string">{props.action}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;u-font-size-0&quot;</span> <span class="hljs-attr">element</span>=<span class="hljs-string">&quot;a&quot;</span> /&gt;</span>
 </code></pre>
 <a class="u-font-size-0 with-icon u-border-radius-rounded" aria-label="circle" href="/demo-url-with-icon"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#circle"></use></svg>action</a>
 <h3>Active Anchor Example</h3>
-<pre><code class="language-html">&lt;Action action={props.action} active={true} className=&quot;u-font-size-0&quot; element=&quot;a&quot; /&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Action</span> <span class="hljs-attr">action</span>=<span class="hljs-string">{props.action}</span> <span class="hljs-attr">active</span>=<span class="hljs-string">{true}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;u-font-size-0&quot;</span> <span class="hljs-attr">element</span>=<span class="hljs-string">&quot;a&quot;</span> /&gt;</span>
 </code></pre>
 <a class="u-font-size-0 with-icon u-border-radius-rounded active" aria-label="circle" href="/demo-url-with-icon"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#circle"></use></svg>action</a>
 <h3>Example</h3>
-<pre><code class="language-html">&lt;Action action={props.actionWithoutUrl} className=&quot;u-font-size-0&quot; element=&quot;a&quot; /&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Action</span> <span class="hljs-attr">action</span>=<span class="hljs-string">{props.actionWithoutUrl}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;u-font-size-0&quot;</span> <span class="hljs-attr">element</span>=<span class="hljs-string">&quot;a&quot;</span> /&gt;</span>
 </code></pre>
 <div class="u-font-size-0 with-icon u-border-radius-rounded" aria-label="circle"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#circle"></use></svg>actionWithoutUrl</div>
 <h3>Example</h3>
-<pre><code class="language-html">&lt;Action action={props.action} className=&quot;fat-link u-font-size-0&quot; element=&quot;a&quot; /&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Action</span> <span class="hljs-attr">action</span>=<span class="hljs-string">{props.action}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;fat-link u-font-size-0&quot;</span> <span class="hljs-attr">element</span>=<span class="hljs-string">&quot;a&quot;</span> /&gt;</span>
 </code></pre>
 <a class="fat-link u-font-size-0 with-icon u-border-radius-rounded" aria-label="circle" href="/demo-url-with-icon"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#circle"></use></svg>action</a>
 <h3>Example</h3>
-<pre><code class="language-html">&lt;Action action={props.actionWithHref} className=&quot;u-font-size-2&quot; element=&quot;button&quot; /&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Action</span> <span class="hljs-attr">action</span>=<span class="hljs-string">{props.actionWithHref}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;u-font-size-2&quot;</span> <span class="hljs-attr">element</span>=<span class="hljs-string">&quot;button&quot;</span> /&gt;</span>
 </code></pre>
 <button class="u-font-size-2 with-icon button u-border-radius-rounded" aria-label="circle" element="button"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#circle"></use></svg>actionWithHref</button>
 <h3>Example</h3>
-<pre><code class="language-html">&lt;Action action={props.actionWithHref} className=&quot;u-font-size-2&quot; element=&quot;a&quot; /&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Action</span> <span class="hljs-attr">action</span>=<span class="hljs-string">{props.actionWithHref}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;u-font-size-2&quot;</span> <span class="hljs-attr">element</span>=<span class="hljs-string">&quot;a&quot;</span> /&gt;</span>
 </code></pre>
 <a class="u-font-size-2 with-icon u-border-radius-rounded" aria-label="circle" href="https://www.modelberry.com"><svg class="icon " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/feather-sprite.svg#circle"></use></svg>actionWithHref</a>
 <h3>Example</h3>
-<pre><code class="language-html">&lt;Action action={props.actionWithoutIcon} className=&quot;u-font-size-4&quot; element=&quot;button&quot; /&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Action</span> <span class="hljs-attr">action</span>=<span class="hljs-string">{props.actionWithoutIcon}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;u-font-size-4&quot;</span> <span class="hljs-attr">element</span>=<span class="hljs-string">&quot;button&quot;</span> /&gt;</span>
 </code></pre>
 <button class="u-font-size-4 button u-border-radius-rounded" element="button">actionWithoutIcon</button>
 <h3>Example</h3>
-<pre><code class="language-html">&lt;Action action={props.actionWithoutIcon} className=&quot;u-font-size-4&quot; element=&quot;a&quot; /&gt;
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Action</span> <span class="hljs-attr">action</span>=<span class="hljs-string">{props.actionWithoutIcon}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;u-font-size-4&quot;</span> <span class="hljs-attr">element</span>=<span class="hljs-string">&quot;a&quot;</span> /&gt;</span>
 </code></pre>
 <a class="u-font-size-4 u-border-radius-rounded" href="/demo-url">actionWithoutIcon</a>
 <h3>Frontmatter</h3>
-<pre><code class="language-yaml">action:
-  icon: circle
-  heading: action
-  url: /demo-url-with-icon
+<pre><code class="hljs language-yaml"><span class="hljs-attr">action:</span>
+  <span class="hljs-attr">icon:</span> <span class="hljs-string">circle</span>
+  <span class="hljs-attr">heading:</span> <span class="hljs-string">action</span>
+  <span class="hljs-attr">url:</span> <span class="hljs-string">/demo-url-with-icon</span>
 
-actionWithHref:
-  heading: actionWithHref
-  url: https://www.modelberry.com
+<span class="hljs-attr">actionWithHref:</span>
+  <span class="hljs-attr">heading:</span> <span class="hljs-string">actionWithHref</span>
+  <span class="hljs-attr">url:</span> <span class="hljs-string">https://www.modelberry.com</span>
 
-actionWithoutIcon:
-  heading: actionWithoutIcon
-  url: /demo-url
+<span class="hljs-attr">actionWithoutIcon:</span>
+  <span class="hljs-attr">heading:</span> <span class="hljs-string">actionWithoutIcon</span>
+  <span class="hljs-attr">url:</span> <span class="hljs-string">/demo-url</span>
 </code></pre></article></div></main><footer class="s-wrapper u-font-size--1 s-block-space u-block-space-l">This is the unstyled footer</footer></body></html>
