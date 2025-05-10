@@ -6,9 +6,7 @@ Contentful-Gatsby-Netlify trio be simplified?&quot;.</p>
 post concludes with the need for a Render JSX plugin for Esbuild.</p>
 <p>This post starts with the code for such a plugin and describes how it works.</p>
 <h2>The code</h2>
-<p>Below is the full plugin. It&#x27;s taken from
-<a href="https://github.com/jaccomeijer/render-jsx-plugin-poc">jaccomeijer/render-jsx-plugin-poc</a>,
-a small repo that can be used to see the plugin working.</p>
+<p>Below is the full plugin.</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">import</span> { writeFile, mkdir } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;fs/promises&#x27;</span>
 <span class="hljs-keyword">import</span> path <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;path&#x27;</span>
 <span class="hljs-keyword">import</span> crypto <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;crypto&#x27;</span>
@@ -56,11 +54,8 @@ a small repo that can be used to see the plugin working.</p>
 }
 </code></pre>
 <h2>More capable version</h2>
-<p>A more capable version of the plugin is used in the
-<a href="https://github.com/jaccomeijer/green-build">jaccomeijer/green-build</a>
-repository. That repo is used to build this site (<a href="https://github.com/jaccomeijer/jaccomeijer.github.io">repository
-here</a>) and adds
-functionality like:</p>
+<p>Experiments showed (this code is not online anymore) that the plugin could
+easily add functionality like:</p>
 <ul>
 <li>image handling</li>
 <li>CSS bundling</li>
@@ -74,7 +69,8 @@ functionality like:</p>
 <li>uses React JSX runtime instead or Preact</li>
 </ul>
 <h2>The breakdown</h2>
-<p>The plugin is simple and contains a few distinct steps.</p>
+<p>This enhanced plugin was simple and contained a few distinct steps. The plugin
+is not online anymore and this breakdown is left here for reference.</p>
 <h3>Metadata</h3>
 <p><a href="https://esbuild.github.io">Esbuild</a> provides <code>onEnd</code> plugins with build
 metadata. The plugin starts with using <code>result.metafile</code> to get all bundle
@@ -108,9 +104,7 @@ these are the build options to build with the Preact Factory:</p>
 </code></pre>
 <p>The imported bundle contains a JSX component that accepts props like any other
 JSX function. This demo does not do much with the <code>initialProps</code>, but this is
-how e.g. global metadata can be passed to all pages. The package
-<a href="https://github.com/jaccomeijer/green-build">jaccomeijer/green-build</a>, mentioned
-earlier, uses this concept.</p>
+how e.g. global metadata can be passed to all pages.</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> props = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">assign</span>(initialProps || {})
 <span class="hljs-keyword">const</span> html = <span class="hljs-title function_">render</span>(<span class="hljs-variable language_">module</span>.<span class="hljs-title function_">default</span>(props))
 </code></pre>
@@ -124,7 +118,7 @@ here.</p>
 <span class="hljs-keyword">await</span> <span class="hljs-title function_">writeFile</span>(path.<span class="hljs-title function_">resolve</span>(outputPath), <span class="hljs-string">`&lt;!DOCTYPE html&gt;<span class="hljs-subst">${html}</span>`</span>)
 </code></pre>
 <h2>JSX</h2>
-<p>The plugin above uses Preact to transform JSX into static HTML. Theoretically,
+<p>The plugin above used Preact to transform JSX into static HTML. Theoretically,
 the JSX framework should not affect the final result because Factory functions
 are added when bundling and removed again when rendering. In practice, there&#x27;s
 some differences in consistency, speed and syntax conventions.</p>
@@ -142,12 +136,9 @@ package provides a <code>render</code> function that renders consistently to sta
 <p>The package does not warn about React conventions like the need for <code>key</code>
 attributes and is a lot faster than React&#x27;s <code>renderToStaticMarkup</code>.</p>
 <h3>React</h3>
-<p>The first version of the
-<a href="https://github.com/jaccomeijer/green-build">jaccomeijer/green-build</a> package
-created bundles with Preact settings.</p>
-<p>Version 2 of the build package switched to React because of compatibility.
-Creating e.g. a UI library makes the library compatible with frameworks like
-<a href="https://astro.build">Astro</a>.</p>
+<p>The first version of the plugin created bundles with Preact settings.</p>
+<p>Version 2 switched to React because of compatibility. Creating e.g. a UI library
+makes the library compatible with frameworks like <a href="https://astro.build">Astro</a>.</p>
 <p>Gaining React compatibility came with the cost of speed. The React Factory is
 noticeably slower than the other two. Also, creating a React bundle shows all
 the warnings that come with React&#x27;s conventions. CamelCase attributes and <code>key</code>

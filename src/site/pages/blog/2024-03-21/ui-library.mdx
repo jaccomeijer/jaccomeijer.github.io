@@ -31,25 +31,27 @@ The last post showed a simple plugin for [Esbuild](https://esbuild.github.io).
   swapImage={true}
 />
 
-## Green build
+## Enhanced plugin
 
 This plugin was enhanced with a few lines of code to support Front Matter, CSS
-bundles and images. The result was named
-[green-build](https://github.com/jaccomeijer/green-build).
+bundles and images. The enhanced plugin was used to create a small JSX UI
+library known as Green Lib.
 
-## Green lib
+## Eleventy MDX
 
-This post shows how green-build was used to create a small UI library. The
-library is documented with MDX documents for each item in the library and
-[available on Github](https://github.com/jaccomeijer/green-lib).
+Once [MDX became a supported template
+language](https://www.11ty.dev/docs/languages/mdx/) for Eleventy, the enhanced
+plugin was of little use anymore and all content was migrated to a Eleventy
+setup. The Green Lib survived this migration.
 
-The [green reference example site](https://www.jaccomeijer.nl/green-reference/)
-is created with the library to show the capabilities. It simply renders all
-components.
+## Green Lib
 
-The MDX documents of the library are [published
-here](https://www.jaccomeijer.nl/green-lib/). A simple menu binds the
-documentation together. The result is quite similar to a component storybook.
+The library [documents each compontent](https://jaccomeijer.nl/green-lib) with a
+MDX document. Very simular - but much simpler - to tools like
+[Stoybook](https://storybook.js.org).
+
+A [quick reference implementation](https://www.jaccomeijer.nl/reference) shows
+the library capabilities. It simply renders all components.
 
 ## Fast evolving CSS
 
@@ -57,7 +59,7 @@ This post is part of a series that originated with the question "can the
 Contentful-Gatsby-Netlify trio be simplified?".
 
 The original idea to put this trio together goes back to 2018. Six years later,
-much has changed in the world of CSS!
+much has changed in the world of CSS.
 
 ### CSS Specificity
 
@@ -164,20 +166,19 @@ By experiment, two components in the library have been set up as Custom Elements
 with isolated shadow DOM. The components were elected because they require
 Javascript to function.
 
-- [navigation-header](https://www.jaccomeijer.nl/green-lib/green-lib/components/navigation-header/navigation-header/),
+- [navigation-header](https://www.jaccomeijer.nl/green-lib/components/navigation-header),
   uses Javascript to open the mobile menu
-- [carousel-layout](https://www.jaccomeijer.nl/green-lib/green-lib/components/carousel-layout/carousel-layout/),
+- [carousel-layout](https://www.jaccomeijer.nl/green-lib/components/carousel-layout),
   uses Javascript to scroll the slides
 
-This works well, but
-faces all the problems of styling Custom Elements.
+This works well, but faces all the problems of styling Custom Elements.
 
 > NOTE: Zach Leatherman, author of 11ty, wrote [a great
 > post](https://www.zachleat.com/web/styling-web-components/) on the modern
 > issues of styling Custom Elements.
 
 The library produces one CSS bundle which can be reused in the Custom Element.
-Because the browser caches the bundle, it won't go over the line twice. Still,
+Because the browser caches the bundle, it will not be downloaded twice. Still,
 this solution is not perfect. As outlined by Zach in the post mentioned above.
 
 ### Declarative Shadow Dom
@@ -195,16 +196,15 @@ harder.
 
 ## React build
 
-Version 3 of the library did not bundle the JSX components. Version 4 added a
-React bundle.
-
-The import below imports from the source jsx files.
+The [current library](https://jaccomeijer.nl/green-lib) is simply part of the
+site build and MDX imports are like this:
 
 ```js
-import { Topic } from '../../../../green-lib/components/topic/topic'
+import { Topic } from '../../green-lib/components/topic/topic'
 ```
 
-While this import uses the React bundle.
+The library can easily  be turned into a React npm package. Enabling reuse and
+verioning. Imprting would then be:
 
 ```js
 import { Topic } from '@jaccomeijer/green-lib/react'
@@ -218,21 +218,21 @@ and [Astro](https://astro.build).
 
 Setting up the library was straightforward because of the simplicity and speed
 of Esbuild. Having a MDX document right next to the CSS provides for a quick way
-to draft up a component. It's like developing a library with a Storybook
+to draft up a component. It's like developing a library with a UI Storybook
 built-in.
 
-Adding a React bundle to the library made it more universal. The library can now
-be used in React projects and MDX environments.
+Adding a React bundle to the library makes it more universal. The library can
+then be used in React projects and MDX environments.
 
 Nested CSS, Container queries, CSS Layers, etc., the list of CSS improvement in
 the last six years is long. This improves the Developer Experience. CSS Layers
 for example, are clearly visible in the development tools of a modern browser. A
 major improvement over guessing the specificity of a selector in the old days.
 
-### Green build and lib
+### Github
 
-Below are the links to the Github repositories. They're small and simple. Easy
-to clone and roll your own!
-
-- [jaccomeijer/green-build](https://github.com/jaccomeijer/green-build)
-- [jaccomeijer/green-lib](https://github.com/jaccomeijer/green-lib).
+This site, the library [reference
+implementation](https://jaccomeijer.nl/reference) and the [ui library
+itself](https://www.jaccomeijer.nl/green-lib) are all in [one
+repository](https://github.com/jaccomeijer/jaccomeijer.github.io) for
+simplicity.

@@ -38,9 +38,7 @@ This post starts with the code for such a plugin and describes how it works.
 
 ## The code
 
-Below is the full plugin. It's taken from
-[jaccomeijer/render-jsx-plugin-poc](https://github.com/jaccomeijer/render-jsx-plugin-poc),
-a small repo that can be used to see the plugin working.
+Below is the full plugin.
 
 ```js
 import { writeFile, mkdir } from 'fs/promises'
@@ -92,11 +90,8 @@ export const renderJsxPlugin = ({ outdir, initialProps }) => {
 
 ## More capable version
 
-A more capable version of the plugin is used in the
-[jaccomeijer/green-build](https://github.com/jaccomeijer/green-build)
-repository. That repo is used to build this site ([repository
-here](https://github.com/jaccomeijer/jaccomeijer.github.io)) and adds
-functionality like:
+Experiments showed (this code is not online anymore) that the plugin could
+easily add functionality like:
 
 - image handling
 - CSS bundling
@@ -111,7 +106,8 @@ functionality like:
 
 ## The breakdown
 
-The plugin is simple and contains a few distinct steps.
+This enhanced plugin was simple and contained a few distinct steps. The plugin
+is not online anymore and this breakdown is left here for reference.
 
 ### Metadata
 
@@ -165,9 +161,7 @@ these are the build options to build with the Preact Factory:
 
 The imported bundle contains a JSX component that accepts props like any other
 JSX function. This demo does not do much with the `initialProps`, but this is
-how e.g. global metadata can be passed to all pages. The package
-[jaccomeijer/green-build](https://github.com/jaccomeijer/green-build), mentioned
-earlier, uses this concept.
+how e.g. global metadata can be passed to all pages.
 
 ```js
 const props = Object.assign(initialProps || {})
@@ -190,7 +184,7 @@ await writeFile(path.resolve(outputPath), `<!DOCTYPE html>${html}`)
 
 ## JSX
 
-The plugin above uses Preact to transform JSX into static HTML. Theoretically,
+The plugin above used Preact to transform JSX into static HTML. Theoretically,
 the JSX framework should not affect the final result because Factory functions
 are added when bundling and removed again when rendering. In practice, there's
 some differences in consistency, speed and syntax conventions.
@@ -216,13 +210,10 @@ attributes and is a lot faster than React's `renderToStaticMarkup`.
 
 ### React
 
-The first version of the
-[jaccomeijer/green-build](https://github.com/jaccomeijer/green-build) package
-created bundles with Preact settings.
+The first version of the plugin created bundles with Preact settings.
 
-Version 2 of the build package switched to React because of compatibility.
-Creating e.g. a UI library makes the library compatible with frameworks like
-[Astro](https://astro.build).
+Version 2 switched to React because of compatibility. Creating e.g. a UI library
+makes the library compatible with frameworks like [Astro](https://astro.build).
 
 Gaining React compatibility came with the cost of speed. The React Factory is
 noticeably slower than the other two. Also, creating a React bundle shows all
