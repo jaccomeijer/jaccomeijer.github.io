@@ -3,11 +3,12 @@ import { TopicData } from '../../green-lib/components/topic/topic'
 
 export interface AddTopicAction {
   page?: Page
-  topic: TopicData
+  topic?: TopicData
 }
 
 export const addTopicAction = ({ page, topic }: AddTopicAction) => {
-  // Construct action
+  if (!topic) return
+
   const action = {
     heading: 'read more',
     url: page?.url || 'not-found',

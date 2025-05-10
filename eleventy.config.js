@@ -28,10 +28,10 @@ export default function (eleventyConfig) {
 
   // Plugins
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-    widths: [300, 700, 1000],
+    widths: [400, 800, 1200],
     htmlOptions: {
       imgAttributes: {
-        sizes: '(max-width: 500px) 300px, (max-width: 1000px) 700px, 1000px',
+        sizes: '100vw',
       },
     },
   })

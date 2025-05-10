@@ -2,10 +2,11 @@ import { TopicData } from '../../green-lib/components/topic/topic'
 
 export interface AddTopicLabels {
   pageDate?: string
-  topic: TopicData
+  topic?: TopicData
 }
 
 export const addTopicLabels = ({ pageDate, topic }: AddTopicLabels) => {
+  if (!topic) return
   // Construct date
   if (pageDate) {
     const msec = Date.parse(pageDate)

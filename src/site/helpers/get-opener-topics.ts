@@ -10,11 +10,11 @@ export interface GetOpenerTopics {
 export const getOpenerTopics = ({ collections, tag }: GetOpenerTopics) => {
   const collectionsWithTag = collections.all
     .filter((collection) => Array.isArray(collection.data.tags))
-    .filter((collection) => collection.data.tags.includes(tag))
+    .filter((collection) => collection.data.tags?.includes(tag))
     .filter((collection) => collection.data.topics?.opener)
 
   const topics = collectionsWithTag.map((collection) => {
-    const openerTopic = structuredClone(collection.data.topics.opener)
+    const openerTopic = structuredClone(collection.data.topics?.opener)
 
     addTopicLabels({ pageDate: collection.data.date, topic: openerTopic })
     addTopicAction({ page: collection.page, topic: openerTopic })
@@ -22,6 +22,6 @@ export const getOpenerTopics = ({ collections, tag }: GetOpenerTopics) => {
     return openerTopic
   })
 
-  topics.sort((a, b) => b.order! - a.order!)
+  topics.sort((a, b) => b?.order! - a?.order!)
   return topics
 }
