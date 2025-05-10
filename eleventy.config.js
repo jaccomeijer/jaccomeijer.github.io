@@ -31,7 +31,7 @@ export default function (eleventyConfig) {
     widths: [300, 700, 1000],
     htmlOptions: {
       imgAttributes: {
-        sizes: '(max-width: 500px) 300px,(max-width: 1000px) 700px, 1000px',
+        sizes: '100vw',
       },
     },
   })
