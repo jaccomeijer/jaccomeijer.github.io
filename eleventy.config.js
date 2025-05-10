@@ -27,7 +27,14 @@ export default function (eleventyConfig) {
   })
 
   // Plugins
-  eleventyConfig.addPlugin(eleventyImageTransformPlugin)
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    widths: [300, 700, 1000],
+    htmlOptions: {
+      imgAttributes: {
+        sizes: '(max-width: 500px) 300px,(max-width: 1000px) 700px, 1000px',
+      },
+    },
+  })
 
   // MDX Template format
   eleventyConfig.addTemplateFormats('mdx')
