@@ -1,0 +1,33 @@
+---
+permalink: /
+navigation:
+  heading: Home
+  order: 10
+date: 2024-03-18
+lastmod: 2024-03-26
+openerTopic:
+  heading: Jacco Meijer
+  abstract: Solutions and Security Architect (CISSP). Based in Utrecht, The Netherlands.
+  image: /face.png
+blogTopic:
+  heading: Latest Blog posts
+  abstract: On IT Architecture and Cyber Security.
+  variant: headline
+---
+
+export { WideLayout as default } from '../layout/wide-layout'
+import { Topic } from '../../green-lib/components/topic/topic'
+import { TopicList } from '../../green-lib/components/topic-list/topic-list'
+import { allBlogOpeners } from './helpers/all-blog-openers'
+
+<Topic variant="profile" topic={props.openerTopic} heading-element="h1" />
+
+---
+
+<Topic variant="profile" topic={props.blogTopic} />
+
+<TopicList
+  className="s-grid u-grid-three-cols u-gap-m"
+  variant="card"
+  topics={allBlogOpeners(props).slice(0, 3)}
+/>

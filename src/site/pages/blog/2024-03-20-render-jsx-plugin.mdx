@@ -5,15 +5,14 @@ navigation:
 date: 2024-03-20
 lastmod: 2024-03-27
 tags: ['blog']
-topics:
-  opener:
-    heading: Render JSX plugin for Esbuild
-    abstract: Transform Esbuild generated JSX bundles to HTML pages.
-    image: '/site/pages/blog/images/2024-03-20-dustin-humes-QvU179UC2Nw-unsplash.jpg'
+openerTopic:
+  heading: Render JSX plugin for Esbuild
+  abstract: Transform Esbuild generated JSX bundles to HTML pages.
+  image: '/site/pages/blog/images/2024-03-20-dustin-humes-QvU179UC2Nw-unsplash.jpg'
 ---
 
-export { BlogLayout as default } from '../../layout/blog-layout'
-import { getOpenerTopicByNavigationId } from '../../helpers/get-opener-topic-by-navigation-id'
+export { BlogLayout as default } from '../helpers/blog-layout'
+import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
 import { Picture } from '../../../green-lib/components/picture/picture'
 import { Topic } from '../../../green-lib/components/topic/topic'
 
@@ -24,10 +23,7 @@ Contentful-Gatsby-Netlify trio be simplified?".
 
 <Topic
   variant="card"
-  topic={getOpenerTopicByNavigationId({
-    collections: props.collections,
-    navigationId: 'esbuild-as-static-website-generator',
-  })}
+  topic={blogOpenerByNavId(props, 'esbuild-as-static-website-generator')}
   swapImage={true}
 />
 
@@ -290,6 +286,6 @@ post zooms in on this.
 
 <Topic
   variant="card"
-  topic={getOpenerTopicByNavigationId({ collections: props.collections, navigationId: 'ui-library' })}
+  topic={blogOpenerByNavId(props, 'ui-library')}
   swapImage={true}
 />

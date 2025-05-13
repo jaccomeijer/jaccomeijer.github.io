@@ -6,21 +6,20 @@ navigation:
   order: 20
 date: 2024-03-18
 lastmod: 2024-03-26
-topics:
-  opener:
-    heading: Blog
-    abstract: On IT Architecture and Cyber Security.
-    icon: message-circle
-    variant: headline
+openerTopic:
+  heading: Blog
+  abstract: On IT Architecture and Cyber Security.
+  icon: message-circle
+  variant: headline
 ---
 
 export { WideLayout as default } from '../../layout/wide-layout'
 import { Topic } from '../../../green-lib/components/topic/topic'
 import { TopicList } from '../../../green-lib/components/topic-list/topic-list'
-import { getOpenerTopics } from '../../helpers/get-opener-topics'
+import { allBlogOpeners } from '../helpers/all-blog-openers'
 
 <div className="s-popout">
-  <Topic variant="headline" topic={props.topics.opener} />
+  <Topic variant="headline" topic={props.openerTopic} />
 </div>
 
 ---
@@ -28,5 +27,5 @@ import { getOpenerTopics } from '../../helpers/get-opener-topics'
 <TopicList
   className="s-grid u-grid-three-cols u-gap-m"
   variant="card"
-  topics={getOpenerTopics({ collections: props.collections, tag: 'blog' })}
+  topics={allBlogOpeners(props)}
 />

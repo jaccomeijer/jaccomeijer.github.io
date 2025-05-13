@@ -5,17 +5,16 @@ navigation:
 date: 2022-01-19
 lastmod: 2024-03-27
 tags: ['blog']
-topics:
-  opener:
-    heading: 'Contentful, Netlify and Gatsby four years later'
-    abstract: What did we learn from using Contentful for four years?
-    image: /site/pages/blog/images/2022-01-19-sharon-pittaway-4_hFxTsmaO4-unsplash.jpg
+openerTopic:
+  heading: 'Contentful, Netlify and Gatsby four years later'
+  abstract: What did we learn from using Contentful for four years?
+  image: /site/pages/blog/images/2022-01-19-sharon-pittaway-4_hFxTsmaO4-unsplash.jpg
 ---
 
-export { BlogLayout as default } from '../../layout/blog-layout'
+export { BlogLayout as default } from '../helpers/blog-layout'
 import { Topic } from '../../../green-lib/components/topic/topic'
 import { Picture } from '../../../green-lib/components/picture/picture'
-import { getOpenerTopicByNavigationId } from '../../helpers/get-opener-topic-by-navigation-id'
+import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
 
 ## First project
 
@@ -71,9 +70,6 @@ model. The post below is about how this reduces the number of models.
 
 <Topic
   variant="card"
-  topic={getOpenerTopicByNavigationId({
-    collections: props.collections,
-    navigationId: 'content-modeling-with-variants',
-  })}
+  topic={blogOpenerByNavId(props, 'content-modeling-with-variants')}
   swapImage={true}
 />

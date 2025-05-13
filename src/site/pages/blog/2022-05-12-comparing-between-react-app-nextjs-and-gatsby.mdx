@@ -3,22 +3,21 @@ permalink: /blog/comparing-between-react-app-nextjs-and-gatsby/
 date: 2022-05-12
 lastmod: 2024-03-27
 tags: ['blog']
-topics:
-  opener:
-    heading: 'Comparing React app, Nextjs and Gatsby'
-    abstract: 'A new React project starts with a React toolchain. Main tools in the chains are SSR, React server components and GraphQL.'
-    image: /site/pages/blog/images/2022-05-12-solen-feyissa-mfrDGn5juqs-unsplash.jpg
-  createReactApp:
+openerTopic:
+  heading: 'Comparing React app, Nextjs and Gatsby'
+  abstract: 'A new React project starts with a React toolchain. Main tools in the chains are SSR, React server components and GraphQL.'
+  image: /site/pages/blog/images/2022-05-12-solen-feyissa-mfrDGn5juqs-unsplash.jpg
+createReactAppTopic:
+  heading: facebook/create-react-app
+  abstract: 'Create React App is a comfortable environment for learning React, and is the best way to start building a new single-page application in React.'
+  icon: github
+  action:
     heading: facebook/create-react-app
-    abstract: 'Create React App is a comfortable environment for learning React, and is the best way to start building a new single-page application in React.'
-    icon: github
-    action:
-      heading: facebook/create-react-app
-      icon: external-link
-      url: https://github.com/facebook/create-react-app
+    icon: external-link
+    url: https://github.com/facebook/create-react-app
 ---
 
-export { BlogLayout as default } from '../../layout/blog-layout'
+export { BlogLayout as default } from '../helpers/blog-layout'
 import { Picture } from '../../../green-lib/components/picture/picture'
 import { Topic } from '../../../green-lib/components/topic/topic'
 
@@ -30,7 +29,7 @@ prefixing, and you have the typical minimal setup.
 This is what [create-react-app](https://github.com/facebook/create-react-app)
 is, a very practical minimal setup.
 
-<Topic variant="card" topic={props.topics.createReactApp} />
+<Topic variant="card" topic={props.createReactAppTopic} />
 
 ## Server side rendering
 

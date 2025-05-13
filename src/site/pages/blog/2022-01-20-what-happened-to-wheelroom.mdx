@@ -3,17 +3,16 @@ permalink: /blog/what-happened-to-wheelroom/
 date: 2022-01-20
 lastmod: 2024-03-27
 tags: ['blog']
-topics:
-  opener:
-    heading: What happened to Wheelroom?
-    abstract: Founded in 2018. Started to fly in 2020 and abandoned in 2021. What happened?
-    image: /site/pages/blog/images/2022-01-20-daniel-olah-VS_kFx4yF5g-unsplash.jpg
+openerTopic:
+  heading: What happened to Wheelroom?
+  abstract: Founded in 2018. Started to fly in 2020 and abandoned in 2021. What happened?
+  image: /site/pages/blog/images/2022-01-20-daniel-olah-VS_kFx4yF5g-unsplash.jpg
 ---
 
-export { BlogLayout as default } from '../../layout/blog-layout'
+export { BlogLayout as default } from '../helpers/blog-layout'
 import { Picture } from '../../../green-lib/components/picture/picture'
 import { TopicList } from '../../../green-lib/components/topic-list/topic-list'
-import { getOpenerTopicsByNavigationIds } from '../../helpers/get-opener-topics-by-navigation-ids'
+import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
 
 ## Wheelroom
 
@@ -68,10 +67,8 @@ utility.
 <TopicList
   className="s-grid u-grid-two-cols u-gap-m"
   variant="card"
-  topics={getOpenerTopicsByNavigationIds({
-    collections: props.collections,
-    navigationIds: ['naming-react-components', 'typescript-interface-for-react'],
-  })}
+  topics={blogOpenerByNavId(props, ['naming-react-components', 'typescript-interface-for-react'])}
+  swapImage={true}
 />
 
 ## Command line utility

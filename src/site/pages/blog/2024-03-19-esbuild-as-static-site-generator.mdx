@@ -5,16 +5,14 @@ navigation:
 date: 2024-03-19
 lastmod: 2024-03-27
 tags: ['blog']
-topics:
-  opener:
-    heading: Esbuild as a static site generator for MDX
-    abstract: Static site generators gain popularity. This blog is about using Esbuild as a static site generator for MDX.
-    image: '/site/pages/blog/images/2024-03-19-jj-ying-7JX0-bfiuxQ-unsplash.jpg'
+openerTopic:
+  heading: Esbuild as a static site generator for MDX
+  abstract: Static site generators gain popularity. This blog is about using Esbuild as a static site generator for MDX.
+  image: '/site/pages/blog/images/2024-03-19-jj-ying-7JX0-bfiuxQ-unsplash.jpg'
 ---
 
-export { BlogLayout as default } from '../../layout/blog-layout'
-import { getOpenerTopicsByNavigationIds } from '../../helpers/get-opener-topics-by-navigation-ids'
-import { getOpenerTopicByNavigationId } from '../../helpers/get-opener-topic-by-navigation-id'
+export { BlogLayout as default } from '../helpers/blog-layout'
+import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
 import { Picture } from '../../../green-lib/components/picture/picture'
 import { Topic } from '../../../green-lib/components/topic/topic'
 import { TopicList } from '../../../green-lib/components/topic-list/topic-list'
@@ -26,7 +24,7 @@ simplified by using Github pages and [11ty](https://www.11ty.dev).
 
 <Topic
   variant="card"
-  topic={getOpenerTopicByNavigationId({ collections: props.collections, navigationId: '11ty-and-github-pages' })}
+  topic={blogOpenerByNavId(props, '11ty-and-github-pages')}
   swapImage={true}
 />
 
@@ -48,11 +46,8 @@ Javascript bundler landscape
 
 <TopicList
   className="s-grid u-grid-two-cols u-gap-m"
+  topics={blogOpenerByNavId(props, ['javascript-history', 'transpilers-bundlers-and-modules'])}
   variant="card"
-  topics={getOpenerTopicsByNavigationIds({
-    collections: props.collections,
-    navigationIds: ['javascript-history', 'transpilers-bundlers-and-modules'],
-  })}
   swapImage={true}
 />
 
@@ -140,6 +135,6 @@ More on that in the next post.
 
 <Topic
   variant="card"
-  topic={getOpenerTopicByNavigationId({ collections: props.collections, navigationId: 'render-jsx-plugin' })}
+  topic={blogOpenerByNavId(props, 'render-jsx-plugin')}
   swapImage={true}
 />

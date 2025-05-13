@@ -5,15 +5,14 @@ navigation:
 date: 2024-03-18
 lastmod: 2024-03-27
 tags: ['blog']
-topics:
-  opener:
-    heading: 11ty and Github pages
-    abstract: Simplifying the Contentful-Gatsby-Netlfy trio.
-    image: '/site/pages/blog/images/2024-03-18-jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpg'
+openerTopic:
+  heading: 11ty and Github pages
+  abstract: Simplifying the Contentful-Gatsby-Netlfy trio.
+  image: '/site/pages/blog/images/2024-03-18-jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpg'
 ---
 
-export { BlogLayout as default } from '../../layout/blog-layout'
-import { getOpenerTopicByNavigationId } from '../../helpers/get-opener-topic-by-navigation-id'
+export { BlogLayout as default } from '../helpers/blog-layout'
+import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
 import { Picture } from '../../../green-lib/components/picture/picture'
 import { Topic } from '../../../green-lib/components/topic/topic'
 
@@ -26,10 +25,7 @@ generating static sites.
 
 <Topic
   variant="card"
-  topic={getOpenerTopicByNavigationId({
-    collections: props.collections,
-    navigationId: 'contentful-netlify-and-gatsby',
-  })}
+  topic={blogOpenerByNavId(props, 'contentful-netlify-and-gatsby')}
   swapImage={true}
 />
 
@@ -154,9 +150,6 @@ The quest for simplicity continues in the next post.
 
 <Topic
   variant="card"
-  topic={getOpenerTopicByNavigationId({
-    collections: props.collections,
-    navigationId: 'esbuild-as-static-website-generator',
-  })}
+  topic={blogOpenerByNavId(props, 'esbuild-as-static-website-generator')}
   swapImage={true}
 />

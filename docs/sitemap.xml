@@ -72,17 +72,17 @@
     </url>
 
     <url>
-        <loc>https://www.jaccomeijer.nl/</loc>
-        <lastmod>Tue Mar 26 2024 01:00:00 GMT+0100 (Midden-Europese standaardtijd)</lastmod>
-    </url>
-
-    <url>
         <loc>https://www.jaccomeijer.nl/blog/11ty-and-github-pages/</loc>
         <lastmod>Wed Mar 27 2024 01:00:00 GMT+0100 (Midden-Europese standaardtijd)</lastmod>
     </url>
 
     <url>
         <loc>https://www.jaccomeijer.nl/blog/</loc>
+        <lastmod>Tue Mar 26 2024 01:00:00 GMT+0100 (Midden-Europese standaardtijd)</lastmod>
+    </url>
+
+    <url>
+        <loc>https://www.jaccomeijer.nl/</loc>
         <lastmod>Tue Mar 26 2024 01:00:00 GMT+0100 (Midden-Europese standaardtijd)</lastmod>
     </url>
 

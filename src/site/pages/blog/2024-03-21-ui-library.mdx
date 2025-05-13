@@ -5,19 +5,18 @@ navigation:
 date: 2024-03-21
 lastmod: 2024-03-27
 tags: ['blog']
-topics:
-  opener:
-    heading: UI Library with MDX documentation
-    abstract: Using the simple Render JSX plugin for Esbuild this post shows how to setup a simple UI library.
-    image: '/site/pages/blog/images/2024-03-21-pete-godfrey-bm5JJaicjKg-unsplash.jpg'
-  itcss:
-    heading: ITCSS
-    abstract: '"Specificity is inversely proportional to how many elements they affect."'
-    icon: triangle
+openerTopic:
+  heading: UI Library with MDX documentation
+  abstract: Using the simple Render JSX plugin for Esbuild this post shows how to setup a simple UI library.
+  image: '/site/pages/blog/images/2024-03-21-pete-godfrey-bm5JJaicjKg-unsplash.jpg'
+itcssTopic:
+  heading: ITCSS
+  abstract: '"Specificity is inversely proportional to how many elements they affect."'
+  icon: triangle
 ---
 
-export { BlogLayout as default } from '../../layout/blog-layout'
-import { getOpenerTopicByNavigationId } from '../../helpers/get-opener-topic-by-navigation-id'
+export { BlogLayout as default } from '../helpers/blog-layout'
+import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
 import { Picture } from '../../../green-lib/components/picture/picture'
 import { Topic } from '../../../green-lib/components/topic/topic'
 
@@ -27,7 +26,7 @@ The last post showed a simple plugin for [Esbuild](https://esbuild.github.io).
 
 <Topic
   variant="card"
-  topic={getOpenerTopicByNavigationId({ collections: props.collections, navigationId: 'render-jsx-plugin' })}
+  topic={blogOpenerByNavId(props, 'render-jsx-plugin')}
   swapImage={true}
 />
 
@@ -70,7 +69,7 @@ only be overridden by the `!important` rule. Lots of fun!
 This challenge resulted in theories like the [Inverted Triangle
 CSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/).
 
-<Topic variant="quote" topic={props.topics.itcss} />
+<Topic variant="quote" topic={props.itcssTopic} />
 
 Similar concepts to manage specificity are in this library. The structure
 (objects) and utility classes have a lot in common with ITCSS.

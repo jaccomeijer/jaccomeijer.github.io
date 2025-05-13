@@ -3,22 +3,21 @@ permalink: /blog/versioning-strategy-for-npm-modules/
 date: 2022-05-10
 lastmod: 2024-03-27
 tags: ['blog']
-topics:
-  opener:
-    heading: Versioning strategy for NPM modules
-    abstract: It is important to be able to bump the version of a NPM package without side effects.
-    image: /site/pages/blog/images/2022-05-10-mae-mu-WqQwOQ9fVj4-unsplash.jpg
-  splitModules:
-    heading: Split modules
-    abstract: '"Split up a module into submodules as soon as the module becomes too hard to update."'
-    icon: check-circle
-  monorepo:
-    heading: Use a monorepo
-    abstract: '"Use a monorepo to make sure the latest component also has the latest version."'
-    icon: check-circle
+openerTopic:
+  heading: Versioning strategy for NPM modules
+  abstract: It is important to be able to bump the version of a NPM package without side effects.
+  image: /site/pages/blog/images/2022-05-10-mae-mu-WqQwOQ9fVj4-unsplash.jpg
+splitModulesTopic:
+  heading: Split modules
+  abstract: '"Split up a module into submodules as soon as the module becomes too hard to update."'
+  icon: check-circle
+monorepoTopic:
+  heading: Use a monorepo
+  abstract: '"Use a monorepo to make sure the latest component also has the latest version."'
+  icon: check-circle
 ---
 
-export { BlogLayout as default } from '../../layout/blog-layout'
+export { BlogLayout as default } from '../helpers/blog-layout'
 import { Topic } from '../../../green-lib/components/topic/topic'
 
 ## UI library case study
@@ -57,7 +56,7 @@ The risk of a large project module is that updating a dependency potentially has
 great impact. The larger the project and the more the dependency is used, the
 harder it is to oversee the impact.
 
-<Topic variant="quote" topic={props.topics.splitModules} />
+<Topic variant="quote" topic={props.splitModulesTopic} />
 
 ## Component versions
 
@@ -83,4 +82,4 @@ A [monorepo](https://en.wikipedia.org/wiki/Monorepo) can do exactly that. Tools
 like [Lerna](https://github.com/lerna) can be configured to version the packages
 as required.
 
-<Topic variant="quote" topic={props.topics.monorepo} />
+<Topic variant="quote" topic={props.monorepoTopic} />

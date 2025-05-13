@@ -5,16 +5,15 @@ navigation:
 date: 2022-04-12
 lastmod: 2024-03-27
 tags: ['blog']
-topics:
-  opener:
-    heading: React component themes and CSS variables
-    abstract: Creating React components with flexible themes by using CSS variables.
-    image: /site/pages/blog/images/2022-04-12-ben-abo-J8GGXy4fY88-unsplash.jpg
+openerTopic:
+  heading: React component themes and CSS variables
+  abstract: Creating React components with flexible themes by using CSS variables.
+  image: /site/pages/blog/images/2022-04-12-ben-abo-J8GGXy4fY88-unsplash.jpg
 ---
 
-export { BlogLayout as default } from '../../layout/blog-layout'
+export { BlogLayout as default } from '../helpers/blog-layout'
 import { Topic } from '../../../green-lib/components/topic/topic'
-import { getOpenerTopicByNavigationId } from '../../helpers/get-opener-topic-by-navigation-id'
+import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
 
 ## Typescript component interface
 
@@ -24,10 +23,7 @@ CSS variables.
 
 <Topic
   variant="card"
-  topic={getOpenerTopicByNavigationId({
-    collections: props.collections,
-    navigationId: 'typescript-interface-for-react',
-  })}
+  topic={blogOpenerByNavId(props, 'typescript-interface-for-react')}
   swapImage={true}
 />
 

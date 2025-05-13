@@ -64,10 +64,6 @@ export type Collection = {
   page: Page
 }
 
-export type Collections = {
-  all: Collection[]
-}
-
 export interface Navigation {
   heading?: string
   icon?: string
@@ -92,11 +88,11 @@ export interface FrontmatterData {
   navigation?: Navigation
   permalink?: string
   tags?: string[]
-  topics?: Record<string, TopicData>
+  openerTopic?: TopicData
 }
 
 export interface EleventyData extends UnderscoreData, FrontmatterData {
-  collections: Collections
+  collections: Record<string, Collection[]>
   eleventy: Eleventy
   page: Page
   pkg: Pkg
