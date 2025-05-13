@@ -9,17 +9,17 @@ topics:
   opener:
     heading: UI Library with MDX documentation
     abstract: Using the simple Render JSX plugin for Esbuild this post shows how to setup a simple UI library.
-    image: '/site/pages/blog/2024-03-21/pete-godfrey-bm5JJaicjKg-unsplash.jpg'
+    image: '/site/pages/blog/images/2024-03-21-pete-godfrey-bm5JJaicjKg-unsplash.jpg'
   itcss:
     heading: ITCSS
     abstract: '"Specificity is inversely proportional to how many elements they affect."'
     icon: triangle
 ---
 
-export { BlogLayout as default } from '../../../layout/blog-layout'
-import { getOpenerTopicByNavigationId } from '../../../helpers/get-opener-topic-by-navigation-id'
-import { Picture } from '../../../../green-lib/components/picture/picture'
-import { Topic } from '../../../../green-lib/components/topic/topic'
+export { BlogLayout as default } from '../../layout/blog-layout'
+import { getOpenerTopicByNavigationId } from '../../helpers/get-opener-topic-by-navigation-id'
+import { Picture } from '../../../green-lib/components/picture/picture'
+import { Topic } from '../../../green-lib/components/topic/topic'
 
 ## Render JSX plugin for Esbuild
 
@@ -200,7 +200,7 @@ The [current library](https://jaccomeijer.nl/green-lib) is simply part of the
 site build and MDX imports are like this:
 
 ```js
-import { Topic } from '../../green-lib/components/topic/topic'
+import { Topic } from '../../../green-lib/components/topic/topic'
 ```
 
 The library can easily  be turned into a React npm package. Enabling reuse and

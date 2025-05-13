@@ -10,10 +10,9 @@ export interface BlogLayout {
 }
 
 export const BlogLayout = (props: BlogLayout & EleventyData) => {
-  //TODO: use addTopicLabels
   const openerTopics = getOpenerTopics({ collections: props.collections, tag: 'blog' })
   const topicWithLabel = addTopicLabels({
-    topic: { ...props.topics.opener, icon: 'message-circle' },
+    topic: { ...props.topics?.opener, icon: 'message-circle' },
     pageDate: props.date,
   })
 
