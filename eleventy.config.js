@@ -49,7 +49,7 @@ export default function (eleventyConfig) {
 
       return async function (data) {
         let res = await mdxContent(data)
-        return renderToStaticMarkup(res)
+        return `<!DOCTYPE html>${renderToStaticMarkup(res)}`
       }
     },
   })
