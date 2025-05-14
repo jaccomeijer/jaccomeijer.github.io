@@ -2,13 +2,13 @@
 permalink: /blog/oauth-sequence-diagrams/
 navigation:
   id: ui-library
-date: 2025-05-01
+date: 2025-03-14
 lastmod: 2025-05-01
 tags: ['blog']
 openerTopic:
   heading: OAuth 2.0 and OpenID Connect Sequence Diagrams
-  abstract: RFC specs can be hard to read. While still highly technical, the UML Sequence diagrams provided in this blog are a lot easier to understand.
-  image: '/site/pages/blog/images/2025-05-14-li-zhang-K-DwbsTXliY-unsplash.jpg'
+  abstract: Technical specs can be hard to read. While still highly technical, the UML Sequence Diagrams provided in this blog are a lot easier to understand.
+  image: '/site/pages/blog/images/2025-03-14-li-zhang-K-DwbsTXliY-unsplash.jpg'
 ---
 
 export { BlogLayout as default } from '../helpers/blog-layout'
@@ -16,19 +16,23 @@ import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
 import { Picture } from '../../../green-lib/components/picture/picture'
 import { Topic } from '../../../green-lib/components/topic/topic'
 
-<div className="s-popout s-block-space u-block-space-s">
+<div className="s-popout">
 <div className="s-wrapper" style={{ '--wrapper-width': '80rem' }}>
 
 ## Oauth 2.0 and OpenID Connect
 
+<div className="u-max-chars-50">
 Being able to read technical specs is a competence by itself. Visualized
 architectural models of a spec often help to understand the spec.
+</div>
 
 ### OAuth 2.0 Authorization Framework
 
+<div className="u-max-chars-50">
 The official specs of the OAuth 2.0 Authorization Framework as defined
-in [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749) uses diagrams that
+by [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749) uses diagrams that
 look like this:
+</div>
 
 ```txt
      +----------+
@@ -65,10 +69,12 @@ look like this:
 
 ### OpenID Connect 1.0
 
+<div className="u-max-chars-50">
 OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol.
 The diagrams in the [official
 spec](https://openid.net/specs/openid-connect-core-1_0.html) look very similar
 to the diagrams in RFC 6749:
+</div>
 
 ```txt
 +--------+                                   +--------+
@@ -93,41 +99,50 @@ to the diagrams in RFC 6749:
 
 ## UML
 
-UML Sequence Diagrams can be useful when explaining specs. This blog uses
+<div className="u-max-chars-50">
+UML Sequence Diagrams can be useful when explaining specs. This post uses
 [PlantUML](https://plantuml.com) to generate Sequence Diagrams for the OAuth 2.0
 and OpenID Connect specs.
+</div>
 
 ## OAuth 2.0 Obtaining Authorization Diagrams
 
 From the spec:
 
+<div className="u-max-chars-50">
 > To request an access token, the client obtains authorization from the resource
 owner.  The authorization is expressed in the form of an authorization grant,
 which the client uses to request the access token.  OAuth defines four grant
 types: authorization code, implicit, resource owner password credentials, and
 client credentials.  It also provides an extension mechanism for defining
 additional grant types.
+</div>
 
 
 ### 4.1 - Authorization Code Grant
 - Spec: https://datatracker.ietf.org/doc/html/rfc6749#section-4.1
 
-<Picture className="s-block-space u-bg-mono-000" src="/site/pages/blog/images-oauth/oauth-4.1.svg" />
+<Picture src="/site/pages/blog/images-oauth/oauth-4.1.svg" />
 
 ### 4.2 - Implicit Grant
 - Spec: https://datatracker.ietf.org/doc/html/rfc6749#section-4.2
 
-<Picture className="s-block-space u-bg-mono-000" src="/site/pages/blog/images-oauth/oauth-4.2.svg" />
+<Picture src="/site/pages/blog/images-oauth/oauth-4.2.svg" />
 
 ### 4.3 - Resource Owner Password Credentials Grant
 - Spec: https://datatracker.ietf.org/doc/html/rfc6749#section-4.3
 
-<Picture className="s-block-space u-bg-mono-000" src="/site/pages/blog/images-oauth/oauth-4.3.svg" />
+<Picture src="/site/pages/blog/images-oauth/oauth-4.3.svg" />
+
+### 4.4 - Client Credentials Grant
+- Spec: https://datatracker.ietf.org/doc/html/rfc6749#section-4.4
+
+<Picture src="/site/pages/blog/images-oauth/oauth-4.4.svg" />
 
 ### 7 - Accessing Protected Resources
 - Spec: https://datatracker.ietf.org/doc/html/rfc6749#section-7
 
-<Picture className="s-block-space u-bg-mono-000" src="/site/pages/blog/images-oauth/oauth-resource.svg" />
+<Picture src="/site/pages/blog/images-oauth/oauth-resource.svg" />
 
 ## OpenID Connect Diagrams
 
@@ -140,32 +155,32 @@ responses.
 ### A.1 - Example using response_type=code
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#codeExample
 
-<Picture className="s-block-space u-bg-mono-000" src="/site/pages/blog/images-oauth/A1.svg" />
+<Picture src="/site/pages/blog/images-oauth/A1.svg" />
 
 ### A.2 - Example using response_type=id_token
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#id_tokenExample
 
-<Picture className="s-block-space u-bg-mono-000" src="/site/pages/blog/images-oauth/A2.svg" />
+<Picture src="/site/pages/blog/images-oauth/A2.svg" />
 
 ### A.3 - Example using response_type=id_token token
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#id_token-tokenExample
 
-<Picture className="s-block-space u-bg-mono-000" src="/site/pages/blog/images-oauth/A3.svg" />
+<Picture src="/site/pages/blog/images-oauth/A3.svg" />
 
 ### A.4 - Example using response_type=code id_token
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#code-id_tokenExample
 
-<Picture className="s-block-space u-bg-mono-000" src="/site/pages/blog/images-oauth/A4.svg" />
+<Picture src="/site/pages/blog/images-oauth/A4.svg" />
 
 ### A.5 - Example using response_type=code token
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#code-tokenExample
 
-<Picture className="s-block-space u-bg-mono-000" src="/site/pages/blog/images-oauth/A5.svg" />
+<Picture src="/site/pages/blog/images-oauth/A5.svg" />
 
 ### A.6 - Example using response_type=code id_token token
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#code-id_token-tokenExample
 
-<Picture className="s-block-space u-bg-mono-000" src="/site/pages/blog/images-oauth/A6.svg" />
+<Picture src="/site/pages/blog/images-oauth/A6.svg" />
 
 </div>
 </div>
