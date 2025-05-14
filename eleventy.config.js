@@ -15,6 +15,7 @@ export default function (eleventyConfig) {
   // Directories
   eleventyConfig.setOutputDirectory('docs')
   eleventyConfig.setInputDirectory('src')
+  eleventyConfig.ignores.add('**/draft/**.*')
 
   // Assets
   eleventyConfig.addPassthroughCopy({ 'node_modules/feather-icons/dist/feather-sprite.svg': 'feather-sprite.svg' })
