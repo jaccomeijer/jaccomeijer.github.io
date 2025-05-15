@@ -104,15 +104,17 @@ with no more than 10 elements. The 3.1 Specification of ArchiMate counts around
 60 elements.
 
 One of the design goals was to make ArchiMate 'as small as possible'. As in, the
-goal was not to cover every possible edge.
+goal was not to cover every possible edge case.
 
 [more-content-needed]
 
-### C4 compared to ArchiMate
+## C4 compared to ArchiMate
 
 C4 can be seen as a subset of ArchiMate, the C4 diagrams can be expressed with
 the Archimage viewpoint concept. Depending on how you look at it, the C4
 elements can be mapped in a couple of ways to ArchiMate elements.
+
+### System
 
 The C4 'System' element is described as something that delivers value to users.
 ArchiMate defines a 'Value Stream' element which describes behavior on the
@@ -120,9 +122,13 @@ strategy layer. But since C4 also defines a 'System' as something a single
 software development team is building, the 'Application Function' or
 'Application component' element would be a better fit.
 
+### Container
+
 The C4 'Container' element is describes as something that needs to be running
 for the system to work. The ArchiMate 'Application Component' element could be
 used to express this. 
+
+### Component
 
 The C4 documentation states that a 'Component' is a "hugely overloaded term".
 It's true, the word component can be used in many different ways. C4 defines it
@@ -131,11 +137,15 @@ interface'. This could be an ArchiMate 'Application Component' or 'Application
 Service' element. The 'well-defined interface' can be modelled separately in
 ArchiMate by using the 'Application Interface' element.
 
+### Code
+
 The C4 element 'Code' is hard to model in ArchiMate. The 'Application Component'
 element can be used to express a software library and the 'Data Object' element
 can be used, but concepts like 'classes', 'attributes' and 'methods' are not
 available. The 'Application Component' element can be used for this if you
 really have to, but UML and C4 are a much better suited for this.
+
+### Application Component
 
 Simply put, all C4 elements can be expressed by ArchiMate 'Application
 Component' elements. It makes clear how C4 and ArchiMate differ. C4 defines four
@@ -145,7 +155,6 @@ used to add more detail.
 
 Besides the 'Application' layer, ArchiMate defines five other layers and uses
 Motivation elements for modelling motivations.
-
 
 ## Structure as code
 

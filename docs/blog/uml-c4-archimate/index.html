@@ -61,31 +61,36 @@ choose for ArchiMate instead because of the limited C4 set of elements.</p>
 with no more than 10 elements. The 3.1 Specification of ArchiMate counts around
 60 elements.</p>
 <p>One of the design goals was to make ArchiMate &#x27;as small as possible&#x27;. As in, the
-goal was not to cover every possible edge.</p>
+goal was not to cover every possible edge case.</p>
 <p>[more-content-needed]</p>
-<h3>C4 compared to ArchiMate</h3>
+<h2>C4 compared to ArchiMate</h2>
 <p>C4 can be seen as a subset of ArchiMate, the C4 diagrams can be expressed with
 the Archimage viewpoint concept. Depending on how you look at it, the C4
 elements can be mapped in a couple of ways to ArchiMate elements.</p>
+<h3>System</h3>
 <p>The C4 &#x27;System&#x27; element is described as something that delivers value to users.
 ArchiMate defines a &#x27;Value Stream&#x27; element which describes behavior on the
 strategy layer. But since C4 also defines a &#x27;System&#x27; as something a single
 software development team is building, the &#x27;Application Function&#x27; or
 &#x27;Application component&#x27; element would be a better fit.</p>
+<h3>Container</h3>
 <p>The C4 &#x27;Container&#x27; element is describes as something that needs to be running
 for the system to work. The ArchiMate &#x27;Application Component&#x27; element could be
 used to express this.</p>
+<h3>Component</h3>
 <p>The C4 documentation states that a &#x27;Component&#x27; is a &quot;hugely overloaded term&quot;.
 It&#x27;s true, the word component can be used in many different ways. C4 defines it
 as &#x27;grouping of related functionality encapsulated behind a well-defined
 interface&#x27;. This could be an ArchiMate &#x27;Application Component&#x27; or &#x27;Application
 Service&#x27; element. The &#x27;well-defined interface&#x27; can be modelled separately in
 ArchiMate by using the &#x27;Application Interface&#x27; element.</p>
+<h3>Code</h3>
 <p>The C4 element &#x27;Code&#x27; is hard to model in ArchiMate. The &#x27;Application Component&#x27;
 element can be used to express a software library and the &#x27;Data Object&#x27; element
 can be used, but concepts like &#x27;classes&#x27;, &#x27;attributes&#x27; and &#x27;methods&#x27; are not
 available. The &#x27;Application Component&#x27; element can be used for this if you
 really have to, but UML and C4 are a much better suited for this.</p>
+<h3>Application Component</h3>
 <p>Simply put, all C4 elements can be expressed by ArchiMate &#x27;Application
 Component&#x27; elements. It makes clear how C4 and ArchiMate differ. C4 defines four
 sizes of &#x27;Application Components&#x27; whereas ArchiMate has nine different
