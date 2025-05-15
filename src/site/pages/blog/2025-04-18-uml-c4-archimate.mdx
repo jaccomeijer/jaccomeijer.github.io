@@ -6,8 +6,8 @@ date: 2025-04-18
 lastmod: 2025-05-01
 tags: ['blog']
 openerTopic:
-  heading: Visualizing IT Architecture in three languages, UML, C4 and Archimate
-  abstract: What are the differences and what are the languages most used for?
+  heading: Visualizing IT Architecture in three languages, UML, C4 and ArchiMate
+  abstract: What are the differences and what are these languages most used for?
   image: '/site/pages/blog/images/2025-04-18-a-chosen-soul-711byojMaQ0-unsplash.jpg'
 ---
 
@@ -18,15 +18,20 @@ import { Topic } from '../../../green-lib/components/topic/topic'
 
 ## IT Architecture languages
 
-UML, C4 and Archimate can all be used for visualizing IT Architecture but yet
-the languages are very different.
+UML, C4 and ArchiMate all three can be used for visualizing IT Architecture.
+This does however not mean that they are equal. Each of the languages was
+designed for a specific need.
 
-The oldest language is UML. It originates from 1994 and is the most generic of
-the three. C4 development started in 2006 and was specifically designed for
-modelling the architecture of software systems. Archimate development started in
-2002 and distinguishes itself by being able to model enterprise architecture.
+UML originated in 1994 because there was a need to describe object-oriented
+software. In 2006 the need for more structure than the UML arrows and boxes
+resulted in the C4 language.
 
-### UML
+In 2002 ArchiMate development started because of the need for a language to
+describe an enterprise.
+
+From an ArchiMate perspective C4 defines a number of viewpoints.
+
+## UML
 
 UML was designed to be a general-purpose modeling language for visualizing
 system design. It provides a language for many types of diagrams including
@@ -36,10 +41,11 @@ UML is said to be decreasing in popularity (source: Google Trends) but the
 language being around for more than 30 years and it's general-purpose nature
 make that it's use is still widespread.
 
-#### Common use
+### Commonly used
 
-UML is often used in software development for visualizing system design and
-behavior. Three diagrams in particular are often used:
+As mentioned, the use of UML is widespread. Activity Diagrams are well known for
+visualizing system flows. Within software development these diagrams are often
+used:
 
 - **use case diagrams**, for interactions between actors;
 - **class diagrams**, for class relationships, attributes and methods;
@@ -51,10 +57,102 @@ behavior. Three diagrams in particular are often used:
   <Picture src="/site/pages/blog/images-architecture/sequence.svg" />
 </div>
 
-### C4
+## C4
 
-To be written.
+The C4 language was designed to be easy to learn and developer friendly. It
+reaches that goal by focussing on clarity and simplicity.
 
-### Archimate
+From the C4 documentation:
 
-To be written.
+> A **software system** is made up of one or more **containers** (applications
+and data stores), each of which contains one or more **components**, which in
+turn are implemented by one or more **code** elements (classes, interfaces,
+objects, functions, etc).
+
+The four emphasized words in this one sentence correspond to the four static
+structure diagrams that define the core of C4.
+
+1. (system) context diagram
+2. container diagram
+3. component diagram
+4. code diagram
+
+Additionally there's three more diagrams:
+
+5. system landscape diagram
+6. dynamic diagram
+7. deployment diagram
+
+But that's it. Simple to use and easy to learn.
+
+#### A few examples of C4 elements
+<Picture 
+  className="s-block-space u-block-space-l"
+  src="/site/pages/blog/images-architecture/c4-example.svg"
+/>
+
+### Commonly used
+
+C4 being specifically designed for software architecture it is mainly used by
+solution and software architects. Security and enterprise architects tend to
+choose for ArchiMate instead because of the limited C4 set of elements.
+
+## ArchiMate
+
+From the three languages UML defines more than 100 elements. C4 is a lot simpler
+with no more than 10 elements. The 3.1 Specification of ArchiMate counts around
+60 elements.
+
+One of the design goals was to make ArchiMate 'as small as possible'. As in, the
+goal was not to cover every possible edge.
+
+[more-content-needed]
+
+### C4 compared to ArchiMate
+
+C4 can be seen as a subset of ArchiMate, the C4 diagrams can be expressed with
+the Archimage viewpoint concept. Depending on how you look at it, the C4
+elements can be mapped in a couple of ways to ArchiMate elements.
+
+The C4 'System' element is described as something that delivers value to users.
+ArchiMate defines a 'Value Stream' element which describes behavior on the
+strategy layer. But since C4 also defines a 'System' as something a single
+software development team is building, the 'Application Function' or
+'Application component' element would be a better fit.
+
+The C4 'Container' element is describes as something that needs to be running
+for the system to work. The ArchiMate 'Application Component' element could be
+used to express this. 
+
+The C4 documentation states that a 'Component' is a "hugely overloaded term".
+It's true, the word component can be used in many different ways. C4 defines it
+as 'grouping of related functionality encapsulated behind a well-defined
+interface'. This could be an ArchiMate 'Application Component' or 'Application
+Service' element. The 'well-defined interface' can be modelled separately in
+ArchiMate by using the 'Application Interface' element.
+
+The C4 element 'Code' is hard to model in ArchiMate. The 'Application Component'
+element can be used to express a software library and the 'Data Object' element
+can be used, but concepts like 'classes', 'attributes' and 'methods' are not
+available. The 'Application Component' element can be used for this if you
+really have to, but UML and C4 are a much better suited for this.
+
+Simply put, all C4 elements can be expressed by ArchiMate 'Application
+Component' elements. It makes clear how C4 and ArchiMate differ. C4 defines four
+sizes of 'Application Components' whereas ArchiMate has nine different
+'Application' elements like 'Interface', 'Function' and 'Service' that can be
+used to add more detail.
+
+Besides the 'Application' layer, ArchiMate defines five other layers and uses
+Motivation elements for modelling motivations.
+
+
+## Structure as code
+
+All three languages have code equivalents. PlantUml being the most popular. It
+can be extended to support the ArchiMate and C4 languages by using macro
+libraries.
+
+- https://plantuml.com
+- https://github.com/plantuml-stdlib/ArchiMate-PlantUML
+- https://github.com/plantuml-stdlib/C4-PlantUML

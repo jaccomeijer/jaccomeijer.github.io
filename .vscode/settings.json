@@ -1,14 +1,4 @@
 {
-  "cSpell.enableFiletypes": [
-    "mdx"
-  ],
-  "cSpell.words": [
-    "Contentful",
-    "frontmatter",
-    "ITCSS",
-    "jaccomeijer",
-    "lastmod",
-    "Leatherman",
-    "runtimes"
-  ]
+  "cSpell.enableFiletypes": ["mdx"],
+  "cSpell.words": ["Archi", "Contentful", "frontmatter", "ITCSS", "jaccomeijer", "lastmod", "Leatherman", "runtimes"]
 }
