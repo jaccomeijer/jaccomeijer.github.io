@@ -2,7 +2,7 @@
   "globalPrefix": "",
   "transforms": [
     {
-      "name": "green-lib",
+      "name": "design",
       "from": "src/green-lib/design-tokens/tokens",
       "to": [
         {

@@ -2,7 +2,7 @@
   "globalPrefix": "",
   "transforms": [
     {
-      "name": "site",
+      "name": "design",
       "from": "src/site/design-tokens/tokens",
       "to": [
         {
