@@ -28,8 +28,4 @@
     color: var(--color-primary-400);
     font-size: var(--font-size--1);
   }
-
-  .site-branding {
-    font-weight: var(--font-body-weight-bold);
-  }
 }

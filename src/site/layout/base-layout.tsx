@@ -11,7 +11,7 @@ export interface BaseLayout {
 }
 
 export const BaseLayout = (props: BaseLayout & EleventyData) => {
-  const mainMenuItems = getMenuItems({ collections: props.collections, pathFilter: 'blog' })
+  const mainMenuItems = getMenuItems(props.collections.site)
 
   return (
     <html lang={props.sitemetadata.content.language}>
@@ -45,7 +45,7 @@ export const BaseLayout = (props: BaseLayout & EleventyData) => {
             <NavigationFooter pageUrl={props.page.url} mainActions={mainMenuItems} socialActions={actions.social} />
           </div>
           <div className="s-block-space u-block-space-2xs u-border-top">
-            <NavigationLegal />
+            <NavigationLegal vendor={props.sitemetadata.vendor} branding={props.sitemetadata.branding} />
           </div>
         </footer>
       </body>

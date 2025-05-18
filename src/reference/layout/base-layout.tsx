@@ -11,7 +11,7 @@ export interface BaseLayout {
 }
 
 export const BaseLayout = (props: BaseLayout & EleventyData) => {
-  const mainMenuItems = getMenuItems({ collections: props.collections, pathFilter: 'reference' })
+  const mainMenuItems = getMenuItems(props.collections.ref)
 
   return (
     <html lang={props.refmetadata.content.language}>

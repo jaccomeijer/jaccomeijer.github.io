@@ -1425,10 +1425,6 @@
   font-size: var(--font-size--1);
 }
 
-.site-header .site-branding {
-  font-weight: var(--font-body-weight-bold);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --color-mono-700: #fff;

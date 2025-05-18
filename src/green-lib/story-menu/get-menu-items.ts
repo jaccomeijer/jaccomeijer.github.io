@@ -1,35 +1,27 @@
-import { Collections } from '../../_data/eleventy-data-types'
+import { Collection } from '../../_data/eleventy-data-types'
 import { MenuItem } from './menu-element'
 
-export interface GetMenuItems {
-  collections: Collections
-  pathFilter?: string
-}
-
-export const getMenuItems = ({ collections, pathFilter }: GetMenuItems) => {
+export const getMenuItems = (collection: Collection[]) => {
   // Get menu items from collections
-  const menuItems: MenuItem[] = collections.all
+  const menuItems: MenuItem[] = collection
 
     // Only use pages with props.navigation.heading
-    .filter((collection) => collection.data.navigation?.heading)
+    .filter((col) => col.data.navigation?.heading)
 
-    // Use path filter if present
-    .filter((collection) => !pathFilter || collection.page.url.includes(pathFilter))
-
-    .map((collection) => {
-      const navigation = collection.data.navigation
+    .map((col) => {
+      const navigation = col.data.navigation
 
       const heading = navigation?.heading
       const icon = navigation?.icon
       const navigationId = navigation?.navigationId
       const order = navigation?.order
       const parentHeading = navigation?.parent
-      let url = collection.page.url
+      let url = col.page.url
 
       // When props.navigation.navigationId is present, use the url of the
       // the collection that has the props.navigation.id set.
       if (navigation?.navigationId) {
-        const collectionWithId = collections.all.find((c) => c.data.navigation?.id === navigationId)
+        const collectionWithId = collection.find((c) => c.data.navigation?.id === navigationId)
 
         if (collectionWithId) {
           url = collectionWithId.page.url

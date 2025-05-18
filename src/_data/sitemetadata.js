@@ -1,8 +1,9 @@
 const sitemetadata = {
   branding: {
     copyright: 'Copyright © 2024 Jacco Meijer',
-    description: 'Security Architect',
+    description: 'Solutions and Security Architect',
     heading: 'Jacco Meijer',
+    icon: 'home',
     url: '/',
   },
   vendor: {

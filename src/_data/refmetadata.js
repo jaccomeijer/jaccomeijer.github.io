@@ -1,9 +1,9 @@
 const refmetadata = {
   branding: {
     copyright: 'Copyright © 2024 Jacco Meijer',
-    description: 'A reference implementation of the Green UI Library.',
-    heading: 'Green Reference',
-    icon: 'book-open',
+    description: 'UI Stories',
+    heading: 'Reference',
+    icon: 'home',
     url: '/reference',
   },
   vendor: {

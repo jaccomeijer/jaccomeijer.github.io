@@ -9,7 +9,7 @@ export interface Layout {
 }
 
 export const Layout = (props: Layout & EleventyData) => {
-  const mainMenuItems = getMenuItems({ collections: props.collections, pathFilter: 'green-lib' })
+  const mainMenuItems = getMenuItems(props.collections.lib)
   const rootMenuItem = getRootMenuItem({ menuItems: mainMenuItems, pageUrl: props.page.url })
   const subMenuItems = rootMenuItem?.children
 
@@ -31,8 +31,10 @@ export const Layout = (props: Layout & EleventyData) => {
             <nav aria-label="primary">
               <MenuElement menuItems={mainMenuItems} className="s-flex-row" />
             </nav>
-            <div className="site-branding">
-              {props.libmetadata.vendor.heading} v{props.libmetadata.vendor.version}
+            <div className="s-flex-row">
+              <a href="/">jaccomeijer.nl</a>
+              <a href="/reference">reference</a>
+              <a href={props.libmetadata.source.url}>{props.libmetadata.source.heading}</a>
             </div>
           </div>
           <nav className="sub-menu s-flex-row s-block-space u-block-space-3xs">
