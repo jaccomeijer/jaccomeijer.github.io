@@ -20,12 +20,12 @@ export default function (eleventyConfig) {
   // Assets
   eleventyConfig.addPassthroughCopy({
     'node_modules/feather-icons/dist/feather-sprite.svg': 'feather-sprite.svg',
-    'src/assets/favicon/favicon.ico': 'favicon.ico',
+    'src/site/favicon/favicon.ico': 'favicon.ico',
   })
   // Fonts
   eleventyConfig.addPassthroughCopy({
-    'src/assets/fonts/Montserrat-VariableFont_wght.ttf': 'Montserrat-VariableFont_wght.ttf',
-    'src/assets/fonts/Exo-VariableFont_wght.ttf': 'Exo-VariableFont_wght.ttf',
+    'src/site/fonts/Montserrat-VariableFont_wght.ttf': 'Montserrat-VariableFont_wght.ttf',
+    'src/site/fonts/Exo-VariableFont_wght.ttf': 'Exo-VariableFont_wght.ttf',
   })
 
   // Plugins
