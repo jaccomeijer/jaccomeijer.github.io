@@ -22,6 +22,7 @@ export default function (eleventyConfig) {
     'node_modules/feather-icons/dist/feather-sprite.svg': 'feather-sprite.svg',
     'src/site/favicon/favicon.ico': 'favicon.ico',
   })
+
   // Fonts
   eleventyConfig.addPassthroughCopy({
     'src/site/fonts/Montserrat-VariableFont_wght.ttf': 'Montserrat-VariableFont_wght.ttf',
