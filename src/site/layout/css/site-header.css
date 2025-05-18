@@ -5,9 +5,4 @@
 
   color: var(--color-primary-600);
   z-index: 100;
-
-  /* 
-   * Customization of heading navigation is difficult because of shadow DOM
-   * experiment 
-   */
 }
