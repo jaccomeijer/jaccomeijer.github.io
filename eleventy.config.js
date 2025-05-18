@@ -8,6 +8,7 @@ import * as runtime from 'react/jsx-runtime'
 import { build } from 'esbuild'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
+import { DateTime } from 'luxon'
 
 import 'tsx'
 
@@ -38,6 +39,11 @@ export default function (eleventyConfig) {
       },
     },
   })
+
+  // Filters
+  eleventyConfig.addFilter('postDate', (dateObj) =>
+    DateTime.fromJSDate(dateObj, { zone: 'Europe/Amsterdam' }).setLocale('en').toISO(),
+  )
 
   // MDX Template format
   eleventyConfig.addTemplateFormats('mdx')

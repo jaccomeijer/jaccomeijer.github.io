@@ -6,7 +6,7 @@ permalink: /sitemap.xml
 {% for item in collections.all %}{% if item.data.lastmod %}
     <url>
         <loc>https://www.jaccomeijer.nl{{ item.url }}</loc>
-        <lastmod>{{ item.data.lastmod }}</lastmod>
+        <lastmod>{{ item.data.lastmod | postDate }}</lastmod>
     </url>
 {% else %}{% endif %}{% endfor %}
 </urlset>
