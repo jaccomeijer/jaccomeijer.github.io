@@ -16,6 +16,15 @@ const refmetadata = {
     generator: '1ty',
     language: 'nl',
   },
+  source: {
+    heading: 'source',
+    icon: 'github',
+    url: 'https://github.com/jaccomeijer/jaccomeijer.github.io',
+  },
+  system: {
+    basePath: '',
+    globalCssUrl: '/reference/layout/layout.css',
+  },
 }
 
 export default refmetadata

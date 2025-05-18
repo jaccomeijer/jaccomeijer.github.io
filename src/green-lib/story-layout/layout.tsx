@@ -16,7 +16,7 @@ export const Layout = (props: Layout & EleventyData) => {
   return (
     <html lang={props.libmetadata.content.language}>
       <Head
-        cssUrls={[props.libsystemdata.globalCssUrl]}
+        cssUrls={[props.libmetadata.system.globalCssUrl]}
         description={props.libmetadata.branding.description}
         favIconUrl="/favicon.ico"
         generator={props.libmetadata.content.generator}

@@ -39,7 +39,7 @@ import { NavigationHeader } from './navigation-header'
   callActions={props.callActions}
   mainActions={props.mainActions}
   socialActions={props.socialActions}
-  systemData={props.libsystemdata}
+  globalCssUrl={props.libmetadata.system.globalCssUrl}
 />
 ```
 
@@ -48,32 +48,32 @@ import { NavigationHeader } from './navigation-header'
   callActions={props.callActions}
   mainActions={props.mainActions}
   socialActions={props.socialActions}
-  systemData={props.libsystemdata}
+  globalCssUrl={props.libmetadata.system.globalCssUrl}
 />
 
 ### Example
 
 ```html
-<NavigationHeader systemData={props.libsystemdata} mainActions={props.mainActions} />
+<NavigationHeader globalCssUrl={props.libmetadata.system.globalCssUrl} mainActions={props.mainActions} />
 ```
 
-<NavigationHeader systemData={props.libsystemdata} mainActions={props.mainActions} />
+<NavigationHeader globalCssUrl={props.libmetadata.system.globalCssUrl} mainActions={props.mainActions} />
 
 ### Example
 
 ```html
-<NavigationHeader systemData={props.libsystemdata} callActions={props.callActions} />
+<NavigationHeader globalCssUrl={props.libmetadata.system.globalCssUrl} callActions={props.callActions} />
 ```
 
-<NavigationHeader systemData={props.libsystemdata} callActions={props.callActions} />
+<NavigationHeader globalCssUrl={props.libmetadata.system.globalCssUrl} callActions={props.callActions} />
 
 ### Example
 
 ```html
-<NavigationHeader systemData={props.libsystemdata} socialActions={props.socialActions} />
+<NavigationHeader globalCssUrl={props.libmetadata.system.globalCssUrl} socialActions={props.socialActions} />
 ```
 
-<NavigationHeader systemData={props.libsystemdata} socialActions={props.socialActions} />
+<NavigationHeader globalCssUrl={props.libmetadata.system.globalCssUrl} socialActions={props.socialActions} />
 
 ### Frontmatter
 

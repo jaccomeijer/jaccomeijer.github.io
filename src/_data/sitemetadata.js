@@ -16,6 +16,15 @@ const sitemetadata = {
     generator: '11th',
     language: 'nl',
   },
+  source: {
+    heading: 'source',
+    icon: 'github',
+    url: 'https://github.com/jaccomeijer/jaccomeijer.github.io',
+  },
+  system: {
+    basePath: '',
+    globalCssUrl: '/site/layout/layout.css',
+  },
 }
 
 export default sitemetadata

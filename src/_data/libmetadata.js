@@ -21,6 +21,10 @@ const libmetadata = {
     icon: 'github',
     url: 'https://github.com/jaccomeijer/jaccomeijer.github.io',
   },
+  system: {
+    basePath: '',
+    globalCssUrl: '/green-lib/story-layout/layout.css',
+  },
 }
 
 export default libmetadata

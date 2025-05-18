@@ -1,9 +1,10 @@
 import { TopicData } from '../green-lib/components/topic/topic'
 import libmetadata from './libmetadata'
-export type libmetadata = typeof libmetadata
-
-import libsystemdata from './libsystemdata'
-export type libsystemdata = typeof libsystemdata
+import refmetadata from './refmetadata'
+import sitemetadata from './sitemetadata'
+export type Libmetadata = typeof libmetadata
+export type Refmetadata = typeof refmetadata
+export type Sitemetadata = typeof sitemetadata
 
 export type Env = {
   source: string
@@ -74,12 +75,9 @@ export interface Navigation {
 }
 
 export interface UnderscoreData {
-  libmetadata: libmetadata
-  libsystemdata: libsystemdata
-  refmetadata: libmetadata
-  refsystemdata: libsystemdata
-  sitemetadata: libmetadata
-  sitesystemdata: libsystemdata
+  libmetadata: Libmetadata
+  refmetadata: Refmetadata
+  sitemetadata: Sitemetadata
 }
 
 export interface FrontmatterData {

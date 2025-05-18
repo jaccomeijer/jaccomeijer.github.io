@@ -1,15 +1,15 @@
 import { ModalMenu } from './modal-menu'
 import { Segment } from '../segment/segment'
-import { libmetadata, libsystemdata } from '../../../_data/eleventy-data-types'
+import { Libmetadata } from '../../../_data/eleventy-data-types'
 import { Action, ActionData } from '../action/action'
 
 export interface NavigationHeader {
-  branding: libmetadata['branding']
+  branding: Libmetadata['branding']
   callActions?: ActionData[]
   mainActions: ActionData[]
   pageUrl: string
   socialActions?: ActionData[]
-  systemData: libsystemdata
+  globalCssUrl: string
 }
 
 const CE_URL = '/green-lib/components/navigation-header'
@@ -37,7 +37,7 @@ export const NavigationHeader = (props: NavigationHeader) => {
             socialActions={props.socialActions}
           />
         </div>
-        <link rel="stylesheet" type="text/css" href={props.systemData.globalCssUrl} />
+        <link rel="stylesheet" type="text/css" href={props.globalCssUrl} />
         <link rel="stylesheet" type="text/css" href={CE_URL + '/navigation-header-ce.css'} />
       </template>
       <script defer src={CE_URL + '/navigation-header-ce.js'} />

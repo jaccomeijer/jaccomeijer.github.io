@@ -16,7 +16,7 @@ export const BaseLayout = (props: BaseLayout & EleventyData) => {
   return (
     <html lang={props.sitemetadata.content.language}>
       <Head
-        cssUrls={[props.sitesystemdata.globalCssUrl]}
+        cssUrls={[props.sitemetadata.system.globalCssUrl]}
         description={props.sitemetadata.branding.description}
         favIconUrl="/favicon.ico"
         generator={props.sitemetadata.content.generator}
@@ -33,7 +33,7 @@ export const BaseLayout = (props: BaseLayout & EleventyData) => {
               mainActions={mainMenuItems}
               pageUrl={props.page.url}
               socialActions={actions.social}
-              systemData={props.sitesystemdata}
+              globalCssUrl={props.sitemetadata.system.globalCssUrl}
             />
           </div>
         </header>

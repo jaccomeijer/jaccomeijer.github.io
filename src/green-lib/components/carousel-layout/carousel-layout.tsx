@@ -1,9 +1,7 @@
-import { libsystemdata } from '../../../_data/eleventy-data-types'
-
 export interface CarouselLayout {
   children: React.ReactNode
   delay: number
-  systemData: libsystemdata
+  globalCssUrl: string
 }
 
 const CE_URL = '/green-lib/components/carousel-layout'
@@ -17,7 +15,7 @@ export const CarouselLayout = (props: CarouselLayout) => {
           <div id="slider">{props.children}</div>
           <div id="dots"></div>
         </div>
-        <link rel="stylesheet" type="text/css" href={props.systemData.globalCssUrl} />
+        <link rel="stylesheet" type="text/css" href={props.globalCssUrl} />
         <link rel="stylesheet" type="text/css" href={CE_URL + '/carousel-layout-ce.css'} />
       </template>
       <script defer src={CE_URL + '/carousel-layout-ce.js'} />

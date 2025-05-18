@@ -1,10 +1,10 @@
-import { libmetadata } from '../../../_data/eleventy-data-types'
+import { Libmetadata } from '../../../_data/eleventy-data-types'
 import { Action } from '../action/action'
 
 interface NavigationLegal {
   className?: string
-  vendor?: libmetadata['vendor']
-  branding?: libmetadata['branding']
+  vendor?: Libmetadata['vendor']
+  branding?: Libmetadata['branding']
 }
 
 export const NavigationLegal = (props: NavigationLegal) => (
