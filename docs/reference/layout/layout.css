@@ -1062,6 +1062,8 @@
   }
 }
 
+@layer ce;
+
 @layer utilities {
   .u-flex-1 {
     flex: 1;

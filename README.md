@@ -58,7 +58,7 @@ The project methodology is simple and defines three concepts:
 ## Typical CSS layer order
 
 ```css
-@layer reset, body, font, highlight, markdown, structures, components, utilities, custom;
+@layer reset, body, font, highlight, markdown, structures, components, ce, utilities, custom;
 ```
 
 ## Type and space scales

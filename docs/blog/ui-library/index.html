@@ -40,7 +40,7 @@ importing CSS like this:</p>
 <span class="hljs-keyword">@import</span> <span class="hljs-string">&#x27;./bundles/css/utilities.css&#x27;</span> layer(utilities);
 </code></pre>
 <p>Specificity can be managed like this:</p>
-<pre><code class="hljs language-css"><span class="hljs-keyword">@layer</span> reset, markdown, structures, components, utilities, custom;
+<pre><code class="hljs language-css"><span class="hljs-keyword">@layer</span> reset, markdown, structures, components, ce, utilities, custom;
 </code></pre>
 <p>CSS on the custom layer will always override CSS on the layers below. This is a
 great way to manage the cascade. No need for the <code>!important</code> rule anymore!</p>
