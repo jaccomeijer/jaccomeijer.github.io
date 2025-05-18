@@ -18,12 +18,13 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add('**/draft/**.*')
 
   // Assets
-  eleventyConfig.addPassthroughCopy({ 'node_modules/feather-icons/dist/feather-sprite.svg': 'feather-sprite.svg' })
-  eleventyConfig.addPassthroughCopy({ 'src/assets/favicon/favicon.ico': 'favicon.ico' })
+  eleventyConfig.addPassthroughCopy({
+    'node_modules/feather-icons/dist/feather-sprite.svg': 'feather-sprite.svg',
+    'src/assets/favicon/favicon.ico': 'favicon.ico',
+  })
+  // Fonts
   eleventyConfig.addPassthroughCopy({
     'src/assets/fonts/Montserrat-VariableFont_wght.ttf': 'Montserrat-VariableFont_wght.ttf',
-  })
-  eleventyConfig.addPassthroughCopy({
     'src/assets/fonts/Exo-VariableFont_wght.ttf': 'Exo-VariableFont_wght.ttf',
   })
 
