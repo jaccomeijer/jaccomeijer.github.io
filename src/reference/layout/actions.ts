@@ -1,19 +1,6 @@
+import libmetadata from '../../_data/libmetadata'
+import sitemetadata from '../../_data/sitemetadata'
+
 export const actions = {
-  social: [
-    {
-      heading: 'jaccomeijer.nl',
-      icon: 'home',
-      url: '/',
-    },
-    {
-      heading: 'green lib',
-      icon: 'globe',
-      url: '/green-lib',
-    },
-    {
-      heading: 'source',
-      icon: 'github',
-      url: 'https://github.com/jaccomeijer/jaccomeijer.github.io',
-    },
-  ],
+  social: [sitemetadata.branding, libmetadata.branding, libmetadata.source],
 }

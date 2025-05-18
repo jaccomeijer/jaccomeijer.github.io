@@ -17,7 +17,7 @@ const sitemetadata = {
     language: 'nl',
   },
   source: {
-    heading: 'source',
+    heading: 'Source',
     icon: 'github',
     url: 'https://github.com/jaccomeijer/jaccomeijer.github.io',
   },

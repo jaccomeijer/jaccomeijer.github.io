@@ -32,8 +32,8 @@ export const Layout = (props: Layout & EleventyData) => {
               <MenuElement menuItems={mainMenuItems} className="s-flex-row" />
             </nav>
             <div className="s-flex-row">
-              <a href="/">jaccomeijer.nl</a>
-              <a href="/reference">reference</a>
+              <a href={props.sitemetadata.branding.url}>{props.sitemetadata.branding.heading}</a>
+              <a href={props.refmetadata.branding.url}>{props.refmetadata.branding.heading}</a>
               <a href={props.libmetadata.source.url}>{props.libmetadata.source.heading}</a>
             </div>
           </div>
