@@ -5,6 +5,7 @@ import { Segment } from '../segment/segment'
 import { Action } from '../action/action'
 import { ActionData } from '../action/action'
 import { getHrefAction } from '../../story-menu/get-href-action'
+import Markdown from 'react-markdown'
 
 export type TopicData = {
   abstract?: string
@@ -100,9 +101,28 @@ export const Topic = (props: TopicProps) => {
           createElement(
             props.headingElement || headingElementType,
             { className: ['topic-heading', headingClass].join(' ') },
-            props.topic.heading,
+            <Markdown
+              components={{
+                p: 'span',
+              }}
+            >
+              {props.topic.heading}
+            </Markdown>,
           )}
-        {props.topic.abstract && <p className="topic-abstract">{props.topic.abstract}</p>}
+        {props.topic.abstract && (
+          <Markdown
+            components={{
+              p({ node, ...props }) {
+                return <p className="topic-abstract" {...props} />
+              },
+              ul({ node, ...props }) {
+                return <ul className="topic-abstract" {...props} />
+              },
+            }}
+          >
+            {props.topic.abstract}
+          </Markdown>
+        )}
         {props.topic.action && (
           <Action action={internalAction} className={['topic-action', actionClassName].join(' ')} element="a" />
         )}
