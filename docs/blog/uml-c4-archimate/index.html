@@ -15,7 +15,7 @@ behavior diagrams, interaction diagrams, and structure diagrams.</p>
 <p>UML is said to be decreasing in popularity (source: Google Trends) but the
 language being around for more than 30 years and it&#x27;s general-purpose nature
 make that it&#x27;s use is still widespread.</p>
-<h3>Commonly used</h3>
+<h3>Who uses UML?</h3>
 <p>As mentioned, the use of UML is widespread. Activity Diagrams are well known for
 visualizing system flows. Within software development these diagrams are often
 used:</p>
@@ -50,19 +50,80 @@ structure diagrams that define the core of C4.</p>
 <li>deployment diagram</li>
 </ol>
 <p>But that&#x27;s it. Simple to use and easy to learn.</p>
-<h4>A few examples of C4 elements</h4>
+<h4>C4 elements</h4>
 <picture class="s-block-space u-block-space-l"><source type="image/webp" srcset="/img/-198874wQn-400.webp 400w, /img/-198874wQn-800.webp 800w, /img/-198874wQn-1200.webp 1200w" sizes="100vw"><img src="/img/-198874wQn-400.jpeg" alt="Image without description" width="1200" height="551" srcset="/img/-198874wQn-400.jpeg 400w, /img/-198874wQn-800.jpeg 800w, /img/-198874wQn-1200.jpeg 1200w" sizes="100vw"></picture>
-<h3>Commonly used</h3>
+<h3>Who uses C4?</h3>
 <p>C4 being specifically designed for software architecture it is mainly used by
 solution and software architects. Security and enterprise architects tend to
 choose for ArchiMate instead because of the limited C4 set of elements.</p>
 <h2>ArchiMate</h2>
-<p>From the three languages UML defines more than 100 elements. C4 is a lot simpler
-with no more than 10 elements. The 3.1 Specification of ArchiMate counts around
-60 elements.</p>
-<p>One of the design goals was to make ArchiMate &#x27;as small as possible&#x27;. As in, the
-goal was not to cover every possible edge case.</p>
-<p>[more-content-needed]</p>
+<p>From the three languages in this post, UML defines more than 100 elements. C4 is
+a lot simpler with no more than 10 elements. The 3.2 Specification of ArchiMate
+counts around 60 elements.</p>
+<p>One of the ArchiMate design goals was to make ArchiMate &#x27;as small as possible&#x27;
+and not to cover every possible edge case. When describing something as large as
+an enterprise, &#x27;small&#x27; has relative meaning. Compared to C4, the brief list of
+ArchiMate layers described below is rather large.</p>
+<p>The image below however is really brief and it shows the full ArchiMate
+framework.</p>
+<picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/uaLl2FxSrL-400.webp 400w, /img/uaLl2FxSrL-800.webp 800w" sizes="100vw"><img src="/img/uaLl2FxSrL-400.jpeg" alt="Image without description" width="800" height="450" srcset="/img/uaLl2FxSrL-400.jpeg 400w, /img/uaLl2FxSrL-800.jpeg 800w" sizes="100vw"></picture>
+<h3>Who uses ArchiMate?</h3>
+<p>ArchiMate was designed to model an enterprise which makes it the obvious choice
+for Enterprise Architects. In a team of architects the language allows for clear
+communication between the layers that the ArchiMate framework defines.</p>
+<p>All architects in a team use the motivation elements that drive the design of a
+enterprise. These elements define things like requirements, principles and
+drivers.</p>
+<ul>
+<li>Enterprise architects operate on the strategy and the business layer.</li>
+<li>Security architects typically cover the business=security and application
+layers.</li>
+<li>Solution architects usually focus on the application layer.</li>
+<li>Infrastructure architects cover the technology layer.</li>
+</ul>
+<h3>ArchiMate Elements</h3>
+<p>The list below gives an impression of the wide range of ArchiMate elements and
+what they are used for.</p>
+<h4>Motivation elements</h4>
+<p>Motivation elements are at the core of the ArchiMate language. These elements guide
+the change or the design of an enterprise and answer to the &#x27;Why&#x27; in the
+<a href="https://en.wikipedia.org/wiki/Zachman_Framework">Zachman framework</a>.</p>
+<p>For example, a strategy elements can influence a motivation element like a goal.
+Another example is a business or application element that realizes a principle
+or a requirement.</p>
+<picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/jVHNz5XmXf-400.webp 400w, /img/jVHNz5XmXf-800.webp 800w, /img/jVHNz5XmXf-1200.webp 1200w" sizes="100vw"><img src="/img/jVHNz5XmXf-400.jpeg" alt="Image without description" width="1200" height="811" srcset="/img/jVHNz5XmXf-400.jpeg 400w, /img/jVHNz5XmXf-800.jpeg 800w, /img/jVHNz5XmXf-1200.jpeg 1200w" sizes="100vw"></picture>
+<h4>Strategy elements</h4>
+<p>Strategy elements model strategic elements of an architecture. The layer does
+not contain service or interface elements because the abstraction level is
+higher than the business layer.</p>
+<p>For example, a capability can serve a value stream and a resource can be
+assigned to a capability that realizes a motivation element like a goal.</p>
+<picture class="s-block-space u-block-space-l"><source type="image/webp" srcset="/img/VyS1jGrUc4-400.webp 400w, /img/VyS1jGrUc4-800.webp 800w, /img/VyS1jGrUc4-1200.webp 1200w" sizes="100vw"><img src="/img/VyS1jGrUc4-400.jpeg" alt="Image without description" width="1200" height="423" srcset="/img/VyS1jGrUc4-400.jpeg 400w, /img/VyS1jGrUc4-800.jpeg 800w, /img/VyS1jGrUc4-1200.jpeg 1200w" sizes="100vw"></picture>
+<h4>Business elements</h4>
+<p>Business elements model the operation.</p>
+<p>It could for example be used to describe how the customer role connects to a
+business service or how a work process connects to a service on the application
+layer.</p>
+<picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/SbQlWC7aRs-400.webp 400w, /img/SbQlWC7aRs-800.webp 800w, /img/SbQlWC7aRs-1200.webp 1200w" sizes="100vw"><img src="/img/SbQlWC7aRs-400.jpeg" alt="Image without description" width="1200" height="1005" srcset="/img/SbQlWC7aRs-400.jpeg 400w, /img/SbQlWC7aRs-800.jpeg 800w, /img/SbQlWC7aRs-1200.jpeg 1200w" sizes="100vw"></picture>
+<h4>Application elements</h4>
+<p>Applications are modeled with application elements.</p>
+<p>A function for example can be used to describe how a data object is accessed.
+With a component assigned to the function the software component that provides
+the function can be expressed. Interfaces and services are often used to connect
+functions and components to business elements.</p>
+<picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/40YpVvAwxo-400.webp 400w, /img/40YpVvAwxo-800.webp 800w, /img/40YpVvAwxo-1200.webp 1200w" sizes="100vw"><img src="/img/40YpVvAwxo-400.jpeg" alt="Image without description" width="1200" height="617" srcset="/img/40YpVvAwxo-400.jpeg 400w, /img/40YpVvAwxo-800.jpeg 800w, /img/40YpVvAwxo-1200.jpeg 1200w" sizes="100vw"></picture>
+<h4>Technology elements</h4>
+<p>[TBW]</p>
+<picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/A4oFlJEc-n-400.webp 400w, /img/A4oFlJEc-n-800.webp 800w, /img/A4oFlJEc-n-1200.webp 1200w" sizes="100vw"><img src="/img/A4oFlJEc-n-400.jpeg" alt="Image without description" width="1200" height="1200" srcset="/img/A4oFlJEc-n-400.jpeg 400w, /img/A4oFlJEc-n-800.jpeg 800w, /img/A4oFlJEc-n-1200.jpeg 1200w" sizes="100vw"></picture>
+<h4>Implementation and Migration elements</h4>
+<p>[TBW]</p>
+<picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/cQs1np2jGT-400.webp 400w, /img/cQs1np2jGT-800.webp 800w, /img/cQs1np2jGT-1200.webp 1200w" sizes="100vw"><img src="/img/cQs1np2jGT-400.jpeg" alt="Image without description" width="1200" height="423" srcset="/img/cQs1np2jGT-400.jpeg 400w, /img/cQs1np2jGT-800.jpeg 800w, /img/cQs1np2jGT-1200.jpeg 1200w" sizes="100vw"></picture>
+<h4>Composite elements</h4>
+<p>[TBW]</p>
+<picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/bpeuaoqXa6-400.webp 400w, /img/bpeuaoqXa6-800.webp 800w, /img/bpeuaoqXa6-1200.webp 1200w" sizes="100vw"><img src="/img/bpeuaoqXa6-400.jpeg" alt="Image without description" width="1200" height="339" srcset="/img/bpeuaoqXa6-400.jpeg 400w, /img/bpeuaoqXa6-800.jpeg 800w, /img/bpeuaoqXa6-1200.jpeg 1200w" sizes="100vw"></picture>
+<h4>Relationships</h4>
+<p>[TBW]</p>
+<div class="s-grid u-grid-three-cols u-gap-xs s-block-space u-block-space-l"><picture><source type="image/webp" srcset="/img/9eCvuD6aDM-400.webp 400w, /img/9eCvuD6aDM-800.webp 800w, /img/9eCvuD6aDM-1200.webp 1200w" sizes="100vw"><img src="/img/9eCvuD6aDM-400.jpeg" alt="Image without description" width="1200" height="1220" srcset="/img/9eCvuD6aDM-400.jpeg 400w, /img/9eCvuD6aDM-800.jpeg 800w, /img/9eCvuD6aDM-1200.jpeg 1200w" sizes="100vw"></picture><picture><source type="image/webp" srcset="/img/GU2BFw2XV4-400.webp 400w, /img/GU2BFw2XV4-800.webp 800w, /img/GU2BFw2XV4-1200.webp 1200w" sizes="100vw"><img src="/img/GU2BFw2XV4-400.jpeg" alt="Image without description" width="1200" height="1241" srcset="/img/GU2BFw2XV4-400.jpeg 400w, /img/GU2BFw2XV4-800.jpeg 800w, /img/GU2BFw2XV4-1200.jpeg 1200w" sizes="100vw"></picture><picture><source type="image/webp" srcset="/img/K-qgvtBuMh-400.webp 400w, /img/K-qgvtBuMh-800.webp 800w, /img/K-qgvtBuMh-1200.webp 1200w" sizes="100vw"><img src="/img/K-qgvtBuMh-400.jpeg" alt="Image without description" width="1200" height="1023" srcset="/img/K-qgvtBuMh-400.jpeg 400w, /img/K-qgvtBuMh-800.jpeg 800w, /img/K-qgvtBuMh-1200.jpeg 1200w" sizes="100vw"></picture></div>
 <h2>C4 compared to ArchiMate</h2>
 <p>C4 can be seen as a subset of ArchiMate, the C4 diagrams can be expressed with
 the Archimage viewpoint concept. Depending on how you look at it, the C4
