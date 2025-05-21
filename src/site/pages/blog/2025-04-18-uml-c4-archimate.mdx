@@ -41,6 +41,18 @@ UML is said to be decreasing in popularity (source: Google Trends) but the
 language being around for more than 30 years and it's general-purpose nature
 make that it's use is still widespread.
 
+### UML Diagrams
+
+UML provides language for many types of diagrams. The model below shows the two
+major groups: behavior and structure. Where behavior contains a third group
+named interaction.
+
+<div className="s-popout s-block-space u-block-space-l">
+  <div className="s-wrapper" style={{ '--wrapper-width': '60rem' }}>
+    <Picture src="/site/pages/blog/images-architecture/uml-diagrams.svg" />
+  </div>
+</div>
+
 ### Who uses UML?
 
 As mentioned, the use of UML is widespread. Activity Diagrams are well known for
@@ -65,9 +77,9 @@ reaches that goal by focussing on clarity and simplicity.
 From the C4 documentation:
 
 > A **software system** is made up of one or more **containers** (applications
-and data stores), each of which contains one or more **components**, which in
-turn are implemented by one or more **code** elements (classes, interfaces,
-objects, functions, etc).
+> and data stores), each of which contains one or more **components**, which in
+> turn are implemented by one or more **code** elements (classes, interfaces,
+> objects, functions, etc).
 
 The four emphasized words in this one sentence correspond to the four static
 structure diagrams that define the core of C4.
@@ -85,11 +97,9 @@ Additionally there's three more diagrams:
 
 But that's it. Simple to use and easy to learn.
 
-#### C4 elements
-<Picture 
-  className="s-block-space u-block-space-l"
-  src="/site/pages/blog/images-architecture/c4-example.svg"
-/>
+### C4 elements
+
+<Picture className="s-block-space u-block-space-l" src="/site/pages/blog/images-architecture/c4-example.svg" />
 
 ### Who uses C4?
 
@@ -111,7 +121,7 @@ ArchiMate layers described below is rather large.
 The image below however is really brief and it shows the full ArchiMate
 framework.
 
-<Picture 
+<Picture
   className="s-block-space u-block-space-s"
   src="/site/pages/blog/images-architecture/archiMate-full-framework.jpg"
 />
@@ -122,13 +132,13 @@ ArchiMate was designed to model an enterprise which makes it the obvious choice
 for Enterprise Architects. In a team of architects the language allows for clear
 communication between the layers that the ArchiMate framework defines.
 
-All architects in a team use the motivation elements that drive the design of a
-enterprise. These elements define things like requirements, principles and
+All architects in a team use the motivation elements that drive the design of an
+enterprise. Examples of motivation elements are requirements, principles and
 drivers.
 
 - Enterprise architects operate on the strategy and the business layer.
 - Security architects typically cover the business=security and application
-layers.
+  layers.
 - Solution architects usually focus on the application layer.
 - Infrastructure architects cover the technology layer.
 
@@ -139,106 +149,91 @@ what they are used for.
 
 #### Motivation elements
 
-Motivation elements are at the core of the ArchiMate language. These elements guide
-the change or the design of an enterprise and answer to the 'Why' in the
-[Zachman framework](https://en.wikipedia.org/wiki/Zachman_Framework).
+Motivation elements are at the core of the ArchiMate language. These elements
+guide the design of an enterprise and answer to the 'Why' in the [Zachman
+framework](https://en.wikipedia.org/wiki/Zachman_Framework).
 
-For example, a strategy elements can influence a motivation element like a goal.
-Another example is a business or application element that realizes a principle
-or a requirement.
+For example, strategy elements can influence goals. Another example is a
+business or application element that realizes a principle or a requirement.
 
-<Picture 
+<Picture
   className="s-block-space u-block-space-s"
   src="/site/pages/blog/images-architecture/archimate-motivation.svg"
 />
 
 #### Strategy elements
 
-Strategy elements model strategic elements of an architecture. The layer does
-not contain service or interface elements because the abstraction level is
-higher than the business layer.
+Contrary to business and application elements, strategy elements do not define a
+service or an interface element. This is because the abstraction level of the
+strategy layer is higher than the business layer.
 
-For example, a capability can serve a value stream and a resource can be
-assigned to a capability that realizes a motivation element like a goal.
+A capability, for example, can serve a value stream and a resource can be
+assigned to a capability that realizes a goal in the motivation stack.
 
-<Picture 
-  className="s-block-space u-block-space-l"
-  src="/site/pages/blog/images-architecture/archimate-strategy.svg"
-/>
+<Picture className="s-block-space u-block-space-l" src="/site/pages/blog/images-architecture/archimate-strategy.svg" />
 
 #### Business elements
 
-Business elements model the operation.
+Business elements model the operation of an enterprise.
 
-It could for example be used to describe how the customer role connects to a
-business service or how a work process connects to a service on the application
-layer.
+These elements can be used to describe how e.g. a customer role relates to a
+business service, how a work processes relates to a service on the application
+layer or to e.g. detail the steps a business process.
 
-<Picture 
-  className="s-block-space u-block-space-s"
-  src="/site/pages/blog/images-architecture/archimate-business.svg"
-/>
+<Picture className="s-block-space u-block-space-s" src="/site/pages/blog/images-architecture/archimate-business.svg" />
 
 #### Application elements
 
-Applications are modeled with application elements.
+Application elements model applications and information. The main active
+structure element is the component.
 
 A function for example can be used to describe how a data object is accessed.
 With a component assigned to the function the software component that provides
 the function can be expressed. Interfaces and services are often used to connect
 functions and components to business elements.
 
-<Picture 
+<Picture
   className="s-block-space u-block-space-s"
   src="/site/pages/blog/images-architecture/archimate-application.svg"
 />
 
 #### Technology elements
 
-[TBW]
+Technology elements model technical infrastructure. The main active structure
+element is the node.
 
-<Picture 
+A service is often modeled to serve a function on the application layer and a
+node typically connects to a network element which could connect to e.g. a
+device. Functions can be used to e.g. model data replication.
+
+<Picture
   className="s-block-space u-block-space-s"
   src="/site/pages/blog/images-architecture/archimate-technology.svg"
 />
 
 #### Implementation and Migration elements
 
-[TBW]
+Implementation and migration elements are used for programs and planning.
 
-<Picture 
+An event could trigger a work package which could then realizes a deliverable.
+
+<Picture
   className="s-block-space u-block-space-s"
   src="/site/pages/blog/images-architecture/archimate-implementation-migration.svg"
 />
 
-#### Composite elements
-
-[TBW]
-
-<Picture 
-  className="s-block-space u-block-space-s"
-  src="/site/pages/blog/images-architecture/archimate-composite.svg"
-/>
-
 #### Relationships
 
-[TBW]
+ArchiMate defines structural relationships as shown in the first diagram below.
+The second diagram shows dependency relationships and the third diagram shows
+dynamic relationships. The last group with the Specialization relationship is
+named 'other'.
 
 <div className="s-grid u-grid-three-cols u-gap-xs s-block-space u-block-space-l">
-  <Picture 
-    src="/site/pages/blog/images-architecture/archimate-relationship-dependency.svg"
-  />
-
-  <Picture 
-    src="/site/pages/blog/images-architecture/archimate-relationship-structural.svg"
-  />
-
-  <Picture 
-    src="/site/pages/blog/images-architecture/archimate-relationship-dynamic-other.svg"
-  />
+  <Picture src="/site/pages/blog/images-architecture/archimate-relationship-structural.svg" />
+  <Picture src="/site/pages/blog/images-architecture/archimate-relationship-dependency.svg" />
+  <Picture src="/site/pages/blog/images-architecture/archimate-relationship-dynamic-other.svg" />
 </div>
-
-
 
 ## C4 compared to ArchiMate
 
@@ -248,51 +243,57 @@ elements can be mapped in a couple of ways to ArchiMate elements.
 
 ### System
 
-The C4 'System' element is described as something that delivers value to users.
-ArchiMate defines a 'Value Stream' element which describes behavior on the
-strategy layer. But since C4 also defines a 'System' as something a single
-software development team is building, the 'Application Function' or
-'Application component' element would be a better fit.
+The C4 system element is described as something that delivers value to users
+which could map to the ArchiMate value stream on the strategy layer. C4 also
+defines a system as something a single software development team is building.
+The ArchiMate application function or application component would then be a
+better fit.
 
 ### Container
 
-The C4 'Container' element is describes as something that needs to be running
-for the system to work. The ArchiMate 'Application Component' element could be
-used to express this. 
+The C4 Container element is described as something that needs to be running for
+the system to work. The ArchiMate application component could be used to express
+this.
 
 ### Component
 
-The C4 documentation states that a 'Component' is a "hugely overloaded term".
-It's true, the word component can be used in many different ways. C4 defines it
-as 'grouping of related functionality encapsulated behind a well-defined
-interface'. This could be an ArchiMate 'Application Component' or 'Application
-Service' element. The 'well-defined interface' can be modelled separately in
-ArchiMate by using the 'Application Interface' element.
+The C4 documentation states that a Component is a hugely overloaded term. And of
+course, the word component can be used in many different ways. C4 defines it as
+grouping of related functionality encapsulated behind a well-defined interface.
+This could be an ArchiMate application component or application service. The
+well-defined interface can be modelled separately in ArchiMate by using the
+application interface.
 
 ### Code
 
-The C4 element 'Code' is hard to model in ArchiMate. The 'Application Component'
-element can be used to express a software library and the 'Data Object' element
-can be used, but concepts like 'classes', 'attributes' and 'methods' are not
-available. The 'Application Component' element can be used for this if you
-really have to, but UML and C4 are a much better suited for this.
+The C4 element Code is hard to model in ArchiMate. The application component can
+be used to express a software library and the data object can be used, but
+concepts like classes, attributes and methods are not available. The application
+component can be used for this if you really have to, but UML and C4 are a much
+better suited for this.
 
 ### Application Component
 
-Simply put, all C4 elements can be expressed by ArchiMate 'Application
-Component' elements. It makes clear how C4 and ArchiMate differ. C4 defines four
-sizes of 'Application Components' whereas ArchiMate has nine different
-'Application' elements like 'Interface', 'Function' and 'Service' that can be
-used to add more detail.
+Simply put, all C4 elements can be modeled with the ArchiMate application
+component. It makes clear how C4 and ArchiMate differ. C4 defines four sizes of
+application components whereas ArchiMate has nine different application elements
+like interface, function and service that can be used to add more detail.
 
-Besides the 'Application' layer, ArchiMate defines five other layers and uses
-Motivation elements for modelling motivations.
+Besides the application layer, ArchiMate defines five other layers and has
+motivation elements.
 
 ## Structure as code
 
-All three languages have code equivalents. PlantUml being the most popular. It
-can be extended to support the ArchiMate and C4 languages by using macro
-libraries.
+All three languages have structure as code equivalents of which PlantUml is the
+most popular. PlantUml can be extended to support the ArchiMate and C4 languages
+by using macro libraries.
+
+PlantUml uses sequential text scripts to model a diagram. Because PlantUml
+sequence diagrams and text scripts share the same sequential nature sequence
+diagrams can conveniently be modeled with PlantUml.
+
+For other diagrams and especially when modeling Archimate a platform like
+Bizzdesign Horizzon is highly recommended.
 
 - https://plantuml.com
 - https://github.com/plantuml-stdlib/ArchiMate-PlantUML

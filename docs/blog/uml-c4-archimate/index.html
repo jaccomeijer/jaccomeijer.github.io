@@ -15,6 +15,11 @@ behavior diagrams, interaction diagrams, and structure diagrams.</p>
 <p>UML is said to be decreasing in popularity (source: Google Trends) but the
 language being around for more than 30 years and it&#x27;s general-purpose nature
 make that it&#x27;s use is still widespread.</p>
+<h3>UML Diagrams</h3>
+<p>UML provides language for many types of diagrams. The model below shows the two
+major groups: behavior and structure. Where behavior contains a third group
+named interaction.</p>
+<div class="s-popout s-block-space u-block-space-l"><div class="s-wrapper" style="--wrapper-width:60rem"><picture><source type="image/webp" srcset="/img/9izghU-tVN-400.webp 400w, /img/9izghU-tVN-800.webp 800w, /img/9izghU-tVN-1200.webp 1200w" sizes="100vw"><img src="/img/9izghU-tVN-400.jpeg" alt="Image without description" width="1200" height="666" srcset="/img/9izghU-tVN-400.jpeg 400w, /img/9izghU-tVN-800.jpeg 800w, /img/9izghU-tVN-1200.jpeg 1200w" sizes="100vw"></picture></div></div>
 <h3>Who uses UML?</h3>
 <p>As mentioned, the use of UML is widespread. Activity Diagrams are well known for
 visualizing system flows. Within software development these diagrams are often
@@ -50,7 +55,7 @@ structure diagrams that define the core of C4.</p>
 <li>deployment diagram</li>
 </ol>
 <p>But that&#x27;s it. Simple to use and easy to learn.</p>
-<h4>C4 elements</h4>
+<h3>C4 elements</h3>
 <picture class="s-block-space u-block-space-l"><source type="image/webp" srcset="/img/-198874wQn-400.webp 400w, /img/-198874wQn-800.webp 800w, /img/-198874wQn-1200.webp 1200w" sizes="100vw"><img src="/img/-198874wQn-400.jpeg" alt="Image without description" width="1200" height="551" srcset="/img/-198874wQn-400.jpeg 400w, /img/-198874wQn-800.jpeg 800w, /img/-198874wQn-1200.jpeg 1200w" sizes="100vw"></picture>
 <h3>Who uses C4?</h3>
 <p>C4 being specifically designed for software architecture it is mainly used by
@@ -71,8 +76,8 @@ framework.</p>
 <p>ArchiMate was designed to model an enterprise which makes it the obvious choice
 for Enterprise Architects. In a team of architects the language allows for clear
 communication between the layers that the ArchiMate framework defines.</p>
-<p>All architects in a team use the motivation elements that drive the design of a
-enterprise. These elements define things like requirements, principles and
+<p>All architects in a team use the motivation elements that drive the design of an
+enterprise. Examples of motivation elements are requirements, principles and
 drivers.</p>
 <ul>
 <li>Enterprise architects operate on the strategy and the business layer.</li>
@@ -85,84 +90,93 @@ layers.</li>
 <p>The list below gives an impression of the wide range of ArchiMate elements and
 what they are used for.</p>
 <h4>Motivation elements</h4>
-<p>Motivation elements are at the core of the ArchiMate language. These elements guide
-the change or the design of an enterprise and answer to the &#x27;Why&#x27; in the
-<a href="https://en.wikipedia.org/wiki/Zachman_Framework">Zachman framework</a>.</p>
-<p>For example, a strategy elements can influence a motivation element like a goal.
-Another example is a business or application element that realizes a principle
-or a requirement.</p>
+<p>Motivation elements are at the core of the ArchiMate language. These elements
+guide the design of an enterprise and answer to the &#x27;Why&#x27; in the <a href="https://en.wikipedia.org/wiki/Zachman_Framework">Zachman
+framework</a>.</p>
+<p>For example, strategy elements can influence goals. Another example is a
+business or application element that realizes a principle or a requirement.</p>
 <picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/jVHNz5XmXf-400.webp 400w, /img/jVHNz5XmXf-800.webp 800w, /img/jVHNz5XmXf-1200.webp 1200w" sizes="100vw"><img src="/img/jVHNz5XmXf-400.jpeg" alt="Image without description" width="1200" height="811" srcset="/img/jVHNz5XmXf-400.jpeg 400w, /img/jVHNz5XmXf-800.jpeg 800w, /img/jVHNz5XmXf-1200.jpeg 1200w" sizes="100vw"></picture>
 <h4>Strategy elements</h4>
-<p>Strategy elements model strategic elements of an architecture. The layer does
-not contain service or interface elements because the abstraction level is
-higher than the business layer.</p>
-<p>For example, a capability can serve a value stream and a resource can be
-assigned to a capability that realizes a motivation element like a goal.</p>
+<p>Contrary to business and application elements, strategy elements do not define a
+service or an interface element. This is because the abstraction level of the
+strategy layer is higher than the business layer.</p>
+<p>A capability, for example, can serve a value stream and a resource can be
+assigned to a capability that realizes a goal in the motivation stack.</p>
 <picture class="s-block-space u-block-space-l"><source type="image/webp" srcset="/img/VyS1jGrUc4-400.webp 400w, /img/VyS1jGrUc4-800.webp 800w, /img/VyS1jGrUc4-1200.webp 1200w" sizes="100vw"><img src="/img/VyS1jGrUc4-400.jpeg" alt="Image without description" width="1200" height="423" srcset="/img/VyS1jGrUc4-400.jpeg 400w, /img/VyS1jGrUc4-800.jpeg 800w, /img/VyS1jGrUc4-1200.jpeg 1200w" sizes="100vw"></picture>
 <h4>Business elements</h4>
-<p>Business elements model the operation.</p>
-<p>It could for example be used to describe how the customer role connects to a
-business service or how a work process connects to a service on the application
-layer.</p>
+<p>Business elements model the operation of an enterprise.</p>
+<p>These elements can be used to describe how e.g. a customer role relates to a
+business service, how a work processes relates to a service on the application
+layer or to e.g. detail the steps a business process.</p>
 <picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/SbQlWC7aRs-400.webp 400w, /img/SbQlWC7aRs-800.webp 800w, /img/SbQlWC7aRs-1200.webp 1200w" sizes="100vw"><img src="/img/SbQlWC7aRs-400.jpeg" alt="Image without description" width="1200" height="1005" srcset="/img/SbQlWC7aRs-400.jpeg 400w, /img/SbQlWC7aRs-800.jpeg 800w, /img/SbQlWC7aRs-1200.jpeg 1200w" sizes="100vw"></picture>
 <h4>Application elements</h4>
-<p>Applications are modeled with application elements.</p>
+<p>Application elements model applications and information. The main active
+structure element is the component.</p>
 <p>A function for example can be used to describe how a data object is accessed.
 With a component assigned to the function the software component that provides
 the function can be expressed. Interfaces and services are often used to connect
 functions and components to business elements.</p>
 <picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/40YpVvAwxo-400.webp 400w, /img/40YpVvAwxo-800.webp 800w, /img/40YpVvAwxo-1200.webp 1200w" sizes="100vw"><img src="/img/40YpVvAwxo-400.jpeg" alt="Image without description" width="1200" height="617" srcset="/img/40YpVvAwxo-400.jpeg 400w, /img/40YpVvAwxo-800.jpeg 800w, /img/40YpVvAwxo-1200.jpeg 1200w" sizes="100vw"></picture>
 <h4>Technology elements</h4>
-<p>[TBW]</p>
+<p>Technology elements model technical infrastructure. The main active structure
+element is the node.</p>
+<p>A service is often modeled to serve a function on the application layer and a
+node typically connects to a network element which could connect to e.g. a
+device. Functions can be used to e.g. model data replication.</p>
 <picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/A4oFlJEc-n-400.webp 400w, /img/A4oFlJEc-n-800.webp 800w, /img/A4oFlJEc-n-1200.webp 1200w" sizes="100vw"><img src="/img/A4oFlJEc-n-400.jpeg" alt="Image without description" width="1200" height="1200" srcset="/img/A4oFlJEc-n-400.jpeg 400w, /img/A4oFlJEc-n-800.jpeg 800w, /img/A4oFlJEc-n-1200.jpeg 1200w" sizes="100vw"></picture>
 <h4>Implementation and Migration elements</h4>
-<p>[TBW]</p>
+<p>Implementation and migration elements are used for programs and planning.</p>
+<p>An event could trigger a work package which could then realizes a deliverable.</p>
 <picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/cQs1np2jGT-400.webp 400w, /img/cQs1np2jGT-800.webp 800w, /img/cQs1np2jGT-1200.webp 1200w" sizes="100vw"><img src="/img/cQs1np2jGT-400.jpeg" alt="Image without description" width="1200" height="423" srcset="/img/cQs1np2jGT-400.jpeg 400w, /img/cQs1np2jGT-800.jpeg 800w, /img/cQs1np2jGT-1200.jpeg 1200w" sizes="100vw"></picture>
-<h4>Composite elements</h4>
-<p>[TBW]</p>
-<picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/bpeuaoqXa6-400.webp 400w, /img/bpeuaoqXa6-800.webp 800w, /img/bpeuaoqXa6-1200.webp 1200w" sizes="100vw"><img src="/img/bpeuaoqXa6-400.jpeg" alt="Image without description" width="1200" height="339" srcset="/img/bpeuaoqXa6-400.jpeg 400w, /img/bpeuaoqXa6-800.jpeg 800w, /img/bpeuaoqXa6-1200.jpeg 1200w" sizes="100vw"></picture>
 <h4>Relationships</h4>
-<p>[TBW]</p>
-<div class="s-grid u-grid-three-cols u-gap-xs s-block-space u-block-space-l"><picture><source type="image/webp" srcset="/img/9eCvuD6aDM-400.webp 400w, /img/9eCvuD6aDM-800.webp 800w, /img/9eCvuD6aDM-1200.webp 1200w" sizes="100vw"><img src="/img/9eCvuD6aDM-400.jpeg" alt="Image without description" width="1200" height="1220" srcset="/img/9eCvuD6aDM-400.jpeg 400w, /img/9eCvuD6aDM-800.jpeg 800w, /img/9eCvuD6aDM-1200.jpeg 1200w" sizes="100vw"></picture><picture><source type="image/webp" srcset="/img/GU2BFw2XV4-400.webp 400w, /img/GU2BFw2XV4-800.webp 800w, /img/GU2BFw2XV4-1200.webp 1200w" sizes="100vw"><img src="/img/GU2BFw2XV4-400.jpeg" alt="Image without description" width="1200" height="1241" srcset="/img/GU2BFw2XV4-400.jpeg 400w, /img/GU2BFw2XV4-800.jpeg 800w, /img/GU2BFw2XV4-1200.jpeg 1200w" sizes="100vw"></picture><picture><source type="image/webp" srcset="/img/K-qgvtBuMh-400.webp 400w, /img/K-qgvtBuMh-800.webp 800w, /img/K-qgvtBuMh-1200.webp 1200w" sizes="100vw"><img src="/img/K-qgvtBuMh-400.jpeg" alt="Image without description" width="1200" height="1023" srcset="/img/K-qgvtBuMh-400.jpeg 400w, /img/K-qgvtBuMh-800.jpeg 800w, /img/K-qgvtBuMh-1200.jpeg 1200w" sizes="100vw"></picture></div>
+<p>ArchiMate defines structural relationships as shown in the first diagram below.
+The second diagram shows dependency relationships and the third diagram shows
+dynamic relationships. The last group with the Specialization relationship is
+named &#x27;other&#x27;.</p>
+<div class="s-grid u-grid-three-cols u-gap-xs s-block-space u-block-space-l"><picture><source type="image/webp" srcset="/img/GU2BFw2XV4-400.webp 400w, /img/GU2BFw2XV4-800.webp 800w, /img/GU2BFw2XV4-1200.webp 1200w" sizes="100vw"><img src="/img/GU2BFw2XV4-400.jpeg" alt="Image without description" width="1200" height="1241" srcset="/img/GU2BFw2XV4-400.jpeg 400w, /img/GU2BFw2XV4-800.jpeg 800w, /img/GU2BFw2XV4-1200.jpeg 1200w" sizes="100vw"></picture><picture><source type="image/webp" srcset="/img/9eCvuD6aDM-400.webp 400w, /img/9eCvuD6aDM-800.webp 800w, /img/9eCvuD6aDM-1200.webp 1200w" sizes="100vw"><img src="/img/9eCvuD6aDM-400.jpeg" alt="Image without description" width="1200" height="1220" srcset="/img/9eCvuD6aDM-400.jpeg 400w, /img/9eCvuD6aDM-800.jpeg 800w, /img/9eCvuD6aDM-1200.jpeg 1200w" sizes="100vw"></picture><picture><source type="image/webp" srcset="/img/5xTXu-9Rca-400.webp 400w, /img/5xTXu-9Rca-800.webp 800w, /img/5xTXu-9Rca-1200.webp 1200w" sizes="100vw"><img src="/img/5xTXu-9Rca-400.jpeg" alt="Image without description" width="1200" height="1256" srcset="/img/5xTXu-9Rca-400.jpeg 400w, /img/5xTXu-9Rca-800.jpeg 800w, /img/5xTXu-9Rca-1200.jpeg 1200w" sizes="100vw"></picture></div>
 <h2>C4 compared to ArchiMate</h2>
 <p>C4 can be seen as a subset of ArchiMate, the C4 diagrams can be expressed with
 the Archimage viewpoint concept. Depending on how you look at it, the C4
 elements can be mapped in a couple of ways to ArchiMate elements.</p>
 <h3>System</h3>
-<p>The C4 &#x27;System&#x27; element is described as something that delivers value to users.
-ArchiMate defines a &#x27;Value Stream&#x27; element which describes behavior on the
-strategy layer. But since C4 also defines a &#x27;System&#x27; as something a single
-software development team is building, the &#x27;Application Function&#x27; or
-&#x27;Application component&#x27; element would be a better fit.</p>
+<p>The C4 system element is described as something that delivers value to users
+which could map to the ArchiMate value stream on the strategy layer. C4 also
+defines a system as something a single software development team is building.
+The ArchiMate application function or application component would then be a
+better fit.</p>
 <h3>Container</h3>
-<p>The C4 &#x27;Container&#x27; element is describes as something that needs to be running
-for the system to work. The ArchiMate &#x27;Application Component&#x27; element could be
-used to express this.</p>
+<p>The C4 Container element is described as something that needs to be running for
+the system to work. The ArchiMate application component could be used to express
+this.</p>
 <h3>Component</h3>
-<p>The C4 documentation states that a &#x27;Component&#x27; is a &quot;hugely overloaded term&quot;.
-It&#x27;s true, the word component can be used in many different ways. C4 defines it
-as &#x27;grouping of related functionality encapsulated behind a well-defined
-interface&#x27;. This could be an ArchiMate &#x27;Application Component&#x27; or &#x27;Application
-Service&#x27; element. The &#x27;well-defined interface&#x27; can be modelled separately in
-ArchiMate by using the &#x27;Application Interface&#x27; element.</p>
+<p>The C4 documentation states that a Component is a hugely overloaded term. And of
+course, the word component can be used in many different ways. C4 defines it as
+grouping of related functionality encapsulated behind a well-defined interface.
+This could be an ArchiMate application component or application service. The
+well-defined interface can be modelled separately in ArchiMate by using the
+application interface.</p>
 <h3>Code</h3>
-<p>The C4 element &#x27;Code&#x27; is hard to model in ArchiMate. The &#x27;Application Component&#x27;
-element can be used to express a software library and the &#x27;Data Object&#x27; element
-can be used, but concepts like &#x27;classes&#x27;, &#x27;attributes&#x27; and &#x27;methods&#x27; are not
-available. The &#x27;Application Component&#x27; element can be used for this if you
-really have to, but UML and C4 are a much better suited for this.</p>
+<p>The C4 element Code is hard to model in ArchiMate. The application component can
+be used to express a software library and the data object can be used, but
+concepts like classes, attributes and methods are not available. The application
+component can be used for this if you really have to, but UML and C4 are a much
+better suited for this.</p>
 <h3>Application Component</h3>
-<p>Simply put, all C4 elements can be expressed by ArchiMate &#x27;Application
-Component&#x27; elements. It makes clear how C4 and ArchiMate differ. C4 defines four
-sizes of &#x27;Application Components&#x27; whereas ArchiMate has nine different
-&#x27;Application&#x27; elements like &#x27;Interface&#x27;, &#x27;Function&#x27; and &#x27;Service&#x27; that can be
-used to add more detail.</p>
-<p>Besides the &#x27;Application&#x27; layer, ArchiMate defines five other layers and uses
-Motivation elements for modelling motivations.</p>
+<p>Simply put, all C4 elements can be modeled with the ArchiMate application
+component. It makes clear how C4 and ArchiMate differ. C4 defines four sizes of
+application components whereas ArchiMate has nine different application elements
+like interface, function and service that can be used to add more detail.</p>
+<p>Besides the application layer, ArchiMate defines five other layers and has
+motivation elements.</p>
 <h2>Structure as code</h2>
-<p>All three languages have code equivalents. PlantUml being the most popular. It
-can be extended to support the ArchiMate and C4 languages by using macro
-libraries.</p>
+<p>All three languages have structure as code equivalents of which PlantUml is the
+most popular. PlantUml can be extended to support the ArchiMate and C4 languages
+by using macro libraries.</p>
+<p>PlantUml uses sequential text scripts to model a diagram. Because PlantUml
+sequence diagrams and text scripts share the same sequential nature sequence
+diagrams can conveniently be modeled with PlantUml.</p>
+<p>For other diagrams and especially when modeling Archimate a platform like
+Bizzdesign Horizzon is highly recommended.</p>
 <ul>
 <li><a href="https://plantuml.com">https://plantuml.com</a></li>
 <li><a href="https://github.com/plantuml-stdlib/ArchiMate-PlantUML">https://github.com/plantuml-stdlib/ArchiMate-PlantUML</a></li>
