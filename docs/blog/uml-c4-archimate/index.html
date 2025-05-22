@@ -67,8 +67,8 @@ a lot simpler with no more than 10 elements. The 3.2 Specification of ArchiMate
 counts around 60 elements.</p>
 <p>One of the ArchiMate design goals was to make ArchiMate &#x27;as small as possible&#x27;
 and not to cover every possible edge case. When describing something as large as
-an enterprise, &#x27;small&#x27; has relative meaning. Compared to C4, the brief list of
-ArchiMate layers described below is rather large.</p>
+an enterprise, &#x27;small&#x27; has relative meaning. Compared to C4, being able to model
+with 60 elements divided over six layers allows for much more aspects.</p>
 <p>The image below however is really brief and shows the full ArchiMate framework.</p>
 <picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/s2HBoCWQSR-400.webp 400w, /img/s2HBoCWQSR-800.webp 800w, /img/s2HBoCWQSR-1200.webp 1200w" sizes="100vw"><img src="/img/s2HBoCWQSR-400.jpeg" alt="Image without description" width="1200" height="733" srcset="/img/s2HBoCWQSR-400.jpeg 400w, /img/s2HBoCWQSR-800.jpeg 800w, /img/s2HBoCWQSR-1200.jpeg 1200w" sizes="100vw"></picture>
 <h3>Who uses ArchiMate?</h3>
@@ -79,11 +79,18 @@ communication between the layers that the ArchiMate framework defines.</p>
 enterprise. Examples of motivation elements are requirements, principles and
 drivers.</p>
 <ul>
-<li>Enterprise architects operate on the strategy and the business layer.</li>
-<li>Security architects typically cover the business=security and application
-layers.</li>
-<li>Solution architects usually focus on the application layer.</li>
-<li>Infrastructure architects cover the technology layer.</li>
+<li>Enterprise architects model the full enterprise and operate on all layers. The
+application and interface layer are modeled as abstract views which means that
+e.g. solutions have no detail.</li>
+<li>Security architects often use the strategy and business layer to model
+security frameworks. Specific security elements, such as risk and security
+principles are often used to model enterprise security risk management by
+relating the security elements to services on the business, application and
+technology layers.</li>
+<li>Solution architects usually focus on the solutions that are modeled on the
+application layer. This often requires minor changes to the business and the
+technology layers.</li>
+<li>Infrastructure architects add detail to the technology layer.</li>
 </ul>
 <h3>ArchiMate Elements</h3>
 <p>The list below gives an impression of the wide range of ArchiMate elements and

@@ -115,8 +115,8 @@ counts around 60 elements.
 
 One of the ArchiMate design goals was to make ArchiMate 'as small as possible'
 and not to cover every possible edge case. When describing something as large as
-an enterprise, 'small' has relative meaning. Compared to C4, the brief list of
-ArchiMate layers described below is rather large.
+an enterprise, 'small' has relative meaning. Compared to C4, being able to model
+with 60 elements divided over six layers allows for much more aspects.
 
 The image below however is really brief and shows the full ArchiMate framework.
 
@@ -132,11 +132,18 @@ All architects in a team use the motivation elements that drive the design of an
 enterprise. Examples of motivation elements are requirements, principles and
 drivers.
 
-- Enterprise architects operate on the strategy and the business layer.
-- Security architects typically cover the business=security and application
-  layers.
-- Solution architects usually focus on the application layer.
-- Infrastructure architects cover the technology layer.
+- Enterprise architects model the full enterprise and operate on all layers. The
+  application and interface layer are modeled as abstract views which means that
+  e.g. solutions have no detail.
+- Security architects often use the strategy and business layer to model
+  security frameworks. Specific security elements, such as risk and security
+  principles are often used to model enterprise security risk management by
+  relating the security elements to services on the business, application and
+  technology layers.
+- Solution architects usually focus on the solutions that are modeled on the
+  application layer. This often requires minor changes to the business and the
+  technology layers.
+- Infrastructure architects add detail to the technology layer.
 
 ### ArchiMate Elements
 
