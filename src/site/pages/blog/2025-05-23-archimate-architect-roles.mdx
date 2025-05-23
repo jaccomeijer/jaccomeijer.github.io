@@ -15,6 +15,7 @@ export { BlogLayout as default } from '../helpers/blog-layout'
 import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
 import { Picture } from '../../../green-lib/components/picture/picture'
 import { Topic } from '../../../green-lib/components/topic/topic'
+import { Diagram } from '../helpers/diagram'
 
 ## Who uses ArchiMate?
 
@@ -36,11 +37,4 @@ how these logically map to the layers defined by the ArchiMate framework.
 - Solution architects
 - Infrastructure architects
 
-<div className="s-popout s-block-space u-block-space-l">
-  <div className="s-wrapper u-bg-color-diagram u-border-radius-pill" style={{ '--wrapper-width': '60rem' }}>
-    <Picture
-      className="s-block-space u-block-space-s"
-      src="/site/pages/blog/images-architecture/archimate-architect-roles.svg"
-    />
-  </div>
-</div>
+<Diagram src="/site/pages/blog/images-architecture/archimate-architect-roles.svg" width="60rem" />

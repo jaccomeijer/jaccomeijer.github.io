@@ -1429,8 +1429,13 @@
     margin-block-start: 0;
   }
 
-  .markdown .u-bg-color-diagram {
-    background-color: var(--color-diagram);
+  .markdown .diagram {
+    padding: 1rem;
+  }
+
+  .markdown .diagram .s-wrapper {
+    border: 1px solid var(--color-mono-200);
+    background-color: #f0f0f0;
   }
 
   .site-header {
@@ -1538,7 +1543,6 @@
   --space-xs: clamp(.875rem, .8523rem + .1099vi, .9375rem);
   --space-xs-r2: clamp(.875rem, .5272rem + 1.7391vi, 1.875rem);
   --space-xs-r3: clamp(.875rem, .3098rem + 2.8261vi, 2.5rem);
-  --color-diagram: #f0f0f0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1557,6 +1561,5 @@
     --color-primary-300: #03d7e2;
     --color-primary-200: #028f97;
     --color-primary-100: #01484b;
-    --color-diagram: #555;
   }
 }

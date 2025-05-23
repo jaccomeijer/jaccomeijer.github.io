@@ -22,7 +22,11 @@
     }
   }
 
-  .u-bg-color-diagram {
-    background-color: var(--color-diagram);
+  .diagram {
+    padding: 1rem;
+    .s-wrapper {
+      background-color: #f0f0f0;
+      border: 1px solid var(--color-mono-200);
+    }
   }
 }
