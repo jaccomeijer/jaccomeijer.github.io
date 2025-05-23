@@ -21,4 +21,8 @@
       margin-block-start: 0;
     }
   }
+
+  .u-bg-color-diagram {
+    background-color: var(--color-diagram);
+  }
 }

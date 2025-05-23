@@ -1321,27 +1321,27 @@
     color: var(--color-primary-600);
   }
 
-  .bg-primary-100 {
+  .u-bg-primary-100 {
     background: var(--color-primary-100);
   }
 
-  .bg-primary-200 {
+  .u-bg-primary-200 {
     background: var(--color-primary-200);
   }
 
-  .bg-primary-300 {
+  .u-bg-primary-300 {
     background: var(--color-primary-300);
   }
 
-  .bg-primary-400 {
+  .u-bg-primary-400 {
     background: var(--color-primary-400);
   }
 
-  .bg-primary-500 {
+  .u-bg-primary-500 {
     background: var(--color-primary-500);
   }
 
-  .bg-primary-600 {
+  .u-bg-primary-600 {
     background: var(--color-primary-600);
   }
 
@@ -1429,6 +1429,10 @@
     margin-block-start: 0;
   }
 
+  .markdown .u-bg-color-diagram {
+    background-color: var(--color-diagram);
+  }
+
   .site-header {
     font-family: var(--font-body-family);
     font-size: var(--font-size-0);
@@ -1455,7 +1459,7 @@
 
 :root {
   --border-radius-circle: 9999px;
-  --border-radius-pill: .5rem;
+  --border-radius-pill: 1rem;
   --border-radius-rounded: .35rem;
   --button-primary-color: #028f97;
   --button-primary-contrast-color: #fff;
@@ -1534,6 +1538,7 @@
   --space-xs: clamp(.875rem, .8523rem + .1099vi, .9375rem);
   --space-xs-r2: clamp(.875rem, .5272rem + 1.7391vi, 1.875rem);
   --space-xs-r3: clamp(.875rem, .3098rem + 2.8261vi, 2.5rem);
+  --color-diagram: #f0f0f0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1552,5 +1557,6 @@
     --color-primary-300: #03d7e2;
     --color-primary-200: #028f97;
     --color-primary-100: #01484b;
+    --color-diagram: #555;
   }
 }

@@ -1,6 +1,6 @@
 :root {
  	--border-radius-circle: 9999px;
- 	--border-radius-pill: 0.5rem;
+ 	--border-radius-pill: 1rem;
  	--border-radius-rounded: 0.35rem;
  	--button-primary-color: hsl(183, 97%, 30%);
  	--button-primary-contrast-color: hsl(0, 0%, 100%);

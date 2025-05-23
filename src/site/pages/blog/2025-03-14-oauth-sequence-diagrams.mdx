@@ -1,7 +1,7 @@
 ---
 permalink: /blog/oauth-sequence-diagrams/
 navigation:
-  id: ui-library
+  id: oauth-sequence-diagrams
 date: 2025-03-14
 lastmod: 2025-05-01
 tags: ['blog']
@@ -22,16 +22,15 @@ import { Topic } from '../../../green-lib/components/topic/topic'
 ## Oauth 2.0 and OpenID Connect
 
 <div className="u-max-chars-50">
-Being able to read technical specs is a competence by itself. Visualized
-architectural models of a spec often help to understand the spec.
+  Being able to read technical specs is a competence by itself. Visualized architectural models of a spec often help to
+  understand the spec.
 </div>
 
 ### OAuth 2.0 Authorization Framework
 
 <div className="u-max-chars-50">
-The official specs of the OAuth 2.0 Authorization Framework as defined
-by [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749) uses diagrams that
-look like this:
+  The official specs of the OAuth 2.0 Authorization Framework as defined by [RFC
+  6749](https://datatracker.ietf.org/doc/html/rfc6749) uses diagrams that look like this:
 </div>
 
 ```txt
@@ -70,10 +69,8 @@ look like this:
 ### OpenID Connect 1.0
 
 <div className="u-max-chars-50">
-OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol.
-The diagrams in the [official
-spec](https://openid.net/specs/openid-connect-core-1_0.html) look very similar
-to the diagrams in RFC 6749:
+  OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. The diagrams in the [official
+  spec](https://openid.net/specs/openid-connect-core-1_0.html) look very similar to the diagrams in RFC 6749:
 </div>
 
 ```txt
@@ -100,9 +97,8 @@ to the diagrams in RFC 6749:
 ## UML
 
 <div className="u-max-chars-50">
-UML Sequence Diagrams can be useful when explaining specs. This post uses
-[PlantUML](https://plantuml.com) to generate Sequence Diagrams for the OAuth 2.0
-and OpenID Connect specs.
+  UML Sequence Diagrams can be useful when explaining specs. This post uses [PlantUML](https://plantuml.com) to generate
+  Sequence Diagrams for the OAuth 2.0 and OpenID Connect specs.
 </div>
 
 ## OAuth 2.0 Obtaining Authorization Diagrams
@@ -110,36 +106,38 @@ and OpenID Connect specs.
 From the spec:
 
 <div className="u-max-chars-50">
-> To request an access token, the client obtains authorization from the resource
-owner.  The authorization is expressed in the form of an authorization grant,
-which the client uses to request the access token.  OAuth defines four grant
-types: authorization code, implicit, resource owner password credentials, and
-client credentials.  It also provides an extension mechanism for defining
-additional grant types.
+  > To request an access token, the client obtains authorization from the resource owner. The authorization is expressed
+  in the form of an authorization grant, which the client uses to request the access token. OAuth defines four grant
+  types: authorization code, implicit, resource owner password credentials, and client credentials. It also provides an
+  extension mechanism for defining additional grant types.
 </div>
 
-
 ### 4.1 - Authorization Code Grant
+
 - Spec: https://datatracker.ietf.org/doc/html/rfc6749#section-4.1
 
 <Picture src="/site/pages/blog/images-oauth/oauth-4.1.svg" />
 
 ### 4.2 - Implicit Grant
+
 - Spec: https://datatracker.ietf.org/doc/html/rfc6749#section-4.2
 
 <Picture src="/site/pages/blog/images-oauth/oauth-4.2.svg" />
 
 ### 4.3 - Resource Owner Password Credentials Grant
+
 - Spec: https://datatracker.ietf.org/doc/html/rfc6749#section-4.3
 
 <Picture src="/site/pages/blog/images-oauth/oauth-4.3.svg" />
 
 ### 4.4 - Client Credentials Grant
+
 - Spec: https://datatracker.ietf.org/doc/html/rfc6749#section-4.4
 
 <Picture src="/site/pages/blog/images-oauth/oauth-4.4.svg" />
 
 ### 7 - Accessing Protected Resources
+
 - Spec: https://datatracker.ietf.org/doc/html/rfc6749#section-7
 
 <Picture src="/site/pages/blog/images-oauth/oauth-resource.svg" />
@@ -149,35 +147,41 @@ additional grant types.
 From the spec:
 
 > Appendix A. Authorization Examples. The following are non-normative examples
-of Authorization Requests with different response_type values and their
-responses.
+> of Authorization Requests with different response_type values and their
+> responses.
 
 ### A.1 - Example using response_type=code
+
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#codeExample
 
 <Picture src="/site/pages/blog/images-oauth/A1.svg" />
 
 ### A.2 - Example using response_type=id_token
+
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#id_tokenExample
 
 <Picture src="/site/pages/blog/images-oauth/A2.svg" />
 
 ### A.3 - Example using response_type=id_token token
+
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#id_token-tokenExample
 
 <Picture src="/site/pages/blog/images-oauth/A3.svg" />
 
 ### A.4 - Example using response_type=code id_token
+
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#code-id_tokenExample
 
 <Picture src="/site/pages/blog/images-oauth/A4.svg" />
 
 ### A.5 - Example using response_type=code token
+
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#code-tokenExample
 
 <Picture src="/site/pages/blog/images-oauth/A5.svg" />
 
 ### A.6 - Example using response_type=code id_token token
+
 - Spec: https://openid.net/specs/openid-connect-core-1_0.html#code-id_token-tokenExample
 
 <Picture src="/site/pages/blog/images-oauth/A6.svg" />

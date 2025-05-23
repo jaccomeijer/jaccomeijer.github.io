@@ -5,7 +5,7 @@
         "$value": "9999px"
       },
       "pill": {
-        "$value": "0.5rem"
+        "$value": "1rem"
       },
       "rounded": {
         "$value": "0.35rem"
