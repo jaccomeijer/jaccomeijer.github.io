@@ -1,24 +1,15 @@
 import { EleventyData } from '../../../_data/eleventy-data-types'
 import { TopicData } from '../../../green-lib/components/topic/topic'
+import { addDateIconAuthor } from './add-date-icon-author'
 import { BlogLayout } from './blog-layout'
 
 export const createBlogOpener = (props: BlogLayout & EleventyData) => {
-  let openerTopic: TopicData | undefined
+  let topic: TopicData | undefined
   if (props.page.date && props.openerTopic) {
-    openerTopic = structuredClone(props.openerTopic)
+    topic = structuredClone(props.openerTopic)
 
-    const msec = Date.parse(props.page.date)
-    const date = new Date(msec)
-
-    const dateFormat = new Intl.DateTimeFormat('en', {
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric',
-    })
-
-    openerTopic.labels = ['Jacco Meijer', '|', dateFormat.format(date)]
-    openerTopic.icon = 'message-circle'
+    addDateIconAuthor({ topic, date: props.page.date, icon: 'message-circle' })
   }
 
-  return openerTopic || {}
+  return topic || {}
 }
