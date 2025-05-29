@@ -2,8 +2,8 @@
 permalink: /blog/archimate-architect-roles/
 navigation:
   id: archimate-architect-roles
-date: 2025-05-24
-lastmod: 2025-05-23
+date: 2025-05-29
+lastmod: 2025-05-29
 tags: ['blog']
 openerTopic:
   heading: Architect roles in the ArchiMate context
@@ -19,22 +19,61 @@ import { Diagram } from '../helpers/diagram'
 
 ## Who uses ArchiMate?
 
-The post below talked about 'who uses ArchiMate'.
+The post below talkes about who uses ArchiMate. The short answer here is IT
+architects. The long answer is in this post.
 
 <Topic variant="card" topic={blogOpenerByNavId(props, 'uml-c4-archimate')} swapImage={true} />
 
-From an architect perspective the paragraph 'who uses ArchiMate' required a
-model. This post is about an ArchiMate model that models the architect roles and
-how these logically map to the layers defined by the ArchiMate framework.
+## IT Architects
 
-## Placeholder
+This list of IT architect roles is long. This post started with the Enterprise,
+Solutions, and Infrastructure roles in mind but the list is a lot
+longer. That required a quick model.
 
-[posted as a placeholder, content will follow]
 
-- Enterprise architects
-- Domain architects
-- Security architects
-- Solution architects
-- Infrastructure architects
+## The model
+
+From an ArchiMate perspective, the roles could be simple. A strategy architect, a
+business architect, an application architect and a technology architect. The
+strategy architect overseeing the full architecture.
+
+In real life, IT architect roles do not follow this ArchiMate abstraction. The
+model below shows an interpretation of how some of the most common IT architect
+roles can be mapped to the layers.
 
 <Diagram src="/site/pages/blog/images-architecture/archimate-architect-roles.svg" width="60rem" />
+
+
+## The roles
+
+[Work In Progress]
+
+All architects in a team use the motivation elements that drive the design of an
+enterprise. The motivation stack contains elements like requirements, principles
+and drivers.
+
+### Enterprise architects
+Enterprise architects model the full enterprise and operate on all layers. The
+application and interface layer are modeled as abstract views which means that
+e.g. solutions are modeled but without any detail.
+
+### Domain architects
+Large enterprises have domain architects that handle segments of the enterprise
+architecture and work on the same layers as an enterprise architect.
+
+### Security architects
+Security architects often use the strategy and business layer to model security
+frameworks. Specific security elements, such as risk and security principles are
+often used to model enterprise security risk management by relating the security
+elements to services on the business, application and technology layers.
+
+### Solution architects
+Solution architects usually focus on the solutions that are modeled on the
+application layer. This often requires small changes to the business and the
+technology layers as well.
+
+### Infrastructure architects
+Infrastructure architects add detail to the technology layer.
+
+
+
