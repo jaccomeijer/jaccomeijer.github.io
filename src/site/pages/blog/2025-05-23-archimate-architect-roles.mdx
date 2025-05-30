@@ -26,10 +26,9 @@ architects. The long answer is in this post.
 
 ## IT Architects
 
-This list of IT architect roles is long. This post started with the Enterprise,
-Solutions, and Infrastructure roles in mind but the list is a lot
-longer. That required a quick model.
-
+This list of IT architect roles is long. This post started with the Chief,
+Enterprise and Solutions roles in mind but the list is a lot longer. That
+required a quick model.
 
 ## The model
 
@@ -37,43 +36,79 @@ From an ArchiMate perspective, the roles could be simple. A strategy architect, 
 business architect, an application architect and a technology architect. The
 strategy architect overseeing the full architecture.
 
-In real life, IT architect roles do not follow this ArchiMate abstraction. The
-model below shows an interpretation of how some of the most common IT architect
-roles can be mapped to the layers.
+In real life, IT architect roles do not follow this ArchiMate abstraction. This
+post uses the Example roles from the TOGAF Architecture Roles and Skills Guide.
+
+The TOGAF standard provides three viewpoints to manage an enterprise
+architecture landscape:
+
+- A complete **enterprise** and its overall structure
+- Specific **segments** (relevant elements) of the enterprise that have
+  coherence and can be governed and evolved effectively
+- Specific **solutions** that utilize the components within the segments to
+  remove, change, or introduce new solutions and their associated sub-systems,
+  systems, and services
+
+The model below uses these viewpoints and shows the relationships of the four
+TOGAF defined Architect roles:
+
+- Chief Architect
+- Enterprise Architect
+- Segment Architect
+- Solutions Architect
 
 <Diagram src="/site/pages/blog/images-architecture/archimate-architect-roles.svg" width="60rem" />
 
-
 ## The roles
 
-[Work In Progress]
+Besides the four TOGAF defined Architect roles, the segments viewpoint contains
+many other architect roles. From TOGAF perspective these are specialists. On the
+left these are Motivation, Strategy and Business specialists. On the right these
+are Data, Application and Technology specialists. These specialist roles
+conveniently match the ArchiMate layers.
 
-All architects in a team use the motivation elements that drive the design of an
-enterprise. The motivation stack contains elements like requirements, principles
-and drivers.
+## TOGAF defined Architect roles
 
-### Enterprise architects
-Enterprise architects model the full enterprise and operate on all layers. The
-application and interface layer are modeled as abstract views which means that
-e.g. solutions are modeled but without any detail.
+### Chief architect
 
-### Domain architects
+[work in progress]
+
+### Enterprise architect
+
+[work in progress]
+
+### Segment architect
+
+[work in progress]
+
 Large enterprises have domain architects that handle segments of the enterprise
 architecture and work on the same layers as an enterprise architect.
 
-### Security architects
+## Solution architect
+
+[work in progress]
+
+Solution architects usually focus on the solutions that are modeled on the
+application layer. This often requires small changes to the business and the
+technology layers as well.
+
+## Specialists on Motivation, Strategy and Business
+
+### Business Security Architect
+
+[work in progress]
+
 Security architects often use the strategy and business layer to model security
 frameworks. Specific security elements, such as risk and security principles are
 often used to model enterprise security risk management by relating the security
 elements to services on the business, application and technology layers.
 
-### Solution architects
-Solution architects usually focus on the solutions that are modeled on the
-application layer. This often requires small changes to the business and the
-technology layers as well.
+## Specialists on Data, Application and Technology
 
-### Infrastructure architects
+### Technical Security Architect
+
+### Infrastructure architect
+
+[work in progress]
+
 Infrastructure architects add detail to the technology layer.
-
-
-

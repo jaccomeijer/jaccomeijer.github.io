@@ -5,6 +5,7 @@
 
 @import './css/font.css' layer(custom);
 @import './css/markdown.css' layer(custom);
+@import './css/diagram.css' layer(custom);
 @import './css/site-header.css' layer(custom);
 @import './css/site-footer.css' layer(custom);
 @import './css/topic.css' layer(custom);
