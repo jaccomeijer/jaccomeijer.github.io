@@ -19,7 +19,7 @@ import { Diagram } from '../helpers/diagram'
 
 ## Who uses ArchiMate?
 
-The post below talkes about who uses ArchiMate. The short answer here is IT
+The post below talks about who uses ArchiMate. The short answer here is IT
 architects. The long answer is in this post.
 
 <Topic variant="card" topic={blogOpenerByNavId(props, 'uml-c4-archimate')} swapImage={true} />
@@ -27,8 +27,8 @@ architects. The long answer is in this post.
 ## IT Architects
 
 This list of IT architect roles is long. This post started with the Chief,
-Enterprise and Solutions roles in mind but the list is a lot longer. That
-required a quick model.
+Enterprise and Solutions roles in mind but the list is longer. Time for a quick
+ArchiMate model.
 
 ## The model
 
@@ -36,11 +36,12 @@ From an ArchiMate perspective, the roles could be simple. A strategy architect, 
 business architect, an application architect and a technology architect. The
 strategy architect overseeing the full architecture.
 
-In real life, IT architect roles do not follow this ArchiMate abstraction. This
-post uses the Example roles from the TOGAF Architecture Roles and Skills Guide.
+In real life, IT architect roles do not follow this ArchiMate abstraction. Many
+roles exist and depending on the context the expected activities vary.
 
-The TOGAF standard provides three viewpoints to manage an enterprise
-architecture landscape:
+This post uses the example roles from the TOGAF Architecture Roles and Skills
+Guide. This guide uses the three TOGAF viewpoints for managing an enterprise
+architecture landscape to describe Architect roles. The viewpoints are:
 
 - A complete **enterprise** and its overall structure
 - Specific **segments** (relevant elements) of the enterprise that have
@@ -49,66 +50,105 @@ architecture landscape:
   remove, change, or introduce new solutions and their associated sub-systems,
   systems, and services
 
-The model below uses these viewpoints and shows the relationships of the four
-TOGAF defined Architect roles:
-
-- Chief Architect
-- Enterprise Architect
-- Segment Architect
-- Solutions Architect
+The model below relates these viewpoints to the the four TOGAF defined Architect
+roles: Chief, Enterprise, Segment and Solutions Architect.
 
 <Diagram src="/site/pages/blog/images-architecture/archimate-architect-roles.svg" width="60rem" />
 
-## The roles
+## Specialists
 
-Besides the four TOGAF defined Architect roles, the segments viewpoint contains
-many other architect roles. From TOGAF perspective these are specialists. On the
-left these are Motivation, Strategy and Business specialists. On the right these
-are Data, Application and Technology specialists. These specialist roles
-conveniently match the ArchiMate layers.
+Besides the four TOGAF defined Architect roles, the segments viewpoint shows two
+groups of specialists. Business specialists on the left and Data, Application
+and Technology specialists on the right.
 
-## TOGAF defined Architect roles
+The model divides the Business specialists into Motivation, Strategy and
+Business so that these specialists match the ArchiMate layers.
+
+The two specialist groups come from the TOGAF Architecture Roles and Skills
+Guide. Modeling the many architect roles like this gives them a clear
+organizational context.
+
+## TOGAF defined roles
+
+Full description of the roles are in the TOGAF Architecture Roles and Skills
+Guide. Here's a brief summary.
 
 ### Chief architect
 
-[work in progress]
+Chief architects communicate concepts and ideas to all executives and are
+responsible for gaining commitment. They lead enterprise, segment and solution
+architects as well as the various specialists in delivering services and
+solutions.
 
 ### Enterprise architect
 
-[work in progress]
+Enterprise architects work with senior stakeholders to ensure delivering
+services and solutions. They define architectural principles and oversee governance.
 
 ### Segment architect
 
+Large enterprises have segment architects that handle segments of the enterprise
+architecture.
+
+They are responsible for the capabilities of a segment and collaborate with
+solution architects and specialists. Segment architects ensure compliance and
+alignment with business goals.
+
+### Solution architect
+
+Solution architects are responsible for delivering capabilities and collaborate
+with business and specialist stakeholders. They design and govern solutions
+based on specific requirements and ensure desired business outcomes. Solution
+architects oversee architectural and solution building blocks.
+
+##  Motivation, Strategy and Business Specialists
+
+These are a few of the most common specialist roles in the business domain.
+
+### Business architect
+
 [work in progress]
 
-Large enterprises have domain architects that handle segments of the enterprise
-architecture and work on the same layers as an enterprise architect.
-
-## Solution architect
+### Business security architect
 
 [work in progress]
 
-Solution architects usually focus on the solutions that are modeled on the
-application layer. This often requires small changes to the business and the
-technology layers as well.
-
-## Specialists on Motivation, Strategy and Business
-
-### Business Security Architect
+### Compliance architect
 
 [work in progress]
 
-Security architects often use the strategy and business layer to model security
-frameworks. Specific security elements, such as risk and security principles are
-often used to model enterprise security risk management by relating the security
-elements to services on the business, application and technology layers.
+### Risk architect
 
-## Specialists on Data, Application and Technology
+[work in progress]
 
-### Technical Security Architect
+##  Data, Application and Technology Specialists
+
+These are a few of the most common specialist roles in the technology domain.
 
 ### Infrastructure architect
 
 [work in progress]
 
-Infrastructure architects add detail to the technology layer.
+### Network architect
+
+[work in progress]
+
+### Application architect
+
+[work in progress]
+
+### Software architect
+
+[work in progress]
+
+### Data architect
+
+[work in progress]
+
+### Cloud architect
+
+[work in progress]
+
+### Technical Security Architect
+
+[work in progress]
