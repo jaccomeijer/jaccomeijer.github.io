@@ -1429,6 +1429,24 @@
     margin-block-start: 0;
   }
 
+  .markdown table {
+    margin-block: var(--space-xs-r2);
+  }
+
+  .markdown table thead {
+    background-color: var(--color-primary-500);
+    color: var(--color-mono-000);
+  }
+
+  .markdown table tbody tr:nth-child(2n) {
+    background-color: var(--color-mono-100);
+  }
+
+  .markdown table th, .markdown table td {
+    padding-inline: var(--space-2xs);
+    padding-block: var(--space-3xs);
+  }
+
   .markdown .diagram .s-wrapper {
     border: 1px solid var(--color-mono-200);
     background-color: #f0f0f0;
