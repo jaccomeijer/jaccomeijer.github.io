@@ -19,8 +19,9 @@ import { Diagram } from '../helpers/diagram'
 
 ## Who uses ArchiMate?
 
-The post below talks about who uses ArchiMate. The short answer here is IT
-architects. The long answer is in this post.
+In the post below about the ArchiMate language the question 'who uses this
+language?' comes up. The short answer here is IT architects. The long answer is
+in this post.
 
 <Topic variant="card" topic={blogOpenerByNavId(props, 'uml-c4-archimate')} swapImage={true} />
 
@@ -58,98 +59,114 @@ roles: chief, enterprise, segment and solutions architect.
 
 ## Specialists
 
-Besides the four TOGAF defined architect roles, the segments viewpoint shows two
-groups of specialists. Business specialists on the left and Data, Application
-and Technology specialists on the right.
+Besides the four TOGAF defined architect roles, the segments viewpoint shows
+three groups of specialists. Business specialists on the left, technology
+specialists on the right. A similar division is found in the TOGAF architecture
+Roles and Skills Guide.
 
-The model divides the Business specialists into Motivation, Strategy and
-Business so that these specialists match the ArchiMate layers.
-
-The two specialist groups come from the TOGAF architecture Roles and Skills
-Guide. Modeling the many architect roles like this gives them a clear
-organizational context.
+The two groups on the right mimic the ArchiMate layers on the bottom. Likewise
+the group on the left could be divided if needed.
 
 ## TOGAF defined roles
 
-Full description of the roles are in the TOGAF Architecture Roles and Skills
-Guide. Here's a brief summary.
+The TOGAF Architecture Roles and Skills Guide contains detailed descriptions of
+these roles.
+
+All architects focus on delivering services and solutions. Below how the role
+varies in the level of abstraction and specificity.
 
 ### Chief architect
 
 Chief architects communicate concepts and ideas to all executives and are
-responsible for gaining commitment. They lead enterprise, segment and solution
-architects as well as the various specialists in delivering services and
-solutions.
+responsible for gaining their commitment. They lead all architects on the
+highest level and provide strategic alignment.
 
 ### Enterprise architect
 
-Enterprise architects work with senior stakeholders to ensure delivering
-services and solutions. They define architectural principles and oversee governance.
+Enterprise architects work with senior stakeholders, they define architectural
+principles and oversee governance.
 
 ### Segment architect
 
-Large enterprises have segment architects that handle segments of the enterprise
-architecture.
+Larger enterprises have segment architects that handle segments of the
+enterprise architecture.
 
 They are responsible for the capabilities of a segment and collaborate with
-solution architects and specialists. Segment architects ensure compliance and
-alignment with business goals.
+solution architects and specialists.
 
 ### Solution architect
 
-Solution architects are responsible for delivering capabilities and collaborate
-with business and specialist stakeholders. They design and govern solutions
-based on specific requirements and ensure desired business outcomes. Solution
-architects oversee architectural and solution building blocks.
+Solution architects collaborate with business and specialist stakeholders. They
+make sure solutions meet specific requirements and ensure desired business
+outcomes. Part of that responsibility is that they oversee architectural and
+solution building blocks.
 
-##  Motivation, Strategy and Business Specialists
+## Security architect
 
-These are a few of the most common specialist roles in the business domain.
+The model defines a security architect for all three specialist groups. This is
+because security is a broad area. As can be learned from the CISSP Common Body
+of Knowledge which divides the profession into eight domains:
 
-### Business architect
+1) Security and risk management
+2) Asset security
+3) Security architecture and engineering
+4) Communication and network security
+5) Identity and access management
+6) Security assessment and testing
+7) Security operations
 
-[work in progress]
+Actual security architecture is covered by domain 3. But all domains can be
+mapped to specific ArchiMate layers. More on this in the post below.
 
-### Business security architect
+<Topic variant="card" topic={blogOpenerByNavId(props, 'archimate-cissp-domains')} swapImage={true} />
 
-[work in progress]
+## Specialists
 
-### Compliance architect
+For all of the specialist roles in the model this is a brief summary of the
+modeling activities for each and what this should align this with.
 
-[work in progress]
+###  Business specialists
 
-### Risk architect
+#### Business architect
 
-[work in progress]
+- Models business strategy and process.
+- Align with technology strategy and process.
 
-##  Data, Application and Technology Specialists
+#### Compliance architect
 
-These are a few of the most common specialist roles in the technology domain.
+- Model compliance objectives, measures and risks.
+- Align with business requirements and IT processes.
 
-### Infrastructure architect
+###  Application and data specialists
 
-[work in progress]
+#### Application architect
 
-### Network architect
+- Model behavior and integration of software applications.
+- Align with requirements on usability, scalability, performance and maintainability.
 
-[work in progress]
+#### Software architect
 
-### Application architect
+- Model structure and behavior of software applications.
+- Align with user requirements.
 
-[work in progress]
+#### Data architect
 
-### Software architect
+- Model data and data flows
+- Align with security objectives and governance.
 
-[work in progress]
+###  Technology specialists
 
-### Data architect
+#### Infrastructure architect
 
-[work in progress]
+- Model physical and virtual technology infrastructure.
+- Align with requirements on availability, recovery, and performance.
 
-### Cloud architect
+#### Network architect
 
-[work in progress]
+- Model physical and virtual network systems.
+- Align with requirements on security, scalability and efficiency.
 
-### Technical Security Architect
+#### Cloud architect
 
-[work in progress]
+- Model cloud computing strategies and architectures
+- Align with requirements on security, scalability and efficiency.
