@@ -67,11 +67,6 @@
     </url>
 
     <url>
-        <loc>https://www.jaccomeijer.nl/blog/owasp-cisp/</loc>
-        <lastmod>2025-05-01T02:00:00.000+02:00</lastmod>
-    </url>
-
-    <url>
         <loc>https://www.jaccomeijer.nl/blog/11ty-and-github-pages/</loc>
         <lastmod>2025-05-01T02:00:00.000+02:00</lastmod>
     </url>
@@ -102,23 +97,28 @@
     </url>
 
     <url>
+        <loc>https://www.jaccomeijer.nl/blog/owasp-cisp/</loc>
+        <lastmod>2025-01-09T01:00:00.000+01:00</lastmod>
+    </url>
+
+    <url>
         <loc>https://www.jaccomeijer.nl/blog/oauth-sequence-diagrams/</loc>
-        <lastmod>2025-05-01T02:00:00.000+02:00</lastmod>
+        <lastmod>2025-06-02T02:00:00.000+02:00</lastmod>
     </url>
 
     <url>
         <loc>https://www.jaccomeijer.nl/blog/uml-c4-archimate/</loc>
-        <lastmod>2025-05-01T02:00:00.000+02:00</lastmod>
+        <lastmod>2025-06-02T02:00:00.000+02:00</lastmod>
     </url>
 
     <url>
         <loc>https://www.jaccomeijer.nl/blog/archimate-architect-roles/</loc>
-        <lastmod>2025-05-29T02:00:00.000+02:00</lastmod>
+        <lastmod>2025-06-02T02:00:00.000+02:00</lastmod>
     </url>
 
     <url>
         <loc>https://www.jaccomeijer.nl/blog/archimate-cissp-domains/</loc>
-        <lastmod>2025-06-01T02:00:00.000+02:00</lastmod>
+        <lastmod>2025-06-02T02:00:00.000+02:00</lastmod>
     </url>
 
 </urlset>
