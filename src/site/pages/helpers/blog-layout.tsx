@@ -10,7 +10,7 @@ export interface BlogLayout {
 }
 
 export const BlogLayout = (props: BlogLayout & EleventyData) => {
-  const blogTopics = allBlogOpeners(props)
+  const blogTopics = allBlogOpeners({ props, excludeCurrentPage: true })
   const openerTopic = createBlogOpener(props)
 
   return (
