@@ -18,11 +18,108 @@ import { Picture } from '../../../green-lib/components/picture/picture'
 import { Topic } from '../../../green-lib/components/topic/topic'
 import { Diagram } from '../helpers/diagram'
 
-## Placeholder
+## ISO 27001 and NIST CSF 2.0
 
-This blog only contains the diagrams, text will follow soon.
+ISO 27001 and NIST CSF 2.0 are two of the most trusted security standards in the
+world. Both with a different purpose, but their goals align and they complement
+each other well.
+
+This makes that using both strengthens your cybersecurity strategy. To
+understand how they complement we need to take three other standards into
+account that contain the related security controls:
+
+- ISO 27001
+- NIST SP 800-53
+- NIST SP 800-53A
+
+## Comparing the two with AI
+
+A simple AI-prompt gives a quick overview of the five standards
+
+```md
+Create a matrix:
+- conditions:
+  - output on screen csv
+  - use ✅ for yes
+  - use ❌ for no
+  - use 🟠 for partial
+  - add clarification to every icon, avoid comma’s
+- horizontal:
+  - ISO 27001
+  - ISO 27002
+  - NIST CSF 2.0
+  - NIST SP 800-53
+  - NIST SP 800-53a
+- vertical:
+  - is detailed control catalog
+  - is security roadmap
+  - is technical implementation guide
+  - is assessment guide
+  - defines mandatory controls
+  - certification
+```
+
+## AI Response
+
+The prompt gives a matrix with a lot of detail. Below is the simplified and
+curated version of the AI response:
+
+|  | ISO 27001 | ISO 27002 | NIST CSF 2.0 | NIST SP 800-53 | NIST SP 800-53a |
+|--|:---:|:---:|:---:|:---:|:---:|
+| is control catalog | ❌ | ✅ | ❌ | ✅ | ❌ |
+| is security roadmap | ❌ | ❌ | ✅ | ❌ | ❌ |
+| is technical guide | ❌ | ✅ | ❌ | ❌ | ✅ |
+| is assessment guide | ❌ | ❌ | ❌ | ❌ | ✅ |
+| defines mandatory federal controls | ❌ | ❌ | ❌ | ✅ | ❌ |
+| defines mandatory certification controls | ✅ | ❌ | ❌ | ❌ | ❌ |
+| certification | ✅ | ❌ | ❌ | ❌ | ❌ |
 
 
-### Business functions and Control measures
+From the matrix it is clear how the two standards complement. NIST CSF 2.0 is a
+ roadmap on managing cyber risk and ISO 27001 complements by adding a structured
+system and certification.
+
+## Advantages
+
+Using both gives the advantages that both standards offer. The standards have in
+common that they are well known and recognized around the world. They also both
+provides a clear common cyber security language across a large organization.
+
+### ISO 27001 specific advantages
+
+- ISO 27001 is part of an Integrated Management System that integrates with many
+other useful standards like ISO 9001, ISO 14001 and ISO 45001
+- Structured system for controlling and proving
+- Systematic approach to identifying, assessing, and treating information
+  security risks
+- Certification
+- Plan-Do-Check-Act cycle, promoting improvement
+
+### NIST CSF 2.0 specific advantages
+
+- NIST CSF 2.0 maps to many other standards, see [NIST
+  Crosswalks](https://www.nist.gov/privacy-framework/resource-repository/browse/crosswalks)
+- Provides a practical roadmap
+- Designed to be flexible
+- Outcome-Focused
+- Provides a full set of cyber security capabilities and business functions
+
+## Architecture
+
+One of the advantages of NIST CSF 2.0 is that it defines a full set of cyber
+security capabilities and business functions. This set easily translates to the
+Archimate modeling language.
+
+The capabilities and business functions are shown in the model below. From the
+capabilities a simple matrix can be setup that links the capabilities to the
+control measures defined by ISO 27002. By example the model below visualizes
+four of them.
 
 <Diagram src="/site/pages/blog/images-security-framework/function-capability-controlmeasure.svg" width="70rem" />
+
+## Archimate security elements
+
+The Control Measure element used for the ISO 27001 control is explained in the
+post blow.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'iso-risk-assessment-elements')} swapImage={true} />
