@@ -107,16 +107,24 @@ standards like ISO 9001, ISO 14001 and ISO 45001
 - Outcome focused
 - Provides a full set of cyber security capabilities and business functions
 
-## Architecture
+## Enterprise Architecture
 
 One of the advantages of NIST CSF 2.0 is that the roadmap defines a full set of
 cyber security capabilities and business functions. This set easily translates
 to the Archimate modeling language.
 
+This is useful set of business functions that is useful in many cyber security
+architecture views. The advantage of the standard being well known contributes
+to business functions that leave little room for misinterpretation.
+
 The NIST CSF 2.0 capabilities and business functions are shown in the model
 below. From the capabilities a simple matrix can be setup that links the
 capabilities to the control measures defined by ISO 27002. By example the model
 below visualizes four of them.
+
+<Diagram src="/site/pages/blog/images-security-framework/function-capability-controlmeasure.svg" width="70rem" />
+
+### Complement in detail
 
 Besides the theory on how the two standards complement earlier in this post, the
 matrix that links the two standards shows in detail how the standards complement
@@ -125,7 +133,24 @@ and how they strengthen each other.
 Setting up the matrix is a useful exercise that gives insights in the way the
 two standards were designed individually, how they differ and how they team up.
 
-<Diagram src="/site/pages/blog/images-security-framework/function-capability-controlmeasure.svg" width="70rem" />
+### Formal matrix
+
+If you don't like the matrix exercise or need someone to oversee your matrix,
+ISO 27002 contains a formal version of the matrix. ISO 27002 Annex A defines
+five example attributes of which one is 'Cybersecurity concepts'.
+
+These concepts are defined as `#Identify`, `#Protect`, `#Detect`, `#Respond` and
+`#Recover` which correspond exactly to the five capabilities defined by NIST CSF
+2.0. Unfortunately the Govern capability is missing, probably due to the fact
+that this was added to NIST CSF with the release of version 2.0.
+
+## Conclusion
+
+ISO 27002 Annex A providing a formal matrix that links NIST CSF 2.0 and ISO
+27001 together make that the two standards reliably can be used together with
+little effort. This provides certification, a roadmap, common security language
+and a well known set of business functions to be used in Enterprise
+Architecture.
 
 ## Archimate security elements
 
