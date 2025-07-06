@@ -4,10 +4,10 @@ navigation:
   id: security-principles
 date: 2025-06-13
 lastmod: 2025-06-13
-tags: ['draft']
+tags: ['blog']
 openerTopic:
-  heading: Security principles
-  abstract: Adding security principles to the NIST CSF - ISO 27001 model
+  heading: Security principles in Enterprise Architecture
+  abstract: Adding security principles to Enterprise Architecture for NIST CSF and ISO 27001
   image: '/site/pages/blog/images/2025-06-13-messrro-oOBZb7IfTMI-unsplash.jpg'
 
 ---
@@ -18,12 +18,43 @@ import { Picture } from '../../../green-lib/components/picture/picture'
 import { Topic } from '../../../green-lib/components/topic/topic'
 import { Diagram } from '../helpers/diagram'
 
-## Placeholder
+## NIST CSF
 
-This blog only contains the diagrams, text will follow soon.
+The post below about combining ISO 27001 and NIST CSF shows an Enterprise
+Architecture (EA) model that maps the two standards. This post is about how
+security principles can be added.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'iso-27001-nist-csf')} swapImage={true} />
+
+## Example set of security principles
+
+Without elaborating on the source of the set, this post uses the set of security
+principles below as an example.
+
+- Defense in depth
+- Keep it simple
+- Leveraging existing components
+- Privacy by design
+- Secure by default
+- Secure by design
+- Separation of duties
+- Zero trust
+
+## Principles by TOGAF
+
+[The Open Group](https://www.opengroup.org) maintains a Framework for EA known
+as TOGAF. This framework gives a clear and very useful definition of a
+principle.
+
+Using the TOGAF definition of a principle in a simple AI prompt, the hard work
+of defining proper principles becomes less of a burden. Principles are fully
+text based with little logic which results in only a few hallucinations.
+
+Correcting them is fairly easy for a skilled professional. The prompt below is a
+good way to start.
 
 ```md
-Define for security principle “privacy by design”:
+Define for security principle “Defense in depth”:
 - Documentation
   - the fundamental rule
 - Implications
@@ -39,12 +70,46 @@ Define for security principle “privacy by design”:
   - the situations where one principle would be given precedence or carry more weight than another
 ```
 
+## EA Capabilities
 
-### Capability to Control measure to Principle
+The post on combining ISO and NIST refers to NIST CSF core functions as EA
+capabilities. Using these capabilities to realize the security principles
+results in the simple conclusion that the full NIST CSF adds to all of the
+security principles.
 
-<Diagram src="/site/pages/blog/images-security-framework/function-capability-controlmeasure-principle.svg" width="70rem" />
-
-### Capability to Principle
+It is possible to split the NIST CSF core functions into protection, detection
+and reaction but the conclusion remains the same.
 
 <Diagram src="/site/pages/blog/images-security-framework/capability-principle.svg" width="50rem" />
 
+## Security controls
+
+Having security controls realize the security principles is far more useful. The
+model below shows an example. Five security principles are realized by four
+security measures. The rest of the model is taken from the post on combining ISO
+and NIST.
+
+All in one the model shows how EA business functions contribute to realizing
+security principles. For simplicity only four ISO controls are shown and the EA
+capabilities sit in between the EA business functions and the ISO controls.
+
+As mentioned in the post on combining ISO and NIST, it makes sense to directly
+map each business function to one or more ISO 27002 controls.
+
+> The model shows ISO controls and (of course) NIST SP 800-53 controls can be
+modeled in the same way
+
+<Diagram src="/site/pages/blog/images-security-framework/function-capability-controlmeasure-principle.svg" width="70rem" />
+
+## Conclusion
+
+AI can be of great help when setting up security principles and realizing
+principles by security controls tell how useful the principles are.
+
+Most security principles have broad meaning and do not only help in realizing
+controls. A principle like e.g. 'secure by design' helps in the broad way the
+principle was intended.
+
+Adding principles to EA adds to understanding security. Especially for security
+principles it is a good way of sharing knowledge and creating awareness on the
+– steadily growing – field of EA security.
