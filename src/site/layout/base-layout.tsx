@@ -20,7 +20,7 @@ export const BaseLayout = (props: BaseLayout & EleventyData) => {
         description={props.sitemetadata.branding.description}
         favIconUrl="/favicon.ico"
         generator={props.sitemetadata.content.generator}
-        title={props.navigation?.heading || props.sitemetadata.branding.heading}
+        title={`${props.openerTopic?.heading} (${props.sitemetadata.branding.heading} - ${props.sitemetadata.branding.description})`}
       />
       <body>
         <a className="skip-link" href="#main-content">
