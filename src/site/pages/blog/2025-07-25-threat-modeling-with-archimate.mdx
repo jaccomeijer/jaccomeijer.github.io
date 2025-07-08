@@ -2,8 +2,8 @@
 permalink: /blog/threat-modeling-with-archimate/
 navigation:
   id: threat-modeling-with-archimate
-date: 2025-07-25
-lastmod: 2025-07-25
+date: 2025-07-08
+lastmod: 2025-07-08
 tags: ['blog']
 openerTopic:
   heading: \[draft\] Enterprise Architecture threat modeling
@@ -18,26 +18,48 @@ import { Picture } from '../../../green-lib/components/picture/picture'
 import { Topic } from '../../../green-lib/components/topic/topic'
 import { Diagram } from '../helpers/diagram'
 
-# DRAFT ROUGH SETUP ONLY
+# DRAFT
 
-## Risk
+## Threat modeling
 
-<Diagram src="/site/pages/blog/images-security-framework/risk.svg" width="30rem" />
+Threat modeling originates from organizations that need to manage risk. To
+understand the context of threat modeling and how it fits into ISO 27001 and
+NIST CSF the concept of managing risk needs to be clear.
 
-| Risk treatment | When | How |
-|----------------|------|-----|
-| Avoid          | Risk exceeds a threshold                                          | Stop using a specific technology or behavior |
-| Mitigate       | Likelihood or impact can be reduced with cost effective measures  | Implement controls |
-| Transfer       | Mitigate is not cost effective                                    | Shift risk onto a 3rd party by e.g. insurance or cloud services |
-| Accept         | Mitigate and transfer are not cost effective                      | Be aware |
+## Managing risk
 
-## Risk assessment
+Risk is a broad area and in this context risk relates to threats, vulnerabilities and assets.
 
-- Identify Assets and asset value
-- Threat modeling
-- Vulnerability assessment
-- Likelihood: probability that a threat exploit a vulnerability
-- Impact is the quantitative loss measured in currency and/or qualitative loss measured in importance
+<Picture className="s-block-space u-block-space-l" src="/site/pages/blog/images-security-framework/risk.svg" />
+
+For an organization to manage risk, risks needs to be identified. Once risks are
+known and classified risk is analyzed in depth.
+
+Larger organizations will manage risk by identifying as much risks at the same
+time while small and medium sized businesses often start with the first risk
+that is identified.
+
+For risk analysis the image above is used and threats, vulnerabilities and
+assets are all analyzed. Threat modeling being part of the threats analysis.
+
+With this in depth analysis, risk is evaluated by looking at the likelihood and
+the impact of the risk. Likelihood is the probability that a threat exploits a
+vulnerability and impact is the possible asset value loss. In a quantitative way
+when measured in currency and in a qualitative way when evaluating importance.
+
+Once inherent risk is evaluated, it can be treated and residual risk remains.
+The table below shows the high over view of this process.
+
+| Evaluation                                                   | Treatment | How                                                          |
+|--------------------------------------------------------------|-----------|--------------------------------------------------------------|
+| Risk exceeds a threshold                                     | Avoid     | Stop using a specific technology or behavior                 |
+| Likelihood or impact can be reduced with cost effective measures | Mitigate  | Implement controls                                           |
+| Mitigation is not cost effective                               | Transfer  | Shift risk onto a 3rd party by e.g. insurance or cloud services |
+| Mitigation and transfer are not cost effective                 | Accept    | Be aware                                                     |
+
+### Frameworks for managing risk 
+
+TBW
 
 ## Threat modeling meta model
 
