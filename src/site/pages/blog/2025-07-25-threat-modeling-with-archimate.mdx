@@ -3,7 +3,7 @@ permalink: /blog/threat-modeling-with-archimate/
 navigation:
   id: threat-modeling-with-archimate
 date: 2025-07-08
-lastmod: 2025-07-08
+lastmod: 2025-07-09
 tags: ['blog']
 openerTopic:
   heading: \[draft\] Enterprise Architecture threat modeling
@@ -24,31 +24,32 @@ import { Diagram } from '../helpers/diagram'
 
 Threat modeling originates from organizations that need to manage risk. To
 understand the context of threat modeling and how it fits into ISO 27001 and
-NIST CSF the concept of managing risk needs to be clear.
+NIST CSF the risk managing concept is needed.
 
 ## Managing risk
 
-Risk is a broad area and in this context risk relates to threats, vulnerabilities and assets.
+Risk is a broad area and in the context of risk management, risk relates to
+threats, vulnerabilities and assets.
 
 <Picture className="s-block-space u-block-space-l" src="/site/pages/blog/images-security-framework/risk.svg" />
 
-For an organization to manage risk, risks needs to be identified. Once risks are
-known and classified risk is analyzed in depth.
+For an organization to manage risk, risks need to be identified. Once
+identified, risk is analyzed in depth.
 
-Larger organizations will manage risk by identifying as much risks at the same
-time while small and medium sized businesses often start with the first risk
-that is identified.
+Larger organizations manage risk by identifying as much risk at the same time
+while small and medium sized businesses usually start with the first risk
+identified.
 
-For risk analysis the image above is used and threats, vulnerabilities and
-assets are all analyzed. Threat modeling being part of the threats analysis.
+Risk analysis is analyzing threats, vulnerabilities and assets. Threat modeling
+being part of threat analysis.
 
-With this in depth analysis, risk is evaluated by looking at the likelihood and
-the impact of the risk. Likelihood is the probability that a threat exploits a
-vulnerability and impact is the possible asset value loss. In a quantitative way
-when measured in currency and in a qualitative way when evaluating importance.
+From risk analysis, risk is evaluated by looking at likelihood and impact of the
+risk. Likelihood is the probability that a threat exploits a vulnerability and
+impact is the possible asset value loss. In a quantitative way when measured in
+currency and in a qualitative way when evaluating importance.
 
-Once inherent risk is evaluated, it can be treated and residual risk remains.
-The table below shows the high over view of this process.
+Once inherent risk is evaluated, it is treated and residual risk remains. The
+table below shows a high level overview.
 
 | Evaluation                                                   | Treatment | How                                                          |
 |--------------------------------------------------------------|-----------|--------------------------------------------------------------|
@@ -59,9 +60,61 @@ The table below shows the high over view of this process.
 
 ### Frameworks for managing risk 
 
+ISO 31000 is a guideline for managing risk and details a process, principles and
+a framework. It is a common framework that does not address specific industry or
+regulation needs.
+
+For cyber security specifically, NIST SP 800-37 is a risk management framework
+for information systems. Two well known guides exist on managing cyber security
+risk.
+
+- ISO 27005, provides guidance on managing information security risks, but it
+does not directly provide a risk management process
+- NIST 800-30, a guide for conducting risk assessments (for information security)
+
+## NIST CSF
+
+NIST CSF is framework for cyber security. It can be seen as a roadmap that does
+not mandate the how. Literally not a risk management framework, but what does it
+say about risk management?
+
+### NIST CSF on managing risk
+
+The first core function IDENTIFY is about the organization's current cyber
+security risks. Asset management and risk management are on the roadmap here.
+
+The core function PROTECT is about treating the risk. Based on the results of
+IDENTIFY, controls are added where needed instead of the one-size-fits-all
+approach.
+
+The conclusion is that NIST CSF clearly has managing risk on the roadmap.
+
+## ISO 27001
+
+ISO 27001 is a management system for cyber security and just like NIST CSF, it
+does not mandate the how. Like NIST CSF, not a risk management framework, but
+what does it say about risk management?
+
+### ISO 27001 on managing risk
+
+Clause 6 starts with the requirement to implement 'Actions to address risks and opportunities'.
+Which details into:
+
+- 6.1.2 Information security risk assessment
+- 6.1.3 Information security risk treatment
+
+Two of the recommended controls are:
+
+- 5.7 Threat intelligence
+- 5.9 Inventory of information and other associated assets
+
+The conclusion for ISO 27001 is that being certified means that managing risk
+must be implemented.
+
+## Threat modeling
+
 TBW
 
 ## Threat modeling meta model
 
 <Diagram src="/site/pages/blog/images-security-framework/meta-model.svg" width="60rem" />
-
