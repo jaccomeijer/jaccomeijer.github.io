@@ -17,7 +17,7 @@ export const BaseLayout = (props: BaseLayout & EleventyData) => {
     <html lang={props.sitemetadata.content.language}>
       <Head
         cssUrls={[props.sitemetadata.system.globalCssUrl]}
-        description={props.sitemetadata.branding.description}
+        description={props.openerTopic?.abstract || props.sitemetadata.branding.description}
         favIconUrl="/favicon.ico"
         generator={props.sitemetadata.content.generator}
         title={`${props.openerTopic?.heading} (${props.sitemetadata.branding.heading} - ${props.sitemetadata.branding.description})`}
