@@ -18,7 +18,7 @@ export const blogOpenerByNavId = (props: BlogLayout & EleventyData, navId: strin
       return {}
     }
     addReadMore({ topic, url: navIdColl?.page.url })
-    addDateIconAuthor({ topic, date: props.page.date })
+    addDateIconAuthor({ topic, date: navIdColl?.data.date || props.page.date })
     openerTopics.push(topic!)
   })
 

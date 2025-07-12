@@ -108,7 +108,7 @@
 
     <url>
         <loc>https://www.jaccomeijer.nl/blog/uml-c4-archimate/</loc>
-        <lastmod>2025-06-02T02:00:00.000+02:00</lastmod>
+        <lastmod>2025-07-12T02:00:00.000+02:00</lastmod>
     </url>
 
     <url>
@@ -142,8 +142,18 @@
     </url>
 
     <url>
-        <loc>https://www.jaccomeijer.nl/blog/threat-modeling-with-archimate/</loc>
-        <lastmod>2025-07-09T02:00:00.000+02:00</lastmod>
+        <loc>https://www.jaccomeijer.nl/blog/cyber-security-risk/</loc>
+        <lastmod>2025-07-11T02:00:00.000+02:00</lastmod>
+    </url>
+
+    <url>
+        <loc>https://www.jaccomeijer.nl/blog/threat-modeling/</loc>
+        <lastmod>2025-07-18T02:00:00.000+02:00</lastmod>
+    </url>
+
+    <url>
+        <loc>https://www.jaccomeijer.nl/blog/threat-modeling-enterprise-architecture-context/</loc>
+        <lastmod>2025-07-25T02:00:00.000+02:00</lastmod>
     </url>
 
 </urlset>
