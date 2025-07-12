@@ -15,7 +15,8 @@
     "design-tokens-lib": "designTokens transform src/green-lib/design-tokens/tokens.config.json",
     "design-tokens-ref": "designTokens transform src/reference/design-tokens/tokens.config.json",
     "design-tokens-site": "designTokens transform src/site/design-tokens/tokens.config.json",
-    "dev": "npx @11ty/eleventy --serve"
+    "dev": "npx @11ty/eleventy --serve",
+    "serve": "npx http-server docs"
   },
   "keywords": [],
   "author": "Jacco Meijer <jacco@jaccomeijer.nl> (https://www.jaccomeijer.nl/)",
@@ -38,6 +39,7 @@
     "eslint": "9.25.1",
     "eslint-plugin-react": "7.37.5",
     "feather-icons": "4.29.2",
+    "http-server": "14.1.1",
     "lightningcss": "1.29.3",
     "luxon": "3.6.1",
     "react": "19.1.0",
