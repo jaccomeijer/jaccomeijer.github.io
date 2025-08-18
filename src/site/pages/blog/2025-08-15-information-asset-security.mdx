@@ -4,11 +4,11 @@ navigation:
   id: information-asset-security
 date: 2025-08-15
 lastmod: 2025-08-15
-tags: ['draft']
+tags: ['blog']
 openerTopic:
-  heading: Information asset security
+  heading: Asset security
   abstract: Information asset identification and classification from a security perspective
-  image: '/site/pages/blog/images/2025-08-01-milad-fakurian-bDQy-AeHDFg-unsplash.jpg'
+  image: '/site/pages/blog/images/2025-08-15-tiago-wolf-W4CTDtL2LQo-unsplash.jpg'
 
 ---
 
@@ -19,13 +19,18 @@ import { Topic } from '../../../green-lib/components/topic/topic'
 import { TopicList } from '../../../green-lib/components/topic-list/topic-list'
 import { Diagram } from '../helpers/diagram'
 
-## Definitions
+## Data security
 
-Assets, data, categorization and classification are closely related. This post
-starts with the definitions and relations.
+Data security can be seen as a specialization of asset security which is what
+the post below is about.
 
-Assets in this post are information assets. This is any information source that
-has value and these can be tangible, intangible and logical.
+<Topic variant="card" topic={blogOpenerByNavId(props, 'data-security')} swapImage={true} />
+
+## Information assets
+
+Assets in this post are information systems. Systems that processes, transfer or
+store data. From a security perspective an asset is any system that has value.
+These assets can be tangible, intangible and logical.
 
 | Type | Description | Examples |
 |--|--|--|
@@ -33,80 +38,53 @@ has value and these can be tangible, intangible and logical.
 | Intangible       | Non-physical assets that represent value                     | software, databases, information stores |
 | Hybrid / Logical | Information assets that are logical or part tangible and part intangible | networks, information systems |
 
-- An **asset** is a system that handles **data**
-- **Classification** is assigning value and sensitivity based on content and context
-- **Categorization** is grouping classified assets or data
-- **Quantitative value** is the estimation of the numerical asset value
-- **Qualitative value** is the assessment of an assets importance or impact
+## Asset identification
 
-## Identification
+Assets are added and removed from organizations frequently. These changes have
+significant impact on organization security which makes it essential to identify
+new assets. The more is known about the new assets, the better the assets can be
+protected.
 
-Assets and data are added and removed from organizations frequently. These
-changes have a significant impact organization security.
+Because of the importance and the complexity of managing all assets in a large
+organization, a broad variety of tooling is used.
 
-It is therefore important to identify assets and data. Also because the more you
-know about your assets and data, the better you can protect them.
+Scanners, directories, license trackers, discovery services, etc. All contribute
+to asset identification. AI helps by handling large amounts of data and
+analysis.
 
-### Data identification
-
-Because data governance is important for data identification all data should
-have an owner. The diagram below shows the relationship between data roles and
-the relevant requirements.
-
-> Note that this post uses the word asset for information systems. The diagram
-  below uses the word asset to describe data as an asset which differentiates
-  from the actual data itself.
-
-<Diagram src="/site/pages/blog/images-security-framework/data-asset-roles.svg" width="60rem" />
-
-### Asset identification
-
-Managing all information assets is essential for managing the security of these
-assets. Because of the importance and the complexity of this task, organizations
-use a variety of tools.
-
-All kinds of scanners, directories, license trackers, automatic discovery
-services, etc. All contribute to asset identification. AI helps by handling
-large amounts of data and analysis.
-
-### Asset management
+## Asset management
 
 Because of the many tools working together, all information should be
-consolidated into one source of truth managed by a single authority. Which leads
-to what is known as asset management.
+consolidated into a single source of truth managed by a single authority. This
+concept leads to the specific field of IT Asset Management (ITAM).
 
-Asset management is too broad to fit in the scope of this post, as is also true
-for change management and configuration management.
+The major goals of ITAM are more broad than only the cyber security context:
 
-## Classification
+- Reduce costs by avoiding over-purchasing and under-utilization
+- Ensure compliance with software licensing and regulatory requirements
+- Improve operational efficiency and decision-making
+- Support cyber security by maintaining accurate asset inventories
 
-Classifying is important because treating security risks for all data and assets
-equally is a costly approach. It is much more cost efficient to classify
-sensitive and public data abd assets and differentiate accordingly.
+> ISO 19770 is a family of international standards focused on ITAM. It provides
+frameworks and specifications to help organizations manage their IT assets such
+as hardware, software, subscriptions, and cloud services effectively and in
+compliance with governance and licensing requirements.
 
-### Data classification
+## Asset classification
 
-Data classification is always best practice but is generally only formalized in
-strongly regulated environments like military, governments and banks.
+Asset classification is assigning a value and a sensitivity level based on
+content and context. Asset categorization is grouping the classified assets.
 
-For other organizations data classification becomes increasingly mandatory with
-every newly introduced cyber security law.
+It is common to value an asset in two ways. The quantitative value is the
+estimation of the numerical asset value and the qualitative value is the
+assessment of an assets importance or impact.
 
-### Data classification types
+Classification is important because treating security risks for all assets
+equally is a costly approach. It is much more efficient to classify assets on
+sensitivity and differentiate accordingly.
 
-Data classification can be divided into three primary types.
 
-|  Classification Type  |  Description  |  Examples  |
-|-----------------------|--------------------------------------------------------------|--------------------------------------------------------------|
-| **Content-Based**     | Analyzes the actual data within the file or message.         | Detects credit card numbers, PII, or sensitive keywords in documents. |
-| **Context-Based**     | Uses metadata or environmental factors around the data.      | Classifies based on file location, sender/receiver, or access patterns. |
-| **User-Based**        | Relies on user roles, behavior, or manual input.             | User selects classification label; defaults based on department or role. |
-
-### Asset classification
-
-Assets are the systems that handle the data and are often classified by predefined classification levels.
-
-### Asset Classification Levels
+### Asset classification Levels
 
 AI is very suitable for scaffolding text. This is an example AI prompt on
 setting up asset classification levels.
@@ -117,7 +95,7 @@ create an Asset classification levels table:
   - use tiers where tier 0 is the most restricted
   - include mixed tier
   - include example systems and devices
-  - include desciption
+  - include description
   - include requirements
   - output visual markdown table
 ```
@@ -135,9 +113,9 @@ create an Asset classification levels table:
 
 ### How organizations classify assets
 
-Key regulations and frameworks define how organizations must classify and
-categorize information assets, often shaping their asset identification and
-protection policies.
+Key regulations and frameworks define how organizations classify and categorize
+information assets, often shaping their asset identification and protection
+policies.
 
 Below an example AI prompt that generates an overview of common regulations on
 asset classification for jurisdictions EU, USA and China.
@@ -187,14 +165,4 @@ create a matrix:
 |  **FISMA (USA)**           |  Requires categorization of systems; relies on NIST guidance, not classification terminology.  |  Uses security categories to guide risk management and control selection.                      |
 |  **MLPS (CHINA)**          |  Uses formal classification levels (1–5) based on system sensitivity and national interest.  |  Categorizes systems by role and criticality to determine protection requirements.             |
 |  **PIPL (CHINA)**          |  Implies classification via “sensitive personal information” requiring stricter handling.  |  Defines categories of personal data, especially sensitive types like biometrics and health data.  |
-
-
-## IT Asset Management (ITAM)
-
-ITAM is a set of business practices that combines financial, contractual, and
-inventory functions to support lifecycle management and strategic
-decision-making for IT assets like hardware, software and networks.
-
-
-- ISO 19770
 
