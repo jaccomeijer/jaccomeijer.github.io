@@ -16,6 +16,7 @@ export { BlogLayout as default } from '../helpers/blog-layout'
 import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
 import { Picture } from '../../../green-lib/components/picture/picture'
 import { Topic } from '../../../green-lib/components/topic/topic'
+import { TopicList } from '../../../green-lib/components/topic-list/topic-list'
 import { Diagram } from '../helpers/diagram'
 
 ## Managing risk
@@ -34,6 +35,13 @@ identified.
 
 Risk analysis is analyzing threats, vulnerabilities and assets. Threat modeling
 being part of threat analysis.
+
+<TopicList
+  className="s-grid u-grid-two-cols u-gap-m"
+  topics={blogOpenerByNavId(props, ['data-security', 'information-asset-security'])}
+  variant="card"
+  swapImage={true}
+/>
 
 From risk analysis, risk is evaluated by looking at likelihood and impact of the
 risk. Likelihood is the probability that a threat exploits a vulnerability and
