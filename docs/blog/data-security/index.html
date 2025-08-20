@@ -16,6 +16,38 @@ differentiates from the actual data itself which is simply referred to as
 &#x27;data&#x27;.</p>
 </blockquote>
 <div class="diagram s-popout s-block-space u-block-space-l"><div class="s-wrapper u-border-radius-rounded" style="--wrapper-width:60rem"><picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/m99mtFeGpm-400.webp 400w, /img/m99mtFeGpm-800.webp 800w, /img/m99mtFeGpm-1200.webp 1200w" sizes="100vw"><img src="/img/m99mtFeGpm-400.jpeg" alt="Image without description" width="1200" height="1389" srcset="/img/m99mtFeGpm-400.jpeg 400w, /img/m99mtFeGpm-800.jpeg 800w, /img/m99mtFeGpm-1200.jpeg 1200w" sizes="100vw"></picture></div></div>
+<h3>Data owner</h3>
+<p>The term &#x27;data owner&#x27; is used across multiple regulations with different
+meanings.</p>
+<ul>
+<li>COBIT emphasizes value, quality, and lifecycle governance of data, not just
+security</li>
+<li>ISO uses &#x27;asset owner&#x27; which includes data as part of information assets</li>
+<li>NIST uses &#x27;information owner&#x27; and ties the role to risk management and
+security authorization</li>
+</ul>
+<p>This is a useful AI prompt for further research.</p>
+<pre><code class="hljs language-md"><span class="hljs-bullet">-</span> create table with role usage
+<span class="hljs-bullet">-</span> each cell contains only once:
+<span class="hljs-bullet">  -</span> ✅ List frameworks
+<span class="hljs-bullet">  -</span> ❌: Not used
+<span class="hljs-bullet">-</span> include frameworks
+<span class="hljs-bullet">  -</span> cobit
+<span class="hljs-bullet">  -</span> iso
+<span class="hljs-bullet">  -</span> nist
+<span class="hljs-bullet">-</span> columns
+<span class="hljs-bullet">  -</span> data
+<span class="hljs-bullet">  -</span> information
+<span class="hljs-bullet">  -</span> system
+<span class="hljs-bullet">  -</span> asset
+<span class="hljs-bullet">-</span> rows
+<span class="hljs-bullet">  -</span> owner
+<span class="hljs-bullet">  -</span> steward
+<span class="hljs-bullet">  -</span> controller
+<span class="hljs-bullet">  -</span> processor
+<span class="hljs-bullet">  -</span> custodian
+</code></pre>
+<table><thead><tr><th><strong>Role \ Object</strong></th><th><strong>Data</strong></th><th><strong>Information</strong></th><th><strong>System</strong></th><th><strong>Asset</strong></th></tr></thead><tbody><tr><td><strong>Owner</strong></td><td>✅ COBIT</td><td>✅ NIST</td><td>✅ NIST</td><td>✅ ISO</td></tr><tr><td><strong>Steward</strong></td><td>✅ COBIT</td><td>✅ NIST</td><td>❌</td><td>❌</td></tr><tr><td><strong>Controller</strong></td><td>✅ GDPR</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><strong>Processor</strong></td><td>✅ GDPR</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><strong>Custodian</strong></td><td>✅ COBIT &amp; NIST</td><td>❌</td><td>❌</td><td>❌</td></tr></tbody></table>
 <h2>Data classification</h2>
 <p>Data classification is assigning a value and a sensitivity level based on
 content and context. Data categorization is grouping the classified data.</p>

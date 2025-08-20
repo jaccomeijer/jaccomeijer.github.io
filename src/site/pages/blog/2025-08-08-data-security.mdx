@@ -44,6 +44,49 @@ requirements.
 
 <Diagram src="/site/pages/blog/images-security-framework/data-asset-roles.svg" width="60rem" />
 
+### Data owner
+
+The term 'data owner' is used across multiple regulations with different
+meanings.
+
+- COBIT emphasizes value, quality, and lifecycle governance of data, not just
+  security
+- ISO uses 'asset owner' which includes data as part of information assets
+- NIST uses 'information owner' and ties the role to risk management and
+  security authorization
+
+This is a useful AI prompt for further research.
+
+```md
+- create table with role usage
+- each cell contains only once:
+  - ✅ List frameworks
+  - ❌: Not used
+- include frameworks
+  - cobit
+  - iso
+  - nist
+- columns
+  - data
+  - information
+  - system
+  - asset
+- rows
+  - owner
+  - steward
+  - controller
+  - processor
+  - custodian
+```
+
+| **Role \\ Object** | **Data** | **Information** | **System** | **Asset** |
+|---|---|---|---|---|
+| **Owner** | ✅ COBIT | ✅ NIST | ✅ NIST | ✅ ISO |
+| **Steward** | ✅ COBIT | ✅ NIST | ❌ | ❌ |
+| **Controller** | ✅ GDPR | ❌ | ❌ | ❌ |
+| **Processor** | ✅ GDPR | ❌ | ❌ | ❌ |
+| **Custodian** | ✅ COBIT & NIST | ❌ | ❌ | ❌ |
+
 
 ## Data classification
 
