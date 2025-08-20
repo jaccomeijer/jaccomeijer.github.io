@@ -6,7 +6,7 @@ transfer or store data. This post is about the data in that context.</p>
 <p>Data generally grows steadily within organizations. Newly added data has
 significant impact on organization security which makes it important to identify
 new data. The more is known about the new data, the better it can be protected.</p>
-<h3>Data roles</h3>
+<h3>Data security roles</h3>
 <p>All data should have an owner to ensure proper data governance. The diagram
 below shows the relationship between data roles, capabilities and the relevant
 requirements.</p>
@@ -20,7 +20,7 @@ differentiates from the actual data itself which is simply referred to as
 <p>The term &#x27;data owner&#x27; is used across multiple regulations with different
 meanings.</p>
 <ul>
-<li>COBIT emphasizes value, quality, and lifecycle governance of data, not just
+<li>ISACA emphasizes value, quality, and lifecycle governance of data, not just
 security</li>
 <li>ISO uses &#x27;asset owner&#x27; which includes data as part of information assets</li>
 <li>NIST uses &#x27;information owner&#x27; and ties the role to risk management and
@@ -29,10 +29,10 @@ security authorization</li>
 <p>This is a useful AI prompt for further research.</p>
 <pre><code class="hljs language-md"><span class="hljs-bullet">-</span> create table with role usage
 <span class="hljs-bullet">-</span> each cell contains only once:
-<span class="hljs-bullet">  -</span> ✅ List frameworks
+<span class="hljs-bullet">  -</span> ✅ List organizations
 <span class="hljs-bullet">  -</span> ❌: Not used
-<span class="hljs-bullet">-</span> include frameworks
-<span class="hljs-bullet">  -</span> cobit
+<span class="hljs-bullet">-</span> include organizations
+<span class="hljs-bullet">  -</span> isaca
 <span class="hljs-bullet">  -</span> iso
 <span class="hljs-bullet">  -</span> nist
 <span class="hljs-bullet">-</span> columns
@@ -47,7 +47,7 @@ security authorization</li>
 <span class="hljs-bullet">  -</span> processor
 <span class="hljs-bullet">  -</span> custodian
 </code></pre>
-<table><thead><tr><th><strong>Role \ Object</strong></th><th><strong>Data</strong></th><th><strong>Information</strong></th><th><strong>System</strong></th><th><strong>Asset</strong></th></tr></thead><tbody><tr><td><strong>Owner</strong></td><td>✅ COBIT</td><td>✅ NIST</td><td>✅ NIST</td><td>✅ ISO</td></tr><tr><td><strong>Steward</strong></td><td>✅ COBIT</td><td>✅ NIST</td><td>❌</td><td>❌</td></tr><tr><td><strong>Controller</strong></td><td>✅ GDPR</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><strong>Processor</strong></td><td>✅ GDPR</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><strong>Custodian</strong></td><td>✅ COBIT &amp; NIST</td><td>❌</td><td>❌</td><td>❌</td></tr></tbody></table>
+<table><thead><tr><th><strong>Role \ Object</strong></th><th><strong>Data</strong></th><th><strong>Information</strong></th><th><strong>System</strong></th><th><strong>Asset</strong></th></tr></thead><tbody><tr><td><strong>Owner</strong></td><td>✅ ISACA</td><td>✅ NIST</td><td>✅ NIST</td><td>✅ ISO</td></tr><tr><td><strong>Steward</strong></td><td>✅ ISACA</td><td>✅ NIST</td><td>❌</td><td>❌</td></tr><tr><td><strong>Controller</strong></td><td>✅ GDPR</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><strong>Processor</strong></td><td>✅ GDPR</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><strong>Custodian</strong></td><td>✅ ISACA &amp; NIST</td><td>❌</td><td>❌</td><td>❌</td></tr></tbody></table>
 <h2>Data classification</h2>
 <p>Data classification is assigning a value and a sensitivity level based on
 content and context. Data categorization is grouping the classified data.</p>

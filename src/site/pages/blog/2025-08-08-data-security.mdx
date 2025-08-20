@@ -32,7 +32,7 @@ Data generally grows steadily within organizations. Newly added data has
 significant impact on organization security which makes it important to identify
 new data. The more is known about the new data, the better it can be protected.
 
-### Data roles
+### Data security roles
 
 All data should have an owner to ensure proper data governance. The diagram
 below shows the relationship between data roles, capabilities and the relevant
@@ -49,7 +49,7 @@ requirements.
 The term 'data owner' is used across multiple regulations with different
 meanings.
 
-- COBIT emphasizes value, quality, and lifecycle governance of data, not just
+- ISACA emphasizes value, quality, and lifecycle governance of data, not just
   security
 - ISO uses 'asset owner' which includes data as part of information assets
 - NIST uses 'information owner' and ties the role to risk management and
@@ -60,10 +60,10 @@ This is a useful AI prompt for further research.
 ```md
 - create table with role usage
 - each cell contains only once:
-  - ✅ List frameworks
+  - ✅ List organizations
   - ❌: Not used
-- include frameworks
-  - cobit
+- include organizations
+  - isaca
   - iso
   - nist
 - columns
@@ -81,11 +81,11 @@ This is a useful AI prompt for further research.
 
 | **Role \\ Object** | **Data** | **Information** | **System** | **Asset** |
 |---|---|---|---|---|
-| **Owner** | ✅ COBIT | ✅ NIST | ✅ NIST | ✅ ISO |
-| **Steward** | ✅ COBIT | ✅ NIST | ❌ | ❌ |
+| **Owner** | ✅ ISACA | ✅ NIST | ✅ NIST | ✅ ISO |
+| **Steward** | ✅ ISACA | ✅ NIST | ❌ | ❌ |
 | **Controller** | ✅ GDPR | ❌ | ❌ | ❌ |
 | **Processor** | ✅ GDPR | ❌ | ❌ | ❌ |
-| **Custodian** | ✅ COBIT & NIST | ❌ | ❌ | ❌ |
+| **Custodian** | ✅ ISACA & NIST | ❌ | ❌ | ❌ |
 
 
 ## Data classification
