@@ -1,0 +1,131 @@
+---
+permalink: /blog/iso-27000-isa-62443-nis2-bio-nist-csf-800-53/
+navigation:
+  id: iso-27000-isa-62443-nis2-bio-nist-csf-800-53
+date: 2025-08-28
+lastmod: 2025-08-28
+tags: ['draft']
+openerTopic:
+  heading: ISO 27000, ISA 62443-2-1, NIS2, BIO, NIST CSF and NIST SP 800-53
+  abstract: How to align the steadily increasing number of cyber security frameworks, standards and regulations in the Netherlands?
+  image: '/site/pages/blog/images/2025-08-28-rick-rothenberg-RFFWKgPjI3U-unsplash.jpg'
+
+---
+
+export { BlogLayout as default } from '../helpers/blog-layout'
+import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
+import { Picture } from '../../../green-lib/components/picture/picture'
+import { Topic } from '../../../green-lib/components/topic/topic'
+import { TopicList } from '../../../green-lib/components/topic-list/topic-list'
+import { Diagram } from '../helpers/diagram'
+
+## NIST CSF Categories
+
+The post below on NIST CSF and ISO 27001 states that the standards have
+different purposes, but their goals align and the standards strengthen each
+other.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'iso-27001-nist-csf')} swapImage={true} />
+
+The two are relatively easy to compare and can both be used independently of the
+country. For a specific country a framework or standard must commonly align with
+local regulations. When the scope is extended from IT to OT, the list of
+frameworks, standards and regulations becomes even longer.
+
+This post uses the Netherlands as an example and includes IT as well as OT. In
+the Netherlands it is common to work with many standards, frameworks and
+regulations. Below a quite common set.
+
+- ISO 27000 family
+- NIST CSF
+- NIST SP 800-53
+- ISA/IEC 62443
+- NIS2 Directive
+- BIO (Government Information Security Baseline)
+
+
+## ISO 27001 - Standard
+- Standard | IT → Both
+
+ISO/IEC 27001 is an international standard for establishing, implementing,
+maintaining, and continually improving an Information Security Management System
+(ISMS). It is certifiable and risk-based.
+
+applied to IT information systems, but because it scopes “information” broadly
+and is risk-based, it can cover OT environments as well—organizations often
+certify the enterprise ISMS and then reference OT-specific control sets (e.g.,
+IEC/ISA 62443) for industrial sites.
+
+## ISO 27002 - Standard
+- Standard | IT → Both
+
+ISO/IEC 27002 provides guidance on the implementation of controls listed in
+ISO27001. It is not certifiable and serves as a supporting standard.
+
+IT-oriented but applicable to “information security” in general; in OT
+programs it’s commonly complemented by ISA/IEC 62443 where more specific
+industrial control requirements are needed. The ISA Global Cybersecurity
+Alliance explicitly shows how 62443 refines 27002 recommendations for
+OT.
+
+
+## NIST CSF 2.0 - Framework
+- Framework | Both (sector-agnostic)
+
+The NIST Cybersecurity Framework (CSF) version 2.0 is a voluntary framework
+designed to help organizations manage and reduce cybersecurity risk. It
+emphasizes outcomes and governance, not prescriptive controls.
+
+regardless of size/sector; widely used for both IT and OT risk management, with
+the new GOVERN function emphasizing enterprise governance across domains. Many
+OT teams pair CSF with 62443 (or with SP 800-82) to realize control-level depth.
+
+
+## NIST SP 800-53 - Standard
+- Standard | IT → Both (with OT overlays/tailoring)
+
+This is a U.S. federal standard that provides a comprehensive catalog of
+security and privacy controls. It is often used as a baseline for compliance in
+government and regulated sectors.
+
+on IT (U.S. federal and beyond) but explicitly designed to be tailored. For
+OT/ICS, NIST provides guidance in SP 800-82 (OT Security) and overlays to adapt
+800-53 controls to industrial environments (e.g., ICS overlay).
+
+
+## ISA/IEC 62443-2-1 - Standard
+- Standard | OT (IACS)
+
+Part of the ISA/IEC 62443 series, this standard defines security program
+requirements for industrial automation and control system (IACS) asset owners.
+It is certifiable and widely used in operational technology environments.
+
+requirements for IACS asset owners; this is the canonical OT governance/process
+standard across industrial sectors, complementing 62443-3-3/4-x technical
+requirements.
+
+
+## NIS2 Directive - Regulation
+- Regulation (Directive) | Both (many OT-heavy sectors)
+
+The NIS2 Directive is a binding EU regulation that mandates cybersecurity
+requirements for essential and important entities. It is legally enforceable and
+must be implemented by member states.
+
+Member States to impose cybersecurity obligations across essential and important
+entities in sectors such as energy, transport, water, health, digital
+infrastructure and public administration—many of which are OT-heavy.
+(Transposition deadline: 17 Oct 2024.)
+
+
+## BIO (Netherlands) - Framework + Regulation  
+- Framework / mandatory baseline for Dutch government | Primarily IT (can extend to OT in public infrastructure contexts)
+
+The BIO (Baseline Information Security for Government) is a national framework
+aligned with ISO 27001/27002. With the upcoming Cyberbeveiligingswet (Cbw), BIO2
+will become a legal requirement, making it both a framework and regulation.
+
+mandatory baseline framework aligning with ISO 27001/27002 (2022/2023) and
+updated to reflect NIS2. It primarily addresses IT information systems, but
+public bodies that operate OT (e.g., water boards, infrastructure) typically
+apply BIO governance while bringing in 62443 for OT specifics.
