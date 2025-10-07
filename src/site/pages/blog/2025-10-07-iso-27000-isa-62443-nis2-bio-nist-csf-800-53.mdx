@@ -1,0 +1,219 @@
+---
+permalink: /blog/iso-27000-isa-62443-nis2-bio-nist-csf-800-53/
+navigation:
+  id: iso-27000-isa-62443-nis2-bio-nist-csf-800-53
+date: 2025-10-07
+lastmod: 2025-10-07
+tags: ['blog']
+openerTopic:
+  heading: ISO 27000, ISA 62443, NIS2, BIO, NIST CSF and NIST SP 800-53
+  abstract: How to align the steadily increasing number of cyber security frameworks, standards and regulations?
+  image: '/site/pages/blog/images/2025-08-28-rick-rothenberg-RFFWKgPjI3U-unsplash.jpg'
+
+---
+
+export { BlogLayout as default } from '../helpers/blog-layout'
+import { blogOpenerByNavId } from '../helpers/blog-openers-by-nav-id'
+import { Picture } from '../../../green-lib/components/picture/picture'
+import { Topic } from '../../../green-lib/components/topic/topic'
+import { TopicList } from '../../../green-lib/components/topic-list/topic-list'
+import { Diagram } from '../helpers/diagram'
+
+## Combining ISO 27001 and NIST CSF
+
+The post below on NIST CSF and ISO 27001 states that the standards have
+different purposes, but their goals align and the standards strengthen each
+other.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'iso-27001-nist-csf')} swapImage={true} />
+
+The two are relatively easy to compare and can both be used independent of
+jurisdiction and country. For a specific country a standard must commonly align
+with local regulations. When the scope is extended from IT to OT, the list of
+standards becomes even longer.
+
+> When this post mentions standards, this includes frameworks and regulations.
+
+This post uses the Netherlands as an example and includes IT as well as OT.
+Below a list of standards that are commonly used together in the Netherlands.
+
+| Standard | Description |
+|--|--|
+| ISO 27001 Standard        | Risk based Management System standard for establishing, implementing, maintaining, and continually improving Information Security.|
+| ISO 27002 Standard        | Supporting standard on control implementation.|
+| ISA/IEC 62443 Standards   | A series of standards for industrial automation and control systems (IACS) cybersecurity.|
+| NIST SP 800-53 Standard   | US federal standard providing a comprehensive catalog of security and privacy controls.|
+| NIST CSF 2.0 Framework    | Voluntary risk based outcome focused framework designed to help organizations manage and reduce cybersecurity risk.|
+| NIS2 Directive            | Binding EU regulation that mandates cybersecurity requirements for essential and important entities.|
+| GDPR Regulation           | EU regulation on data protection and privacy for all individuals within the EU and EEA.|
+| BIO2 Framework/Regulation | Mandatory baseline framework aligning with ISO 27001/27002.|
+
+## Challenges
+
+### Legal obligations
+
+One of the major challenges is to assure that all legal obligations are met.
+Article 20 of NIS2 mandates that management bodies (e.g. board members,
+executives) must approve and oversee the implementation of cybersecurity risk
+management measures.
+
+Companies that are ISO 27001 certified have an Information Security Management
+System (ISMS) in place. Many of the other standards have similar, but not equal,
+requirements.
+
+How to make sure that all legal obligations are met without doing things twice?
+Setting up an ISMS alone is usually challenging enough. Repeating the setup
+process for all standards individually is a lot of work and contains a lot of
+redundant tasks.
+
+### Mapping standards
+
+The redundancy between standards make that many standards can be mapped to other
+standards. This prevents double work, fully in line with the Don't Repeat
+Yourself (DRY) principle.
+
+The mapping of two or more standards in the cyber security field is often called
+a 'crosswalk'. The USA based NIST organization [published many
+crosswalks](https://www.nist.gov/privacy-framework/resource-repository/browse/crosswalks)
+from and to their own standards.
+
+The table below shows some of the most common crosswalks available for the
+standards in this post.
+
+| From | To | Crosswalk source |
+|--|--|--|
+| ISO 27001:2022     | ISA 62443-2-1:2024  | 62443-2-1 Annex A.4, Table A.7 |
+| ISO 27002:2013     | ISO 27002:2022      | ISO 27002 ANNEX B |
+| ISO 27002:2022     | NIST CSF v1         | ISO 27002 ANNEX A - TAGS |
+| NIST CSF v2.0      | NIST SP 800-53r5    | NIST CSF-pf-to-sp800-53r5-mappings.xlsx |
+| NIST CSF v2.0      | ISA 62443-2-1:2024  | 62443-2-1 Annex A.4, Table A.9 |
+| NIST SP 800-53r5   | ISO 27001:2022      | NIST.sp.800-53r5-to-iso-27001-mapping-2022-OLIR-2023-10-12-UPDATED.xlsx |
+| ISA 62443-2-1:2024 | ISO 27001:2013      | 62443-2-1 Annex A.4, Table A.8 |
+| ISA 62443-2-1:2024 | NIST CSF v1         | 62443-2-1 Annex A.4, Table A.10 |
+| NIS2               | ISO 27001:2022      | ENISA Technical Implementation Guidance Mapping table version 1.1 |
+
+### Crosswalk assessments
+
+A consistent assessment of how two standards map increases the reliability of a
+mapping. This is a useful practice in the field of cyber security and this why
+the NIST organization developed a standard for mapping standards called
+"Developing Cybersecurity and Privacy Concept Mappings" and is published as
+[NIST IR 8477](https://csrc.nist.gov/pubs/ir/8477/final)
+
+The standard helps with understanding how one standard supports another and how
+to identify compliance gaps. To achieve this the approach in the standard uses
+the Set Theory Relationship Mapping (STRM).
+
+### Set Theory Relationship Mapping
+
+> Definition: STRM is a relationship style derived from the branch of
+mathematics known as set theory. Each mapping done with this style includes both
+a rationale for the mapping and a relationship type.
+
+STRM supports three options for the rationale and five relationship types for
+documenting the logical similarity of two concepts.
+
+#### Rationale
+1. Syntactic: How similar is the wording?
+2. Semantic: How similar are the meanings of the two concepts?
+3. Functional: How similar are the results of executing the two concepts?
+
+#### Relationship types
+1. Subset of
+2. Intersects with
+3. Equal
+4. Superset of
+5. No relationship
+
+### Relating standards to risk
+
+Once all standards are consistently mapped and the standards cover all legal
+obligations, a final challenge is relating all standards to the three components
+of risk: threats, vulnerabilities and assets.
+
+Below is a diagram from an <a href={blogOpenerByNavId(props,
+'threat-modeling-enterprise-architecture-context').action.url}>earlier post on
+Enterprise Architecture</a> where the components of risk are modeled in red and
+the control measure "Data in transit is secure" and control objective
+"Protection of sensitive data" are modeled in green.
+
+<Diagram src="/site/pages/blog/images-security-framework/ersm-base.svg" width="45rem" />
+
+This diagram is used in the next paragraph to setup a single set of normalized
+control measures by replacing the control measure "Data in transit is secure" by
+a normalized set.
+
+## Normalized control measures
+
+Multiple standards usually contain multiple sets of control measures and
+multiple sets of control objectives. The standards in this post for example have
+measures defined by ISO 27002, NIST SP 800-53r5 and ISA/IEC 62443 and almost all
+of the standards define control objectives.
+
+The diagram below shows how a normalized set of control measures can be mapped
+to the measures and objectives of many different standards.
+
+Once all of the normalized controls are mapped to the individual standards by
+using STRM, all standards consistently work together eliminating compliancy
+gaps.
+
+<Diagram src="/site/pages/blog/images-security-framework/ersm-normalized-controls.svg" width="45rem" />
+
+## Secure Controls Framework (SCF)
+
+The [Secure Controls Framework](https://securecontrolsframework.com) is a good
+example of a framework that uses this normalized control measure approach. As
+a framework of frameworks it can be referred to as a meta framework.
+
+SCF is driven by a community of experts, open source and contains STRM mappings
+from a normalized set of control measures to all major standards worldwide.
+Using the normalized set with reliable STRM mappings in place saves a lot of
+work, a major benefit of using SCF.
+
+SCF is available as an Excel sheet and all STRM mappings are available in PDF
+format. A small fee is required for the STRM mappings in Excel format which is
+a minor investment for what you gain.
+
+A final diagram shows how the SCF defined elements relate. SCF contains a basic
+set of threats and vulnerabilities, as well as a set of domain principles, a set
+of privacy principles and the normalized set of control measures.
+
+The STRM mappings are modeled as relationships － with example relationship
+types － to the External Control Measure and the External Control Objective
+elements.
+
+<Diagram src="/site/pages/blog/images-security-framework/ersm-scf-controls.svg" width="45rem" />
+
+## Other resources
+
+Wondering what other frameworks exist that do similar things? Use the prompt
+below as a starter. This specific field is often referred to as Governance, Risk
+and Compliance (GRC).
+
+Many enterprise GRC solutions like ServiceNow, Archer and MetricStream use
+proprietary schemas but align conceptually with `OSCAL` or `SCF` for
+interoperability.
+
+> [OSCAL](https://pages.nist.gov/OSCAL/): Open Security Controls Assessment
+Language, a NIST initiative to modernize and automate the processes of security
+and compliance. 
+
+### Prompt for Cyber security data schemas
+
+```md
+List available data schemas that capture details from security frameworks
+- framework examples:
+  - iso27001
+  - nist csf
+- details to capture:
+  - requirements
+  - controls
+  - assessments
+  - mappings
+- output a summary table with:
+  - Purpose
+  - Key Components
+  - Format
+  - Use Case
+  - Open or Proprietary
+```
