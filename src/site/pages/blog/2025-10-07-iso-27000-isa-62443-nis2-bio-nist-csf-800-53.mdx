@@ -68,17 +68,18 @@ redundant tasks.
 
 ### Mapping standards
 
-The redundancy between standards make that many standards can be mapped to other
-standards. This prevents double work, fully in line with the Don't Repeat
-Yourself (DRY) principle.
+Redundancy between standards can be seen as a disadvantage that causes double
+work. On the positive side, the redundancy means that many standards can be
+mapped to each other. This way it becomes an advantage that prevents double
+work. Fully in line with the Don't Repeat Yourself (DRY) principle.
 
-The mapping of two or more standards in the cyber security field is often called
-a 'crosswalk'. The USA based NIST organization [published many
+Mapping standards in the cyber security field is often referred to as a
+'crosswalk'. The USA based NIST organization for example, [publishes many
 crosswalks](https://www.nist.gov/privacy-framework/resource-repository/browse/crosswalks)
-from and to their own standards.
+from and to their standards.
 
-The table below shows some of the most common crosswalks available for the
-standards in this post.
+The table below shows some of the most common crosswalks that are available for
+the standards in this post.
 
 | From | To | Crosswalk source |
 |--|--|--|
@@ -92,13 +93,24 @@ standards in this post.
 | ISA 62443-2-1:2024 | NIST CSF v1         | 62443-2-1 Annex A.4, Table A.10 |
 | NIS2               | ISO 27001:2022      | ENISA Technical Implementation Guidance Mapping table version 1.1 |
 
+To prevent common practice and compliance gaps it is common practice for smaller
+companies to collect the required crosswalks and add them to a spreadsheet.
+
+When the spreadsheet grows, these are common pitfalls to avoid:
+
+- mixing control objectives and control measures;
+- lack of canonical id's;
+- poor version management;
+- ignoring shared responsibility in cloud contexts;
+- neglecting bidirectional mappings.
+
 ### Crosswalk assessments
 
 A consistent assessment of how two standards map increases the reliability of a
-mapping. This is a useful practice in the field of cyber security and this why
-the NIST organization developed a standard for mapping standards called
-"Developing Cybersecurity and Privacy Concept Mappings", published as [NIST IR
-8477](https://csrc.nist.gov/pubs/ir/8477/final)
+mapping. This is a useful practice in the field of cyber security and one of the
+reasons why the NIST organization developed a standard for mapping standards.
+The standard is called "Developing Cybersecurity and Privacy Concept Mappings"
+and is published as [NIST IR 8477](https://csrc.nist.gov/pubs/ir/8477/final)
 
 The standard helps with understanding how one standard supports another and how
 to identify compliance gaps. To achieve this the approach in the standard uses
@@ -137,52 +149,51 @@ Enterprise Architecture</a> where the components of risk are modeled in red and
 the control measure "Data in transit is secure" and control objective
 "Protection of sensitive data" are modeled in green.
 
+This diagram is used in the next paragraph to setup a single set of canonical
+control objectives.
+
 <Diagram src="/site/pages/blog/images-security-framework/ersm-base.svg" width="45rem" />
 
-This diagram is used in the next paragraph to setup a single set of normalized
-control measures by replacing the control measure "Data in transit is secure" by
-a normalized set.
+## Canonical control objectives
 
-## Normalized control measures
+Multiple standards generally contain multiple sets of control measures and
+objectives. The standards in this post for example have measures defined by ISO
+27002, NIST SP 800-53r5 and ISA/IEC 62443 and all standards define control
+objectives.
 
-Multiple standards usually contain multiple sets of control measures and
-multiple sets of control objectives. The standards in this post for example have
-measures defined by ISO 27002, NIST SP 800-53r5 and ISA/IEC 62443 and almost all
-of the standards define control objectives.
+The diagram below shows how one set of canonical control objectives can be
+mapped to the objectives of multiple standards.
 
-The diagram below shows how a normalized set of control measures can be mapped
-to the measures and objectives of many different standards.
+The canonical control objective element has a structural aggregation
+relationship with the control objectives of standard x. All related control
+objectives are documented by STRM as outlined in NIST IR 8477.
 
-Once all of the normalized controls are mapped to the individual standards by
-using STRM, all standards consistently work together eliminating unknown
-compliancy gaps.
+This way all standards are consistently mapped which effectively eliminates
+unidentified compliancy gaps.
 
-<Diagram src="/site/pages/blog/images-security-framework/ersm-normalized-controls.svg" width="45rem" />
+<Diagram src="/site/pages/blog/images-security-framework/ersm-canonical.svg" width="45rem" />
 
 ## Secure Controls Framework (SCF)
 
 The [Secure Controls Framework](https://securecontrolsframework.com) is a good
-example of a framework that uses this normalized control measure approach. As
-a framework of frameworks it can be referred to as a meta framework.
+example of a framework that uses the canonical control approach.
 
-SCF is driven by a community of experts, open source and contains STRM mappings
-from a normalized set of control measures to all major standards worldwide.
-Using the normalized set with reliable STRM mappings in place saves a lot of
-work, a major benefit of using SCF.
+SCF is driven by a community of experts, published as an open source project and
+contains ready to use STRM mappings for all major standards worldwide. Using the
+canonical controls with reliable ready to use STRM mappings saves a lot of work
+which is a major benefit of using SCF.
 
-SCF is available as an Excel sheet and all STRM mappings are available in PDF
-format. A small fee is required for the STRM mappings in Excel format which is
-a minor investment considering the gain.
+SCF is available as a spreadsheet and all STRM mappings are available in PDF
+format. A small fee is required for the STRM mappings in spreadsheet format
+which is a minor investment considering the gain.
 
-A final diagram shows how the SCF defined elements relate. SCF contains a basic
-set of threats and vulnerabilities, as well as a set of domain principles, a set
-of privacy principles and the normalized set of control measures.
+SCF contains a threat catalog, a risk catalog, a set of domain principles, a set
+of privacy principles and the canonical set of controls.
 
-The STRM mappings are modeled as relationships － with example relationship
-types － to the External Control Measure and the External Control Objective
-elements.
+The last diagram in this post shows how the SCF defined elements relate. The
+STRM mappings being modeled as an aggregation relationship.
 
-<Diagram src="/site/pages/blog/images-security-framework/ersm-scf-controls.svg" width="45rem" />
+<Diagram src="/site/pages/blog/images-security-framework/ersm-scf.svg" width="45rem" />
 
 ## Other resources
 
