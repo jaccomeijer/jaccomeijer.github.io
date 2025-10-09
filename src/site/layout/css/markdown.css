@@ -22,6 +22,14 @@
     }
   }
 
+  h4 {
+    margin-block-start: var(--font-heading-margin-block-start-3);
+  }
+
+  :is(ul, ol) {
+    margin-block-start: var(--space-s);
+  }
+
   table {
     margin-block: var(--space-xs-r2);
     thead {

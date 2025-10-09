@@ -1429,6 +1429,14 @@
     margin-block-start: 0;
   }
 
+  .markdown h4 {
+    margin-block-start: var(--font-heading-margin-block-start-3);
+  }
+
+  .markdown :is(ul, ol) {
+    margin-block-start: var(--space-s);
+  }
+
   .markdown table {
     margin-block: var(--space-xs-r2);
   }
@@ -1516,8 +1524,8 @@
   --font-heading-margin-block-start-1: clamp(2.25rem, 1.2935rem + 4.7826vi, 5rem);
   --font-heading-margin-block-start-2: clamp(1.6875rem, .9701rem + 3.587vi, 3.75rem);
   --font-heading-margin-block-start-3: clamp(1.125rem, .6467rem + 2.3913vi, 2.5rem);
-  --font-heading-margin-block-start-4: clamp(.875rem, .5272rem + 1.7391vi, 1.875rem);
-  --font-heading-margin-block-start-5: clamp(.5625rem, .3234rem + 1.1957vi, 1.25rem);
+  --font-heading-margin-block-start-4: clamp(.3125rem, .0951rem + 1.087vi, .9375rem);
+  --font-heading-margin-block-start-5: clamp(.3125rem, .0951rem + 1.087vi, .9375rem);
   --font-heading-size-1: clamp(2.4883rem, 2.0588rem + 1.718vi, 3.4332rem);
   --font-heading-size-2: clamp(2.0736rem, 1.7677rem + 1.2236vi, 2.7466rem);
   --font-heading-size-3: clamp(1.728rem, 1.5147rem + .8532vi, 2.1973rem);
