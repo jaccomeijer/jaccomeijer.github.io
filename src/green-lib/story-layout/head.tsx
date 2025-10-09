@@ -3,17 +3,34 @@ export interface Head {
   description: string
   favIconUrl: string
   generator: string
+  imageUrl: string
+  siteUrl: string
   title: string
 }
 
 export const Head = (props: Head) => {
   return (
     <head>
+      <title>{props.title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>{props.title}</title>
       <meta name="description" content={props.description} />
       <meta name="generator" content={props.generator} />
+
+      <meta name="title" content={props.title} />
+      <meta name="description" content={props.description} />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={props.siteUrl} />
+      <meta property="og:title" content={props.title} />
+      <meta property="og:description" content={props.description} />
+      <meta property="og:image" content={props.imageUrl} />
+
+      <meta property="twitter:card" content={props.imageUrl} />
+      <meta property="twitter:url" content={props.siteUrl} />
+      <meta property="twitter:title" content="xxx" />
+      <meta property="twitter:description" content={props.description} />
+      <meta property="twitter:image" content={props.imageUrl} />
 
       <link rel="icon" type="image/x-icon" href={props.favIconUrl} />
       {props.cssUrls.map((cssUrl, key) => (
