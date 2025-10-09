@@ -1,8 +1,8 @@
 const sitemetadata = {
   branding: {
     copyright: 'Copyright © 2024 Jacco Meijer',
-    description: 'Solutions and Security Architect, based in Utrecht, The Netherlands',
-    heading: 'Jacco Meijer, CISSP',
+    description: 'Solutions and Security Architect',
+    heading: 'Jacco Meijer',
     icon: 'home',
     url: '/',
   },

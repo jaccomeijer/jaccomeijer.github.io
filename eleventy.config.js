@@ -22,6 +22,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     'node_modules/feather-icons/dist/feather-sprite.svg': 'feather-sprite.svg',
     'src/site/favicon/favicon.ico': 'favicon.ico',
+    'src/site/pages/blog/meta-image/meta-image.jpg': 'meta-image.jpg'
   })
 
   // Fonts
