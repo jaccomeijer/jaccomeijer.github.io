@@ -20,7 +20,7 @@ export const BaseLayout = (props: BaseLayout & EleventyData) => {
         description={props.openerTopic?.abstract || props.sitemetadata.branding.description}
         favIconUrl="/favicon.ico"
         generator={props.sitemetadata.content.generator}
-        imageUrl="/meta-image.jpg"
+        imageUrl="https://www.jaccomeijer.nl/meta-image.jpg"
         siteUrl={props.page.url}
         title={`${props.openerTopic?.heading} (${props.sitemetadata.branding.heading} - ${props.sitemetadata.branding.description})`}
       />
