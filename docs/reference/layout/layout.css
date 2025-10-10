@@ -5,7 +5,6 @@
 
   html {
     -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
     text-size-adjust: none;
   }
 
@@ -1180,13 +1179,6 @@
     color: var(--color-primary-400);
   }
 
-  .topic {
-    gap: var(--space-s);
-    flex-direction: column;
-    width: 100%;
-    display: flex;
-  }
-
   .topic :-webkit-any(p, h1, h2, h3, h4, ul) {
     margin: 0;
     padding: 0;
@@ -1195,6 +1187,13 @@
   .topic :is(p, h1, h2, h3, h4, ul) {
     margin: 0;
     padding: 0;
+  }
+
+  .topic {
+    gap: var(--space-s);
+    flex-direction: column;
+    width: 100%;
+    display: flex;
   }
 
   .topic .topic-picture {
