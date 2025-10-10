@@ -15,7 +15,13 @@
     padding: 0;
   }
 
-  .navigation-header a, .navigation-header a:visited {
+  .navigation-header a {
+    color: currentColor;
+    text-decoration: none;
+    display: flex;
+  }
+
+  .navigation-header a:visited {
     color: currentColor;
     text-decoration: none;
     display: flex;
@@ -35,7 +41,11 @@
     display: flex;
   }
 
-  .navigation-header .wide-menu-view .main-actions, .navigation-header .wide-menu-view .social-actions {
+  .navigation-header .wide-menu-view .main-actions {
+    display: none;
+  }
+
+  .navigation-header .wide-menu-view .social-actions {
     display: none;
   }
 
@@ -44,14 +54,46 @@
       justify-content: space-between;
     }
 
-    .navigation-header .wide-menu-view, .navigation-header .wide-menu-view .branding-main-actions, .navigation-header .wide-menu-view .social-actions, .navigation-header .wide-menu-view .branding-main-actions ul, .navigation-header .wide-menu-view .social-actions ul {
+    .navigation-header .wide-menu-view {
       align-items: center;
       gap: var(--space-xs);
       flex-wrap: wrap;
       display: flex;
     }
 
-    .navigation-header .wide-menu-view .branding-main-actions, .navigation-header .wide-menu-view .social-actions {
+    .navigation-header .wide-menu-view .branding-main-actions {
+      align-items: center;
+      gap: var(--space-xs);
+      flex-wrap: wrap;
+      display: flex;
+    }
+
+    .navigation-header .wide-menu-view .social-actions {
+      align-items: center;
+      gap: var(--space-xs);
+      flex-wrap: wrap;
+      display: flex;
+    }
+
+    .navigation-header .wide-menu-view .branding-main-actions ul {
+      align-items: center;
+      gap: var(--space-xs);
+      flex-wrap: wrap;
+      display: flex;
+    }
+
+    .navigation-header .wide-menu-view .social-actions ul {
+      align-items: center;
+      gap: var(--space-xs);
+      flex-wrap: wrap;
+      display: flex;
+    }
+
+    .navigation-header .wide-menu-view .branding-main-actions {
+      gap: var(--space-s);
+    }
+
+    .navigation-header .wide-menu-view .social-actions {
       gap: var(--space-s);
     }
   }
