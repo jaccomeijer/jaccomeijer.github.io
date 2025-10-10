@@ -9,7 +9,6 @@ openerTopic:
   heading: ISO 27000, ISA 62443, NIS2, BIO, NIST CSF and NIST SP 800-53
   abstract: How to align the steadily increasing number of cyber security frameworks, standards and regulations?
   image: '/site/pages/blog/images/2025-08-28-rick-rothenberg-RFFWKgPjI3U-unsplash.jpg'
-
 ---
 
 export { BlogLayout as default } from '../helpers/blog-layout'
@@ -39,17 +38,16 @@ The table below shows a practical example of the standards that commonly need
 alignment in the Netherlands. The 62443 family of standards is included as an
 example for Operational Technology (OT).
 
-
-| Standard | Description |
-|--|--|
-| ISO 27001 Standard        | Risk based Management System standard for establishing, implementing, maintaining, and continually improving Information Security.|
-| ISO 27002 Standard        | Supporting standard on control implementation.|
-| ISA/IEC 62443 Standards   | A series of standards for industrial automation and control systems (IACS) cybersecurity.|
-| NIST SP 800-53 Standard   | US federal standard providing a comprehensive catalog of security and privacy controls.|
-| NIST CSF 2.0 Framework    | Voluntary risk based outcome focused framework designed to help organizations manage and reduce cybersecurity risk.|
-| NIS2 Directive            | Binding EU regulation that mandates cybersecurity requirements for essential and important entities.|
-| GDPR Regulation           | EU regulation on data protection and privacy for all individuals within the EU and EEA.|
-| BIO2 Framework/Regulation | Mandatory baseline framework aligning with ISO 27001/27002.|
+| Standard                  | Description                                                                                                                        |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| ISO 27001 Standard        | Risk based Management System standard for establishing, implementing, maintaining, and continually improving Information Security. |
+| ISO 27002 Standard        | Supporting standard on control implementation.                                                                                     |
+| ISA/IEC 62443 Standards   | A series of standards for industrial automation and control systems (IACS) cybersecurity.                                          |
+| NIST SP 800-53 Standard   | US federal standard providing a comprehensive catalog of security and privacy controls.                                            |
+| NIST CSF 2.0 Framework    | Voluntary risk based outcome focused framework designed to help organizations manage and reduce cybersecurity risk.                |
+| NIS2 Directive            | Binding EU regulation that mandates cybersecurity requirements for essential and important entities.                               |
+| GDPR Regulation           | EU regulation on data protection and privacy for all individuals within the EU and EEA.                                            |
+| BIO2 Framework/Regulation | Mandatory baseline framework aligning with ISO 27001/27002.                                                                        |
 
 ## Challenges
 
@@ -82,18 +80,17 @@ from and to their standards.
 The table below shows some of the most common crosswalks that are available for
 the standards in this post.
 
-| From | To | Crosswalk source |
-|--|--|--|
-| ISO 27001:2022     | ISA 62443-2-1:2024  | 62443-2-1 Annex A.4, Table A.7 |
-| ISO 27002:2013     | ISO 27002:2022      | ISO 27002 ANNEX B |
-| ISO 27002:2022     | NIST CSF v1         | ISO 27002 ANNEX A - TAGS |
-| NIST CSF v2.0      | NIST SP 800-53r5    | NIST CSF-pf-to-sp800-53r5-mappings.xlsx |
-| NIST CSF v2.0      | ISA 62443-2-1:2024  | 62443-2-1 Annex A.4, Table A.9 |
-| NIST SP 800-53r5   | ISO 27001:2022      | NIST.sp.800-53r5-to-iso-27001-mapping-2022-OLIR-2023-10-12-UPDATED.xlsx |
-| ISA 62443-2-1:2024 | ISO 27001:2013      | 62443-2-1 Annex A.4, Table A.8 |
-| ISA 62443-2-1:2024 | NIST CSF v1         | 62443-2-1 Annex A.4, Table A.10 |
-| NIS2               | ISO 27001:2022      | ENISA Technical Implementation Guidance Mapping table version 1.1 |
-
+| From               | To                 | Crosswalk source                                                        |
+| ------------------ | ------------------ | ----------------------------------------------------------------------- |
+| ISO 27001:2022     | ISA 62443-2-1:2024 | 62443-2-1 Annex A.4, Table A.7                                          |
+| ISO 27002:2013     | ISO 27002:2022     | ISO 27002 ANNEX B                                                       |
+| ISO 27002:2022     | NIST CSF v1        | ISO 27002 ANNEX A - TAGS                                                |
+| NIST CSF v2.0      | NIST SP 800-53r5   | NIST CSF-pf-to-sp800-53r5-mappings.xlsx                                 |
+| NIST CSF v2.0      | ISA 62443-2-1:2024 | 62443-2-1 Annex A.4, Table A.9                                          |
+| NIST SP 800-53r5   | ISO 27001:2022     | NIST.sp.800-53r5-to-iso-27001-mapping-2022-OLIR-2023-10-12-UPDATED.xlsx |
+| ISA 62443-2-1:2024 | ISO 27001:2013     | 62443-2-1 Annex A.4, Table A.8                                          |
+| ISA 62443-2-1:2024 | NIST CSF v1        | 62443-2-1 Annex A.4, Table A.10                                         |
+| NIS2               | ISO 27001:2022     | ENISA Technical Implementation Guidance Mapping table version 1.1       |
 
 ### Crosswalk spreadsheet pitfalls
 
@@ -123,18 +120,20 @@ Relationship Mapping (STRM)'.
 ### Set Theory Relationship Mapping
 
 > Definition: STRM is a relationship style derived from the branch of
-mathematics known as set theory. Each mapping done with this style includes both
-a rationale for the mapping and a relationship type.
+> mathematics known as set theory. Each mapping done with this style includes both
+> a rationale for the mapping and a relationship type.
 
 STRM supports three options for the rationale and five relationship types for
 documenting the logical similarity of two concepts.
 
 #### Rationale
+
 1. Syntactic: How similar is the wording?
 2. Semantic: How similar are the meanings of the two concepts?
 3. Functional: How similar are the results of executing the two concepts?
 
 #### Relationship types
+
 1. Subset of
 2. Intersects with
 3. Equal
@@ -156,7 +155,11 @@ Enterprise Architecture</a> where the elements of risk are modeled in red and
 the control measure (Data in transit is secure) and objective (Protection of
 sensitive data) are modeled in green.
 
-<Diagram src="/site/pages/blog/images-security-framework/ersm-base.svg" width="45rem" />
+<Diagram
+  src="/site/pages/blog/images-security-framework/ersm-base.svg"
+  width="45rem"
+  caption="Fig. 1 - Risk and control"
+/>
 
 Multiple standards generally contain multiple sets of control measures and
 objectives. The standards in this post for example have measures defined by ISO
@@ -184,7 +187,11 @@ relationship with the control objectives of standard x. To ensure consistency
 and to identify possible compliancy gaps, all related control objectives are
 documented by STRM as outlined in NIST IR 8477.
 
-<Diagram src="/site/pages/blog/images-security-framework/ersm-canonical.svg" width="45rem" />
+<Diagram
+  src="/site/pages/blog/images-security-framework/ersm-canonical.svg"
+  width="45rem"
+  caption="Fig. 2 - Risk and control with a Canonical Control Objective"
+/>
 
 ## Secure Controls Framework (SCF)
 
@@ -210,7 +217,11 @@ of privacy principles and the canonical set of controls.
 The last diagram in this post shows how the SCF defined elements relate. The
 STRM mappings being modeled as an aggregation relationship.
 
-<Diagram src="/site/pages/blog/images-security-framework/ersm-scf.svg" width="45rem" />
+<Diagram
+  src="/site/pages/blog/images-security-framework/ersm-scf.svg"
+  width="45rem"
+  caption="Fig. 3 - Risk and control with SCF"
+/>
 
 ## Other resources
 
@@ -220,15 +231,16 @@ Archer and MetricStream use proprietary schemas but align conceptually with
 `OSCAL` or `SCF` for interoperability.
 
 > [OSCAL](https://pages.nist.gov/OSCAL/): Open Security Controls Assessment
-Language, a NIST initiative to modernize and automate the processes of security
-and compliance. 
+> Language, a NIST initiative to modernize and automate the processes of security
+> and compliance.
 
-Use the AI prompt below as a starter for more information on this topic. 
+Use the AI prompt below as a starter for more information on this topic.
 
 ### Prompt for Cyber security data schemas
 
 ```md
 List available data schemas that capture details from security frameworks
+
 - framework examples:
   - iso27001
   - nist csf

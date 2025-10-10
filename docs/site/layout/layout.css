@@ -1651,7 +1651,10 @@
 
   .markdown .diagram .s-wrapper {
     border: 1px solid var(--color-mono-200);
+    color: var(--color-mono-200);
+    font-size: var(--font-size--1);
     background-color: #f0f0f0;
+    padding-bottom: var(--space-xs);
   }
 
   .site-header {
