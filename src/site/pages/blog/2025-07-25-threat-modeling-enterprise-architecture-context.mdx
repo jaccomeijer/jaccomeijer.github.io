@@ -9,7 +9,6 @@ openerTopic:
   heading: Threat modeling, security frameworks and Enterprise Architecture
   abstract: Combining ISO 27001, NIST CSF and threat modeling with Enterprise Architecture strengthens all elements
   image: '/site/pages/blog/images/2025-07-24-hirzul-maulana-Lu3vZL2yd2o-unsplash.jpg'
-
 ---
 
 export { BlogLayout as default } from '../helpers/blog-layout'
@@ -71,28 +70,38 @@ to the feedback loop as described in the fourth NIST CSF tier.
 Studying all four NIST CSF tiers closely shows that threat modeling increases
 cyber security by adding maturity to all four tiers.
 
-<Topic variant="card" topic={blogOpenerByNavId(props, 'csf-tiers-for-cyber-security-risk-governance-and-management')} swapImage={true} />
+<Topic
+  variant="card"
+  topic={blogOpenerByNavId(props, 'csf-tiers-for-cyber-security-risk-governance-and-management')}
+  swapImage={true}
+/>
 
 ### Enterprise Risk and Security Management (ERSM)
 
 The strength of Archimate (3.2 Specification) is in the layers and the 60
 elements. The six layers enable modeling a holistic view of an enterprise.
 
-The diagram below is an Archimate model for modeling risk. The three aspects of
-risk are modeled in red around the risk element:
+Figure 1 shows an Archimate model for modeling risk. The three aspects of risk
+are modeled in red around the risk element:
 
-1) threat (business event),
-2) vulnerability (assessment) and
-3) loss (business event) represents the asset.
+1. threat (business event),
+2. vulnerability (assessment) and
+3. loss (business event) represents the asset.
 
 The green elements show how the risk relates to a security control objective
 (goal), a security control measure (requirement) and a security principle.
 
-<Diagram src="/site/pages/blog/images-security-framework/ersm-base.svg" width="45rem" />
+<Diagram
+  src="/site/pages/blog/images-security-framework/ersm-base.svg"
+  width="45rem"
+  figureNumber={1}
+  caption="Archimate model for modeling risk"
+/>
 
 With the risk defined, the vulnerability element can be used to model risk by
-associating the element to any of the 60 Archimate elements. Below an example
-where the interface (e.g. HTTP instead of HTTPS) contains the vulnerability.
+associating the element to any of the 60 Archimate elements. Figure 2 shows an
+example where the interface (e.g. HTTP instead of HTTPS) contains the
+vulnerability.
 
 This example uses the application layer to model the risk, but other layers are
 equally useful. The technology layer for example, is usable for modeling
@@ -100,9 +109,14 @@ specific technology vulnerabilities and a vulnerability in a business process as
 another example, can be modeled on the business layer.
 
 > ABB and SBB as defined by TOGAF maintained by [The Open
-Group](https://www.opengroup.org)
+> Group](https://www.opengroup.org)
 
-<Diagram src="/site/pages/blog/images-security-framework/ersm-example-abb-sbb.svg" width="60rem" />
+<Diagram
+  src="/site/pages/blog/images-security-framework/ersm-example-abb-sbb.svg"
+  width="60rem"
+  figureNumber={2}
+  caption="Interface contains a vulnerability"
+/>
 
 ### Risk assessment elements
 

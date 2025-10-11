@@ -87,11 +87,11 @@ standards. This ensures that compliancy gaps are identified and that all legal
 obligations are met.</p>
 <p>From here, the next challenge is to relate the objectives from all standards to
 the three elements of risk: threats, vulnerabilities and assets.</p>
-<p>Below is a diagram from an <a href="/blog/threat-modeling-enterprise-architecture-context/">earlier post on
-Enterprise Architecture</a> where the elements of risk are modeled in red and
-the control measure (Data in transit is secure) and objective (Protection of
-sensitive data) are modeled in green.</p>
-<div class="diagram s-popout s-block-space u-block-space-l"><figure class="s-wrapper u-border-radius-rounded" style="--wrapper-width:45rem"><picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/PGJYxzONtV-400.webp 400w, /img/PGJYxzONtV-800.webp 800w, /img/PGJYxzONtV-1200.webp 1200w" sizes="100vw"><img src="/img/PGJYxzONtV-400.jpeg" alt="Image without description" width="1200" height="1004" srcset="/img/PGJYxzONtV-400.jpeg 400w, /img/PGJYxzONtV-800.jpeg 800w, /img/PGJYxzONtV-1200.jpeg 1200w" sizes="100vw"></picture><figcaption>Fig. 1 - Risk and control</figcaption></figure></div>
+<p>Figure 1 from an <a href="/blog/threat-modeling-enterprise-architecture-context/">earlier post on
+Enterprise Architecture</a> models the elements of risk in red and the control
+measure (Data in transit is secure) and objective (Protection of sensitive data)
+in green.</p>
+<div class="diagram s-popout s-block-space u-block-space-l"><figure class="s-wrapper u-border-radius-rounded" style="--wrapper-width:45rem"><picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/qtni7Dyq-U-400.webp 400w, /img/qtni7Dyq-U-800.webp 800w, /img/qtni7Dyq-U-1200.webp 1200w" sizes="100vw"><img src="/img/qtni7Dyq-U-400.jpeg" alt="Image without description" width="1200" height="1004" srcset="/img/qtni7Dyq-U-400.jpeg 400w, /img/qtni7Dyq-U-800.jpeg 800w, /img/qtni7Dyq-U-1200.jpeg 1200w" sizes="100vw"></picture><figcaption>Figure 1. Risk and control</figcaption></figure></div>
 <p>Multiple standards generally contain multiple sets of control measures and
 objectives. The standards in this post for example have measures defined by ISO
 27002, NIST SP 800-53r5 and ISA/IEC 62443 and all standards define control
@@ -106,13 +106,13 @@ ISMS itself. The best set covers all objectives of the ISMS and has a decent
 amount of granularity. ISO 27002 is often a good fit, as can be e.g. NIST SP
 800-53.</p>
 <h2>Canonical control objectives</h2>
-<p>The diagram below shows how the chosen set of canonical control objectives is
+<p>Figure 2 shows how the chosen set of canonical control objectives is
 mapped to the objectives of multiple standards.</p>
 <p>The canonical control objective element has a structural aggregation
 relationship with the control objectives of standard x. To ensure consistency
 and to identify possible compliancy gaps, all related control objectives are
 documented by STRM as outlined in NIST IR 8477.</p>
-<div class="diagram s-popout s-block-space u-block-space-l"><figure class="s-wrapper u-border-radius-rounded" style="--wrapper-width:45rem"><picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/wyRdDdYwMh-400.webp 400w, /img/wyRdDdYwMh-800.webp 800w, /img/wyRdDdYwMh-1200.webp 1200w" sizes="100vw"><img src="/img/wyRdDdYwMh-400.jpeg" alt="Image without description" width="1200" height="1004" srcset="/img/wyRdDdYwMh-400.jpeg 400w, /img/wyRdDdYwMh-800.jpeg 800w, /img/wyRdDdYwMh-1200.jpeg 1200w" sizes="100vw"></picture><figcaption>Fig. 2 - Risk and control with a Canonical Control Objective</figcaption></figure></div>
+<div class="diagram s-popout s-block-space u-block-space-l"><figure class="s-wrapper u-border-radius-rounded" style="--wrapper-width:45rem"><picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/wbSgG6UHDB-400.webp 400w, /img/wbSgG6UHDB-800.webp 800w, /img/wbSgG6UHDB-1200.webp 1200w" sizes="100vw"><img src="/img/wbSgG6UHDB-400.jpeg" alt="Image without description" width="1200" height="1004" srcset="/img/wbSgG6UHDB-400.jpeg 400w, /img/wbSgG6UHDB-800.jpeg 800w, /img/wbSgG6UHDB-1200.jpeg 1200w" sizes="100vw"></picture><figcaption>Figure 2. Risk and control with a Canonical Control Objective</figcaption></figure></div>
 <h2>Secure Controls Framework (SCF)</h2>
 <p>Choosing a canonical set that fits is a common challenge for many companies.
 This challenge resulted in an open source project called <a href="https://securecontrolsframework.com">Secure Controls
@@ -126,11 +126,13 @@ source project.</p>
 <p>SCF is available as a spreadsheet and all STRM mappings are available in PDF
 format. A small fee is required for the STRM mappings in spreadsheet format
 which is a minor investment considering the gain.</p>
-<p>SCF contains a threat catalog, a risk catalog, a set of domain principles, a set
-of privacy principles and the canonical set of controls.</p>
-<p>The last diagram in this post shows how the SCF defined elements relate. The
-STRM mappings being modeled as an aggregation relationship.</p>
-<div class="diagram s-popout s-block-space u-block-space-l"><figure class="s-wrapper u-border-radius-rounded" style="--wrapper-width:45rem"><picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/uRCtyGMQ-w-400.webp 400w, /img/uRCtyGMQ-w-800.webp 800w, /img/uRCtyGMQ-w-1200.webp 1200w" sizes="100vw"><img src="/img/uRCtyGMQ-w-400.jpeg" alt="Image without description" width="1200" height="1057" srcset="/img/uRCtyGMQ-w-400.jpeg 400w, /img/uRCtyGMQ-w-800.jpeg 800w, /img/uRCtyGMQ-w-1200.jpeg 1200w" sizes="100vw"></picture><figcaption>Fig. 3 - Risk and control with SCF</figcaption></figure></div>
+<p>Besides the canonical set of controls, SCF contains a threat catalog and a risk
+catalog. It defines a set of control domains which are related to &#x27;cybersecurity
+&amp; data privacy by design&#x27; principles. Another set of principles is called &#x27;data
+privacy management principles&#x27; which are mapped to specific privacy frameworks.</p>
+<p>Figure 3 shows how the SCF defined elements relate, STRM being used to relate a
+standard to a canonical control.</p>
+<div class="diagram s-popout s-block-space u-block-space-l"><figure class="s-wrapper u-border-radius-rounded" style="--wrapper-width:45rem"><picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/waFJy1gUQI-400.webp 400w, /img/waFJy1gUQI-800.webp 800w, /img/waFJy1gUQI-1200.webp 1200w" sizes="100vw"><img src="/img/waFJy1gUQI-400.jpeg" alt="Image without description" width="1200" height="1057" srcset="/img/waFJy1gUQI-400.jpeg 400w, /img/waFJy1gUQI-800.jpeg 800w, /img/waFJy1gUQI-1200.jpeg 1200w" sizes="100vw"></picture><figcaption>Figure 3. Risk and control with SCF</figcaption></figure></div>
 <h2>Other resources</h2>
 <p>The SCF solution is mentioned as an example GRC solution (Governance, Risk and
 Compliance). Many other solutions exist. Leading solutions like ServiceNow,

@@ -149,16 +149,17 @@ obligations are met.
 From here, the next challenge is to relate the objectives from all standards to
 the three elements of risk: threats, vulnerabilities and assets.
 
-Below is a diagram from an <a href={blogOpenerByNavId(props,
+Figure 1 from an <a href={blogOpenerByNavId(props,
 'threat-modeling-enterprise-architecture-context').action.url}>earlier post on
-Enterprise Architecture</a> where the elements of risk are modeled in red and
-the control measure (Data in transit is secure) and objective (Protection of
-sensitive data) are modeled in green.
+Enterprise Architecture</a> models the elements of risk in red and the control
+measure (Data in transit is secure) and objective (Protection of sensitive data)
+in green.
 
 <Diagram
   src="/site/pages/blog/images-security-framework/ersm-base.svg"
   width="45rem"
-  caption="Fig. 1 - Risk and control"
+  figureNumber={1}
+  caption="Risk and control"
 />
 
 Multiple standards generally contain multiple sets of control measures and
@@ -179,7 +180,7 @@ amount of granularity. ISO 27002 is often a good fit, as can be e.g. NIST SP
 
 ## Canonical control objectives
 
-The diagram below shows how the chosen set of canonical control objectives is
+Figure 2 shows how the chosen set of canonical control objectives is
 mapped to the objectives of multiple standards.
 
 The canonical control objective element has a structural aggregation
@@ -190,7 +191,8 @@ documented by STRM as outlined in NIST IR 8477.
 <Diagram
   src="/site/pages/blog/images-security-framework/ersm-canonical.svg"
   width="45rem"
-  caption="Fig. 2 - Risk and control with a Canonical Control Objective"
+  figureNumber={2}
+  caption="Risk and control with a Canonical Control Objective"
 />
 
 ## Secure Controls Framework (SCF)
@@ -211,16 +213,19 @@ SCF is available as a spreadsheet and all STRM mappings are available in PDF
 format. A small fee is required for the STRM mappings in spreadsheet format
 which is a minor investment considering the gain.
 
-SCF contains a threat catalog, a risk catalog, a set of domain principles, a set
-of privacy principles and the canonical set of controls.
+Besides the canonical set of controls, SCF contains a threat catalog and a risk
+catalog. It defines a set of control domains which are related to 'cybersecurity
+& data privacy by design' principles. Another set of principles is called 'data
+privacy management principles' which are mapped to specific privacy frameworks.
 
-The last diagram in this post shows how the SCF defined elements relate. The
-STRM mappings being modeled as an aggregation relationship.
+Figure 3 shows how the SCF defined elements relate, STRM being used to relate a
+standard to a canonical control.
 
 <Diagram
   src="/site/pages/blog/images-security-framework/ersm-scf.svg"
   width="45rem"
-  caption="Fig. 3 - Risk and control with SCF"
+  figureNumber={3}
+  caption="Risk and control with SCF"
 />
 
 ## Other resources

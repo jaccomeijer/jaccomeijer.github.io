@@ -2,6 +2,7 @@ import { Picture } from '../../../green-lib/components/picture/picture'
 
 export interface Diagram {
   caption?: string
+  figureNumber?: number
   src: string
   width: string
 }
@@ -12,7 +13,7 @@ export const Diagram = (props: Diagram) => {
       {/* @ts-expect-error */}
       <figure className="s-wrapper u-border-radius-rounded" style={{ '--wrapper-width': props.width }}>
         <Picture className="s-block-space u-block-space-s" src={props.src} />
-        { props.caption && <figcaption>{props.caption}</figcaption> }
+        { props.figureNumber && <figcaption>Figure {props.figureNumber}. {props.caption}</figcaption> }
       </figure>
     </div>
   )
