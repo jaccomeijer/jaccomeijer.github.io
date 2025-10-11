@@ -9,7 +9,6 @@ openerTopic:
   heading: Threat modeling as part of a risk framework
   abstract: Threat modeling in the context of ISO 27001 and NIST CSF
   image: '/site/pages/blog/images/2025-07-18-hassaan-here-o3Kx_nA7M44-unsplash.jpg'
-
 ---
 
 export { BlogLayout as default } from '../helpers/blog-layout'
@@ -88,6 +87,7 @@ Use this AI-prompt to get started and customize where needed.
 
 ```md
 Create a matrix:
+
 - conditions:
   - output on screen csv
   - use ✅ for yes
@@ -115,16 +115,16 @@ spreadsheet and using a whiteboard.
 Depending on the context threats are commonly defined by starting with one of
 these three perspectives.
 
-| Perspective         | Starting point for identifying threats |
-|---------------------|----------------------------------------|
-| Attacker            | Setup a motivation stack for possible attackers |
-| Asset               | Classify assets by determining quantitative and qualitative asset value  |
-| Software            | Visualize components, processes and data flows |
+| Perspective | Starting point for identifying threats                                  |
+| ----------- | ----------------------------------------------------------------------- |
+| Attacker    | Setup a motivation stack for possible attackers                         |
+| Asset       | Classify assets by determining quantitative and qualitative asset value |
+| Software    | Visualize components, processes and data flows                          |
 
 ### Spreadsheet technique
 
 A classic approach to threat modeling is the spreadsheet exercise. Simply add
-the elements of risk, as mentioned at the start of this post, to the columns of
+the components of risk, as mentioned at the start of this post, to the columns of
 a spreadsheet and fill the rows with possible threats and risk treatments.
 
 From spreadsheets it's a small step to a more structured approach using specific
@@ -169,4 +169,8 @@ collaborative effort is at the core of the threat modeling culture.
 Combining ISO 27001, NIST CSF and threat modeling with Enterprise Architecture
 strengthens all elements. More on that in the post below.
 
-<Topic variant="card" topic={blogOpenerByNavId(props, 'threat-modeling-enterprise-architecture-context')} swapImage={true} />
+<Topic
+  variant="card"
+  topic={blogOpenerByNavId(props, 'threat-modeling-enterprise-architecture-context')}
+  swapImage={true}
+/>

@@ -48,7 +48,7 @@ Both the observatory nature of threat modeling and the holistic nature of
 Enterprise Architecture contribute to improved risk management.
 
 Threat modeling helps by collaboratively modeling new threats and treatments. EA
-helps by relating the elements of risk to the holistic view of the enterprise.
+helps by relating the components of risk to the holistic view of the enterprise.
 
 Observing and modeling risks related to motivation, strategy, business goals,
 the application landscape and the technology used, is an enormous strength.
@@ -81,38 +81,55 @@ cyber security by adding maturity to all four tiers.
 The strength of Archimate (3.2 Specification) is in the layers and the 60
 elements. The six layers enable modeling a holistic view of an enterprise.
 
-Figure 1 shows an Archimate model for modeling risk. The three aspects of risk
-are modeled in red around the risk element:
+Figure 1 shows an Archimate model for modeling risk.
 
-1. threat (business event),
-2. vulnerability (assessment) and
-3. loss (business event) represents the asset.
+#### Cyber security risk
 
-The green elements show how the risk relates to a security control objective
-(goal), a security control measure (requirement) and a security principle.
+The three components of risk are modeled in red:
+
+1. threat (business event);
+2. vulnerability (assessment);
+3. loss (business event) which represents the loss of an asset.
+
+#### Cyber security standards
+
+The cyber security standards group shows the defense as defined by a security
+standard:
+
+1. one of the objectives of a security standard;
+2. one of the control measures as defined by a security standard;
+3. a global security principle.
+
+#### Technology layer
+
+Outside of the group are three elements of the technology layer:
+
+1. Sensitive information asset, protected by the one of the objectives;
+2. Insecure node, part of the infrastructure that contains the vulnerability;
+3. Secure interface, as part of a secure solution that realizes one of the
+   control measures.
 
 <Diagram
   src="/site/pages/blog/images-security-framework/ersm-base.svg"
-  width="45rem"
+  width="55rem"
   figureNumber={1}
   caption="Archimate model for modeling risk"
 />
 
 With the risk defined, the vulnerability element can be used to model risk by
 associating the element to any of the 60 Archimate elements. Figure 2 shows an
-example where the interface (e.g. HTTP instead of HTTPS) contains the
-vulnerability.
+example where the firewall contains the vulnerability.
 
-This example uses the application layer to model the risk, but other layers are
-equally useful. The technology layer for example, is usable for modeling
-specific technology vulnerabilities and a vulnerability in a business process as
-another example, can be modeled on the business layer.
+This example uses the technology layer to model the risk, but other layers are
+equally useful. The application layer for example, can be used to model
+vulnerabilities in application functions and a vulnerability in a business
+process as another example, can be modeled on the business layer.
 
 > ABB and SBB as defined by TOGAF maintained by [The Open
 > Group](https://www.opengroup.org)
 
 <Diagram
-  src="/site/pages/blog/images-security-framework/ersm-example-abb-sbb.svg"
+  src="/site/pages/blog/images-security-framework/ersm-example-web-app.svg"
   width="60rem"
   figureNumber={2}
   caption="Interface contains a vulnerability"
@@ -127,7 +144,7 @@ The diagram uses risk assessment elements as outlined in the post below.
 ## Conclusion
 
 Threat modeling helps by collaboratively modeling new threats and treatments.
-The holistic view EA provides helps by relating the elements of risk to
+The holistic view EA provides helps by relating the components of risk to
 motivation, business goals, the application landscape and the technologies in
 use.
 
