@@ -1,0 +1,70 @@
+---
+permalink: /blog/archimate-cissp-domains/
+navigation:
+  id: archimate-cissp-domains
+date: 2025-05-01
+lastmod: 2025-06-02
+tags: ['blog']
+openerTopic:
+  heading: CISSP certification and Enterprise Architecture
+  abstract: How do the CISSP certification domains relate to Enterprise Architecture and the ArchiMate layers?
+  image: '/site/pages/blog/images/2025-06-01-izzy-gibson-xqFCy9AbHP4-unsplash.jpg'
+
+cake:
+  icon: message-square
+  heading: – Steve Jobs
+  abstract: >
+    "You've baked a really lovely cake, but then you've used dog shit for frosting"
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { blogOpenerByNavId } from '../../helpers/blog-openers-by-nav-id'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+import { Diagram } from '../../helpers/diagram'
+
+## Security architect
+
+The post below maps architect roles to ArchiMate layers. In that context the
+post describes the security architect. A relevant certification for a security
+architect is called CISSP (Certified Information Systems Security Professional).
+This post relates the domains used by the CISSP certification to the architect
+roles and ArchiMate layers.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'archimate-architect-roles')} swapImage={true} />
+
+## Security architect
+
+Security is a broad area. The CISSP Common Body of Knowledge (CBK) divides the
+profession into eight domains.
+
+1) Security and risk management
+2) Asset security
+3) Security architecture and engineering
+4) Communication and network security
+5) Identity and access management
+6) Security assessment and testing
+7) Security operations
+8) Software development security
+
+## The model
+
+If there's one thing that the model makes clear, it is that security is
+relevant for all layers. From strategy to technology, security is a topic.
+
+<Diagram src="/site/pages/blog/images-architecture/archimate-cissp.svg" width="70rem" />
+
+## Cake analogy
+
+The cake analogy is often used to explain that security should be a baked-in
+ingredient instead of an add-on.
+
+The cake analogy works well for the technology and the application layer. The
+model makes clear that the analogy is relevant for the strategy and the business
+layers as well.
+
+The full enterprise architecture being the cake here. Over time every architect
+should have security baked in. Until then, a separate security architect
+overseeing the full architecture on security remains relevant.
+
+<Topic variant="quote" topic={props.cake} />

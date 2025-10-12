@@ -1,0 +1,87 @@
+---
+permalink: /blog/csf-tiers-for-cyber-security-risk-governance-and-management/
+navigation:
+  id: csf-tiers-for-cyber-security-risk-governance-and-management
+date: 2025-06-27
+lastmod: 2025-07-09
+tags: ['blog']
+openerTopic:
+  heading: NIST CSF Tiers for cyber security risk governance and management
+  abstract: NIST CSF 2.0 contains useful tiers for Capability Maturity Modeling in Enterprise Architecture
+  image: '/site/pages/blog/images/2025-06-27-jason-leung-2pukhOxDcs4-unsplash.jpg'
+
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { blogOpenerByNavId } from '../../helpers/blog-openers-by-nav-id'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+import { Diagram } from '../../helpers/diagram'
+
+## NIST CSF Categories
+
+The post below about combining ISO 27001 and NIST CSF shows an Enterprise
+Architecture (EA) model that maps the two standards.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'iso-27001-nist-csf')} swapImage={true} />
+
+One of the advantages of NIST CSF is a well known set of categories that are
+useful as Enterprise Architecture (EA) business functions. This post is about
+the Maturity Model that NIST CSF describes as Tiers which can be used to
+classify the maturity of e.g. these business functions.
+
+## NIST CSF tiers
+
+The full descriptions of the tiers is found in Appendix B of NIST CSF. Below is
+a brief summary that gives a quick overview.
+
+| Tier | Name          | Risk Governance              | Risk Management                              |
+|:----:|:-------------:|:----------------------------:|:--------------------------------------------:|
+| 1    | Partial       | Ad hoc                       | Ad hoc                                       |
+| 2    | Risk Informed | Adds management approval     | Adds awareness and sharing on informal basis |
+| 3    | Repeatable    | Adds company wide policy     | Adds consistent methods                      |
+| 4    | Adaptive      | Adds company culture         | Adds feedback loop                           |
+
+The well known nature of the framework and the clear descriptions it provides is
+a major advantage over defining your own. As with many other maturity models,
+the model goes from the ad hoc state to a state that is continuously improving
+from experience.
+
+The tiers explicitly being designed for cyber security make them a valuable
+benchmark for this specific field.
+
+## NIST CSF profiles
+
+Related to the tiers, the NIST CSF defines the concept of profiles. From an EA
+perspective the CSF **current profile** corresponds to **as is** and the CSF
+**target profile** corresponds to **to be**.
+
+The tiers are useful for defining a baseline **as is** or **to be** models and
+can be customized where needed.
+
+## Enterprise Architecture
+
+Within EA the tiers are generally used by applying a metric to an element. The
+diagram below shows color coded capabilities for the four tiers.
+
+<Diagram src="/site/pages/blog/images-security-framework/nist-csf-tiers.svg" width="45rem" />
+
+### NIST CSF tiers on CSF Categories
+
+Using the color coded tiers on the CSF core functions and mid-level categories
+results in a diagram like the example below. This provides an organization with
+clear overview of the status of cyber security risk governance and management.
+
+<Diagram src="/site/pages/blog/images-security-framework/nist-csf-tiers-on-functions.svg" width="70rem" />
+
+## Conclusion
+
+NIST CSF tiers are a useful way to complement an organization's cyber security
+risk management methodology. The tiers can be used as a benchmark and when risks
+for an organization increase, part of the strategy can be moving up to a higher
+tier.
+
+For organizations that are ISO 27001 certified and willing to adopt the tiers,
+the post below is about how ISO 27001 and NIST CSF can be combined.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'iso-27001-nist-csf')} swapImage={true} />

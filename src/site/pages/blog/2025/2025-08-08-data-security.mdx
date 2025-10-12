@@ -1,0 +1,131 @@
+---
+permalink: /blog/data-security/
+navigation:
+  id: data-security
+date: 2025-08-08
+lastmod: 2025-08-08
+tags: ['blog']
+openerTopic:
+  heading: Data security
+  abstract: Data identification, data roles and data classification from a security perspective
+  image: '/site/pages/blog/images/2025-08-08-milad-fakurian-bDQy-AeHDFg-unsplash.jpg'
+
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { blogOpenerByNavId } from '../../helpers/blog-openers-by-nav-id'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+import { TopicList } from '../../../../green-lib/components/topic-list/topic-list'
+import { Diagram } from '../../helpers/diagram'
+
+## Asset security context
+
+The post below on asset security is about the information systems that process,
+transfer or store data. This post is about the data in that context.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'information-asset-security')} swapImage={true} />
+
+## Data identification
+
+Data generally grows steadily within organizations. Newly added data has
+significant impact on organization security which makes it important to identify
+new data. The more is known about the new data, the better it can be protected.
+
+### Data security roles
+
+All data should have an owner to ensure proper data governance. The diagram
+below shows the relationship between data roles, capabilities and the relevant
+requirements.
+
+> The diagram uses 'data asset' to describe the value of the data. This
+> differentiates from the actual data itself which is simply referred to as
+> 'data'.
+
+<Diagram src="/site/pages/blog/images-security-framework/data-asset-roles.svg" width="60rem" />
+
+### Data owner
+
+The term 'data owner' is used across multiple regulations with different
+meanings.
+
+- ISACA emphasizes value, quality, and lifecycle governance of data, not just
+  security
+- ISO uses 'asset owner' which includes data as part of information assets
+- NIST uses 'information owner' and ties the role to risk management and
+  security authorization
+
+This is a useful AI prompt for further research.
+
+```md
+- create table with role usage
+- each cell contains only once:
+  - ✅ List organizations
+  - ❌: Not used
+- include organizations
+  - isaca
+  - iso
+  - nist
+- columns
+  - data
+  - information
+  - system
+  - asset
+- rows
+  - owner
+  - steward
+  - controller
+  - processor
+  - custodian
+```
+
+| **Role \\ Object** | **Data** | **Information** | **System** | **Asset** |
+|---|---|---|---|---|
+| **Owner** | ✅ ISACA | ✅ NIST | ✅ NIST | ✅ ISO |
+| **Steward** | ✅ ISACA | ✅ NIST | ❌ | ❌ |
+| **Controller** | ✅ GDPR | ❌ | ❌ | ❌ |
+| **Processor** | ✅ GDPR | ❌ | ❌ | ❌ |
+| **Custodian** | ✅ ISACA & NIST | ❌ | ❌ | ❌ |
+
+
+## Data classification
+
+Data classification is assigning a value and a sensitivity level based on
+content and context. Data categorization is grouping the classified data.
+
+Classification is important because treating security risks for all data equally
+is a costly approach. It is much more efficient to classify data on sensitivity
+and differentiate accordingly.
+
+### Data classification
+
+Data classification is always best practice but is usually only formalized in
+strongly regulated environments like military, governments and banks.
+
+With every newly introduced cyber security law however, data classification
+becomes increasingly important for all organizations.
+
+
+### Data classification types
+
+Data classification can be divided into three primary types.
+
+|  Classification Type  |  Description  |  Examples  |
+|-----------------------|--------------------------------------------------------------|--------------------------------------------------------------|
+| **Content-Based**     | Analyzes the actual data within the file or message.         | Detects credit card numbers, PII, or sensitive keywords in documents. |
+| **Context-Based**     | Uses metadata or environmental factors around the data.      | Classifies based on file location, sender/receiver, or access patterns. |
+| **User-Based**        | Relies on user roles, behavior, or manual input.             | User selects classification label; defaults based on department or role. |
+
+## Conclusion
+
+Understanding data is a foundational aspect of data security. As organizations
+continues to generate and handle increasing volumes of data, identifying and
+classifying this data becomes essential for maintaining cyber security.
+
+Assigning clear ownership and applying appropriate classification methods
+enables organizations to manage risks more efficiently and comply with evolving
+regulatory requirements.
+
+By treating data as a valuable asset and aligning roles and responsibilities
+accordingly, organizations can ensure that their data governance and protection
+strategies are both effective and scalable.

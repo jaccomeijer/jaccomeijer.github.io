@@ -1,0 +1,86 @@
+---
+permalink: /blog/content-modeling-with-variants/
+navigation:
+  id: content-modeling-with-variants
+date: 2022-03-21
+lastmod: 2025-05-01
+tags: ['blog']
+openerTopic:
+  heading: Content modeling with variants
+  abstract: The efficiency of a variant field in a content model.
+  image: /site/pages/blog/images/2022-03-21-simon-lee-zft-W1kVEhg-unsplash.jpg
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+import { blogOpenerByNavId } from '../../helpers/blog-openers-by-nav-id'
+
+## Content modeling
+
+Adding a 'variant' atrribute can reduce the number of models needed when
+modeling for a marketing site.
+
+When modeling for an app this is not true. Mainly because an app works with
+fixed layouts and layouts for a marketing site must be flexible.
+
+### Content modeling for an app
+
+For apps with a lot of fixed content it is practical to have a Screen model with
+an uiModels field. The uiModels field holds an array of models that are close to
+the models used for the UI components.
+
+Both the Screen model and the uiModels contain fixed ids. These ids bind the
+content to specific usage in the app.
+
+For each screen of the app a Screen entry is added. For each UI element on that
+screen a uiModel entry is added to the uiModels field.
+
+### Content modeling for a marketing site
+
+A 'variant' field is notably efficient when used in an environment with a text
+editor that allows for content models to be embedded in the text. The Contentful
+rich text editor is a good example.
+
+Setting up models for a site it is obvious to start with a Page model. This
+model contains the text editor. The page model also holds fields for things like
+url and SEO.
+
+Next, two models that can be embedded are defined. One model for topics and one
+model for lists of topics.
+
+#### Topic model
+
+The Topic model contains the standard fields of any 'call to action'. A heading,
+an abstract and an action.
+
+Adding a 'variant' field to this model gives an editor control over how the
+topic is displayed.
+
+#### List model
+
+The List model contains a list of topics.
+
+Adding a 'variant' field to this model gives an editor control over what list is
+used. The number of columns, the headers, etc. The 'topicVariant' field controls
+which variant is used for the topics in the list.
+
+#### Composing pages
+
+At this point three models are defined. All three can be embedded in the text.
+
+Adding a 'variant' field to the Page model gives an editor control over how to
+display a link to a Page.
+
+With just three models and the variant field a great variety of pages can be
+created. The more variants each model has, the more powerful this design
+becomes.
+
+## Next
+
+Adding a 'colors' atrribute to the interface allows for theming components. The
+post below explains how.
+
+<Topic
+  variant="card"
+  topic={blogOpenerByNavId(props, 'react-component-themes')}
+/>

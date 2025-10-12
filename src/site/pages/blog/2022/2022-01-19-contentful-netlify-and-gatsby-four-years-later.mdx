@@ -1,0 +1,75 @@
+---
+permalink: /blog/contentful-netlify-and-gatsby-four-years-later/
+navigation:
+  id: contentful-netlify-and-gatsby
+date: 2022-01-19
+lastmod: 2025-05-01
+tags: ['blog']
+openerTopic:
+  heading: 'Contentful, Netlify and Gatsby four years later'
+  abstract: What did we learn from using Contentful for four years?
+  image: /site/pages/blog/images/2022-01-19-sharon-pittaway-4_hFxTsmaO4-unsplash.jpg
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { blogOpenerByNavId } from '../../helpers/blog-openers-by-nav-id'
+
+## First project
+
+### Contentful
+
+In 2018 we used [Contentful](https://www.contentful.com) for a web based rental
+platform. The project ran with Next.js in a Docker container on Kubernetes.
+
+### Perfect team
+
+Not much later, when [GatsbyJs](https://www.gatsbyjs.com) adopted [Relay's
+graphql tag](https://relay.dev/docs/guides/compiler/) we switched from Next.js
+to GatsbyJs. At the time, [Netlify](https://www.netlify.com) gained popularity
+because of popular git based workflows and static site generators like GatbsyJs.
+
+We learned that Contentful, GatsbyJs and Netlify made a perfect team.
+
+<Picture className="s-block-space u-block-space-s" src="/site/pages/blog/images/2022-01-19-Contentful-Gatsby-Netlify.png" />
+
+## Four years later
+
+Anno 2022 the perfect team is still here. Each service improved, but overall the
+services remain the same.
+
+### Modeling content
+
+Having used Contentful for four year we learned how to use the service
+efficiently. We learned how to model content.
+
+### Number of models
+
+Working on that first project in 2018 we found that the maximum number of models
+that could be defined in Contentful was too limited. We based our models on a
+combination of objects and their visual representation.
+
+For example, we defined three models for displaying car objects: car,
+car-listing and car-section.
+
+This made sense from the visual representation. The full overview of a car, a
+list of cars and the 'call to action' for a specific car. For the full site we
+needed 21 models.
+
+### Less models
+
+For this site 6 models are used. That is because this is a simpler site, because
+we define our models more efficiently and also because of the Contentful Rich
+Text Editor that was introduced in 2018.
+
+## Next
+
+Part of the efficient model definition is adding a 'variant' field to a data
+model. The post below is about how this reduces the number of models.
+
+<Topic
+  variant="card"
+  topic={blogOpenerByNavId(props, 'content-modeling-with-variants')}
+  swapImage={true}
+/>

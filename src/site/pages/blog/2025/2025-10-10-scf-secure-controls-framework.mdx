@@ -1,0 +1,80 @@
+---
+permalink: /blog/scf-secure-controls-framework/
+navigation:
+  id: scf-secure-controls-framework
+date: 2025-10-14
+lastmod: 2025-10-14
+tags: ['blog']
+openerTopic:
+  heading: Canonical controls with Enterprise Risk and Security Management
+  abstract: How to use the SCF canonical control objectives with ERSM in Archimate
+  image: '/site/pages/blog/images/2025-10-10-roman-gauz-Gb7lsRjFpIU-unsplash.jpg'
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { blogOpenerByNavId } from '../../helpers/blog-openers-by-nav-id'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+import { TopicList } from '../../../../green-lib/components/topic-list/topic-list'
+import { Diagram } from '../../helpers/diagram'
+
+## Work in progress
+
+This post is a work in progress.
+
+## Secure Controls Framework
+
+The post below on how to align the steadily increasing number of security
+standards refers to the [Secure Controls
+Framework](https://securecontrolsframework.com) (SCF) as an example. This post is
+about how to use the SCF canonical control objectives with Enterprise Risk and
+Security Management (ERSM) in Archimate.
+
+<Topic
+  variant="card"
+  topic={blogOpenerByNavId(props, 'iso-27000-isa-62443-nis2-bio-nist-csf-800-53')}
+  swapImage={true}
+/>
+
+## SCF Meta model
+
+Figure 3 in <a href={blogOpenerByNavId(props,
+  'iso-27000-isa-62443-nis2-bio-nist-csf-800-53').action.url}>this post on
+  security standards</a> models all elements of the SCF. Figure 1 shows an
+updated version of the same model where all technology elements are moved to the
+bottom of the model.
+
+<Diagram
+  src="/site/pages/blog/images-security-framework/ersm-scf-v2.svg"
+  width="55rem"
+  figureNumber={1}
+  caption="SCF with cyber security risk and standards. Square brackets define the source."
+/>
+
+
+## Setup SCF
+
+Using the SCF can save a lot of work because it improves in terms of efficiency,
+but is by no means an of the shelf solution. This is a summary of what the **SCF
+is not** from the official documentation:
+
+>  A substitute for performing due diligence and due care
+
+> A complete technology or documentation solution to address all your cybersecurity & data privacy
+needs
+
+> A solution guaranteed to meet every compliance requirement of your organization
+
+TBW: Using the SCF needs proper setup. 
+
+## Cyber security standards
+
+TBW: Standards contain either objectives, measures or both.
+
+## Vulnerabilities, threats, objectives and measures
+
+TBW:  All measures defined, how are the measures realized
+
+## Work in progress
+
+This post is a work in progress.

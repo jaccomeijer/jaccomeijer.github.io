@@ -1,0 +1,140 @@
+---
+permalink: /blog/esbuild-as-static-site-generator/
+navigation:
+  id: esbuild-as-static-website-generator
+date: 2024-03-19
+lastmod: 2025-05-01
+tags: ['blog']
+openerTopic:
+  heading: Esbuild as a static site generator for MDX
+  abstract: Static site generators gain popularity. This blog is about using Esbuild as a static site generator for MDX.
+  image: '/site/pages/blog/images/2024-03-19-jj-ying-7JX0-bfiuxQ-unsplash.jpg'
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { blogOpenerByNavId } from '../../helpers/blog-openers-by-nav-id'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+import { TopicList } from '../../../../green-lib/components/topic-list/topic-list'
+
+## 11ty and Github pages
+
+The last post summarized how the Contentful-Gatsby-Netlify trio could be
+simplified by using Github pages and [11ty](https://www.11ty.dev).
+
+<Topic
+  variant="card"
+  topic={blogOpenerByNavId(props, '11ty-and-github-pages')}
+  swapImage={true}
+/>
+
+This post continues the quest for simplicity from there.
+
+The proposition is, if only [Esbuild](https://esbuild.github.io) can be used to
+generate static HTML, this would be even simpler than using 11ty.
+
+## Javascript bundler landscape
+
+Nobody really liked solving the Webpack and Babel configuration puzzles.
+Occasionally they blocked the actual project.
+
+The bundler landscape matured with the rise of Parcel and Rollup and in 2020
+Evan Wallace, one of the co-founders of Figma, released Esbuild.
+
+Written in Go and 100 times faster than Webpack it is a welcome addition to the
+Javascript bundler landscape
+
+<TopicList
+  className="s-grid u-grid-two-cols u-gap-m"
+  topics={blogOpenerByNavId(props, ['javascript-history', 'transpilers-bundlers-and-modules'])}
+  variant="card"
+  swapImage={true}
+/>
+
+## Esbuild
+
+Esbuild supports TypeScript, JSX and tree-shaking. Besides that, Esbuild
+contains a live reloading webserver that triggers a full rebuild on a browser
+refresh.
+
+Esbuild generates Javascript bundles but a static site generator generates HTML.
+The extensible nature of Esbuild allows for a simple plugin to take care of
+transforming the final bundle to HTML.
+
+## MDX
+
+Setting up `Esbuild` and `@mdx-js/esbuild` is straightforward and [clearly
+explained](https://mdxjs.com/packages/esbuild/) on mdxjs.com.
+
+This Esbuild/MDX setup makes Esbuild transform MDX to JSX/Javascript bundles.
+Additional functionality can be added by using plugins from the rich MDX
+ecosystem. The example below shows how to add support for:
+
+- Front Matter (as described in previous post)
+- Code highlighting
+- GitHub Flavored Markdown Spec
+
+```js
+import mdx from '@mdx-js/esbuild'
+import rehypeHighlight from 'rehype-highlight'
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
+import remarkGfm from 'remark-gfm'
+
+const plugins = [
+  mdx({
+    jsxImportSource: 'preact',
+    remarkPlugins: [
+      [remarkGfm],
+      [remarkFrontmatter, ['yaml', 'toml']],
+      [remarkMdxFrontmatter, { name: 'frontmatter' }],
+    ],
+    rehypePlugins: [rehypeHighlight],
+  }),
+]
+```
+
+## Live reloading webserver
+
+Setting up the Esbuild webserver is [explained
+here](https://esbuild.github.io/api/#live-reload). For live reloading a line of
+Javascript must be added to the page template.
+
+Using Javascript the Esbuild webserver is started like this:
+
+```js
+const ctx = await esbuild.context({
+  entryPoints: ['index'],
+  format: 'esm',
+  outdir: 'build',
+  plugins: [
+    mdx({
+      /** options **/
+    }),
+  ],
+})
+
+await ctx.watch()
+const { port } = await ctx.serve({ servedir: 'build' })
+
+console.log(`Live reload server started at http://localhost:${port}\n`)
+```
+
+## Conclusion
+
+Esbuild is a fantastic tool. It is fast, capable and extendable. With
+'something' that renders JSX bundles to static HTML Esbuild could act as a
+simple static site generator.
+
+## JSX Render plugin
+
+The 'something' from the last paragraph is described as a 'JSX Render plugin'.
+This plugin must transform generated Javascript bundles to HTML pages.
+
+More on that in the next post.
+
+<Topic
+  variant="card"
+  topic={blogOpenerByNavId(props, 'render-jsx-plugin')}
+  swapImage={true}
+/>

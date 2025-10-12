@@ -1,0 +1,155 @@
+---
+permalink: /blog/comparing-between-react-app-nextjs-and-gatsby/
+date: 2022-05-12
+lastmod: 2025-05-01
+tags: ['blog']
+openerTopic:
+  heading: 'Comparing React app, Nextjs and Gatsby'
+  abstract: 'A new React project starts with a React toolchain. Main tools in the chains are SSR, React server components and GraphQL.'
+  image: /site/pages/blog/images/2022-05-12-solen-feyissa-mfrDGn5juqs-unsplash.jpg
+createReactAppTopic:
+  heading: facebook/create-react-app
+  abstract: 'Create React App is a comfortable environment for learning React, and is the best way to start building a new single-page application in React.'
+  icon: github
+  action:
+    heading: facebook/create-react-app
+    icon: external-link
+    url: https://github.com/facebook/create-react-app
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+
+## Create-react-app
+
+The most simple React app is a `<script>` tag on a HTML page. Add JSX and CSS
+prefixing, and you have the typical minimal setup.
+
+This is what [create-react-app](https://github.com/facebook/create-react-app)
+is, a very practical minimal setup.
+
+<Topic variant="card" topic={props.createReactAppTopic} />
+
+## Server side rendering
+
+One of the first requirements from the minimal setup is Server Side Rendering
+(SSR). The two most popular toolchains that provide SSR are
+[Gatsby](https://www.gatsbyjs.com) and [Next.js](https://nextjs.org).
+
+### Gatsby
+
+Gatsby is a static site generator that added new features with each major
+update. With the first major release in 2017, Gatsby integrated
+[Relay](https://relay.dev) with the [GraphQL Cursor Connections
+Specification](https://relay.dev/graphql/connections.htm).
+
+The third release promised future support for [React concurrent
+mode](https://reactjs.org/blog/2022/03/29/react-v18.html#what-is-concurrent-react)
+and [React server
+components](https://reactjs.org/blog/2022/03/29/react-v18.html#server-components-is-still-in-development).
+
+### Next.js
+
+Next.js started as a [Node.js](https://nodejs.org/en/) backend toolchain. With
+the third major release in 2017, Next.js gained support for static export.
+
+Next.js added alpha support for React server components in version 12.
+
+## Comparing the three
+
+Main tools in the chains are SSR, React server components and GraphQL. Other
+notable differences are in hosting, development cycle, ecosystem and how
+opinionated the toolchains are.
+
+### Hosting
+
+This is where Next.js differs from create-react-app and Gatsby.
+
+Next.js runs on a Node.js backend. Pages requested by a browser are dynamically
+generated on the backend. Besides generating frontend pages Next.js has the
+tools for easily setting up a backend API.
+
+Create-react-app and Gatsby are hosted on a Content Delivery Network (CDN). This
+is easy to scale, secure and low cost.
+
+Dynamic behavior of apps that are hosted on a CDN require a separate active
+backend such as a GraphQL server.
+
+### Development cycle
+
+The latest release of Next's is version 12 while Gatsby's latest release is
+version 4\. Both started development around 2016.
+
+With 12 versions in 6 years Next.js has a rapid development cycle. With 4
+versions in the same period, Gatsby's development cycle is very stable.
+
+The development cycle of create-react-app is simple, it follows the version of
+React itself.
+
+### Ecosystem
+
+The ecosystem of create-react-app is excellent. Anything React can be used.
+
+Both Next.js and Gatsby have a large ecosystem with plugins, examples and
+discussions.
+
+The major difference comes from the development cycle. The rapid cycle of
+Next.js causes a lot of the ecosystem to be outdated. Due to the stable cycle of
+Gatsby, versions in the ecosystem are a lot clearer.
+
+### Opinionated
+
+Create-react-app leaves everything open. You decide. Styling, routing, SSR, etc.
+Gatsby is more opinionated. It does SSR for you, suggests how to do routing and
+leaves styling to be decided.
+
+Most opinionated is Next.js. SSR, routing and styling are all taken care of.
+Choose the one that fits and go with the opinions given.
+
+### SSR
+
+A major requirement for many projects. Both Gatsby and Next.js offer this out of
+the box. Adding SSR to an app created with create-react-app is not a trivial
+task.
+
+### React server components
+
+React server components are easy to setup with create-react-app because the
+toolchain does not have an opinion on SSR.
+
+Next.js has alpha support for Server components since version 12.
+
+How to implement Server components in Gatsby remains a question since Gatsby
+does not have a backend component. As Server components become stable, support
+might be added in an upcoming Gatsby release.
+
+### GraphQL
+
+Create-react-app and Next.js don't have an opinion on GraphQL or which GraphQL
+client to use.
+
+Gatsby however, has the Relay client preconfigured for build time data. A common
+Gatsby setup is to use the other major GraphQL client,
+[Apollo](https://www.apollographql.com), for runtime data.
+
+With Next.js, both Apollo and Relay can be configured. In that case, the major
+differences with Gatsby are the normalized Gatsby GraphQL schema and the Gatsby
+source plugins.
+
+#### Normalized Gatsby GraphQL schema
+
+Gatsby stores all data fetched by source plugins to render pages. This data is
+tied to React components by using the 'graphql' template literal.
+
+Internally Gatsby uses the Relay compiler. The internal Gatsby schema therefore
+follows the [GraphQL Cursor Connections
+Specification](https://relay.dev/graphql/connections.htm).
+
+When data from an external GraphQL server is used to render pages with Gatsby,
+two schema's are in play.
+
+- The schema of the external GraphQL source. Data retrieved is normalized and
+  stored by Gatsby.
+- The internal Gatsby schema. This schema is used to tie data to React
+  components.

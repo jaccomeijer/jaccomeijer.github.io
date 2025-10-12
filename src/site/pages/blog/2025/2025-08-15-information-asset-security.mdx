@@ -1,0 +1,202 @@
+---
+permalink: /blog/information-asset-security/
+navigation:
+  id: information-asset-security
+date: 2025-08-15
+lastmod: 2025-08-15
+tags: ['blog']
+openerTopic:
+  heading: Asset security
+  abstract: Information asset identification and classification from a security perspective
+  image: '/site/pages/blog/images/2025-08-15-tiago-wolf-W4CTDtL2LQo-unsplash.jpg'
+
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { blogOpenerByNavId } from '../../helpers/blog-openers-by-nav-id'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+import { TopicList } from '../../../../green-lib/components/topic-list/topic-list'
+import { Diagram } from '../../helpers/diagram'
+
+## Data security
+
+Data security can be seen as a specialization of asset security which is what
+the post below is about.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'data-security')} swapImage={true} />
+
+## Information assets
+
+Assets in this post are information systems. Systems that processes, transfer or
+store data. From a security perspective an asset is any system that has value.
+These assets can be tangible, intangible and logical.
+
+| Type | Description | Examples |
+|--|--|--|
+| Tangible         | Physical assets that can be seen and measured                | hardware, network infrastructure |
+| Intangible       | Non-physical assets that represent value                     | software, databases, information stores |
+| Hybrid / Logical | Information assets that are logical or part tangible and part intangible | networks, information systems |
+
+## Asset identification
+
+Assets are added and removed from organizations frequently. These changes have
+significant impact on organization security which makes it essential to identify
+new assets. The more is known about the new assets, the better the assets can be
+protected.
+
+Because of the importance and the complexity of managing all assets in a large
+organization, a broad variety of tooling is used.
+
+Scanners, directories, license trackers, discovery services, etc. All contribute
+to asset identification. AI helps by handling large amounts of data and
+analysis.
+
+### Asset security roles
+
+All assets should have an owner to ensure proper asset governance. Across the
+most popular security frameworks, many roles exist.
+
+| Role | Organizations |
+|---|---|
+| Risk Executive | NIST |
+| Information Security Officer (ISO, CISO) | NIST, ISO |
+| Asset Owner | ISO, ISA/IEC, ISACA |
+| Application Owner | NIST |
+| System Owner | NIST |
+| System Integrator | ISA/IEC |
+| IT Asset Manager | NIST |
+
+## Asset management
+
+Because of the many tools that work together identifying assets, all information
+should be consolidated into a single source of truth managed by a single
+authority. This concept leads to the specific field of IT Asset Management
+(ITAM).
+
+The major goals of ITAM are more broad than only the cyber security context:
+
+- Reduce costs by avoiding over-purchasing and under-utilization
+- Ensure compliance with software licensing and regulatory requirements
+- Improve operational efficiency and decision-making
+- Support cyber security by maintaining accurate asset inventories
+
+> ISO 19770 is a family of international standards focused on ITAM. It provides
+frameworks and specifications to help organizations manage their IT assets such
+as hardware, software, subscriptions, and cloud services effectively and in
+compliance with governance and licensing requirements.
+
+## Asset classification
+
+Asset classification is assigning a value and a sensitivity level based on
+content and context. Asset categorization is grouping the classified assets.
+
+It is common to value an asset in two ways. The quantitative value is the
+estimation of the numerical asset value and the qualitative value is the
+assessment of an assets importance or impact.
+
+Classification is important because treating security risks for all assets
+equally is a costly approach. It is much more efficient to classify assets on
+sensitivity and differentiate accordingly.
+
+
+### Asset classification Levels
+
+AI is very suitable for scaffolding text. This is an example AI prompt on
+setting up asset classification levels.
+
+```md
+create an Asset classification levels table:
+- rules:
+  - use tiers where tier 0 is the most restricted
+  - include mixed tier
+  - include example systems and devices
+  - include description
+  - include requirements
+  - output visual markdown table
+```
+
+#### Generated asset classification levels table
+
+| Tier | Description | Example Systems/Devices | Requirements |
+|---|---|---|---|
+| Tier 0 | Most restricted. Critical assets with highest confidentiality, integrity, and availability needs. | Core banking systems, encryption key vaults, national ID databases | Multi-factor authentication, Strict access control, Real-time monitoring, Encrypted storage |
+| Tier 1 | Highly sensitive. Important for business continuity and compliance. | HR systems, financial reporting tools, internal legal databases | Role-based access, Regular audits, Secure backups, Patch management |
+| Tier 2 | Moderately sensitive. Operational systems with limited exposure risk. | CRM platforms, internal collaboration tools, inventory systems | Standard authentication, Periodic vulnerability scans, User training |
+| Tier 3 | Low sensitivity. Public-facing or non-critical systems. | Company website, marketing tools, public documentation portals | Basic security hygiene, Monitoring for anomalies, Regular updates |
+| Mixed Tier | Assets spanning multiple tiers due to integrated functions or shared infrastructure. | Hybrid cloud environments, shared databases, mobile device fleets | Segmentation controls, Tier-specific policies per component, Continuous risk assessment |
+
+
+### How organizations classify assets
+
+Key regulations and frameworks define how organizations classify and categorize
+information assets, often shaping their asset identification and protection
+policies.
+
+Below an example AI prompt that generates an overview of common regulations on
+asset classification for jurisdictions EU, USA and China.
+
+```md
+create a matrix:
+- rows:
+  - GPDR (EU)
+  - NIS 2 (EU)
+  - NIST SP 800-60 (USA)
+  - FIPS 199 (USA)
+  - FISMA (USA)
+  - MLPS (China)
+  - PIPL (China)
+- columns:
+  - classify
+  - category
+- cells: summarized search results in text 
+- rules:
+  - generate 5 variants for each term and log them
+  - also search for variants
+  - limit search to official regulation text
+  - output markdown table that can be copied
+```
+
+#### Generated regulation sources table
+
+| Regulation           | Source URL                                                   |
+|----------------------|--------------------------------------------------------------|
+| GDPR (EU)            | https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng            |
+| NIS 2 Directive (EU) | https://eur-lex.europa.eu/eli/dir/2022/2555/oj/eng           |
+| NIST SP 800-60 (USA) | https://csrc.nist.gov/pubs/sp/800/60/v2/r1/final             |
+| FIPS 199 (USA)       | https://csrc.nist.gov/pubs/fips/199/final                    |
+| FISMA (USA)          | https://csrc.nist.gov/topics/laws-and-regulations/laws/fisma |
+| MLPS 2.0 (China)     | https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=BAFB47E8874764186BDB7865E8344DAF |
+| PIPL (China)         | https://en.spp.gov.cn/2021-12/29/c_948419.htm                |
+
+
+#### Generated asset classification regulations matrix
+
+|  Framework                 |  **Classify**                                                                              |  **Category**                                                                                    |
+|----------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
+|  **GDPR (EU)**             |  Used in guidance for security levels (e.g., EU RESTRICTED), not in the core regulation.  |  Defines “special categories” of sensitive personal data (e.g., health, race).                 |
+|  **NIS 2 (EU)**            |  Refers to classifying entities by criticality (essential vs. important).                 |  Entities are grouped into categories that determine obligations and oversight.                |
+|  **NIST SP 800-60 (USA)**  |  Implies classification through mapping data to impact levels.                         |  Central concept: categorizing data by confidentiality, integrity, and availability impact.   |
+|  **FIPS 199 (USA)**        |  Classification not used; focuses on categorizing systems by impact on security objectives.  |  Defines categories based on impact levels for confidentiality, integrity, and availability.   |
+|  **FISMA (USA)**           |  Requires categorization of systems; relies on NIST guidance, not classification terminology.  |  Uses security categories to guide risk management and control selection.                      |
+|  **MLPS (CHINA)**          |  Uses formal classification levels (1–5) based on system sensitivity and national interest.  |  Categorizes systems by role and criticality to determine protection requirements.             |
+|  **PIPL (CHINA)**          |  Implies classification via “sensitive personal information” requiring stricter handling.  |  Defines categories of personal data, especially sensitive types like biometrics and health data.  |
+
+## Conclusion
+
+Understanding and securing information assets is a foundational aspect of modern
+cyber security.
+
+Effective asset management supported by tooling, AI, ITAM, and standards like
+ISO 19770 ensure that organizations maintain visibility and control over their
+digital landscape.
+
+Classification and categorization of assets allow for differentiated security
+measures, optimizing resource allocation and risk mitigation. Regulatory
+frameworks across jurisdictions reinforce the importance of structured asset
+handling, each offering unique perspectives on how data and systems should be
+valued and protected.
+
+Ultimately, mature asset management empowers organizations to safeguard their
+operations, comply with regulations, and respond dynamically to evolving
+threats.
