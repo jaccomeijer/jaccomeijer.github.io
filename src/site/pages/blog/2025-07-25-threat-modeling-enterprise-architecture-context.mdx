@@ -102,10 +102,10 @@ standard:
 
 #### Technology layer
 
-Outside of the group are three elements of the technology layer:
+Around the groups are three technology elements:
 
-1. Sensitive information asset, protected by the one of the objectives;
-2. Insecure node, part of the infrastructure that contains the vulnerability;
+1. Sensitive information asset, protected by a control objective;
+2. Insecure node, part of the infrastructure that contains a vulnerability;
 3. Secure interface, as part of a secure solution that realizes one of the
    control measures.
 
@@ -156,4 +156,9 @@ Fast moving technology introducing new threats constantly asks for architecture
 agility. Hence the reference to [Open Agile
 Architecture](https://www.opengroup.org/AgileArchitecture) in this post.
 
-<Topic variant="card" topic={blogOpenerByNavId(props, 'uml-c4-archimate')} swapImage={true} />
+<TopicList
+  className="s-grid u-grid-two-cols u-gap-m"
+  variant="card"
+  topics={blogOpenerByNavId(props, ['uml-c4-archimate', 'iso-27000-isa-62443-nis2-bio-nist-csf-800-53'])}
+  swapImage={true}
+/>

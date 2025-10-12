@@ -151,8 +151,9 @@ the three components of risk: threats, vulnerabilities and assets.
 
 Figure 1 from an <a href={blogOpenerByNavId(props,
 'threat-modeling-enterprise-architecture-context').action.url}>earlier post on
-Enterprise Architecture</a> models the components of risk in red and clearly
-shows the elements of a cyber security standard.
+Enterprise Architecture</a> models the components of risk in red and models an
+example of a control objective and a control measure. Both are in a group named
+'Cyber security standards' which defines the the source.
 
 <Diagram
   src="/site/pages/blog/images-security-framework/ersm-base.svg"
@@ -179,20 +180,19 @@ amount of granularity. ISO 27002 is often a good fit, as can be e.g. NIST SP
 
 ## Canonical control objectives
 
-Figure 2 shows how a chosen set of canonical control objectives is mapped to the
-objectives of multiple standards.
+Figure 2 shows how a canonical control objective is added. This objective
+aggregates the objective from figure 1 and the control measure from figure 1
+realizes the canonical objective. This example shows only one control, but
+multiple objectives are aggregated and multiple measures realize the objective.
 
-The canonical control objective has an aggregation relationship with the
-'protection of data' objective to signify that the canonical control aggregates
-objectives from multiple standards. To ensure consistency and to identify
-possible compliancy gaps, all related control objectives are documented by STRM
-as outlined in NIST IR 8477.
+To ensure consistency and to identify possible compliancy gaps, all aggregation
+and realization relationships are documented by STRM as outlined in NIST IR 8477.
 
 <Diagram
   src="/site/pages/blog/images-security-framework/ersm-canonical.svg"
   width="55rem"
   figureNumber={2}
-  caption="Cyber security risk and standards with a Canonical control objective"
+  caption="Cyber security risk and standards with a canonical control objective. Square brackets define the source."
 />
 
 ## Secure Controls Framework (SCF)
@@ -218,21 +218,16 @@ catalog. It defines a set of control domains which are related to 'cybersecurity
 & data privacy by design' principles. Another set of principles is called 'data
 privacy management principles' which are mapped to specific privacy frameworks.
 
-While maintaining the same structure as figure 1 and 2, figure 3 shows what
-parts are covered by SCF and how the specific SCF components relate. STRM
-mappings document all relationships between the canonical SCF control objective
-and the objectives and measures from individual standards.
-
-Figure 1 and 2 define a group called 'Cyber security risk'. Because most
-elements from that group are covered by SCF, the remaining elements in figure 3
-are in a group named CVSS 3.0 which refers to the [Common Vulnerability Scoring
-System](https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System).
+While maintaining the same high level structure as figure 1 and 2, figure 3
+shows what parts are covered by SCF and how the specific SCF components relate.
+STRM mappings document all relationships between the canonical SCF control
+objective and the objectives and measures from individual standards.
 
 <Diagram
-  src="/site/pages/blog/images-security-framework/ersm-scf.svg"
+  src="/site/pages/blog/images-security-framework/ersm-scf-v1.svg"
   width="55rem"
   figureNumber={3}
-  caption="SCF with cyber security risk and standards"
+  caption="SCF with cyber security risk and standards. Square brackets define the source."
 />
 
 ## Other resources
@@ -281,3 +276,17 @@ and improves manageability.
 Anchoring a security program into a single, well-structured set of controls
 ensures consistent implementation, efficient audits and alignment with both
 international best practices and national regulations.
+
+The post below on canonical controls explores in more depth how to use the SCF
+canonical control objectives with Enterprise Risk and Security Management (ERSM)
+in Archimate.
+
+<TopicList
+  className="s-grid u-grid-two-cols u-gap-m"
+  variant="card"
+  topics={blogOpenerByNavId(props, [
+    'scf-secure-controls-framework',
+    'threat-modeling-enterprise-architecture-context',
+  ])}
+  swapImage={true}
+/>

@@ -2,9 +2,9 @@
 permalink: /blog/scf-secure-controls-framework/
 navigation:
   id: scf-secure-controls-framework
-date: 2025-10-10
-lastmod: 2025-10-10
-tags: ['draft']
+date: 2025-10-14
+lastmod: 2025-10-14
+tags: ['blog']
 openerTopic:
   heading: Canonical controls with Enterprise Risk and Security Management
   abstract: How to use the SCF canonical control objectives with ERSM in Archimate
@@ -18,6 +18,35 @@ import { Topic } from '../../../green-lib/components/topic/topic'
 import { TopicList } from '../../../green-lib/components/topic-list/topic-list'
 import { Diagram } from '../helpers/diagram'
 
+## Work in progress
+
+This post is a work in progress.
+
 ## Secure Controls Framework
 
-Sorry! This article has no content yet.
+The post below on how to align the steadily increasing number of security
+standards refers to the [Secure Controls
+Framework](https://securecontrolsframework.com) (SCF) as an example. This post is
+about how to use the SCF canonical control objectives with Enterprise Risk and
+Security Management (ERSM) in Archimate.
+
+<Topic
+  variant="card"
+  topic={blogOpenerByNavId(props, 'iso-27000-isa-62443-nis2-bio-nist-csf-800-53')}
+  swapImage={true}
+/>
+
+## SCF Meta model
+
+Figure 3 in <a href={blogOpenerByNavId(props,
+  'iso-27000-isa-62443-nis2-bio-nist-csf-800-53').action.url}>this post on
+  security standards</a> models all elements of the SCF. Figure 1 shows an
+updated version of the same model where all technology elements are moved to the
+bottom of the model.
+
+<Diagram
+  src="/site/pages/blog/images-security-framework/ersm-scf-v2.svg"
+  width="55rem"
+  figureNumber={1}
+  caption="SCF with cyber security risk and standards. Square brackets define the source."
+/>
