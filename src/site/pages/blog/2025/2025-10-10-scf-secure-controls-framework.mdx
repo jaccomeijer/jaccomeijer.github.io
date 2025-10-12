@@ -18,10 +18,6 @@ import { Topic } from '../../../../green-lib/components/topic/topic'
 import { TopicList } from '../../../../green-lib/components/topic-list/topic-list'
 import { Diagram } from '../../helpers/diagram'
 
-## Work in progress
-
-This post is a work in progress.
-
 ## Secure Controls Framework
 
 The post below on how to align the steadily increasing number of security
@@ -54,45 +50,107 @@ bottom of the model.
 
 ## Setup SCF
 
-Using the SCF can save a lot of work because it improves in terms of efficiency,
-but is by no means an of the shelf solution. This is a summary of what the **SCF
-is not** from the official documentation:
+Using the SCF can save a lot of time because it improves in terms of efficiency,
+but is by no means a commercial off the shelf solution. A summary of what the
+SCF is not from the official documentation:
 
->  A substitute for performing due diligence and due care
+> `NOT` A substitute for performing due diligence and due care, `NOT` A complete
+  technology or documentation solution to address all your cybersecurity & data
+  privacy needs and `NOT` A solution guaranteed to meet every compliance
+  requirement of your organization
 
-> A complete technology or documentation solution to address all your cybersecurity & data privacy
-needs
+SCF has extensive documentation on setting up  a Cybersecurity & Data Privacy
+Risk Management Model. Before assessing the likelihood and impact of risk in
+detail it requires in depth risk analysis first. This includes setting up risk,
+threat and controls catalogs.
 
-> A solution guaranteed to meet every compliance requirement of your organization
+## Modeling risk and security
 
-TBW: Using the SCF needs proper setup. 
+> Likelihood is the probability that a threat exploits a vulnerability and
+impact is the possible asset value loss. In a quantitative way when measured in
+currency and in a qualitative way when evaluating importance.
 
-## Cyber security standards
+Adding threats and vulnerability to assets modeled in Enterprise Architecture is
+a good way to understand risk. Especially for complex risk, visualizing the
+relationships helps assessing risk.
 
-TBW: Standards contain either objectives, measures or both.
+When inherent risk is evaluated and likelihood or impact can be reduced with
+cost effective measures the canonical controls come into play. As can be read
+from the table below.
 
-## Vulnerability influence
+| Evaluation                                                   | Treatment | How                                                          |
+|--------------------------------------------------------------|-----------|--------------------------------------------------------------|
+| Risk exceeds a threshold                                     | Avoid     | Stop using a specific technology or behavior                 |
+| Likelihood or impact can be reduced with cost effective measures | Mitigate  | Implement controls                                           |
+| Mitigation is not cost effective                               | Transfer  | Shift risk onto a 3rd party by e.g. insurance or cloud services |
+| Mitigation and transfer are not cost effective                 | Accept    | Be aware                                                     |
 
-Influence from measure, control or both.
 
-## Vulnerabilities, threats, objectives and measures
+## Example model
 
-TBW:  All measures defined, how are the measures realized
+Figure 2 shows a simple web application example with a canonical SCF control
+objective and a control measure from a security standard.
 
-## Risk analysis
+It does not show all the components of risk that are modeled in figure 1. The
+vulnerability, the threat and the asset are present which are all relevant for
+assessing risk.
 
-TBW: Assessments
-
-## Example
+The risk treatment part shows the solution that realizes the measure, the
+control objective and the control measure.
 
 <Diagram
   src="/site/pages/blog/images-security-framework/ersm-example-web-app-csf.svg"
   width="55rem"
   figureNumber={2}
-  caption="SCF threat modeling example with an interface that contains a vulnerability"
+  caption="SCF threat modeling example with a firewall that contains a vulnerability"
 />
 
+## Cyber security standards
 
-## Work in progress
+Figure 1 shows control measures from standard y and control objectives from
+standard x. This is to illustrate that some security standards contain mainly
+objectives, like ISO 27001 and NIST CSF 2.0. Whereas other standards contain
+merely measures. ISO 27002 and NIST SP 800 53 are good examples of the latter.
 
-This post is a work in progress.
+The example in figure 2 uses a control measure. The measure is modeled to be
+realized by the mTLS solution. Depending on the use case, the choice is to
+either use the measure from the standard or to leave the measure out and have
+the mTLS solution realize the SCF control objective directly.
+
+Same choice for the influence relationship that decreases the vulnerability.
+This can be modeled from the control objective, the control measure or both.
+
+For risk assessment both choices make little difference. Depending on an audit
+for a specific standard you might need to model accordingly. Think of the
+evaluation of which measures from a standard have a realized-by relationship.
+
+
+## Traffic lights and heat maps
+
+Some Enterprise Architecture solutions have integrated risk properties like
+vulnerability level and threat capability for qualitative risk analysis. These
+property values are often displayed as traffic lights next to the Archimate
+elements.
+
+Evaluating risk with properties allows for e.g. security heat map representations.
+
+## Conclusion
+
+This short post is mainly about the two example models. Figure 1 can be used as
+a SCF meta model and figure 2 shows how to add risk assessment and risk
+treatment.
+
+The models in this post are kept simple and risk management for these models is
+of course overkill. For organizations that use the holistic security approach
+however, models like these can be of great value.
+
+
+<TopicList
+  className="s-grid u-grid-two-cols u-gap-m"
+  variant="card"
+  topics={blogOpenerByNavId(props, [
+    'iso-27000-isa-62443-nis2-bio-nist-csf-800-53',
+    'threat-modeling-enterprise-architecture-context',
+  ])}
+  swapImage={true}
+/>
