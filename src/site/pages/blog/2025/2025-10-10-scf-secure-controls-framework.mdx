@@ -32,27 +32,12 @@ Security Management (ERSM) in Archimate.
   swapImage={true}
 />
 
-## SCF Meta model
-
-Figure 3 in <a href={blogOpenerByNavId(props,
-  'iso-27000-isa-62443-nis2-bio-nist-csf-800-53').action.url}>this post on
-  security standards</a> models all elements of the SCF. Figure 1 shows an
-updated version of the same model where all technology elements are moved to the
-bottom of the model.
-
-<Diagram
-  src="/site/pages/blog/images-security-framework/ersm-scf-v2.svg"
-  width="55rem"
-  figureNumber={1}
-  caption="SCF with cyber security risk and standards. Square brackets define the source."
-/>
-
-
 ## Setup SCF
 
-Using the SCF can save a lot of time because it improves in terms of efficiency,
-but is by no means a commercial off the shelf solution. A summary of what the
-SCF is not from the official documentation:
+Using the SCF can save a lot of time because it brings ready to use STRM
+relationship documentation and it improves in terms of efficiency, but SCF is
+not a commercial off the shelf solution. Because frequent misunderstanding, SCF
+provides what the SCF is not in the official documentation. In summary:
 
 > `NOT` A substitute for performing due diligence and due care, `NOT` A complete
   technology or documentation solution to address all your cybersecurity & data
@@ -63,6 +48,26 @@ SCF has extensive documentation on setting up  a Cybersecurity & Data Privacy
 Risk Management Model. Before assessing the likelihood and impact of risk in
 detail it requires in depth risk analysis first. This includes setting up risk,
 threat and controls catalogs.
+
+## SCF Meta model
+
+Figure 3 in <a href={blogOpenerByNavId(props,
+  'iso-27000-isa-62443-nis2-bio-nist-csf-800-53').action.url}>this post on
+  security standards</a> models all elements of the SCF.
+  
+Figure 1 shows an updated version of the same model with some changes:
+
+- all technology elements are moved together;
+- the threat catalog is linked to the SCF control;
+- the loss element, representing the likelihood that the risk occurs is moved
+  outside of the SCF
+
+<Diagram
+  src="/site/pages/blog/images-security-framework/ersm-scf-v2.svg"
+  width="50rem"
+  figureNumber={1}
+  caption="SCF with cyber security risk and standards. Square brackets define the source."
+/>
 
 ## Modeling risk and security
 
@@ -75,8 +80,8 @@ a good way to understand risk. Especially for complex risk, visualizing the
 relationships helps assessing risk.
 
 When inherent risk is evaluated and likelihood or impact can be reduced with
-cost effective measures the canonical controls come into play. As can be read
-from the table below.
+cost effective measures the canonical controls come into play. The table below
+shows other possible risk evaluation outcomes.
 
 | Evaluation                                                   | Treatment | How                                                          |
 |--------------------------------------------------------------|-----------|--------------------------------------------------------------|
@@ -86,21 +91,40 @@ from the table below.
 | Mitigation and transfer are not cost effective                 | Accept    | Be aware                                                     |
 
 
+## Archimate modeling with SCF
+
+Modeling archimate with SCF requires the SCF components to be available as
+archimate elements. Figure 1 shows that these components are:
+
+- the threat catalog;
+- the risk catalog;
+- the principle sets;
+- the SCF control objectives.
+
+When the catalog solution and the archimate model solution are not the same,
+interfacing is needed to make the catalog available to the model solution.
+
+For example, the Bizzdesign model solution is able to interface with the IT
+management platform ServiceNow. Another example on the Bizzdesign platform is
+setting up an Excel connector.
+
+
 ## Example model
 
-Figure 2 shows a simple web application example with a canonical SCF control
-objective and a control measure from a security standard.
+Figure 2 shows an archimate model of a simple web application that uses SCF to model risk.
 
-It does not show all the components of risk that are modeled in figure 1. The
-vulnerability, the threat and the asset are present which are all relevant for
-assessing risk.
+This view leaves out the principle sets as well as many of the SCF internal
+relationships as modeled in figure 1. The view focuses on these elements:
 
-The risk treatment part shows the solution that realizes the measure, the
-control objective and the control measure.
+- Loss: connects threat and risk, the loss event represents the probability that
+  the threat event exploits the vulnerability;
+- Vulnerability: connects the elements that contain the weakness with the threat
+  and relates the threat to the SCF objective.
+- Measure: is realized by the technology elements that secure the vulnerability.
 
 <Diagram
-  src="/site/pages/blog/images-security-framework/ersm-example-web-app-csf.svg"
-  width="55rem"
+  src="/site/pages/blog/images-security-framework/ersm-example-web-app-scf.svg"
+  width="60rem"
   figureNumber={2}
   caption="SCF threat modeling example with a firewall that contains a vulnerability"
 />
@@ -112,10 +136,10 @@ standard x. This is to illustrate that some security standards contain mainly
 objectives, like ISO 27001 and NIST CSF 2.0. Whereas other standards contain
 merely measures. ISO 27002 and NIST SP 800 53 are good examples of the latter.
 
-The example in figure 2 uses a control measure. The measure is modeled to be
-realized by the mTLS solution. Depending on the use case, the choice is to
-either use the measure from the standard or to leave the measure out and have
-the mTLS solution realize the SCF control objective directly.
+The example in figure 2 uses a control measure. The measure is realized by the
+mTLS solution. Depending on the use case, the choice is to either use the
+measure from the standard or to leave the measure out and have the mTLS solution
+realize the SCF control objective directly.
 
 Same choice for the influence relationship that decreases the vulnerability.
 This can be modeled from the control objective, the control measure or both.
@@ -141,8 +165,8 @@ a SCF meta model and figure 2 shows how to add risk assessment and risk
 treatment.
 
 The models in this post are kept simple and risk management for these models is
-of course overkill. For organizations that use the holistic security approach
-however, models like these can be of great value.
+mainly overkill. For organizations that use the holistic security approach
+however, models like these add great value.
 
 
 <TopicList
