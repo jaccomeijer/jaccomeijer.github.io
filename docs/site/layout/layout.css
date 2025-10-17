@@ -1627,6 +1627,9 @@
   }
 
   .markdown table {
+    table-layout: fixed;
+    width: 100%;
+    font-size: var(--font-size--1);
     margin-block: var(--space-xs-r2);
   }
 
