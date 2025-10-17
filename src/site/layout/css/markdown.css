@@ -33,6 +33,7 @@
   table {
     width: 100%;
     table-layout: fixed;
+    overflow: hidden;
     font-size: var(--font-size--1);
     margin-block: var(--space-xs-r2);
     thead {
