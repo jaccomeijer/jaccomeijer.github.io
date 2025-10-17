@@ -1,0 +1,95 @@
+---
+permalink: /blog/risk-analysis-software-development/
+navigation:
+  id: risk-analysis-software-development
+date: 2025-10-19
+lastmod: 2025-10-19
+tags: ['blog']
+openerTopic:
+  heading: 'Risk analysis for software development'
+  abstract: Risk analysis help identify and address potential threats early in the development process
+  image: '/site/pages/blog/images/2025/2025-10-19-miles-peacock-xUXjlRw9Tm8-unsplash.jpg'
+discussionTopic:
+  heading: – CISSP Common Body of Knowledge
+  abstract: '"Discussions of information security must include the security of the software powering those information systems"'
+  icon: shield
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { blogOpenerByNavId } from '../../helpers/blog-openers-by-nav-id'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+import { TopicList } from '../../../../green-lib/components/topic-list/topic-list'
+import { Diagram } from '../../helpers/diagram'
+import { Figure } from '../../helpers/figure'
+
+## Risk assessments for software development
+
+The foundation for this post is in the post below.
+
+<TopicList
+  className="s-grid u-grid-two-cols u-gap-m"
+  topics={blogOpenerByNavId(props, ['software-development-security', 'security-controls-software-development'])}
+  variant="card"
+  swapImage={true}
+/>
+
+## Identify Risk
+
+Software risk is defined by the probability of a negative event occurring during
+the Software Development Lifecycle (SDLC) combined with the potential impact of
+that event.
+
+Start by brainstorming and listing all potential risks. These can fall into
+several categories. Use AI to generate categories for your specific use case.
+
+| Category                  | Examples                                                                                                                                              |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Technical**             | Unfamiliar technology, scalability issues, integration difficulties, legacy system constraints, performance bottlenecks, technology stack limitations |
+| **Project Management**    | Poor planning, scope creep, unrealistic timelines, inadequate risk management, changing requirements, lack of project visibility                      |
+| **People (Team)**         | Inexperienced staff, lack of communication, key person dependency, high turnover, insufficient training, low team morale                              |
+| **External**              | Vendor delays, regulatory changes, third-party API failures, geopolitical instability, supply chain disruptions, changes in market conditions         |
+| **Organizational**        | Budget cuts, shifting priorities, lack of stakeholder support, internal politics, organizational restructuring, resource reallocation                 |
+| **Security & Compliance** | Data breaches, non-compliance with GDPR, weak authentication, insecure data storage, lack of encryption, inadequate audit trails                      |
+| **Code**                  | Poor code quality, lack of automated tests, high technical debt, inconsistent coding standards, low test coverage, fragile legacy code                |
+| **Data**                  | Inaccurate data, data loss, poor data migration, inconsistent data formats, lack of data governance, stale or outdated datasets                       |
+
+## Assess and prioritize risk
+
+Use qualitative and/or quantitative methods to determine:
+
+- likelihood, how likely is the risk to occur?
+- impact, what would be the effect on the project if it happens?
+
+The risk is calculated by multiplying likelihood and impact. The calculated risk
+is then used to prioritize the risk.
+
+## Mitigate risk
+
+For each high priority risk, plan one or more of the following:
+
+| Evaluation                                                       | Treatment | How                                                             |
+| ---------------------------------------------------------------- | --------- | --------------------------------------------------------------- |
+| Risk exceeds a threshold                                         | Avoid     | Stop using a specific technology or behavior                    |
+| Likelihood or impact can be reduced with cost effective measures | Mitigate  | Implement controls (more on that below)                         |
+| Mitigation is not cost effective                                 | Transfer  | Shift risk onto a 3rd party by e.g. insurance or cloud services |
+| Mitigation and transfer are not cost effective                   | Accept    | Be aware                                                        |
+
+## Monitor and Reassess
+
+In software development risk analysis, it's essential to continuously monitor
+and reassess risks throughout the Software Development Lifecycle (SDLC).
+
+Maintain a risk register to document identified risks and track risk regularly
+using risk logs or dashboards. As the development evolves, review and update
+risk assessments to reflect any changes. Assign clear ownership for each risk to
+ensure accountability and timely response.
+
+## Implement controls
+
+When a risk has a high likelihood or significant impact but both can be reduced
+through cost effective measures, it becomes a candidate for mitigation. In this
+case, the goal is to lower the probability of the risk occurring or reduce its
+impact by implementing appropriate controls as outlined in the post below.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'security-controls-software-development')} swapImage={true} />

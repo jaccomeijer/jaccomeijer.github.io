@@ -1,0 +1,240 @@
+---
+permalink: /blog/security-controls-software-development/
+navigation:
+  id: security-controls-software-development
+date: 2025-10-18
+lastmod: 2025-10-18
+tags: ['blog']
+openerTopic:
+  heading: 'Security controls for software development'
+  abstract: Integrating security into every stage of software development is essential. How security controls help in the DevSecOps context.
+  image: '/site/pages/blog/images/2025/2025-10-18-ryunosuke-kikuno-xiknZ6oclIY-unsplash.jpg'
+discussionTopic:
+  heading: – CISSP Common Body of Knowledge
+  abstract: '"Discussions of information security must include the security of the software powering those information systems"'
+  icon: shield
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { blogOpenerByNavId } from '../../helpers/blog-openers-by-nav-id'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+import { TopicList } from '../../../../green-lib/components/topic-list/topic-list'
+import { Diagram } from '../../helpers/diagram'
+import { Figure } from '../../helpers/figure'
+
+## Security controls for software development
+
+The foundation for this post is in the post below.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'software-development-security')} swapImage={true} />
+
+## DevSecOps
+
+In strong contrast to Waterfall, DevSecOps is a modern approach that integrates
+security throughout the entire SDLC.
+
+Outlining security controls for software development by following the DevSecOps
+approach works well  because security is integrated into every step of
+DevSecOps.
+
+<Figure
+  src="/site/pages/blog/images-security/devsecops.png"
+  width="50rem"
+  figureNumber={1}
+  caption="The DevSecOps approach with security integrated in every step"
+/>
+
+Figure 1 shows how the steps relate. Each step is outlined below and relates the
+step to the relevant security controls, scrum roles, scrum events and which
+controls could be added to an automated CI/CD pipeline.
+
+Controls from compliancy standards like ISO 27002 are not added but by using AI,
+a simple basic set can easily be generated. To make the list more actionable AI
+can also be used to generate tool recommendations.
+
+### ✅ 1 - Plan
+
+#### Product Owner
+
+- Assign a security champion
+- Drive proper Solution Design and Architecture (SDA)
+- Facilitate risk assessments
+- Classify data according to sensitivity
+- Oversee privacy impact assessments
+- Map security governance policies (NIST, ISO, OWASP)
+
+#### Scrum planning activities
+
+- Threat modeling on evolving requirements
+- Add security requirements to user stories
+- Evaluate compliance and legal requirements
+- Plan rollback and deployment strategies early
+- Include security-specific acceptance criteria in stories
+
+#### Scrum refinement activities
+
+- Perform or update STRIDE models
+- Review new threat surfaces from backlog changes
+
+---
+
+### ✅ 2 - Code
+
+#### Product Owner
+
+- Enforce secure coding standards
+- Provide regular security training and awareness sessions
+- Enforce secure repository policies
+
+#### Dev team
+
+- Perform security focused peer code reviews
+- Prevent hardcoded credentials and secrets
+- Validate third party code components
+
+#### Automated by CI/CD
+
+- Run SAST
+- Use commit hooks for linting, tests, and signing
+
+---
+
+### ✅ 3 - Build
+
+#### Product Owner
+
+- Enforce build integrity policy
+- Support a bug bounty program
+- Support Coordinated Vulnerability Disclosure (CVD)
+
+#### Automated by CI/CD
+
+- Scan dependencies for vulnerabilities
+- Scan for hardcoded secrets
+- Automate dependency updates
+- Apply policy-as-code gates
+- Integrate continuous PEN test pipelines
+
+---
+
+### ✅ 4 - Test
+
+#### Product Owner
+
+- Schedule manual PEN tests every N major releases
+- Ensure conduction of exploratory security testing
+
+#### Automated by CI/CD
+
+- DAST, IAST, API Security Testing
+- Chaos security tests
+- Regression and fuzz testing
+- Compliance and privacy policy validation
+
+---
+
+### ✅ 5 - Release
+
+#### Product Owner
+
+- Ensure implementation of secrets lifecycle management
+- Ensure validation of rollback strategy
+- Ensure that release approvals are audited
+
+#### Scrum review activities
+
+- Conduct security review and risk sign-off
+- Document and communicate security decisions
+
+#### Automated by CI/CD
+
+- Generate release notes with security info (CVE, CWE, OWASP Top 10)
+- Ensure artifact signing and tamper checks
+- Apply version tagging policies
+
+---
+
+### ✅ 6 - Deploy
+
+#### Product Owner
+
+- Ensure that pre-deployment image scanning is performed
+
+#### Automated by CI/CD
+
+- Analyze IaC for misconfigurations
+- Inject secrets securely at runtime
+- Zero trust security deployment practices
+
+---
+
+### ✅ 7 - Operate
+
+#### Product Owner
+
+- Ensure that incident response outcomes and monitoring results are fed back into the backlog
+- Enforce hardened runtime environments
+- Ensure that containers and host operating systems are hardened
+- Ensure that environment and network segmentation is maintained
+
+#### Scrum retrospective activities
+
+- Reflect on operational concerns and incidents
+
+#### Automated by CI/CD
+
+- Ensure least privilege IAM
+- Enable Runtime Application Self-Protection (RASP)
+- Patch known vulnerabilities automatically
+- Secure audit logging
+
+---
+
+### ✅ 8 - Monitor
+
+#### Product Owner
+
+- Ensure integration of SIEM, SOAR and audit log monitoring
+- Ensure anomaly detection and threat intelligence
+- Use ML/behavioral analytics
+
+#### Scrum retrospective activities
+
+- Track and discuss vulnerability resolution metrics
+- Review incident handling effectiveness
+
+#### Automated by CI/CD
+
+- Automate incident response with playbooks and ticketing
+- Detect and alert on IDS/IPS events
+- Run continuous monitoring pipelines
+
+---
+
+## Detect versus Protect
+
+The number of cybersecurity tools and acronyms continues to grow steadily. For
+SDLC controls it is important to understand the distinction between:
+
+* detect, identifying and alerting on threats and suspicious activities and;
+* protect, actively safeguard systems and data by preventing and blocking threats.
+
+The table below explains the roles and capabilities of IDS/IPS and SIEM/SOAR controls:
+
+| Control | Role                                                              | Detect | Protect |
+| ------- | ----------------------------------------------------------------- | ------ | ------- |
+| IDS     | Monitor network or system traffic to detect suspicious activities | ✅      | ❌       |
+| IPS     | Detect and actively block threats                                 | ✅      | ✅       |
+| SIEM    | Collect, analyze and correlate security events                    | ✅      | ❌       |
+| SOAR    | Automate and orchestrate response actions                         | ✅      | ✅       |
+
+## Risk analysis
+
+Every software development project is unique, which means the cost-benefit
+analysis used to decide which security controls to implement must be tailored to
+the specific context and risks of that project.
+
+More on this risk in the post below.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'risk-analysis-software-development')} swapImage={true} />

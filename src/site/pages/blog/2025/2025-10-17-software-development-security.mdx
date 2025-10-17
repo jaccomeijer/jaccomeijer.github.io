@@ -1,0 +1,191 @@
+---
+permalink: /blog/software-development-security/
+navigation:
+  id: software-development-security
+date: 2025-10-17
+lastmod: 2025-10-17
+tags: ['blog']
+openerTopic:
+  heading: 'Software development security'
+  abstract: About the Software Development Lifecycle (SDLC) and how this relates to security controls and assessing software risks
+  image: '/site/pages/blog/images/2025/2025-10-17-gabriel-izgi-cfQEO_1S0Rs-unsplash.jpg'
+discussionTopic:
+  heading: – CISSP Common Body of Knowledge
+  abstract: '"Discussions of information security must include the security of the software powering those information systems"'
+  icon: shield
+---
+
+export { BlogLayout as default } from '../../helpers/blog-layout'
+import { blogOpenerByNavId } from '../../helpers/blog-openers-by-nav-id'
+import { Picture } from '../../../../green-lib/components/picture/picture'
+import { Topic } from '../../../../green-lib/components/topic/topic'
+import { TopicList } from '../../../../green-lib/components/topic-list/topic-list'
+import { Diagram } from '../../helpers/diagram'
+import { Figure } from '../../helpers/figure'
+
+## Software development security
+
+Software security is a vital part of information security, covering everything
+from development to deployment. It is complex to secure because it involves
+multilayer architecture, developer behavior and the challenges of AI. Cloud
+services can simplify by shifting security responsibilities to providers but
+this increases the complexity of compliance and governance.
+
+<Topic variant="quote" topic={props.discussionTopic} />
+
+## Software development
+
+The long definition of software development:
+
+> the process of designing, creating, testing, and maintaining software
+> applications or systems. It involves writing code, designing software
+> architecture, debugging, and deploying programs to meet specific needs or
+> solve particular problems. This process typically follows methodologies like
+> Agile or Waterfall and includes tasks like writing user stories, coding,
+> testing, and documentation.
+
+And the shot version:
+
+> the full lifecycle of building software from an idea to a finished and
+> functional product.
+
+The phrase 'full lifecycle' from the short description brings the topic to
+something called the Software Development LifeCycle (SDLC).
+
+## Software development lifecycle
+
+A search on software development lifecycle in the [Dutch NEN
+register](https://www.nen.nl/en/) brings up two standards:
+
+| Standard                                               | Title and description                                                                                           |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| ISO/IEC/IEEE 15288                                     | Systems and software engineering - System life cycle processes                                                  |
+| NPR 5333 (Dutch only and to be released november 2025) | Output‑based measurement, performance management and contracting for agile software development and maintenance |
+
+ISO 15288 is not specific for software but a common framework of process
+descriptions for describing the lifecycle of systems. The SDLC process
+descriptions can be combined with security considerations as defined by e.g.
+NIST SP 800-160.
+
+The Dutch NPR 5333 is a new standard to be released november 2025. It is
+intended to help both clients (customers) and suppliers (developers) in
+defining, measuring and managing agile software projects in a objective,
+transparent and outcome oriented way.
+
+## Development methods
+
+The SDLC covers the full process from an idea to a finished functional product
+and development methods define the steps in this process. Methods differ by
+prioritizing different values like speed, quality, flexibility and
+documentation.
+
+### Waterfall
+
+One of the oldest methods is called Waterfall. Although considered outdated and
+inflexible for modern software development, Waterfall is still used for many
+smaller projects where little collaboration is involved.
+
+The Waterfall method's inflexibility significantly impacts security because it
+limits the ability to iteratively assess and update security requirements
+throughout the SDLC.
+
+### Agile Scrum
+
+By the early 2000s, the software industry increasingly recognized that the
+traditional Waterfall method was too rigid for the fast changing demands of
+modern development. In response, the Agile Alliance in 2001 published the Agile
+Manifesto from which various Agile frameworks emerged. Today, the Scrum variant
+is one of the most widely adopted frameworks for software development.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'agile-scrum')} swapImage={true} />
+
+### DevSecOps
+
+Inspired by Agile practices around 2007, DevOps found its way into the world.
+Its adoption is often described as a cultural shift, aiming to break down the
+traditional silos between software development and IT operations. DevOps creates
+a more integrated and efficient software delivery process.
+
+A key advantage of the DevOps culture is the acceleration of software release
+cycles. The increased speed however also introduced new risks by expanding the
+attack surface. Largely due to the fact that many security teams remained siloed
+and were only brought into the process late in the SDLC.
+
+Another consequence of faster releases was that traditional compliance processes
+were seen as obstacles, often delaying deployments due to their slow and manual
+nature.
+
+In response to these challenges, the industry began shifting toward a new
+cultural model known as DevSecOps where security and compliance practices are
+integrated in all phases of the SDLC.
+
+DevSecOps promotes shared responsibility for security across development,
+operations and security teams which ensures that speed does not compromise
+safety or compliance.
+
+<a href={blogOpenerByNavId(props,
+'security-controls-software-development').action.url}>This post outlines
+security controls</a> by following the DevSecOps approach.
+
+<Figure
+  src="/site/pages/blog/images-security/devsecops.png"
+  width="50rem"
+  figureNumber={1}
+  caption="The DevSecOps approach with security integrated in every step"
+/>
+
+### Other methods
+
+Agile Scrum is not the only evolution of the traditional Waterfall model. While
+Scrum has gained widespread popularity for its iterative approach and emphasis
+on collaboration and flexibility, other methods have also emerged to address the
+limitations of the linear Waterfall process.
+
+For example, the Spiral model introduces risk analysis and iterative development
+cycles, making it more adaptable to changing requirements and uncertainties.
+
+| Concept         | Waterfall  | Agile Scrum        | DevSecOps  | Spiral    |
+| --------------- | ---------- | ------------------ | ---------- | --------- |
+| **Process**     | Linear     | Iterative          | Continuous | Iterative |
+| **Risk**        | Afterwards | Managed by sprints | Continuous | Central   |
+| **Security**    | Afterwards | Not inherent       | Integrated | Planned   |
+| **Flexibility** | Low        | High               | High       | Moderate  |
+| **Project**     | Predictive | Evolving           | Evolving   | High-risk |
+
+## OWASP
+
+A post on software development security cannot miss out on OWASP, a well
+established name in the cyber security world. OWASP is 'Open Worldwide
+Application Security Project' and offers many security related resources as
+outlined by the post below.
+
+<Topic variant="card" topic={blogOpenerByNavId(props, 'owasp-cisp')} swapImage={true} />
+
+## SDLC Maturity
+
+Several maturity models are widely used to assess and improve Software
+Development Life Cycle (SDLC) maturity:
+
+- Capability Maturity Model (CMM) and its successor [Capability Maturity Model
+  Integration](https://cmmiinstitute.com/cmmi) (CMMI) are among the oldest and
+  most widely adopted frameworks focused on improving and optimizing software
+  development processes across an organization.
+- [Software Assurance Maturity Model](<(https://owaspsamm.org)>) (SAMM), developed
+  by OWASP, focuses specifically on integrating security practices into the SDLC
+  to ensure robust software assurance.
+- [Building Security In Maturity Model](<(http://bsimm.com)>) (BSIMM) helps
+  organizations measure their current software security initiatives and provides
+  guidance on how to improve security practices within the SDLC.
+
+
+## Security controls & Risk analysis
+
+The two post below continue from here by defining DevSecOps security controls and
+how to analyze software development risks.
+
+<TopicList
+  className="s-grid u-grid-two-cols u-gap-m"
+  topics={blogOpenerByNavId(props, ['security-controls-software-development', 'risk-analysis-software-development'])}
+  variant="card"
+  swapImage={true}
+/>

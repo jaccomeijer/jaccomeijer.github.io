@@ -1,0 +1,10 @@
+.markdown {
+  .figure {
+    .s-wrapper {
+      color: var(--color-mono-500);
+      font-size: var(--font-size--1);
+      font-weight: 500;
+      padding-block-end: var(--space-xs);
+    }
+  }
+}

@@ -1658,6 +1658,13 @@
     font-weight: 500;
   }
 
+  .markdown .figure .s-wrapper {
+    color: var(--color-mono-500);
+    font-size: var(--font-size--1);
+    padding-bottom: var(--space-xs);
+    font-weight: 500;
+  }
+
   .site-header {
     font-family: var(--font-body-family);
     font-size: var(--font-size-0);
