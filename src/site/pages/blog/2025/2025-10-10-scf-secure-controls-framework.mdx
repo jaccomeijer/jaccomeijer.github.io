@@ -71,9 +71,11 @@ Figure 1 shows an updated version of the same model with some changes:
 
 ## Modeling risk and security
 
-> Risk is the probability that a threat exploits a vulnerability and impact is
-the possible asset value loss. In a quantitative way when measured in currency
-and in a qualitative way when evaluating importance.
+In risk analysis, a risk is typically evaluated by assessing two factors:
+likelihood and impact.
+
+Likelihood refers to the probability that a risk event will occur, while impact
+represents the potential consequences or losses if the risk materializes.
 
 Adding threats and vulnerability to assets modeled in Enterprise Architecture is
 a good way to understand risk. Especially for complex risk, visualizing the
@@ -83,12 +85,12 @@ When inherent risk is evaluated and likelihood or impact can be reduced with
 cost effective measures the canonical controls come into play. The table below
 shows other possible risk evaluation outcomes.
 
-| Evaluation                                                   | Treatment | How                                                          |
-|--------------------------------------------------------------|-----------|--------------------------------------------------------------|
-| Risk exceeds a threshold                                     | Avoid     | Stop using a specific technology or behavior                 |
-| Likelihood or impact can be reduced with cost effective measures | Mitigate  | Implement controls                                           |
-| Mitigation is not cost effective                               | Transfer  | Shift risk onto a 3rd party by e.g. insurance or cloud services |
-| Mitigation and transfer are not cost effective                 | Accept    | Be aware                                                     |
+| Evaluation                                                 | Treatment | Example Action                                            |
+| ---------------------------------------------------------- | --------- | --------------------------------------------------------- |
+| Risk exceeds acceptable threshold                          | Avoid     | Discontinue the activity, technology, or process entirely |
+| Risk can be reduced cost-effectively                       | Mitigate  | Implement technical or procedural controls                |
+| Mitigation is not cost-effective                           | Transfer  | Outsource, use insurance, or shift risk to cloud service  |
+| Mitigation and transfer are not cost-effective or feasible | Accept    | Document the risk, monitor it, and proceed with awareness |
 
 
 ## Archimate modeling with SCF

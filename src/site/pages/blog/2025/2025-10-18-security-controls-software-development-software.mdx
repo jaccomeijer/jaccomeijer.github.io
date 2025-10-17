@@ -47,13 +47,13 @@ DevSecOps.
 
 Figure 1 shows how the steps relate. Each step is outlined below and relates the
 step to the relevant security controls, scrum roles, scrum events and which
-controls could be added to an automated CI/CD pipeline.
+controls could be added to automated CI/CD pipelines.
 
-Controls from compliancy standards like ISO 27002 are not added but by using AI,
-a simple basic set can easily be generated. To make the list more actionable AI
-can also be used to generate tool recommendations.
+Controls from compliancy standards like ISO 27002 are not added but with the
+help of AI, a simple basic set can be generated. For making the list more
+actionable AI can also be used to generate tool recommendations.
 
-### ✅ 1 - Plan
+### 🔧 1 -  Plan
 
 #### Product Owner
 
@@ -79,7 +79,7 @@ can also be used to generate tool recommendations.
 
 ---
 
-### ✅ 2 - Code
+### 🔧 2 - Code
 
 #### Product Owner
 
@@ -95,12 +95,12 @@ can also be used to generate tool recommendations.
 
 #### Automated by CI/CD
 
-- Run SAST
+- Run Static Application Security Testing (SAST)
 - Use commit hooks for linting, tests, and signing
 
 ---
 
-### ✅ 3 - Build
+### 🔧 3 - Build
 
 #### Product Owner
 
@@ -118,7 +118,7 @@ can also be used to generate tool recommendations.
 
 ---
 
-### ✅ 4 - Test
+### 🔧 4 - Test
 
 #### Product Owner
 
@@ -134,7 +134,7 @@ can also be used to generate tool recommendations.
 
 ---
 
-### ✅ 5 - Release
+### ⚙️ 5 - Release
 
 #### Product Owner
 
@@ -155,7 +155,7 @@ can also be used to generate tool recommendations.
 
 ---
 
-### ✅ 6 - Deploy
+### ⚙️ 6 - Deploy
 
 #### Product Owner
 
@@ -169,7 +169,7 @@ can also be used to generate tool recommendations.
 
 ---
 
-### ✅ 7 - Operate
+### ⚙️ 7 - Operate
 
 #### Product Owner
 
@@ -185,17 +185,17 @@ can also be used to generate tool recommendations.
 #### Automated by CI/CD
 
 - Ensure least privilege IAM
-- Enable Runtime Application Self-Protection (RASP)
+- Enable Runtime Application Self Protection (RASP)
 - Patch known vulnerabilities automatically
 - Secure audit logging
 
 ---
 
-### ✅ 8 - Monitor
+### ⚙️ 8 - Monitor
 
 #### Product Owner
 
-- Ensure integration of SIEM, SOAR and audit log monitoring
+- Ensure integration of SIEM/SOAR and audit log monitoring
 - Ensure anomaly detection and threat intelligence
 - Use ML/behavioral analytics
 
@@ -231,7 +231,7 @@ The table below explains the roles and capabilities of IDS/IPS and SIEM/SOAR con
 
 ## Risk analysis
 
-Every software development project is unique, which means the cost-benefit
+Every software development project is unique, which means the cost benefit
 analysis used to decide which security controls to implement must be tailored to
 the specific context and risks of that project.
 

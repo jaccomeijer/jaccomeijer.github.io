@@ -2,23 +2,35 @@
 <p>The foundation for this post is in the post below.</p>
 <a href="/blog/software-development-security/"><div class="topic topic-card "><picture class="topic-picture u-order-2"><source type="image/webp" srcset="/img/UPbhFlqQr1-400.webp 400w, /img/UPbhFlqQr1-800.webp 800w, /img/UPbhFlqQr1-1200.webp 1200w" sizes="100vw"><img src="/img/UPbhFlqQr1-400.jpeg" alt="Image without description" width="1200" height="797" srcset="/img/UPbhFlqQr1-400.jpeg 400w, /img/UPbhFlqQr1-800.jpeg 800w, /img/UPbhFlqQr1-1200.jpeg 1200w" sizes="100vw"></picture><div class="topic-content"><ul class="topic-labels" role="list"><li><div class=" u-border-radius-rounded active">Jacco Meijer</div></li><li><div class=" u-border-radius-rounded active">|</div></li><li><div class=" u-border-radius-rounded active">Oct 17, 2025</div></li></ul><h3 class="topic-heading "><span>Software development security</span></h3><p class="topic-abstract">About the Software Development Lifecycle (SDLC) and how this relates to security controls and assessing software risks</p><div class="topic-action fat-link u-border-radius-rounded">read more</div></div></div></a>
 <h2>Identify Risk</h2>
-<p>Software risk is defined by the probability of a negative event occurring during
-the Software Development Lifecycle (SDLC) combined with the potential impact of
-that event.</p>
-<p>Start by brainstorming and listing all potential risks. These can fall into
-several categories. Use AI to generate categories for your specific use case.</p>
-<table><thead><tr><th>Category</th><th>Examples</th></tr></thead><tbody><tr><td><strong>Technical</strong></td><td>Unfamiliar technology, scalability issues, integration difficulties, legacy system constraints, performance bottlenecks, technology stack limitations</td></tr><tr><td><strong>Project Management</strong></td><td>Poor planning, scope creep, unrealistic timelines, inadequate risk management, changing requirements, lack of project visibility</td></tr><tr><td><strong>People (Team)</strong></td><td>Inexperienced staff, lack of communication, key person dependency, high turnover, insufficient training, low team morale</td></tr><tr><td><strong>External</strong></td><td>Vendor delays, regulatory changes, third-party API failures, geopolitical instability, supply chain disruptions, changes in market conditions</td></tr><tr><td><strong>Organizational</strong></td><td>Budget cuts, shifting priorities, lack of stakeholder support, internal politics, organizational restructuring, resource reallocation</td></tr><tr><td><strong>Security &amp; Compliance</strong></td><td>Data breaches, non-compliance with GDPR, weak authentication, insecure data storage, lack of encryption, inadequate audit trails</td></tr><tr><td><strong>Code</strong></td><td>Poor code quality, lack of automated tests, high technical debt, inconsistent coding standards, low test coverage, fragile legacy code</td></tr><tr><td><strong>Data</strong></td><td>Inaccurate data, data loss, poor data migration, inconsistent data formats, lack of data governance, stale or outdated datasets</td></tr></tbody></table>
-<h2>Assess and prioritize risk</h2>
-<p>Use qualitative and/or quantitative methods to determine:</p>
+<p>In risk analysis, a risk is typically evaluated by assessing two factors:
+likelihood and impact.</p>
+<p>Likelihood refers to the probability that a risk event will occur, while impact
+represents the potential consequences or losses if the risk materializes.</p>
+<p>Start by brainstorming and listing all potential risk events. These can fall
+into several categories. Use AI to generate event categories for your specific
+use case.</p>
+<table><thead><tr><th>Risk event category</th><th>Examples</th></tr></thead><tbody><tr><td><strong>Technical</strong></td><td>Unfamiliar technology, scalability issues, integration difficulties, legacy system constraints, performance bottlenecks, technology stack limitations</td></tr><tr><td><strong>Project Management</strong></td><td>Poor planning, scope creep, unrealistic timelines, inadequate risk management, changing requirements, lack of project visibility</td></tr><tr><td><strong>People (Team)</strong></td><td>Inexperienced staff, lack of communication, key person dependency, high turnover, insufficient training, low team morale</td></tr><tr><td><strong>External</strong></td><td>Vendor delays, regulatory changes, third-party API failures, geopolitical instability, supply chain disruptions, changes in market conditions</td></tr><tr><td><strong>Organizational</strong></td><td>Budget cuts, shifting priorities, lack of stakeholder support, internal politics, organizational restructuring, resource reallocation</td></tr><tr><td><strong>Security &amp; Compliance</strong></td><td>Data breaches, non-compliance with GDPR, weak authentication, insecure data storage, lack of encryption, inadequate audit trails</td></tr><tr><td><strong>Code</strong></td><td>Poor code quality, lack of automated tests, high technical debt, inconsistent coding standards, low test coverage, fragile legacy code</td></tr><tr><td><strong>Data</strong></td><td>Inaccurate data, data loss, poor data migration, inconsistent data formats, lack of data governance, stale or outdated datasets</td></tr></tbody></table>
+<h2>Assess likelihood and impact</h2>
+<p>From these risk events, assess the likelihood that the event occurs and the
+impact of the risk. The impact can be assessed in:</p>
 <ul>
-<li>likelihood, how likely is the risk to occur?</li>
-<li>impact, what would be the effect on the project if it happens?</li>
+<li>quantitative terms, such as financial loss (measured in currency), or</li>
+<li>qualitative terms, such as the severity of the effect on project objectives
+(e.g., time, quality, or customer satisfaction).</li>
 </ul>
+<p>This approach helps prioritize risks and determine appropriate mitigation
+strategies.</p>
+<h2>Prioritize risk</h2>
 <p>The risk is calculated by multiplying likelihood and impact. The calculated risk
 is then used to prioritize the risk.</p>
 <h2>Mitigate risk</h2>
+<p>Once inherent risk is identified and evaluated, appropriate treatment strategies
+are applied. These aim to reduce or manage the risk to an acceptable level. Any
+risk remaining after treatment is known as residual risk. The table below
+provides a high-level overview of common risk treatments and how they are
+applied.</p>
 <p>For each high priority risk, plan one or more of the following:</p>
-<table><thead><tr><th>Evaluation</th><th>Treatment</th><th>How</th></tr></thead><tbody><tr><td>Risk exceeds a threshold</td><td>Avoid</td><td>Stop using a specific technology or behavior</td></tr><tr><td>Likelihood or impact can be reduced with cost effective measures</td><td>Mitigate</td><td>Implement controls (more on that below)</td></tr><tr><td>Mitigation is not cost effective</td><td>Transfer</td><td>Shift risk onto a 3rd party by e.g. insurance or cloud services</td></tr><tr><td>Mitigation and transfer are not cost effective</td><td>Accept</td><td>Be aware</td></tr></tbody></table>
+<table><thead><tr><th>Evaluation</th><th>Treatment</th><th>Example Action</th></tr></thead><tbody><tr><td>Risk exceeds acceptable threshold</td><td>Avoid</td><td>Discontinue the activity, technology, or process entirely</td></tr><tr><td>Risk can be reduced cost-effectively</td><td>Mitigate</td><td>Implement technical or procedural controls (see below)</td></tr><tr><td>Mitigation is not cost-effective</td><td>Transfer</td><td>Outsource, use insurance, or shift risk to cloud service</td></tr><tr><td>Mitigation and transfer are not cost-effective or feasible</td><td>Accept</td><td>Document the risk, monitor it, and proceed with awareness</td></tr></tbody></table>
 <h2>Monitor and Reassess</h2>
 <p>In software development risk analysis, it&#x27;s essential to continuously monitor
 and reassess risks throughout the Software Development Lifecycle (SDLC).</p>

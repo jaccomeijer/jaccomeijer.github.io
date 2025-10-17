@@ -10,11 +10,11 @@ DevSecOps.</p>
 <div class="figure s-popout s-block-space u-block-space-l"><figure class="s-wrapper u-border-radius-rounded" style="--wrapper-width:50rem"><picture class="s-block-space u-block-space-s"><source type="image/webp" srcset="/img/nOTo7S1VPd-400.webp 400w, /img/nOTo7S1VPd-800.webp 800w, /img/nOTo7S1VPd-1200.webp 1200w" sizes="100vw"><img src="/img/nOTo7S1VPd-400.jpeg" alt="Image without description" width="1200" height="680" srcset="/img/nOTo7S1VPd-400.jpeg 400w, /img/nOTo7S1VPd-800.jpeg 800w, /img/nOTo7S1VPd-1200.jpeg 1200w" sizes="100vw"></picture><figcaption>Figure 1. The DevSecOps approach with security integrated in every step</figcaption></figure></div>
 <p>Figure 1 shows how the steps relate. Each step is outlined below and relates the
 step to the relevant security controls, scrum roles, scrum events and which
-controls could be added to an automated CI/CD pipeline.</p>
-<p>Controls from compliancy standards like ISO 27002 are not added but by using AI,
-a simple basic set can easily be generated. To make the list more actionable AI
-can also be used to generate tool recommendations.</p>
-<h3>✅ 1 - Plan</h3>
+controls could be added to automated CI/CD pipelines.</p>
+<p>Controls from compliancy standards like ISO 27002 are not added but with the
+help of AI, a simple basic set can be generated. For making the list more
+actionable AI can also be used to generate tool recommendations.</p>
+<h3>🔧 1 -  Plan</h3>
 <h4>Product Owner</h4>
 <ul>
 <li>Assign a security champion</li>
@@ -38,7 +38,7 @@ can also be used to generate tool recommendations.</p>
 <li>Review new threat surfaces from backlog changes</li>
 </ul>
 <hr>
-<h3>✅ 2 - Code</h3>
+<h3>🔧 2 - Code</h3>
 <h4>Product Owner</h4>
 <ul>
 <li>Enforce secure coding standards</li>
@@ -53,11 +53,11 @@ can also be used to generate tool recommendations.</p>
 </ul>
 <h4>Automated by CI/CD</h4>
 <ul>
-<li>Run SAST</li>
+<li>Run Static Application Security Testing (SAST)</li>
 <li>Use commit hooks for linting, tests, and signing</li>
 </ul>
 <hr>
-<h3>✅ 3 - Build</h3>
+<h3>🔧 3 - Build</h3>
 <h4>Product Owner</h4>
 <ul>
 <li>Enforce build integrity policy</li>
@@ -73,7 +73,7 @@ can also be used to generate tool recommendations.</p>
 <li>Integrate continuous PEN test pipelines</li>
 </ul>
 <hr>
-<h3>✅ 4 - Test</h3>
+<h3>🔧 4 - Test</h3>
 <h4>Product Owner</h4>
 <ul>
 <li>Schedule manual PEN tests every N major releases</li>
@@ -87,7 +87,7 @@ can also be used to generate tool recommendations.</p>
 <li>Compliance and privacy policy validation</li>
 </ul>
 <hr>
-<h3>✅ 5 - Release</h3>
+<h3>⚙️ 5 - Release</h3>
 <h4>Product Owner</h4>
 <ul>
 <li>Ensure implementation of secrets lifecycle management</li>
@@ -106,7 +106,7 @@ can also be used to generate tool recommendations.</p>
 <li>Apply version tagging policies</li>
 </ul>
 <hr>
-<h3>✅ 6 - Deploy</h3>
+<h3>⚙️ 6 - Deploy</h3>
 <h4>Product Owner</h4>
 <ul>
 <li>Ensure that pre-deployment image scanning is performed</li>
@@ -118,7 +118,7 @@ can also be used to generate tool recommendations.</p>
 <li>Zero trust security deployment practices</li>
 </ul>
 <hr>
-<h3>✅ 7 - Operate</h3>
+<h3>⚙️ 7 - Operate</h3>
 <h4>Product Owner</h4>
 <ul>
 <li>Ensure that incident response outcomes and monitoring results are fed back into the backlog</li>
@@ -133,15 +133,15 @@ can also be used to generate tool recommendations.</p>
 <h4>Automated by CI/CD</h4>
 <ul>
 <li>Ensure least privilege IAM</li>
-<li>Enable Runtime Application Self-Protection (RASP)</li>
+<li>Enable Runtime Application Self Protection (RASP)</li>
 <li>Patch known vulnerabilities automatically</li>
 <li>Secure audit logging</li>
 </ul>
 <hr>
-<h3>✅ 8 - Monitor</h3>
+<h3>⚙️ 8 - Monitor</h3>
 <h4>Product Owner</h4>
 <ul>
-<li>Ensure integration of SIEM, SOAR and audit log monitoring</li>
+<li>Ensure integration of SIEM/SOAR and audit log monitoring</li>
 <li>Ensure anomaly detection and threat intelligence</li>
 <li>Use ML/behavioral analytics</li>
 </ul>
@@ -167,7 +167,7 @@ SDLC controls it is important to understand the distinction between:</p>
 <p>The table below explains the roles and capabilities of IDS/IPS and SIEM/SOAR controls:</p>
 <table><thead><tr><th>Control</th><th>Role</th><th>Detect</th><th>Protect</th></tr></thead><tbody><tr><td>IDS</td><td>Monitor network or system traffic to detect suspicious activities</td><td>✅</td><td>❌</td></tr><tr><td>IPS</td><td>Detect and actively block threats</td><td>✅</td><td>✅</td></tr><tr><td>SIEM</td><td>Collect, analyze and correlate security events</td><td>✅</td><td>❌</td></tr><tr><td>SOAR</td><td>Automate and orchestrate response actions</td><td>✅</td><td>✅</td></tr></tbody></table>
 <h2>Risk analysis</h2>
-<p>Every software development project is unique, which means the cost-benefit
+<p>Every software development project is unique, which means the cost benefit
 analysis used to decide which security controls to implement must be tailored to
 the specific context and risks of that project.</p>
 <p>More on this risk in the post below.</p>
