@@ -7,7 +7,7 @@ lastmod: 2025-10-18
 tags: ['blog']
 openerTopic:
   heading: 'Security controls for software development'
-  abstract: Integrating security into every stage of software development is essential. How security controls help in the DevSecOps context.
+  abstract: Exploring how security controls protect and improve every stage of the DevSecOps workflow.
   image: '/site/pages/blog/images/2025/2025-10-18-ryunosuke-kikuno-xiknZ6oclIY-unsplash.jpg'
 discussionTopic:
   heading: – CISSP Common Body of Knowledge
@@ -96,7 +96,7 @@ actionable AI can also be used to generate tool recommendations.
 #### Automated by CI/CD
 
 - Run Static Application Security Testing (SAST)
-- Use commit hooks for linting, tests, and signing
+- Use commit hooks for linting, tests and signing
 
 ---
 
@@ -231,10 +231,35 @@ The table below explains the roles and capabilities of IDS/IPS and SIEM/SOAR con
 
 ## Risk analysis
 
-Every software development project is unique, which means the cost benefit
-analysis used to decide which security controls to implement must be tailored to
-the specific context and risks of that project.
+This post outlines many security controls whose full implementation is only
+justified in very high risk or mission critical software projects.
 
-More on this risk in the post below.
+In practice, selecting which controls to implement is guided by a cost benefit
+analysis. Evaluating the security improvements that each control offers to the
+SDLC compared to the resources required to implement them.
+
+These benefits are best understood through thorough risk analysis. This helps
+identify which threats are most relevant and which controls provide the greatest
+value in mitigating them.
+
+More on risk analysis is in the post below.
 
 <Topic variant="card" topic={blogOpenerByNavId(props, 'risk-analysis-software-development')} swapImage={true} />
+
+## Conclusion
+
+By embedding security into every phase of the Software Development Lifecycle (SDLC),
+the DevSecOps approach ensures that security is no longer an afterthought, but a
+continuous and integrated discipline. From planning and coding to deployment and
+monitoring, each step introduces targeted controls that reduce risk and increase
+resilience.
+
+Rather than applying a one size fits all checklist, these controls should be
+tailored through risk analysis and cost benefit evaluations, ensuring that
+resources are focused where they matter most. Automation, tool integration and
+security aware roles within agile teams make it possible to maintain both speed
+and security.
+
+In an environment where threats evolve rapidly, DevSecOps provides a structured
+yet flexible foundation for building secure software by design, by default and
+by deployment.
