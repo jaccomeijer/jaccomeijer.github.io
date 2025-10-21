@@ -32,9 +32,11 @@
 
   table {
     width: 100%;
+    /* word-wrap: anywhere; */
     /* table-layout: fixed; */
-    overflow: hidden;
     /* font-size: var(--font-size--1); */
+    overflow: scroll;
+    display: block;
     margin-block: var(--space-xs-r2);
     thead {
       background-color: var(--color-primary-500);
