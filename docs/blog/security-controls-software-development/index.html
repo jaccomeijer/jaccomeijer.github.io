@@ -14,148 +14,67 @@ controls could be added to automated CI/CD pipelines.</p>
 <p>Controls from compliancy standards like ISO 27002 are not added but with the
 help of AI, a simple basic set can be generated. For making the list more
 actionable AI can also assist with tool recommendations.</p>
+<p>Not all security controls are equally critical. Their implementation must always
+be guided by risk assessments. In this post, controls are categorized and
+prioritized based on relative importance, as outlined below.</p>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Description</th><th style="text-align:left">Criteria</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Foundational controls necessary for baseline security and operational integrity.</td><td style="text-align:left">Supports core security functions (e.g., detection, response); significantly reduces risk.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Controls that enhance security posture and efficiency but are not critical to basic operations.</td><td style="text-align:left">Improves detection, visibility or response; offers strong but deferrable security and process benefits.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Advanced or supplemental controls that add value in mature or resource-rich environments.</td><td style="text-align:left">Useful for optimization; may require more resources, customization or maturity to implement effectively.</td></tr></tbody></table>
 <h3>🔧 1 - Plan</h3>
-<h4>Product Owner</h4>
-<ul>
-<li>Assign a security champion</li>
-<li>Drive proper Solution Design and Architecture (SDA)</li>
-<li>Facilitate risk assessments</li>
-<li>Classify data according to sensitivity</li>
-<li>Oversee privacy impact assessments</li>
-<li>Map security governance policies (NIST, ISO, OWASP)</li>
-</ul>
-<h4>Scrum planning activities</h4>
-<ul>
-<li>Threat modeling on evolving requirements</li>
-<li>Add security requirements to user stories</li>
-<li>Evaluate compliance and legal requirements</li>
-<li>Plan rollback and deployment strategies early</li>
-<li>Include security-specific acceptance criteria in stories</li>
-</ul>
-<h4>Scrum refinement activities</h4>
-<ul>
-<li>Perform or update STRIDE models</li>
-<li>Review new threat surfaces from backlog changes</li>
-</ul>
+<h4>Product owner responsibilities</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Classify data based on sensitivity</td><td style="text-align:left">Data classification underpins all security decisions and controls.</td></tr><tr><td style="text-align:left">Essential</td><td style="text-align:left">Facilitate regular risk assessments</td><td style="text-align:left">Identifies threats and vulnerabilities; informs security prioritization across the SDLC.</td></tr><tr><td style="text-align:left">Essential</td><td style="text-align:left">Drive secure Solution Design and Architecture (SDA)</td><td style="text-align:left">Embeds security early in system design; improves resilience, scalability and reduces risk exposure.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Assign a security champion</td><td style="text-align:left">Encourages security ownership in the team; recommended especially where security expertise is limited.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Oversee privacy impact assessments</td><td style="text-align:left">Crucial for handling personal data, especially under GDPR, CCPA or similar regulations.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Map to governance frameworks (NIST, ISO, NIS2, etc.)</td><td style="text-align:left">Useful for compliance and audit readiness; less critical for daily DevSecOps unless under regulatory pressure.</td></tr></tbody></table>
+<h4>During scrum planning event</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Add security requirements to user stories</td><td style="text-align:left">Ensures security is considered from the outset and integrated into feature development.</td></tr><tr><td style="text-align:left">Essential</td><td style="text-align:left">Define security-specific acceptance criteria</td><td style="text-align:left">Makes security testable and part of the Definition of Done.</td></tr><tr><td style="text-align:left">Essential</td><td style="text-align:left">Conduct threat modeling on evolving requirements</td><td style="text-align:left">Proactively identifies and mitigates new risks introduced by changing features.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Evaluate compliance and legal considerations</td><td style="text-align:left">Ensures adherence to regulatory requirements; more relevant for regulated environments.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Plan rollback and deployment strategies early</td><td style="text-align:left">Enables safe release and recovery options; especially important for complex or risky features.</td></tr></tbody></table>
+<h4>During scrum refinement activity</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Review new threat surfaces from backlog changes</td><td style="text-align:left">Keeps pace with evolving risks and ensures proactive security responses.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Update STRIDE models</td><td style="text-align:left">Provides structured threat modeling; best used during major changes, not required for every refinement cycle.</td></tr></tbody></table>
 <hr>
 <h3>🔧 2 - Code</h3>
-<h4>Product Owner</h4>
-<ul>
-<li>Enforce secure coding standards</li>
-<li>Provide regular security training and awareness sessions</li>
-<li>Enforce secure repository policies</li>
-</ul>
-<h4>Dev team</h4>
-<ul>
-<li>Perform security focused peer code reviews</li>
-<li>Prevent hardcoded credentials and secrets</li>
-<li>Validate third party code components</li>
-</ul>
-<h4>Automated by CI/CD</h4>
-<ul>
-<li>Run Static Application Security Testing (SAST)</li>
-<li>Use commit hooks for linting, tests and signing</li>
-</ul>
+<h4>Product owner responsibilities</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Enforce secure repository policies</td><td style="text-align:left">Controls codebase integrity by regulating access and ensuring only reviewed, approved changes are merged.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Enforce secure coding standards</td><td style="text-align:left">Guides developers to write secure, maintainable code and reduce common vulnerabilities early.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Provide security awareness and training</td><td style="text-align:left">Builds a security first mindset; valuable but less critical in daily delivery if delegated effectively.</td></tr></tbody></table>
+<h4>Dev team responsibilities</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Prevent hardcoded credentials and secrets</td><td style="text-align:left">Hardcoded secrets are a major risk; avoiding them is critical for protecting sensitive information.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Validate third-party code components</td><td style="text-align:left">Third-party dependencies can introduce supply chain risks and should be vetted carefully.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Conduct security-focused peer reviews</td><td style="text-align:left">Helps catch issues not found by tools, but requires trained reviewers and consistent practices.</td></tr></tbody></table>
+<h4>In the CI/CD pipeline</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Use commit hooks for linting, testing and signing</td><td style="text-align:left">Enforces code quality and security before it enters the build pipeline.</td></tr><tr><td style="text-align:left">Essential</td><td style="text-align:left">Run Static Application Security Testing (SAST)</td><td style="text-align:left">Detects code-level vulnerabilities early, helping shift security left.</td></tr></tbody></table>
 <hr>
 <h3>🔧 3 - Build</h3>
-<h4>Product Owner</h4>
-<ul>
-<li>Enforce build integrity policy</li>
-<li>Support a bug bounty program</li>
-<li>Support Coordinated Vulnerability Disclosure (CVD)</li>
-</ul>
-<h4>Automated by CI/CD</h4>
-<ul>
-<li>Scan dependencies for vulnerabilities</li>
-<li>Scan for hardcoded secrets</li>
-<li>Automate dependency updates</li>
-<li>Apply policy-as-code gates</li>
-<li>Integrate continuous PEN test pipelines</li>
-</ul>
+<h4>Product owner responsibilities</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Enforce build integrity policies</td><td style="text-align:left">Ensures only verified, approved code gets built; prevents unauthorized or malicious changes.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Support Coordinated Vulnerability Disclosure (CVD)</td><td style="text-align:left">Enables secure reporting and response to vulnerabilities from external researchers.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Support bug bounty programs</td><td style="text-align:left">Adds an external layer of security validation, but requires mature vulnerability management.</td></tr></tbody></table>
+<h4>In the CI/CD pipeline</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Scan dependencies for vulnerabilities</td><td style="text-align:left">Open source components are common attack vectors; automated scanning helps mitigate this risk.</td></tr><tr><td style="text-align:left">Essential</td><td style="text-align:left">Detect hardcoded secrets (double check)</td><td style="text-align:left">Also prevented during coding. Prevents exposure of sensitive credentials before they reach production.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Enforce policy-as-code gates</td><td style="text-align:left">Automates enforcement of security/compliance rules early in the pipeline.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Automate dependency updates</td><td style="text-align:left">Reduces risk from known vulnerabilities by keeping components current.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Integrate continuous penetration testing</td><td style="text-align:left">Valuable for mature orgs; provides deeper testing, but can be complex and resource-intensive.</td></tr></tbody></table>
 <hr>
 <h3>🔧 4 - Test</h3>
-<h4>Product Owner</h4>
-<ul>
-<li>Schedule manual PEN tests every N major releases</li>
-<li>Ensure conduction of exploratory security testing</li>
-</ul>
-<h4>Automated by CI/CD</h4>
-<ul>
-<li>DAST, IAST, API Security Testing</li>
-<li>Chaos security tests</li>
-<li>Regression and fuzz testing</li>
-<li>Compliance and privacy policy validation</li>
-</ul>
+<h4>Product owner responsibilities</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Ensure exploratory security testing is performed</td><td style="text-align:left">Uncovers unanticipated risks; complements automated and structured testing methods.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Schedule manual penetration tests periodically</td><td style="text-align:left">Provides deep dive validation before major releases; supports compliance and proactive mitigation.</td></tr></tbody></table>
+<h4>In the CI/CD pipeline</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">DAST, IAST and API Security Testing</td><td style="text-align:left">Finds real world vulnerabilities in running apps and APIs.</td></tr><tr><td style="text-align:left">Essential</td><td style="text-align:left">Compliance and Privacy Validation</td><td style="text-align:left">Ensures legal and regulatory alignment before release.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Regression and Fuzz Testing</td><td style="text-align:left">Detects edge case vulnerabilities from new changes or malformed input.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Chaos Security Testing</td><td style="text-align:left">Validates system resilience in unpredictable scenarios; valuable in mature environments.</td></tr></tbody></table>
 <hr>
 <h3>⚙️ 5 - Release</h3>
-<h4>Product Owner</h4>
-<ul>
-<li>Ensure implementation of secrets lifecycle management</li>
-<li>Ensure validation of rollback strategy</li>
-<li>Ensure that release approvals are audited</li>
-</ul>
-<h4>Scrum review activities</h4>
-<ul>
-<li>Conduct security review and risk sign-off</li>
-<li>Document and communicate security decisions</li>
-</ul>
-<h4>Automated by CI/CD</h4>
-<ul>
-<li>Generate release notes with security info (CVE, CWE, OWASP Top 10)</li>
-<li>Ensure artifact signing and tamper checks</li>
-<li>Apply version tagging policies</li>
-</ul>
+<h4>Product owner responsibilities</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Implement secrets lifecycle management</td><td style="text-align:left">Ensures secure handling of secrets throughout their lifecycle, reducing exposure risk.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Validate rollback strategies</td><td style="text-align:left">Enables recovery from faulty releases, minimizing downtime and damage.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Audit release approval workflows</td><td style="text-align:left">Enhances transparency and traceability, though not mission critical for every release cycle.</td></tr></tbody></table>
+<h4>During scrum review event</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Conduct security reviews and obtain risk sign-off</td><td style="text-align:left">Confirms that security risks are identified, mitigated or formally accepted before release.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Document and communicate key security decisions</td><td style="text-align:left">Builds an audit trail and supports team awareness and future decision making.</td></tr></tbody></table>
+<h4>In the CI/CD pipeline</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Enforce artifact signing and integrity verification</td><td style="text-align:left">Protects against tampering by verifying that artifacts are legitimate and unaltered.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Apply consistent version tagging policies</td><td style="text-align:left">Enables traceability and structured rollback in case of release issues.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Generate release notes with security insights (CVEs, CWEs, OWASP Top 10)</td><td style="text-align:left">Promotes awareness and improves communication, but not a direct control.</td></tr></tbody></table>
 <hr>
 <h3>⚙️ 6 - Deploy</h3>
-<h4>Product Owner</h4>
-<ul>
-<li>Ensure that pre-deployment image scanning is performed</li>
-</ul>
-<h4>Automated by CI/CD</h4>
-<ul>
-<li>Analyze IaC for misconfigurations</li>
-<li>Inject secrets securely at runtime</li>
-<li>Zero trust security deployment practices</li>
-</ul>
+<h4>Product owner responsibilities</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Ensure pre-deployment image scanning</td><td style="text-align:left">Identifies known vulnerabilities before images are deployed, preventing insecure releases.</td></tr></tbody></table>
+<h4>In the CI/CD pipeline</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Analyze Infrastructure as Code (IaC) for misconfigurations</td><td style="text-align:left">Prevents insecure infrastructure deployments from reaching production.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Securely inject secrets at runtime</td><td style="text-align:left">Protects sensitive data by avoiding exposure during build or deployment.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Implement Zero Trust deployment practices</td><td style="text-align:left">Improves security posture; best suited for mature or highly regulated environments.</td></tr></tbody></table>
 <hr>
 <h3>⚙️ 7 - Operate</h3>
-<h4>Product Owner</h4>
-<ul>
-<li>Ensure that incident response outcomes and monitoring results are fed back into the backlog</li>
-<li>Enforce hardened runtime environments</li>
-<li>Ensure that containers and host operating systems are hardened</li>
-<li>Ensure that environment and network segmentation is maintained</li>
-</ul>
-<h4>Scrum retrospective activities</h4>
-<ul>
-<li>Reflect on operational concerns and incidents</li>
-</ul>
-<h4>Automated by CI/CD</h4>
-<ul>
-<li>Ensure least privilege IAM</li>
-<li>Enable Runtime Application Self Protection (RASP)</li>
-<li>Patch known vulnerabilities automatically</li>
-<li>Secure audit logging</li>
-</ul>
+<h4>Product owner responsibilities</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Ensure incident response outcomes and monitoring results are incorporated into the backlog</td><td style="text-align:left">Supports continuous improvement and proactive risk mitigation through feedback loops</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Ensure environment and network segmentation is preserved</td><td style="text-align:left">Limits blast radius and helps contain breaches in case of an incident</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Ensure containers and host operating systems are appropriately hardened</td><td style="text-align:left">Reduces the attack surface by minimizing exploitable vulnerabilities</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Advocate for hardened runtime environments</td><td style="text-align:left">Typically managed by platform or security teams; less central to the product owner’s core role</td></tr></tbody></table>
+<h4>During scrum retrospective event</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Reflect on operational incidents and concerns</td><td style="text-align:left">Encourages learning from failures and builds a culture of continuous improvement in security operations.</td></tr></tbody></table>
+<h4>In the CI/CD pipeline</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Enforce least privilege IAM</td><td style="text-align:left">Minimizes access-related risk by restricting privileges to the minimum necessary.</td></tr><tr><td style="text-align:left">Essential</td><td style="text-align:left">Auto patch known vulnerabilities</td><td style="text-align:left">Reduces exposure to known exploits through timely updates.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Implement secure and tamper-resistant audit logging</td><td style="text-align:left">Supports investigations, compliance and operational integrity.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Enable Runtime Application Self-Protection (RASP)</td><td style="text-align:left">Adds real time protection; best suited once foundational defenses are in place.</td></tr></tbody></table>
 <hr>
 <h3>⚙️ 8 - Monitor</h3>
-<h4>Product Owner</h4>
-<ul>
-<li>Ensure integration of SIEM/SOAR and audit log monitoring</li>
-<li>Ensure anomaly detection and threat intelligence</li>
-<li>Use ML/behavioral analytics</li>
-</ul>
-<h4>Scrum retrospective activities</h4>
-<ul>
-<li>Track and discuss vulnerability resolution metrics</li>
-<li>Review incident handling effectiveness</li>
-</ul>
-<h4>Automated by CI/CD</h4>
-<ul>
-<li>Automate incident response with playbooks and ticketing</li>
-<li>Detect and alert on IDS/IPS events</li>
-<li>Run continuous monitoring pipelines</li>
-</ul>
+<h4>Product owner responsibilities</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Ensure SIEM/SOAR integration and audit log monitoring</td><td style="text-align:left">Enables centralized visibility, alerting and supports effective threat detection and response.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Leverage threat intelligence and anomaly detection</td><td style="text-align:left">Enhances proactive detection capabilities by identifying unusual or known malicious behavior.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Use ML or behavioral analytics</td><td style="text-align:left">Useful for advanced detection; typically leveraged in mature security programs.</td></tr></tbody></table>
+<h4>During scrum retrospective event</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Track vulnerability resolution metrics</td><td style="text-align:left">Drives accountability and improvement in remediation speed and efficiency.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Review incident response performance</td><td style="text-align:left">Helps refine playbooks and processes based on recent events.</td></tr></tbody></table>
+<h4>In the CI/CD pipeline</h4>
+<table><thead><tr><th style="text-align:left">Importance</th><th style="text-align:left">Control</th><th style="text-align:left">Rationale</th></tr></thead><tbody><tr><td style="text-align:left">Essential</td><td style="text-align:left">Run continuous monitoring within the CI/CD pipeline</td><td style="text-align:left">Provides real-time visibility and early detection of threats during the software lifecycle.</td></tr><tr><td style="text-align:left">Important</td><td style="text-align:left">Detect and alert on IDS/IPS events</td><td style="text-align:left">Strengthens defense with actionable, network level threat detection.</td></tr><tr><td style="text-align:left">Optional</td><td style="text-align:left">Automate incident response with playbooks and ticketing</td><td style="text-align:left">Improves response time and consistency, but requires mature alerting and monitoring infrastructure.</td></tr></tbody></table>
 <hr>
 <h2>Detect versus Protect</h2>
 <p>The number of cybersecurity tools and acronyms continues to grow steadily. For

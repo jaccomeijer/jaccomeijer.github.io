@@ -53,162 +53,214 @@ Controls from compliancy standards like ISO 27002 are not added but with the
 help of AI, a simple basic set can be generated. For making the list more
 actionable AI can also assist with tool recommendations.
 
+Not all security controls are equally critical. Their implementation must always
+be guided by risk assessments. In this post, controls are categorized and
+prioritized based on relative importance, as outlined below.
+
+| Importance | Description                                                                                     | Criteria                                                                                                 |
+| :--------- | :---------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
+| Essential  | Foundational controls necessary for baseline security and operational integrity.                | Supports core security functions (e.g., detection, response); significantly reduces risk.                |
+| Important  | Controls that enhance security posture and efficiency but are not critical to basic operations. | Improves detection, visibility or response; offers strong but deferrable security and process benefits.  |
+| Optional   | Advanced or supplemental controls that add value in mature or resource-rich environments.       | Useful for optimization; may require more resources, customization or maturity to implement effectively. |
+
 ### 🔧 1 - Plan
 
-#### Product Owner
+#### Product owner responsibilities
 
-- Assign a security champion
-- Drive proper Solution Design and Architecture (SDA)
-- Facilitate risk assessments
-- Classify data according to sensitivity
-- Oversee privacy impact assessments
-- Map security governance policies (NIST, ISO, OWASP)
+| Importance | Control                                              | Rationale                                                                                                      |
+| :--------- | :--------------------------------------------------- | :------------------------------------------------------------------------------------------------------------- |
+| Essential  | Classify data based on sensitivity                   | Data classification underpins all security decisions and controls.                                             |
+| Essential  | Facilitate regular risk assessments                  | Identifies threats and vulnerabilities; informs security prioritization across the SDLC.                       |
+| Essential  | Drive secure Solution Design and Architecture (SDA)  | Embeds security early in system design; improves resilience, scalability and reduces risk exposure.            |
+| Important  | Assign a security champion                           | Encourages security ownership in the team; recommended especially where security expertise is limited.         |
+| Important  | Oversee privacy impact assessments                   | Crucial for handling personal data, especially under GDPR, CCPA or similar regulations.                        |
+| Optional   | Map to governance frameworks (NIST, ISO, NIS2, etc.) | Useful for compliance and audit readiness; less critical for daily DevSecOps unless under regulatory pressure. |
 
-#### Scrum planning activities
+#### During scrum planning event
 
-- Threat modeling on evolving requirements
-- Add security requirements to user stories
-- Evaluate compliance and legal requirements
-- Plan rollback and deployment strategies early
-- Include security-specific acceptance criteria in stories
+| Importance | Control                                          | Rationale                                                                                      |
+| :--------- | :----------------------------------------------- | :--------------------------------------------------------------------------------------------- |
+| Essential  | Add security requirements to user stories        | Ensures security is considered from the outset and integrated into feature development.        |
+| Essential  | Define security-specific acceptance criteria     | Makes security testable and part of the Definition of Done.                                    |
+| Essential  | Conduct threat modeling on evolving requirements | Proactively identifies and mitigates new risks introduced by changing features.                |
+| Important  | Evaluate compliance and legal considerations     | Ensures adherence to regulatory requirements; more relevant for regulated environments.        |
+| Important  | Plan rollback and deployment strategies early    | Enables safe release and recovery options; especially important for complex or risky features. |
 
-#### Scrum refinement activities
+#### During scrum refinement activity
 
-- Perform or update STRIDE models
-- Review new threat surfaces from backlog changes
+| Importance | Control                                         | Rationale                                                                                                     |
+| :--------- | :---------------------------------------------- | :------------------------------------------------------------------------------------------------------------ |
+| Essential  | Review new threat surfaces from backlog changes | Keeps pace with evolving risks and ensures proactive security responses.                                      |
+| Optional   | Update STRIDE models                            | Provides structured threat modeling; best used during major changes, not required for every refinement cycle. |
 
 ---
 
 ### 🔧 2 - Code
 
-#### Product Owner
+#### Product owner responsibilities
 
-- Enforce secure coding standards
-- Provide regular security training and awareness sessions
-- Enforce secure repository policies
+| Importance | Control                                 | Rationale                                                                                                 |
+| :--------- | :-------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| Essential  | Enforce secure repository policies      | Controls codebase integrity by regulating access and ensuring only reviewed, approved changes are merged. |
+| Important  | Enforce secure coding standards         | Guides developers to write secure, maintainable code and reduce common vulnerabilities early.             |
+| Optional   | Provide security awareness and training | Builds a security first mindset; valuable but less critical in daily delivery if delegated effectively.   |
 
-#### Dev team
+#### Dev team responsibilities
 
-- Perform security focused peer code reviews
-- Prevent hardcoded credentials and secrets
-- Validate third party code components
+| Importance | Control                                   | Rationale                                                                                           |
+| :--------- | :---------------------------------------- | :-------------------------------------------------------------------------------------------------- |
+| Essential  | Prevent hardcoded credentials and secrets | Hardcoded secrets are a major risk; avoiding them is critical for protecting sensitive information. |
+| Important  | Validate third-party code components      | Third-party dependencies can introduce supply chain risks and should be vetted carefully.           |
+| Optional   | Conduct security-focused peer reviews     | Helps catch issues not found by tools, but requires trained reviewers and consistent practices.     |
 
-#### Automated by CI/CD
+#### In the CI/CD pipeline
 
-- Run Static Application Security Testing (SAST)
-- Use commit hooks for linting, tests and signing
+| Importance | Control                                           | Rationale                                                               |
+| :--------- | :------------------------------------------------ | :---------------------------------------------------------------------- |
+| Essential  | Use commit hooks for linting, testing and signing | Enforces code quality and security before it enters the build pipeline. |
+| Essential  | Run Static Application Security Testing (SAST)    | Detects code-level vulnerabilities early, helping shift security left.  |
 
 ---
 
 ### 🔧 3 - Build
 
-#### Product Owner
+#### Product owner responsibilities
 
-- Enforce build integrity policy
-- Support a bug bounty program
-- Support Coordinated Vulnerability Disclosure (CVD)
+| Importance | Control                                            | Rationale                                                                                    |
+| :--------- | :------------------------------------------------- | :------------------------------------------------------------------------------------------- |
+| Essential  | Enforce build integrity policies                   | Ensures only verified, approved code gets built; prevents unauthorized or malicious changes. |
+| Important  | Support Coordinated Vulnerability Disclosure (CVD) | Enables secure reporting and response to vulnerabilities from external researchers.          |
+| Optional   | Support bug bounty programs                        | Adds an external layer of security validation, but requires mature vulnerability management. |
 
-#### Automated by CI/CD
+#### In the CI/CD pipeline
 
-- Scan dependencies for vulnerabilities
-- Scan for hardcoded secrets
-- Automate dependency updates
-- Apply policy-as-code gates
-- Integrate continuous PEN test pipelines
+| Importance | Control                                  | Rationale                                                                                              |
+| :--------- | :--------------------------------------- | :----------------------------------------------------------------------------------------------------- |
+| Essential  | Scan dependencies for vulnerabilities    | Open source components are common attack vectors; automated scanning helps mitigate this risk.         |
+| Essential  | Detect hardcoded secrets (double check)  | Also prevented during coding. Prevents exposure of sensitive credentials before they reach production. |
+| Important  | Enforce policy-as-code gates             | Automates enforcement of security/compliance rules early in the pipeline.                              |
+| Important  | Automate dependency updates              | Reduces risk from known vulnerabilities by keeping components current.                                 |
+| Optional   | Integrate continuous penetration testing | Valuable for mature orgs; provides deeper testing, but can be complex and resource-intensive.          |
 
 ---
 
 ### 🔧 4 - Test
 
-#### Product Owner
+#### Product owner responsibilities
 
-- Schedule manual PEN tests every N major releases
-- Ensure conduction of exploratory security testing
+| Importance | Control                                          | Rationale                                                                                          |
+| :--------- | :----------------------------------------------- | :------------------------------------------------------------------------------------------------- |
+| Essential  | Ensure exploratory security testing is performed | Uncovers unanticipated risks; complements automated and structured testing methods.                |
+| Important  | Schedule manual penetration tests periodically   | Provides deep dive validation before major releases; supports compliance and proactive mitigation. |
 
-#### Automated by CI/CD
+#### In the CI/CD pipeline
 
-- DAST, IAST, API Security Testing
-- Chaos security tests
-- Regression and fuzz testing
-- Compliance and privacy policy validation
+| Importance | Control                             | Rationale                                                                                |
+| :--------- | :---------------------------------- | :--------------------------------------------------------------------------------------- |
+| Essential  | DAST, IAST and API Security Testing | Finds real world vulnerabilities in running apps and APIs.                               |
+| Essential  | Compliance and Privacy Validation   | Ensures legal and regulatory alignment before release.                                   |
+| Important  | Regression and Fuzz Testing         | Detects edge case vulnerabilities from new changes or malformed input.                   |
+| Optional   | Chaos Security Testing              | Validates system resilience in unpredictable scenarios; valuable in mature environments. |
 
 ---
 
 ### ⚙️ 5 - Release
 
-#### Product Owner
+#### Product owner responsibilities
 
-- Ensure implementation of secrets lifecycle management
-- Ensure validation of rollback strategy
-- Ensure that release approvals are audited
+| Importance | Control                                | Rationale                                                                                    |
+| :--------- | :------------------------------------- | :------------------------------------------------------------------------------------------- |
+| Essential  | Implement secrets lifecycle management | Ensures secure handling of secrets throughout their lifecycle, reducing exposure risk.       |
+| Important  | Validate rollback strategies           | Enables recovery from faulty releases, minimizing downtime and damage.                       |
+| Optional   | Audit release approval workflows       | Enhances transparency and traceability, though not mission critical for every release cycle. |
 
-#### Scrum review activities
+#### During scrum review event
 
-- Conduct security review and risk sign-off
-- Document and communicate security decisions
+| Importance | Control                                           | Rationale                                                                                   |
+| :--------- | :------------------------------------------------ | :------------------------------------------------------------------------------------------ |
+| Essential  | Conduct security reviews and obtain risk sign-off | Confirms that security risks are identified, mitigated or formally accepted before release. |
+| Important  | Document and communicate key security decisions   | Builds an audit trail and supports team awareness and future decision making.               |
 
-#### Automated by CI/CD
+#### In the CI/CD pipeline
 
-- Generate release notes with security info (CVE, CWE, OWASP Top 10)
-- Ensure artifact signing and tamper checks
-- Apply version tagging policies
+| Importance | Control                                                                  | Rationale                                                                            |
+| :--------- | :----------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
+| Essential  | Enforce artifact signing and integrity verification                      | Protects against tampering by verifying that artifacts are legitimate and unaltered. |
+| Important  | Apply consistent version tagging policies                                | Enables traceability and structured rollback in case of release issues.              |
+| Optional   | Generate release notes with security insights (CVEs, CWEs, OWASP Top 10) | Promotes awareness and improves communication, but not a direct control.             |
 
 ---
 
 ### ⚙️ 6 - Deploy
 
-#### Product Owner
+#### Product owner responsibilities
 
-- Ensure that pre-deployment image scanning is performed
+| Importance | Control                              | Rationale                                                                                  |
+| :--------- | :----------------------------------- | :----------------------------------------------------------------------------------------- |
+| Essential  | Ensure pre-deployment image scanning | Identifies known vulnerabilities before images are deployed, preventing insecure releases. |
 
-#### Automated by CI/CD
+#### In the CI/CD pipeline
 
-- Analyze IaC for misconfigurations
-- Inject secrets securely at runtime
-- Zero trust security deployment practices
+| Importance | Control                                                    | Rationale                                                                           |
+| :--------- | :--------------------------------------------------------- | :---------------------------------------------------------------------------------- |
+| Essential  | Analyze Infrastructure as Code (IaC) for misconfigurations | Prevents insecure infrastructure deployments from reaching production.              |
+| Important  | Securely inject secrets at runtime                         | Protects sensitive data by avoiding exposure during build or deployment.            |
+| Optional   | Implement Zero Trust deployment practices                  | Improves security posture; best suited for mature or highly regulated environments. |
 
 ---
 
 ### ⚙️ 7 - Operate
 
-#### Product Owner
+#### Product owner responsibilities
 
-- Ensure that incident response outcomes and monitoring results are fed back into the backlog
-- Enforce hardened runtime environments
-- Ensure that containers and host operating systems are hardened
-- Ensure that environment and network segmentation is maintained
+| Importance | Control                                                                                    | Rationale                                                                                      |
+| :--------- | :----------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- |
+| Essential  | Ensure incident response outcomes and monitoring results are incorporated into the backlog | Supports continuous improvement and proactive risk mitigation through feedback loops           |
+| Important  | Ensure environment and network segmentation is preserved                                   | Limits blast radius and helps contain breaches in case of an incident                          |
+| Important  | Ensure containers and host operating systems are appropriately hardened                    | Reduces the attack surface by minimizing exploitable vulnerabilities                           |
+| Optional   | Advocate for hardened runtime environments                                                 | Typically managed by platform or security teams; less central to the product owner’s core role |
 
-#### Scrum retrospective activities
+#### During scrum retrospective event
 
-- Reflect on operational concerns and incidents
+| Importance | Control                                       | Rationale                                                                                                |
+| :--------- | :-------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
+| Essential  | Reflect on operational incidents and concerns | Encourages learning from failures and builds a culture of continuous improvement in security operations. |
 
-#### Automated by CI/CD
+#### In the CI/CD pipeline
 
-- Ensure least privilege IAM
-- Enable Runtime Application Self Protection (RASP)
-- Patch known vulnerabilities automatically
-- Secure audit logging
+| Importance | Control                                             | Rationale                                                                         |
+| :--------- | :-------------------------------------------------- | :-------------------------------------------------------------------------------- |
+| Essential  | Enforce least privilege IAM                         | Minimizes access-related risk by restricting privileges to the minimum necessary. |
+| Essential  | Auto patch known vulnerabilities                    | Reduces exposure to known exploits through timely updates.                        |
+| Important  | Implement secure and tamper-resistant audit logging | Supports investigations, compliance and operational integrity.                    |
+| Optional   | Enable Runtime Application Self-Protection (RASP)   | Adds real time protection; best suited once foundational defenses are in place.   |
 
 ---
 
 ### ⚙️ 8 - Monitor
 
-#### Product Owner
+#### Product owner responsibilities
 
-- Ensure integration of SIEM/SOAR and audit log monitoring
-- Ensure anomaly detection and threat intelligence
-- Use ML/behavioral analytics
+| Importance | Control                                               | Rationale                                                                                      |
+| :--------- | :---------------------------------------------------- | :--------------------------------------------------------------------------------------------- |
+| Essential  | Ensure SIEM/SOAR integration and audit log monitoring | Enables centralized visibility, alerting and supports effective threat detection and response. |
+| Important  | Leverage threat intelligence and anomaly detection    | Enhances proactive detection capabilities by identifying unusual or known malicious behavior.  |
+| Optional   | Use ML or behavioral analytics                        | Useful for advanced detection; typically leveraged in mature security programs.                |
 
-#### Scrum retrospective activities
+#### During scrum retrospective event
 
-- Track and discuss vulnerability resolution metrics
-- Review incident handling effectiveness
+| Importance | Control                                | Rationale                                                                  |
+| :--------- | :------------------------------------- | :------------------------------------------------------------------------- |
+| Essential  | Track vulnerability resolution metrics | Drives accountability and improvement in remediation speed and efficiency. |
+| Important  | Review incident response performance   | Helps refine playbooks and processes based on recent events.               |
 
-#### Automated by CI/CD
+#### In the CI/CD pipeline
 
-- Automate incident response with playbooks and ticketing
-- Detect and alert on IDS/IPS events
-- Run continuous monitoring pipelines
+| Importance | Control                                                 | Rationale                                                                                           |
+| :--------- | :------------------------------------------------------ | :-------------------------------------------------------------------------------------------------- |
+| Essential  | Run continuous monitoring within the CI/CD pipeline     | Provides real-time visibility and early detection of threats during the software lifecycle.         |
+| Important  | Detect and alert on IDS/IPS events                      | Strengthens defense with actionable, network level threat detection.                                |
+| Optional   | Automate incident response with playbooks and ticketing | Improves response time and consistency, but requires mature alerting and monitoring infrastructure. |
 
 ---
 
