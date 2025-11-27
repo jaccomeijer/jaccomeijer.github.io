@@ -29,14 +29,14 @@
   "dependencies": {
     "@11ty/eleventy": "3.1.2",
     "@11ty/eleventy-img": "6.0.4",
-    "@eslint/js": "9.37.0",
+    "@eslint/js": "9.39.1",
     "@mdx-js/mdx": "3.1.1",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "19.2.1",
-    "browserslist": "4.26.3",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "browserslist": "4.28.0",
     "design-tokens-cli": "0.0.6",
-    "esbuild": "0.25.10",
-    "eslint": "9.37.0",
+    "esbuild": "0.27.0",
+    "eslint": "9.39.1",
     "eslint-plugin-react": "7.37.5",
     "feather-icons": "4.29.2",
     "http-server": "14.1.1",
@@ -49,6 +49,6 @@
     "remark-gfm": "4.0.1",
     "tsx": "4.20.6",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.46.0"
+    "typescript-eslint": "8.48.0"
   }
 }
